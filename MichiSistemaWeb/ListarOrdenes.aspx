@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarProductos.aspx.cs" Inherits="MichiSistemaWeb.ListarProductos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarOrdenes.aspx.cs" Inherits="MichiSistemaWeb.ListarOrden" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
@@ -8,7 +8,7 @@
     <div class="container row">
         <div class="row align-items-center">
             <div class="col-auto">
-                <asp:Label ID="lblNombreDNI" CssClass="form-label" runat="server" Text="Ingrese el ID del producto:"></asp:Label>
+                <asp:Label ID="lblNombreDNI" CssClass="form-label" runat="server" Text="Ingrese el ID de la orden:"></asp:Label>
             </div>
             <div class="col-sm-3">
                 <asp:TextBox ID="txtNombreDNI" CssClass="form-control" runat="server"></asp:TextBox>
@@ -21,21 +21,25 @@
             </div>
         </div>
         <div class="container row">
-            <asp:GridView ID="dgvProductos" runat="server" AutoGenerateColumns="false"
-                OnRowDataBound="dgvProductos_RowDataBound" AllowPaging="true"
-                OnPageIndexChanging="dgvProductos_PageIndexChanging" PageSize="9"
+            <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false"
+                OnRowDataBound="dgvOrdenes_RowDataBound" AllowPaging="true"
+                OnPageIndexChanging="dgvOrdenes_PageIndexChanging" PageSize="13"
                 CssClass="table table-hover table-responsive table-striped">
                 <Columns>
                     <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Nombre" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" /> 
-                    <asp:BoundField HeaderText="Tipo" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Precio" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Stock minimo" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Stock actual" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Unidad de medida" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Descripción" ItemStyle-CssClass="align-middle" />
-
+                    <asp:BoundField HeaderText="Tipo recepcion" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Set up personalizado" ItemStyle-CssClass="align-middle" /> 
+                    <asp:BoundField HeaderText="Monto total" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Saldo" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Cantidad dias" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Fecha devolución" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Fecha registro" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Fecha entrega" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Tipo estado devolución" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Id cliente" ItemStyle-CssClass="align-middle" />
+                    <asp:BoundField HeaderText="Id trabajador" ItemStyle-CssClass="align-middle" />
+                    
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("IdPersona") %>' OnClick="lbModificar_Click" />

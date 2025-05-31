@@ -112,6 +112,7 @@
     <Content Include="Images\pucp.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />
+    <Content Include="ListarOrdenes.aspx" />
     <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
     <Content Include="RegistrarCliente.aspx" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="ListarClientes.aspx.designer.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarOrdenes.aspx.cs">
+      <DependentUpon>ListarOrdenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarOrdenes.aspx.designer.cs">
+      <DependentUpon>ListarOrdenes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarProductos.aspx.cs">
       <DependentUpon>ListarProductos.aspx</DependentUpon>

@@ -46,6 +46,11 @@
                     </a>
                 </li>
                 <li class="nav-item mb-1">
+                    <a href="ListarOrdenes.aspx">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar Ordenes
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
                     <a href="ListarProductos.aspx">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Productos
                     </a>

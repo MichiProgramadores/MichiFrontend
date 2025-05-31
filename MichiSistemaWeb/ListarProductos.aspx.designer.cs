@@ -57,6 +57,6 @@ namespace MichiSistemaWeb
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvEmpleados;
+        protected global::System.Web.UI.WebControls.GridView dgvProductos;
     }
 }

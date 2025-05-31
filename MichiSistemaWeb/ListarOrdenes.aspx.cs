@@ -16,7 +16,7 @@ namespace MichiSistemaWeb
             //boProducto = new ProductoBO();
             //productos = boProducto.listarTodos();
             //dgvProducto.DataSource = productos;
-            dgvOrdenes.DataBind();
+            //dgvOrdenes.DataBind();
         }
 
         protected void dgvOrdenes_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -41,8 +41,8 @@ namespace MichiSistemaWeb
 
         protected void dgvOrdenes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            dgvOrdenes.PageIndex = e.NewPageIndex;
-            dgvOrdenes.DataBind();
+            //dgvOrdenes.PageIndex = e.NewPageIndex;
+            //dgvOrdenes.DataBind();
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)

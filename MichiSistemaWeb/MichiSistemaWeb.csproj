@@ -112,6 +112,7 @@
     <Content Include="Images\pucp.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />
+    <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
     <Content Include="RegistrarTrabajador.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -190,6 +191,13 @@
     </Compile>
     <Compile Include="ListarClientes.aspx.designer.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProductos.aspx.cs">
+      <DependentUpon>ListarProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarProductos.aspx.designer.cs">
+      <DependentUpon>ListarProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarTrabajadores.aspx.cs">
       <DependentUpon>ListarTrabajadores.aspx</DependentUpon>

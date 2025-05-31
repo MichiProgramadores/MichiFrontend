@@ -41,6 +41,16 @@
                     </a>
                 </li>
                 <li class="nav-item mb-1">
+                    <a href="ListarClientes.aspx">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar Clientes
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="ListarProductos.aspx">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar Productos
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
                     <a href="RegistrarOrdenesVenta.aspx" >
                         <i class="fa-solid fa-money-bill pe-2"></i>Gestionar 
                     </a>

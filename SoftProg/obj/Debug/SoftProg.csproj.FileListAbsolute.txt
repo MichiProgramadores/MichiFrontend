@@ -1,0 +1,2 @@
+D:\VI CICLO\Progra 3\TA\Frontend\SoftProg\obj\Debug\SoftProg.csproj.AssemblyReference.cache
+D:\VI CICLO\Progra 3\TA\Frontend\SoftProg\obj\Debug\SoftProg.csproj.CoreCompileInputs.cache

@@ -7,12 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace MichiSistemaWeb
 {
-    public partial class RegistrarTrabajador : System.Web.UI.Page
+    public partial class RegistrarCliente : System.Web.UI.Page
     {
-        //private AreaBO boArea;
-        //private EmpleadoBO boEmpleado;
-        //private Empleado empleado;
-        //private Estado estado;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -75,7 +71,7 @@ namespace MichiSistemaWeb
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-           // boEmpleado = new EmpleadoBO();
+            // boEmpleado = new EmpleadoBO();
             //empleado.DNI = txtDNIEmpleado.Text;
             //empleado.Nombre = txtNombre.Text;
             //empleado.ApellidoPaterno = txtApellidoPaterno.Text;
@@ -128,7 +124,7 @@ namespace MichiSistemaWeb
 
         public void btnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListarTrabajadores.aspx");
+            Response.Redirect("ListarClientes.aspx");
         }
     }
 }

@@ -25,9 +25,12 @@ namespace MichiSistemaWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "DNI").ToString();
-                e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "Nombre").ToString() + " " + DataBinder.Eval(e.Row.DataItem, "ApellidoPaterno").ToString();
-               // e.Row.Cells[2].Text = ((Area)DataBinder.Eval(e.Row.DataItem, "Area")).Nombre;
+                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
+                e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "Nombres").ToString();
+                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "Apellidos").ToString();
+                e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();
+                e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "Email").ToString();
+
             }
         }
 

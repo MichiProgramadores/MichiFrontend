@@ -27,9 +27,12 @@
                     OnPageIndexChanging="dgvEmpleados_PageIndexChanging" PageSize="5"
                     CssClass="table table-hover table-responsive table-striped">
                     <Columns>
-                        <asp:BoundField HeaderText="DNI" ItemStyle-CssClass="align-middle" />
-                        <asp:BoundField HeaderText="Nombre Completo" ItemStyle-CssClass="align-middle" />
-                        <asp:BoundField HeaderText="Area" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Nombres" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Apellidos" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Celular" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Email" ItemStyle-CssClass="align-middle" />
+
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("IdPersona") %>' OnClick="lbModificar_Click" />

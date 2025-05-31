@@ -11,7 +11,7 @@ namespace MichiSistemaWeb
 {
 
 
-    public partial class RegistrarTrabajador
+    public partial class RegistrarCliente
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.Label lblID;
 
         /// <summary>
-        /// Control txtIDEmpleado.
+        /// Control txtIDCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIDEmpleado;
+        protected global::System.Web.UI.WebControls.TextBox txtIDCliente;
 
         /// <summary>
         /// Control lblNombre.

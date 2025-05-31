@@ -1,0 +1,2 @@
+D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProgWA\obj\Debug\MichiSistemaWA.csproj.AssemblyReference.cache
+D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProgWA\obj\Debug\MichiSistemaWA.csproj.CoreCompileInputs.cache

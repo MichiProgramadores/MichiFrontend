@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftProg", "SoftProg\SoftProg.csproj", "{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftProgDBManager", "SoftProgDBManager\SoftProgDBManager.csproj", "{AFFDA470-E818-4895-8D4C-D365D82485D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftProgWA", "SoftProgWA\SoftProgWA.csproj", "{FA9A864F-940F-4C82-87F1-255AEA32F02B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFDA470-E818-4895-8D4C-D365D82485D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFDA470-E818-4895-8D4C-D365D82485D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFDA470-E818-4895-8D4C-D365D82485D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFDA470-E818-4895-8D4C-D365D82485D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9A864F-940F-4C82-87F1-255AEA32F02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9A864F-940F-4C82-87F1-255AEA32F02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9A864F-940F-4C82-87F1-255AEA32F02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9A864F-940F-4C82-87F1-255AEA32F02B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

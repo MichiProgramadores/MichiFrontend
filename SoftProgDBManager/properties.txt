@@ -1,0 +1,7 @@
+﻿server=database-prog3-0681.cnwaoa40gon7.us-east-1.rds.amazonaws.com;
+user=usuario;
+password=prog3user0681;
+passwordencryptado=UxOdT0wRsFWPftC54LM1nA==;
+database=prog3;
+port=3306;
+clave=P3MEtPB2wdUXrgoAkrMqEw==;

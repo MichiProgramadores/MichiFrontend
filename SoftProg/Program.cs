@@ -5,8 +5,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SoftProgBusiness.RRHH;
-using SoftProgDomain.RRHH;
 
 
 namespace SoftProg
@@ -17,17 +15,17 @@ namespace SoftProg
         {
             System.Console.WriteLine
                 ("Mi primer programa en C#");
-            Area area = new Area();
-            area.Nombre = "AREA PROG3";
+            //Area area = new Area();
+            //area.Nombre = "AREA PROG3";
 
-            AreaBO boArea = new AreaBO();
+            //AreaBO boArea = new AreaBO();
             //daoArea.insertar(area);
 
-            BindingList<Area>
-                areasDB = boArea.listarTodos();
+            //BindingList<Area>
+            //areasDB = boArea.listarTodos();
 
-            foreach (Area a in areasDB)
-                System.Console.WriteLine(a.IdArea + ". " + a.Nombre);
+            //oreach (Area a in areasDB)
+            //System.Console.WriteLine(a.IdArea + ". " + a.Nombre);
 
             //Empleado empleado = new Empleado();
             //empleado.Nombre = "MANUEL";

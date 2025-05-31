@@ -1,0 +1,2 @@
+C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache

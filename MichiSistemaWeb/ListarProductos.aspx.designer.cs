@@ -51,7 +51,7 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.LinkButton lbRegistrar;
 
         /// <summary>
-        /// Control dgvEmpleados.
+        /// Control dgvProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

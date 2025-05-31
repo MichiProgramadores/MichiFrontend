@@ -14,16 +14,16 @@
                 <asp:TextBox ID="txtNombreDNI" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-2">
-                <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+                <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click"/>
             </div>
             <div class="col text-end p-3">
                 <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Empleado" OnClick="lbRegistrar_Click" />
             </div>
         </div>
         <div class="container row">
-            <asp:GridView ID="dgvEmpleados" runat="server" AutoGenerateColumns="false"
-                OnRowDataBound="dgvEmpleados_RowDataBound" AllowPaging="true"
-                OnPageIndexChanging="dgvEmpleados_PageIndexChanging" PageSize="5"
+            <asp:GridView ID="dgvProductos" runat="server" AutoGenerateColumns="false"
+                OnRowDataBound="dgvProductos_RowDataBound" AllowPaging="true"
+                OnPageIndexChanging="dgvProductos_PageIndexChanging" PageSize="5"
                 CssClass="table table-hover table-responsive table-striped">
                 <Columns>
                     <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />

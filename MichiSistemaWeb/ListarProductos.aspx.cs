@@ -53,7 +53,7 @@ namespace MichiSistemaWeb
             // Session["empleadoSeleccionado"] = empleado;
             Response.Redirect("RegistrarProducto.aspx?accion=modificar");
         }
-
+        
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);

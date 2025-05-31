@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{FA9A864F-940F-4C82-87F1-255AEA32F02B}|SoftProgWA\\SoftProgWA.csproj|solutionrelative:softprogwa\\registrararea.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA9A864F-940F-4C82-87F1-255AEA32F02B}|SoftProgWA\\SoftProgWA.csproj|d:\\25-1\\pro3\\proyecto\\laboratorio10\\prueba_ariana\\frontend\\softprogwa\\registrarordenesventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{FA9A864F-940F-4C82-87F1-255AEA32F02B}|SoftProgWA\\SoftProgWA.csproj|D:\\25-1\\PRO3\\PROYECTO\\Laboratorio10\\PRUEBA_ARIANA\\Frontend\\softprogwa\\registrarordenesventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{FA9A864F-940F-4C82-87F1-255AEA32F02B}|SoftProgWA\\SoftProgWA.csproj|solutionrelative:softprogwa\\registrarordenesventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}|SoftProg\\SoftProg.csproj|d:\\25-1\\pro3\\proyecto\\laboratorio10\\prueba_ariana\\frontend\\softprog\\encriptamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}|SoftProg\\SoftProg.csproj|D:\\25-1\\PRO3\\PROYECTO\\Laboratorio10\\PRUEBA_ARIANA\\Frontend\\softprog\\encriptamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{126C5BC5-654F-4E04-BCA8-0C32A81F57C6}|SoftProg\\SoftProg.csproj|solutionrelative:softprog\\encriptamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -30,12 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -59,8 +55,7 @@
               "RelativeToolTip": "SoftProgWA\\RegistrarOrdenesVenta.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-31T17:22:53.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:22:53.228Z"
             },
             {
               "$type": "Document",
@@ -72,8 +67,7 @@
               "RelativeToolTip": "SoftProg\\Encriptamiento.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:06:45.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:06:45.348Z"
             },
             {
               "$type": "Document",

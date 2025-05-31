@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftProg.Master" AutoEventWireup="true" CodeBehind="RegistrarArea.aspx.cs" Inherits="SoftProgWA.RegistrarArea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Registrar Area Ovejesca
+    Registrar Area Oveja
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script src="Scripts/SoftProg/registrarArea.js"></script>

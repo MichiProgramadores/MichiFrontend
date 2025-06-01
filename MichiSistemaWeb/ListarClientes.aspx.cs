@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MichiSistemaWeb.MichiBackend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,22 +10,23 @@ namespace MichiSistemaWeb
 {
     public partial class ListarClientes : System.Web.UI.Page
     {
-
-        //private EmpleadoBO boEmpleado;
-        //private BindingList<Empleado> empleados;
+        protected ClienteWSClient clienteWS;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //boEmpleado = new EmpleadoBO();
-            //empleados = boEmpleado.listarTodos();
-            //dgvEmpleados.DataSource = empleados;
-           // dgvEmpleados.DataBind();
+            clienteWS = new ClienteWSClient();
+            CargarDatos();
+        }
+        protected void CargarDatos()
+        {
+            dgvClientes.DataSource = clienteWS.listaClientes();
+            dgvClientes.DataBind();
         }
 
         protected void dgvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
+                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "persona_id").ToString();
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "Nombres").ToString();
                 e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "Apellidos").ToString();
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();

@@ -38,9 +38,9 @@
 
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("IdPersona") %>' OnClick="lbModificar_Click" />
-                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i> Eliminar" CssClass="btn btn-danger" CommandArgument='<%# Eval("IdPersona") %>' OnClick="lbEliminar_Click" />
-                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye'></i> Ver" CssClass="btn btn-info" CommandArgument='<%# Eval("IdPersona") %>' OnClick="lbVisualizar_Click" />
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("producto_id") %>' OnClick="lbModificar_Click" />
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i> Eliminar" CssClass="btn btn-danger" CommandArgument='<%# Eval("producto_id") %>' OnClick="lbEliminar_Click" />
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye'></i> Ver" CssClass="btn btn-info" CommandArgument='<%# Eval("producto_id") %>' OnClick="lbVisualizar_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

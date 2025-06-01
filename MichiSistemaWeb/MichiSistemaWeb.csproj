@@ -142,6 +142,7 @@
     <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
     <Content Include="RegistrarCliente.aspx" />
+    <Content Include="RegistrarOrden.aspx" />
     <Content Include="RegistrarProducto.aspx" />
     <Content Include="RegistrarTrabajador.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -197,7 +198,9 @@
     <Content Include="Scripts\michi\iniciarSesion.js" />
     <Content Include="Scripts\michi\registrarArea.js" />
     <Content Include="Scripts\michi\registrarEmpleado.js" />
+    <Content Include="Scripts\michi\registrarOrden.js" />
     <Content Include="Scripts\michi\registrarOrdenesVenta.js" />
+    <Content Include="Scripts\michi\registrarProducto.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
@@ -264,6 +267,13 @@
     </Compile>
     <Compile Include="RegistrarCliente.aspx.designer.cs">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarOrden.aspx.cs">
+      <DependentUpon>RegistrarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarOrden.aspx.designer.cs">
+      <DependentUpon>RegistrarOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarProducto.aspx.cs">
       <DependentUpon>RegistrarProducto.aspx</DependentUpon>

@@ -23,15 +23,15 @@ namespace MichiSistemaWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
-                e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "Nombre").ToString();
-                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
-                e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Tipo").ToString();
-                e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "Precio").ToString();
-                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "Stock minimo").ToString();
-                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "Stock actual").ToString();
-                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "Unidad de medida").ToString();
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "Descripción").ToString();
+                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "producto_id").ToString();
+                e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "nombre").ToString();
+                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();
+                e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "categoriaProducto").ToString();
+                e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "precio").ToString();
+                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
+                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
+                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
+                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "descripción").ToString();
             }
         }
 

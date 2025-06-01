@@ -25,7 +25,7 @@ namespace MichiSistemaWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
+                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "persona_id").ToString();
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "Nombres").ToString();
                 e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "Apellidos").ToString();
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();

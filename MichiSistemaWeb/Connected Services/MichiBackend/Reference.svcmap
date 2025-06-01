@@ -22,11 +22,17 @@
     <MetadataSource Address="http://localhost:8080/MichiSistemaWS/servicios.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="647cead2-8171-45e2-aa31-1505a6396050" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ClienteWS?xsd=1" />
     <MetadataFile FileName="servicios.disco" MetadataType="Disco" ID="5d769077-3144-4fef-bd7d-a85168e48fbb" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/servicios.disco" />
     <MetadataFile FileName="OrdenWS.wsdl" MetadataType="Wsdl" ID="8aefa1fb-2f3b-44a9-a3c7-8074a8430677" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/OrdenWS?WSDL" />
+    <MetadataFile FileName="ProductoWS.xsd" MetadataType="Schema" ID="fd3c01d4-c742-46fa-8c34-def74a42e0b5" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ProductoWS?xsd=1" />
+    <MetadataFile FileName="ProductoWS.wsdl" MetadataType="Wsdl" ID="acbb226e-2900-41ae-bb5f-9816a742c2cc" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ProductoWS?WSDL" />
+    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="647cead2-8171-45e2-aa31-1505a6396050" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ClienteWS?xsd=1" />
     <MetadataFile FileName="OrdenWS.xsd" MetadataType="Schema" ID="dd3c5984-c09a-49c6-80a0-5ae9ba333aa1" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/OrdenWS?xsd=1" />
+    <MetadataFile FileName="EventoWS.wsdl" MetadataType="Wsdl" ID="c85d1c13-2dbb-4f1a-a1cd-65e007ae9bd9" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/EventoWS?WSDL" />
     <MetadataFile FileName="ClienteWS.wsdl" MetadataType="Wsdl" ID="6e8d86dd-f319-4f34-90a0-f7011489131d" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ClienteWS?WSDL" />
+    <MetadataFile FileName="EventoWS.xsd" MetadataType="Schema" ID="c3d11854-bafe-4c09-91c0-604d0ee00383" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/EventoWS?xsd=1" />
+    <MetadataFile FileName="TrabajadorWS.xsd" MetadataType="Schema" ID="d9c7dcf7-8aa5-40fe-b305-b25704ff14fe" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/TrabajadorWS?xsd=1" />
+    <MetadataFile FileName="TrabajadorWS.wsdl" MetadataType="Wsdl" ID="26aec4e9-47b4-4134-8c5b-c5e5d748973b" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/TrabajadorWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

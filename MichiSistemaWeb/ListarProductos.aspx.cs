@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MichiSistemaWeb.MichiBackend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +10,15 @@ namespace MichiSistemaWeb
 {
     public partial class ListarProductos : System.Web.UI.Page
     {
-        //private ProductoBO boProducto;
-        //private BindingList<Producto> productos;
+        protected ProductoWSClient productoWS;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //boProducto = new ProductoBO();
-            //productos = boProducto.listarTodos();
-            //dgvProducto.DataSource = productos;
+            productoWS = new ProductoWSClient();
+            CargarDatos();
+        }
+        protected void CargarDatos()
+        {
+            dgvProductos.DataSource = productoWS.listarProductos();
             dgvProductos.DataBind();
         }
 
@@ -31,7 +34,7 @@ namespace MichiSistemaWeb
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
                 e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
                 e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "descripción").ToString();
+                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
             }
         }
 

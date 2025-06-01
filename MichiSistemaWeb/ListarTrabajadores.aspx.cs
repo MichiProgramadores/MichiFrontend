@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MichiSistemaWeb.MichiBackend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,14 +11,16 @@ namespace MichiSistemaWeb
 {
     public partial class ListarTrabajadores : System.Web.UI.Page
     {
-        
-        //private EmpleadoBO boEmpleado;
-        //private BindingList<Empleado> empleados;
+
+        protected TrabajadorWSClient trabajadorWS;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //boEmpleado = new EmpleadoBO();
-            //empleados = boEmpleado.listarTodos();
-            //dgvEmpleados.DataSource = empleados;
+            trabajadorWS = new TrabajadorWSClient();
+            CargarDatos();
+        }
+        protected void CargarDatos()
+        {
+            dgvEmpleados.DataSource = trabajadorWS.listarTrabajadores();
             dgvEmpleados.DataBind();
         }
 

@@ -31,8 +31,8 @@
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
-                    <a href="ListarAreas.aspx" >
-                        <i class="fa-solid fa-building pe-2"></i>Gestionar Pedidos
+                    <a href="ListarOrdenes.aspx">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar Ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -44,20 +44,15 @@
                     <a href="ListarClientes.aspx">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Clientes
                     </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a href="ListarOrdenes.aspx">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Ordenes
-                    </a>
-                </li>
+                </li>  
                 <li class="nav-item mb-1">
                     <a href="ListarProductos.aspx">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Productos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="RegistrarOrdenesVenta.aspx" >
-                        <i class="fa-solid fa-money-bill pe-2"></i>Gestionar Ordenes de venta
+                    <a href="ListarEventos.aspx" >
+                        <i class="fa-solid fa-money-bill pe-2"></i>Gestionar Eventos
                     </a>
                 </li>
             </ul>

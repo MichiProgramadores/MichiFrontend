@@ -116,6 +116,7 @@
     <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
     <Content Include="RegistrarCliente.aspx" />
+    <Content Include="RegistrarProducto.aspx" />
     <Content Include="RegistrarTrabajador.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="RegistrarCliente.aspx.designer.cs">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProducto.aspx.cs">
+      <DependentUpon>RegistrarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProducto.aspx.designer.cs">
+      <DependentUpon>RegistrarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarTrabajador.aspx.cs">
       <DependentUpon>RegistrarTrabajador.aspx</DependentUpon>

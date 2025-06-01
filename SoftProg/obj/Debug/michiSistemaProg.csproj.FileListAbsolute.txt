@@ -1,11 +1,3 @@
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.AssemblyReference.cache
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\bin\Debug\properties.txt
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe.config
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\bin\Debug\SoftProg.pdb
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\SoftProg.exe
-C:\Users\Asus\OneDrive\Escritorio\MichiFrontend\SoftProg\obj\Debug\SoftProg.pdb
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\bin\Debug\properties.txt
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe.config
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe

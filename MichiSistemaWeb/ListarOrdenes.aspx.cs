@@ -41,8 +41,8 @@ namespace MichiSistemaWeb
 
         protected void dgvOrdenes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            dgvEmpleados.PageIndex = e.NewPageIndex;
-            dgvEmpleados.DataBind();
+            dgvOrdenes.PageIndex = e.NewPageIndex;
+            dgvOrdenes.DataBind();
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)

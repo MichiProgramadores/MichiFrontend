@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="listarEvento" type="tns:listarEvento" />
-  <xs:element name="listarEventoResponse" type="tns:listarEventoResponse" />
-  <xs:complexType name="listarEvento">
+  <xs:element name="listarEventos" type="tns:listarEventos" />
+  <xs:element name="listarEventosResponse" type="tns:listarEventosResponse" />
+  <xs:complexType name="listarEventos">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarEventoResponse">
+  <xs:complexType name="listarEventosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:evento" />
     </xs:sequence>

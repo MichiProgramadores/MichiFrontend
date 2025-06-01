@@ -5,21 +5,21 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/EventoWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
-  <message name="listarEvento">
-    <part name="parameters" element="tns:listarEvento" />
+  <message name="listarEventos">
+    <part name="parameters" element="tns:listarEventos" />
   </message>
-  <message name="listarEventoResponse">
-    <part name="parameters" element="tns:listarEventoResponse" />
+  <message name="listarEventosResponse">
+    <part name="parameters" element="tns:listarEventosResponse" />
   </message>
   <portType name="EventoWS">
-    <operation name="listarEvento">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/listarEventoRequest" message="tns:listarEvento" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/listarEventoResponse" message="tns:listarEventoResponse" />
+    <operation name="listarEventos">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/listarEventosRequest" message="tns:listarEventos" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/listarEventosResponse" message="tns:listarEventosResponse" />
     </operation>
   </portType>
   <binding name="EventoWSPortBinding" type="tns:EventoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarEvento">
+    <operation name="listarEventos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

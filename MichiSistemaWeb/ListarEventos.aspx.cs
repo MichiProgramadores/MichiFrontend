@@ -18,7 +18,7 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvEventos.DataSource = eventoWS.listarEvento();
+            dgvEventos.DataSource = eventoWS.listarEventos();
             dgvEventos.DataBind();
         }
 
@@ -42,10 +42,10 @@ namespace MichiSistemaWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[1].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaInicio"));
-                e.Row.Cells[2].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaFin"));
-                e.Row.Cells[3].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaInicio"));
-                e.Row.Cells[4].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaFin"));
+                //e.Row.Cells[1].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaInicio"));
+                //e.Row.Cells[2].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaFin"));
+                //e.Row.Cells[3].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaInicio"));
+                //e.Row.Cells[4].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaFin"));
 
                 // Las demás columnas las puedes dejar con el valor directo o formatear si es necesario
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "direccion").ToString();

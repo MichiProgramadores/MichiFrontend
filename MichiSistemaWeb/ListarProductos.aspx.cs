@@ -56,7 +56,7 @@ namespace MichiSistemaWeb
             // Session["empleadoSeleccionado"] = empleado;
             Response.Redirect("RegistrarProducto.aspx?accion=modificar");
         }
-        
+
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
@@ -74,6 +74,36 @@ namespace MichiSistemaWeb
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
+            //    try
+            //    {
+            //        int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
+
+            //        // Crear instancia del servicio web (ajusta el nombre según tu referencia)
+            //        var servicio = new ProductoWSClient();
+
+            //        // Llamar al método ObtenerPorId para obtener el producto
+            //        var producto = servicio.;
+
+            //        if (producto != null)
+            //        {
+            //            // Aquí haces lo que necesites con el producto, por ejemplo:
+            //            // Mostrar datos en controles, llenar campos, etc.
+            //            lblNombreProducto.Text = producto.nombre;  // ejemplo
+            //            lblPrecio.Text = producto.precio.ToString("C");  // ejemplo
+            //                                                             // O mostrar en un panel, grid, etc.
+            //        }
+            //        else
+            //        {
+            //            // Producto no encontrado
+            //            lblMensaje.Text = "Producto no encontrado.";
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        // Manejo de errores
+            //        lblMensaje.Text = "Error al buscar el producto: " + ex.Message;
+            //    }
+            //}
 
         }
     }

@@ -73,9 +73,6 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaClientesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaOrdenesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -89,9 +86,6 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.evento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarEventoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarProductosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -102,6 +96,24 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.trabajador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.actualizarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.eliminarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarEventosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.obtenerClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.registrarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />

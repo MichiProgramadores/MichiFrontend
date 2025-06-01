@@ -18,7 +18,7 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvClientes.DataSource = clienteWS.listaClientes();
+            dgvClientes.DataSource = clienteWS.listarClientes();
             dgvClientes.DataBind();
         }
 
@@ -32,6 +32,7 @@ namespace MichiSistemaWeb
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();
                 e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "Email").ToString();
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "Puntuacion").ToString();
+                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
             }
         }
 
@@ -56,22 +57,60 @@ namespace MichiSistemaWeb
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //boEmpleado.eliminar(idEmpleado);
+            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
+            clienteWS.eliminarCliente(idCliente);
             Response.Redirect("ListarClientes.aspx");
         }
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
+             //ClienteWS empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
             //Session["empleadoSeleccionado"] = empleado;
             Response.Redirect("RegistrarCliente.aspx?accion=ver");
         }
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
+            //    try
+            //    {
+            //        // Obtener el texto del textbox
+            //        string textoId = txtNombreID.Text.Trim();
 
+            //        if (int.TryParse(textoId, out int idCliente))
+            //        {
+            //            // Buscar cliente por ID usando tu capa de negocio o servicio
+            //            var cliente = clienteWS.obtenerCliente(textoId)
+
+            //            if (cliente != null)
+            //            {
+            //                // Si encontró el cliente, lo pone en una lista para enlazar
+            //                var lista = new List<Cliente> { cliente };
+            //                dgvClientes.DataSource = lista;
+            //                dgvClientes.DataBind();
+            //                lblMensaje.Text = "";
+            //            }
+            //            else
+            //            {
+            //                // Si no encontró resultados
+            //                dgvClientes.DataSource = null;
+            //                dgvClientes.DataBind();
+            //                lblMensaje.Text = "No se encontró cliente con ese ID.";
+            //            }
+            //        }
+            //        else
+            //        {
+            //            // Si no ingresó un número válido
+            //            dgvClientes.DataSource = null;
+            //            dgvClientes.DataBind();
+            //            lblMensaje.Text = "Ingrese un ID válido (número entero).";
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            //    }
         }
+
     }
 }

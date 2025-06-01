@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="listaClientes" type="tns:listaClientes" />
-  <xs:element name="listaClientesResponse" type="tns:listaClientesResponse" />
-  <xs:complexType name="listaClientes">
+  <xs:element name="actualizarCliente" type="tns:actualizarCliente" />
+  <xs:element name="actualizarClienteResponse" type="tns:actualizarClienteResponse" />
+  <xs:element name="eliminarCliente" type="tns:eliminarCliente" />
+  <xs:element name="eliminarClienteResponse" type="tns:eliminarClienteResponse" />
+  <xs:element name="listarClientes" type="tns:listarClientes" />
+  <xs:element name="listarClientesResponse" type="tns:listarClientesResponse" />
+  <xs:element name="obtenerCliente" type="tns:obtenerCliente" />
+  <xs:element name="obtenerClienteResponse" type="tns:obtenerClienteResponse" />
+  <xs:element name="registrarCliente" type="tns:registrarCliente" />
+  <xs:element name="registrarClienteResponse" type="tns:registrarClienteResponse" />
+  <xs:complexType name="eliminarCliente">
+    <xs:sequence>
+      <xs:element name="idCliente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarClienteResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listaClientesResponse">
+  <xs:complexType name="actualizarCliente">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cliente">
@@ -29,6 +42,35 @@
       <xs:element name="estado" type="xs:boolean" />
       <xs:element minOccurs="0" name="nombres" type="xs:string" />
       <xs:element name="persona_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarClienteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarClienteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerCliente">
+    <xs:sequence>
+      <xs:element name="idCliente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoCliente">

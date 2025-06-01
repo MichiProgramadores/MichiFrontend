@@ -32,6 +32,7 @@
                         <asp:BoundField HeaderText="Apellidos" ItemStyle-CssClass="align-middle" />
                         <asp:BoundField HeaderText="Celular" ItemStyle-CssClass="align-middle" />
                         <asp:BoundField HeaderText="Email" ItemStyle-CssClass="align-middle" />
+                         <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" />
 
                         <asp:TemplateField>
                             <ItemTemplate>

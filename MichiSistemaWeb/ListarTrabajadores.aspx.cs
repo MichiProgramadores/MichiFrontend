@@ -33,7 +33,7 @@ namespace MichiSistemaWeb
                 e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "Apellidos").ToString();
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();
                 e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "Email").ToString();
-
+                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
             }
         }
 
@@ -59,7 +59,7 @@ namespace MichiSistemaWeb
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //boEmpleado.eliminar(idEmpleado);
+            //trabajadorWS;
             Response.Redirect("ListarEmpleados.aspx");
         }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="listaClientes" type="tns:listaClientes" />
+  <xs:element name="listaClientesResponse" type="tns:listaClientesResponse" />
+  <xs:complexType name="listaClientes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaClientesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="numeroTipoCliente" type="xs:string" />
+          <xs:element name="puntuacion" type="xs:int" />
+          <xs:element minOccurs="0" name="tipoCliente" type="tns:tipoCliente" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidos" type="xs:string" />
+      <xs:element name="celular" type="xs:int" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element name="persona_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoCliente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EIN" />
+      <xs:enumeration value="TIN" />
+      <xs:enumeration value="SSN" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

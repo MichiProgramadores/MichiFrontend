@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="42b77402-9273-47ee-9c46-a997deb7e98b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/MichiSistemaWS/servicios.disco" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="647cead2-8171-45e2-aa31-1505a6396050" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ClienteWS?xsd=1" />
+    <MetadataFile FileName="servicios.disco" MetadataType="Disco" ID="5d769077-3144-4fef-bd7d-a85168e48fbb" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/servicios.disco" />
+    <MetadataFile FileName="OrdenWS.wsdl" MetadataType="Wsdl" ID="8aefa1fb-2f3b-44a9-a3c7-8074a8430677" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/OrdenWS?WSDL" />
+    <MetadataFile FileName="OrdenWS.xsd" MetadataType="Schema" ID="dd3c5984-c09a-49c6-80a0-5ae9ba333aa1" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/OrdenWS?xsd=1" />
+    <MetadataFile FileName="ClienteWS.wsdl" MetadataType="Wsdl" ID="6e8d86dd-f319-4f34-90a0-f7011489131d" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/ClienteWS?WSDL" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

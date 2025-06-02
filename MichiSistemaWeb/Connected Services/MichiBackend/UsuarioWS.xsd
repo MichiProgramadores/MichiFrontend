@@ -23,9 +23,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarUsuarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerUsuario">
     <xs:sequence>
@@ -43,9 +41,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarUsuarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="registrarUsuario">
     <xs:sequence>
@@ -53,9 +49,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarUsuarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarUsuarios">
     <xs:sequence />

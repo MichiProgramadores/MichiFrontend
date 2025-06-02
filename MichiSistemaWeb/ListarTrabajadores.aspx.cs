@@ -59,8 +59,8 @@ namespace MichiSistemaWeb
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //trabajadorWS;
-            Response.Redirect("ListarEmpleados.aspx");
+            trabajadorWS.eliminarTrabajador(idEmpleado);
+            Response.Redirect("ListarTrabajadores.aspx");
         }
 
         protected void lbVisualizar_Click(object sender, EventArgs e)

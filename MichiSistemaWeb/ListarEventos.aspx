@@ -6,6 +6,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
+     <div class="container">
+     <div class="container row">
+         <div class="row align-items-center">
+             <div class="col-auto">
+                 <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el ID del evento:"></asp:Label>
+             </div>
+             <div class="col-sm-3">
+                 <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+             </div>
+             <div class="col-sm-2">
+                 <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+             </div>
+             <div class="col text-end p-3">
+                 <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Evento" OnClick="lbRegistrar_Click" />
+             </div>
+         </div>
     <div class="container">
         <div class="table-responsive">
             <asp:GridView ID="dgvEventos" runat="server" AutoGenerateColumns="false"

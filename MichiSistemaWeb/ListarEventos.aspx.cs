@@ -78,8 +78,8 @@ namespace MichiSistemaWeb
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //boEmpleado.eliminar(idEmpleado);
+            int idEvento = Int32.Parse(((LinkButton)sender).CommandArgument);
+            eventoWS.eliminarEvento(idEvento);
             Response.Redirect("ListarClientes.aspx");
         }
 
@@ -93,8 +93,45 @@ namespace MichiSistemaWeb
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Obtener el texto del textbox
+                string textoId = txtNombre.Text.Trim();
 
+                if (int.TryParse(textoId, out int idEvento))
+                {
+                    // Buscar cliente por ID usando tu capa de negocio o servicio
+                    var evento = eventoWS.obtenerEvento(idEvento);
 
+                    if (evento != null)
+                    {
+                        // Si encontró el cliente, lo pone en una lista para enlazar
+                        var lista = new List<evento > { evento };
+                        dgvEventos.DataSource = lista;
+                        dgvEventos.DataBind();
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvEventos.DataSource = null;
+                        dgvEventos.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvEventos.DataSource = null;
+                    dgvEventos.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
         }
+
     }
 }

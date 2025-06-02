@@ -32,7 +32,18 @@ namespace MichiSistemaWeb
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "Celular").ToString();
                 e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "Email").ToString();
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "Puntuacion").ToString();
-                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
+                object estadoObj = DataBinder.Eval(e.Row.DataItem, "Estado");
+
+                bool estado = false;
+                if (estadoObj != null && bool.TryParse(estadoObj.ToString(), out bool result))
+                {
+                    estado = result;
+                }
+
+                // Mostrar texto según el estado
+                e.Row.Cells[6].Text = estado ? "Activo" : "Inactivo";
+
+                //e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
             }
         }
 

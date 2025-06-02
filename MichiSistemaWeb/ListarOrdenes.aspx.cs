@@ -77,8 +77,8 @@ namespace MichiSistemaWeb
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //boEmpleado.eliminar(idEmpleado);
+            int idOrden = Int32.Parse(((LinkButton)sender).CommandArgument);
+            ordenWS.eliminarOrden(idOrden);
             Response.Redirect("ListarOrdenes.aspx");
         }
 

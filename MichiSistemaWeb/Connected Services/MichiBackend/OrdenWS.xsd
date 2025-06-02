@@ -33,7 +33,7 @@
       <xs:element name="cantDias" type="xs:int" />
       <xs:element name="clienteID" type="xs:int" />
       <xs:element minOccurs="0" name="estado" type="tns:estadoFechaDevolucion" />
-      <xs:element minOccurs="0" name="fecha_devolucion" type="tns:localDate" />
+      <xs:element minOccurs="0" name="fecha_devolucion" type="tns:date" />
       <xs:element minOccurs="0" name="fecha_emisión" type="tns:localDate" />
       <xs:element minOccurs="0" name="fecha_entrega" type="tns:localDate" />
       <xs:element minOccurs="0" name="fecha_registro" type="tns:localDateTime" />
@@ -53,6 +53,9 @@
       <xs:element name="tipoEstadoFechaDevol_id" type="xs:int" />
       <xs:element minOccurs="0" name="tipoFechaDevolucion" type="tns:tipoFechaDevolucion" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="localDate" final="extension restriction">
     <xs:sequence />

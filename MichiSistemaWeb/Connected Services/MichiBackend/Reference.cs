@@ -647,6 +647,24 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://michisistemaws.com/")]
+    public partial class date : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://michisistemaws.com/")]
     public partial class estadoFechaDevolucion : object, System.ComponentModel.INotifyPropertyChanged {
         
         private double penalidadField;
@@ -745,7 +763,7 @@ namespace MichiSistemaWeb.MichiBackend {
         
         private estadoFechaDevolucion estadoField;
         
-        private localDate fecha_devolucionField;
+        private date fecha_devolucionField;
         
         private localDate fecha_emisiónField;
         
@@ -811,7 +829,7 @@ namespace MichiSistemaWeb.MichiBackend {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public localDate fecha_devolucion {
+        public date fecha_devolucion {
             get {
                 return this.fecha_devolucionField;
             }

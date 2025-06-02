@@ -19,7 +19,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvOrdenes.DataSource = ordenWS.listarOrdenes();
+            var lista= ordenWS.listarOrdenes().ToList();
+            dgvOrdenes.DataSource = lista;
             dgvOrdenes.DataBind();
         }
 

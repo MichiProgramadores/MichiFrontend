@@ -84,7 +84,7 @@ namespace MichiSistemaWeb
             //        // Llamar al método ObtenerPorId para obtener el producto
             //        var producto = servicio.;
 
-            //        if (producto != null)
+            //        if (producto != null) 
             //        {
             //            // Aquí haces lo que necesites con el producto, por ejemplo:
             //            // Mostrar datos en controles, llenar campos, etc.

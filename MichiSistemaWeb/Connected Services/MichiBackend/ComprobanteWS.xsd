@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarComprobante" type="tns:actualizarComprobante" />
+  <xs:element name="actualizarComprobanteResponse" type="tns:actualizarComprobanteResponse" />
+  <xs:element name="actualizarEstadoComprobante" type="tns:actualizarEstadoComprobante" />
+  <xs:element name="actualizarEstadoComprobanteResponse" type="tns:actualizarEstadoComprobanteResponse" />
+  <xs:element name="eliminarComprobante" type="tns:eliminarComprobante" />
+  <xs:element name="eliminarComprobanteResponse" type="tns:eliminarComprobanteResponse" />
+  <xs:element name="listarComprobante" type="tns:listarComprobante" />
+  <xs:element name="listarComprobanteResponse" type="tns:listarComprobanteResponse" />
+  <xs:element name="obtenerComprobante" type="tns:obtenerComprobante" />
+  <xs:element name="obtenerComprobanteResponse" type="tns:obtenerComprobanteResponse" />
+  <xs:element name="registrarComprobante" type="tns:registrarComprobante" />
+  <xs:element name="registrarComprobanteResponse" type="tns:registrarComprobanteResponse" />
+  <xs:complexType name="listarComprobante">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarComprobanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:comprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comprobante">
+    <xs:sequence>
+      <xs:element name="cliente_id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalles" nillable="true" type="tns:detalleComprobante" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha_emision" type="xs:dateTime" />
+      <xs:element name="id_comprobante" type="xs:int" />
+      <xs:element name="monto_total" type="xs:double" />
+      <xs:element name="orden_id" type="xs:int" />
+      <xs:element name="tax" type="xs:double" />
+      <xs:element minOccurs="0" name="tipoComprobante" type="tns:tipoComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleComprobante">
+    <xs:sequence>
+      <xs:element name="cantidad" type="xs:int" />
+      <xs:element name="comprobante_id" type="xs:int" />
+      <xs:element name="producto_id" type="xs:int" />
+      <xs:element name="subtotal" type="xs:double" />
+      <xs:element minOccurs="0" name="unidad_medida" type="tns:unidadMedida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comprobante" type="tns:comprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarComprobanteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarComprobante">
+    <xs:sequence>
+      <xs:element name="idComprobante" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarComprobanteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoComprobante">
+    <xs:sequence>
+      <xs:element name="idComprobante" type="xs:int" />
+      <xs:element minOccurs="0" name="toString" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoComprobanteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerComprobante">
+    <xs:sequence>
+      <xs:element name="idComprobante" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerComprobanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:comprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comprobante" type="tns:comprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarComprobanteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="unidadMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PULGADA" />
+      <xs:enumeration value="PIE" />
+      <xs:enumeration value="YARDA" />
+      <xs:enumeration value="ONZA" />
+      <xs:enumeration value="LIBRA" />
+      <xs:enumeration value="TONELADA_CORTA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoComprobante">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INVOICE" />
+      <xs:enumeration value="RECEIPT" />
+      <xs:enumeration value="CREDIT_NOTE" />
+      <xs:enumeration value="DEBIT_NOTE" />
+      <xs:enumeration value="PURCHASE_ORDER" />
+      <xs:enumeration value="SALES_ORDER" />
+      <xs:enumeration value="HOLA_SOY_OSCAR" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

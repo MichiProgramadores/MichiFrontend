@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="com.MichiSistema" targetNamespace="com.MichiSistema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarTrabajador" type="tns:actualizarTrabajador" />
+  <xs:element name="actualizarTrabajadorResponse" type="tns:actualizarTrabajadorResponse" />
+  <xs:element name="eliminarTrabajador" type="tns:eliminarTrabajador" />
+  <xs:element name="eliminarTrabajadorResponse" type="tns:eliminarTrabajadorResponse" />
   <xs:element name="listarTrabajadores" type="tns:listarTrabajadores" />
   <xs:element name="listarTrabajadoresResponse" type="tns:listarTrabajadoresResponse" />
-  <xs:complexType name="listarTrabajadores">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarTrabajadoresResponse">
+  <xs:element name="obtenerTrabajador" type="tns:obtenerTrabajador" />
+  <xs:element name="obtenerTrabajadorResponse" type="tns:obtenerTrabajadorResponse" />
+  <xs:element name="registrarTrabajador" type="tns:registrarTrabajador" />
+  <xs:element name="registrarTrabajadorResponse" type="tns:registrarTrabajadorResponse" />
+  <xs:complexType name="eliminarTrabajador">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+      <xs:element name="idTrabajador" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarTrabajadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="trabajador">
@@ -27,6 +42,35 @@
       <xs:element name="estado" type="xs:boolean" />
       <xs:element minOccurs="0" name="nombres" type="xs:string" />
       <xs:element name="persona_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarTrabajadorResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="registrarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarTrabajadorResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTrabajadores">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTrabajadoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerTrabajador">
+    <xs:sequence>
+      <xs:element name="idTrabajador" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerTrabajadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoTrabajador">

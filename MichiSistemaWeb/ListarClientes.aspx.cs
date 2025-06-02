@@ -49,7 +49,8 @@ namespace MichiSistemaWeb
 
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
+           
             //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
             // Session["empleadoSeleccionado"] = empleado;
             Response.Redirect("RegistrarCliente.aspx?accion=modificar");

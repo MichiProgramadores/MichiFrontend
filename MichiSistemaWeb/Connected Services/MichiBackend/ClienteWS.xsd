@@ -18,9 +18,12 @@
   <xs:complexType name="eliminarClienteResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="actualizarCliente">
+  <xs:complexType name="listarClientes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientesResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cliente">
@@ -44,16 +47,13 @@
       <xs:element name="persona_id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="actualizarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarClienteResponse">
     <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarClientes">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarClientesResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarCliente">
     <xs:sequence>

@@ -74,36 +74,45 @@ namespace MichiSistemaWeb
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
-            //    try
-            //    {
-            //        int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
+            try
+            {
+                // Obtener el texto del textbox
+                string textoId = txtID.Text.Trim();
 
-            //        // Crear instancia del servicio web (ajusta el nombre según tu referencia)
-            //        var servicio = new ProductoWSClient();
+                if (int.TryParse(textoId, out int idProducto))
+                {
+                    // Buscar cliente por ID usando tu capa de negocio o servicio
 
-            //        // Llamar al método ObtenerPorId para obtener el producto
-            //        var producto = servicio.;
+                    var producto = productoWS.obtenerProducto(idProducto);
 
-            //        if (producto != null) 
-            //        {
-            //            // Aquí haces lo que necesites con el producto, por ejemplo:
-            //            // Mostrar datos en controles, llenar campos, etc.
-            //            lblNombreProducto.Text = producto.nombre;  // ejemplo
-            //            lblPrecio.Text = producto.precio.ToString("C");  // ejemplo
-            //                                                             // O mostrar en un panel, grid, etc.
-            //        }
-            //        else
-            //        {
-            //            // Producto no encontrado
-            //            lblMensaje.Text = "Producto no encontrado.";
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        // Manejo de errores
-            //        lblMensaje.Text = "Error al buscar el producto: " + ex.Message;
-            //    }
-            //}
+                    if (producto != null)
+                    {
+                        // Si encontró el cliente, lo pone en una lista para enlazar
+                        var lista = new List<producto> { producto };
+                        dgvProductos.DataSource = lista;
+                        dgvProductos.DataBind();
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvProductos.DataSource = null;
+                        dgvProductos.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvProductos.DataSource = null;
+                    dgvProductos.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
 
         }
     }

@@ -7,3 +7,11 @@ D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\obj\Debug\SoftProg.exe.config
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\obj\Debug\SoftProg.exe
 D:\VI CICLO\Progra 3\TA\MichiFrontend\SoftProg\obj\Debug\SoftProg.pdb
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\bin\Debug\properties.txt
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe.config
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\bin\Debug\SoftProg.exe
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\bin\Debug\SoftProg.pdb
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.AssemblyReference.cache
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\SoftProg.exe
+D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\SoftProg.pdb

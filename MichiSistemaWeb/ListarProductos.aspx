@@ -8,10 +8,10 @@
     <div class="container row">
         <div class="row align-items-center">
             <div class="col-auto">
-                <asp:Label ID="lblNombreDNI" CssClass="form-label" runat="server" Text="Ingrese el ID del producto:"></asp:Label>
+                <asp:Label ID="lblID" CssClass="form-label" runat="server" Text="Ingrese el ID del producto:"></asp:Label>
             </div>
             <div class="col-sm-3">
-                <asp:TextBox ID="txtNombreDNI" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtID" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-2">
                 <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click"/>

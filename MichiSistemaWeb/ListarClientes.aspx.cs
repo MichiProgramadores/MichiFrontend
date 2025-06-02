@@ -73,44 +73,45 @@ namespace MichiSistemaWeb
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
-            //    try
-            //    {
-            //        // Obtener el texto del textbox
-            //        string textoId = txtNombreID.Text.Trim();
+            try
+            {
+                // Obtener el texto del textbox
+                string textoId = txtNombreID.Text.Trim();
 
-            //        if (int.TryParse(textoId, out int idCliente))
-            //        {
-            //            // Buscar cliente por ID usando tu capa de negocio o servicio
-            //            var cliente = clienteWS.obtenerCliente(textoId)
+                if (int.TryParse(textoId, out int idCliente))
+                {
+                    // Buscar cliente por ID usando tu capa de negocio o servicio
 
-            //            if (cliente != null)
-            //            {
-            //                // Si encontró el cliente, lo pone en una lista para enlazar
-            //                var lista = new List<Cliente> { cliente };
-            //                dgvClientes.DataSource = lista;
-            //                dgvClientes.DataBind();
-            //                lblMensaje.Text = "";
-            //            }
-            //            else
-            //            {
-            //                // Si no encontró resultados
-            //                dgvClientes.DataSource = null;
-            //                dgvClientes.DataBind();
-            //                lblMensaje.Text = "No se encontró cliente con ese ID.";
-            //            }
-            //        }
-            //        else
-            //        {
-            //            // Si no ingresó un número válido
-            //            dgvClientes.DataSource = null;
-            //            dgvClientes.DataBind();
-            //            lblMensaje.Text = "Ingrese un ID válido (número entero).";
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            //    }
+                    var cliente = clienteWS.obtenerCliente(idCliente);
+
+                        if (cliente != null)
+                    {
+                        // Si encontró el cliente, lo pone en una lista para enlazar
+                        var lista = new List<cliente> { cliente };
+                        dgvClientes.DataSource = lista;
+                        dgvClientes.DataBind();
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvClientes.DataSource = null;
+                        dgvClientes.DataBind();
+                       // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvClientes.DataSource = null;
+                    dgvClientes.DataBind();
+                  //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+               // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
         }
 
     }

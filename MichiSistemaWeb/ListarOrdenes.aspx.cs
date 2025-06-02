@@ -92,7 +92,44 @@ namespace MichiSistemaWeb
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Obtener el texto del textbox
+                string textoId = txtNombre.Text.Trim();
 
+                if (int.TryParse(textoId, out int idOrden))
+                {
+                    // Buscar cliente por ID usando tu capa de negocio o servicio
+                    var orden = ordenWS.obtenerOrden(idOrden);
+
+                    if (orden != null)
+                    {
+                        // Si encontró el cliente, lo pone en una lista para enlazar
+                        var lista = new List<orden> { orden };
+                        dgvOrdenes.DataSource = lista;
+                        dgvOrdenes.DataBind();
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvOrdenes.DataSource = null;
+                        dgvOrdenes.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvOrdenes.DataSource = null;
+                    dgvOrdenes.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
         }
     }
 }

@@ -94,6 +94,7 @@ namespace MichiSistemaWeb
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
 
+
         }
     }
 }

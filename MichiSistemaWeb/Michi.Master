@@ -26,7 +26,7 @@
         <!-- Division de la izquierda-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/pucp.png" width="150"/>
+                <img src="Images/imagen.jpg" width="150"/>
             </a>
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">
@@ -74,7 +74,7 @@
             <nav class="navbar navbar-dark bg-primary">
                 <div class="container-fluid">
                     <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#">
-                        Software para el Curso de Programación 3
+                        Michi Sistema
                     </a>
                     <form class="d-flex">
                         <div class="dropdown ps-3">

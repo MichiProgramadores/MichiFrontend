@@ -270,6 +270,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\imagen.jpg" />
     <Content Include="Images\pucp.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />

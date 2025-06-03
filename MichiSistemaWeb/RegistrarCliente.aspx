@@ -10,40 +10,56 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    <asp:Label ID="lblTitulo" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar Cliente"></asp:Label>
                 </h2>
             </div>
             <div class="card-body">
+                <%--
                 <div class="mb-3 row">
                     <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIDCliente" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+                --%>
+
                  <div class="mb-3 row">
-                     <asp:Label CssClass="col-sm-2 form-label" ID="lblNombre" runat="server" Text="Nombres"></asp:Label>
+                     <asp:Label ID="lblNombres" runat="server" Text="Nombres: " CssClass="col-sm-2 form-label"></asp:Label>
                      <div class="col-sm-8">
-                          <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+                          <asp:TextBox id="txtNombres" runat="server" CssClass="form-control"></asp:TextBox>
                      </div>
                  </div>
+
                 <div class="mb-3 row">
                     <asp:Label id="lblApellidos" runat="server" Text="Apellidos: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+
+
                 <div class="mb-3 row">
-                    <asp:Label ID="lblCelular" CssClass="col-sm-2 form-label" runat="server" Text="Area:"></asp:Label>
+                    <asp:Label id="lblCelular" CssClass="col-sm-2 form-label" runat="server" Text="Celular:"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtCelular" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                </div>    
+                </div>
+
                 <div class="mb-3 row">
                     <asp:Label id="lblEmail" runat="server" Text="Email: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+
+                <div class="mb-3 row">
+                    <asp:Label ID="lblTipoCliente" runat="server" Text="Tipo de Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+
             </div>
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click"/>

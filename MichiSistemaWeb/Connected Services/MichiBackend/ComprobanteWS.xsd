@@ -58,15 +58,6 @@
   <xs:complexType name="eliminarComprobanteResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="actualizarEstadoComprobante">
-    <xs:sequence>
-      <xs:element name="idComprobante" type="xs:int" />
-      <xs:element minOccurs="0" name="toString" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarEstadoComprobanteResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="obtenerComprobante">
     <xs:sequence>
       <xs:element name="idComprobante" type="xs:int" />
@@ -76,6 +67,15 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:comprobante" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoComprobante">
+    <xs:sequence>
+      <xs:element name="idComprobante" type="xs:int" />
+      <xs:element minOccurs="0" name="toString" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoComprobanteResponse">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="actualizarComprobante">
     <xs:sequence>

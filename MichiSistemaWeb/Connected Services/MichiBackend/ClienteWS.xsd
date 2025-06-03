@@ -58,6 +58,7 @@
   <xs:complexType name="registrarCliente">
     <xs:sequence>
       <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+      <xs:element minOccurs="0" name="str_tipoCliente" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarClienteResponse">

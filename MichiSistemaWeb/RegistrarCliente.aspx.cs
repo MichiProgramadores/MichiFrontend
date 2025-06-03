@@ -1,118 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MichiSistemaWeb.MichiBackend;
 
 namespace MichiSistemaWeb
 {
     public partial class RegistrarCliente : System.Web.UI.Page
     {
+
+        protected ClienteWSClient clienteService;
+        protected cliente cliente;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            clienteService = new ClienteWSClient();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    boArea = new AreaBO();
-            //    ddlAreas.DataSource = boArea.listarTodos();
-            //    ddlAreas.DataTextField = "Nombre";
-            //    ddlAreas.DataValueField = "IdArea";
-            //    ddlAreas.DataBind();
-            //}
 
-            //string accion = Request.QueryString["accion"];
-            //if (accion == null)
-            //{
-            //    estado = Estado.Nuevo;
-            //    empleado = new Empleado();
-            //    lblTitulo.Text = "Registrar Empleado";
-            //}
-            //else if (accion == "modificar")
-            //{
-            //    estado = Estado.Modificar;
-            //    lblTitulo.Text = "Modificar Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
-            //    if (!IsPostBack)
-            //    {
-            //        AsignarValores();
-            //    }
-            //}
-            //else if (accion == "ver")
-            //{
-            //    lblTitulo.Text = "Ver Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
-            //    AsignarValores();
-            //    txtDNIEmpleado.Enabled = false;
-            //    txtNombre.Enabled = false;
-            //    txtApellidoPaterno.Enabled = false;
-            //    txtCargo.Enabled = false;
-            //    txtSueldo.Enabled = false;
-            //    ddlAreas.Enabled = false;
-            //    rbMasculino.Disabled = true;
-            //    rbFemenino.Disabled = true;
-            //    btnGuardar.Visible = false;
-            //    dtpFechaNacimiento.Disabled = true;
-            //}
+            if (!IsPostBack)
+            {
+                // Obtener los valores del enum tipoCliente
+                ddlTipoCliente.DataSource = Enum.GetValues(typeof(tipoCliente));
+                ddlTipoCliente.DataBind();
+
+                // Opcional: agregar un valor por defecto
+                ddlTipoCliente.Items.Insert(0, new ListItem("Seleccione...", ""));
+            }
 
         }
 
         protected void AsignarValores()
         {
-            //txtDNIEmpleado.Text = empleado.DNI;
-            //txtNombre.Text = empleado.Nombre;
-            //txtApellidoPaterno.Text = empleado.ApellidoPaterno;
-            //txtCargo.Text = empleado.Cargo;
-            //txtSueldo.Text = empleado.Sueldo.ToString("F2");
-            //ddlAreas.SelectedValue = empleado.Area.IdArea.ToString();
-            //if (empleado.Genero.Equals('M')) rbMasculino.Checked = true;
-            //else rbFemenino.Checked = true;
-            //dtpFechaNacimiento.Value = empleado.FechaNacimiento.ToString("yyyy-MM-dd");
+            cliente = new cliente();
+            cliente.nombres = txtNombres.Text.Trim();
+            cliente.apellidos = txtApellidos.Text.Trim();
+            cliente.celular = int.Parse(txtCelular.Text.Trim());
+            cliente.email = txtEmail.Text.Trim();
+
+            /*
+            string valorSeleccionado = ddlTipoCliente.SelectedValue;
+            lblMensajeError.Text = "Tipo seleccionado: " + valorSeleccionado; // DEBUG
+            System.Diagnostics.Debug.WriteLine("Tipo seleccionado: " + ddlTipoCliente.SelectedValue);
+
+            if (string.IsNullOrEmpty(valorSeleccionado))
+            {
+                throw new Exception("Debe seleccionar un tipo de cliente.");
+            }
+
+            cliente.tipoCliente = (tipoCliente)Enum.Parse(typeof(tipoCliente), valorSeleccionado);
+            */
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            // boEmpleado = new EmpleadoBO();
-            //empleado.DNI = txtDNIEmpleado.Text;
-            //empleado.Nombre = txtNombre.Text;
-            //empleado.ApellidoPaterno = txtApellidoPaterno.Text;
+            try
+            {
+                // Validación básica
+                if (string.IsNullOrWhiteSpace(txtNombres.Text) ||
+                    string.IsNullOrWhiteSpace(txtApellidos.Text) ||
+                    string.IsNullOrWhiteSpace(txtCelular.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(ddlTipoCliente.SelectedValue))
+                {
+                    lanzarMensajedeError("Por favor, complete todos los campos.");
+                    return;
+                }
 
-            //try
-            //{
-            //    empleado.FechaNacimiento = DateTime.Parse(dtpFechaNacimiento.Value);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe seleccionar una fecha de nacimiento"); return; }
+                // Asignar los valores del formulario al objeto cliente
+                AsignarValores();
 
+                // Insertar cliente
+                string valorSeleccionado = ddlTipoCliente.SelectedValue;
+                clienteService.registrarCliente(cliente, valorSeleccionado);
 
-            //if (rbMasculino.Checked) empleado.Genero = 'M';
-            //else if (rbFemenino.Checked) empleado.Genero = 'F';
-            //try
-            //{
-            //    empleado.Sueldo = Double.Parse(txtSueldo.Text);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe colocar un valor de sueldo apropiado"); return; }
-
-            //empleado.Cargo = txtCargo.Text;
-            //Area area = new Area();
-            //area.IdArea = Int32.Parse(ddlAreas.SelectedValue);
-            //empleado.Area = area;
-
-            //try
-            //{
-            //    if (estado == Estado.Nuevo)
-            //    {
-            //        boEmpleado.insertar(empleado);
-            //    }
-            //    else if (estado == Estado.Modificar)
-            //    {
-            //        boEmpleado.modificar(empleado);
-            //   }
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError(ex.Message); return; }
-
-            //Response.Redirect("ListarTrabajadores.aspx");
+                // Redirigir
+                Response.Redirect("ListarClientes.aspx");
+            }
+            catch (Exception ex)
+            {
+                lanzarMensajedeError("No se pudo registrar el cliente: " + ex.Message);
+            }
         }
 
         public void lanzarMensajedeError(String mensaje)

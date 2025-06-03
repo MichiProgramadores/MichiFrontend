@@ -48,6 +48,7 @@
   <xs:complexType name="registrarTrabajador">
     <xs:sequence>
       <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+      <xs:element minOccurs="0" name="str_tipoTrabajador" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarTrabajadorResponse">

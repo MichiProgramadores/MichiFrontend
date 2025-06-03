@@ -35,7 +35,7 @@
                     <asp:BoundField HeaderText="Stock actual" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField HeaderText="Unidad de medida" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField HeaderText="Descripción" ItemStyle-CssClass="align-middle" />
-
+                    <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("producto_id") %>' OnClick="lbModificar_Click" />

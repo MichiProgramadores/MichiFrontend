@@ -48,11 +48,11 @@ namespace MichiSistemaWeb
                 //e.Row.Cells[4].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaFin"));
 
                 // Las demás columnas las puedes dejar con el valor directo o formatear si es necesario
-                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "direccion").ToString();
-                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "codigoPostal").ToString();
-                var descripcionObj = DataBinder.Eval(e.Row.DataItem, "descripcion");
-                e.Row.Cells[7].Text = (descripcionObj != null && descripcionObj != DBNull.Value) ? descripcionObj.ToString() : "";
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "tipoEvento").ToString();
+                //e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "direccion").ToString();
+                //e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "codigoPostal").ToString();
+                //var descripcionObj = DataBinder.Eval(e.Row.DataItem, "descripcion");
+                //e.Row.Cells[7].Text = (descripcionObj != null && descripcionObj != DBNull.Value) ? descripcionObj.ToString() : "";
+                //e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "tipoEvento").ToString();
             }
         }
 

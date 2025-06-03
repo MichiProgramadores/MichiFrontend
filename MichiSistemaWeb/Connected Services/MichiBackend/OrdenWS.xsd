@@ -33,10 +33,10 @@
       <xs:element name="cantDias" type="xs:int" />
       <xs:element name="clienteID" type="xs:int" />
       <xs:element minOccurs="0" name="estado" type="tns:estadoFechaDevolucion" />
-      <xs:element minOccurs="0" name="fecha_devolucion" type="tns:date" />
-      <xs:element minOccurs="0" name="fecha_emisión" type="tns:localDate" />
-      <xs:element minOccurs="0" name="fecha_entrega" type="tns:localDate" />
-      <xs:element minOccurs="0" name="fecha_registro" type="tns:localDateTime" />
+      <xs:element minOccurs="0" name="fecha_devolucion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_emisión" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_entrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_registro" type="xs:dateTime" />
       <xs:element name="idOrden" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="listaOrdenes" nillable="true" type="tns:detalleOrden" />
       <xs:element name="saldo" type="xs:double" />
@@ -53,15 +53,6 @@
       <xs:element name="tipoEstadoFechaDevol_id" type="xs:int" />
       <xs:element minOccurs="0" name="tipoFechaDevolucion" type="tns:tipoFechaDevolucion" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="date">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="localDate" final="extension restriction">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="localDateTime" final="extension restriction">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="detalleOrden">
     <xs:sequence>

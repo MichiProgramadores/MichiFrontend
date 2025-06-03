@@ -35,10 +35,11 @@
                             <asp:BoundField DataField="totalPagar" HeaderText="Monto total" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="saldo" HeaderText="Saldo" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="cantDias" HeaderText="Cantidad dias" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="fecha_devolucion" HeaderText="Fecha devolución" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="fecha_emisión" HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle"  />
-                            <asp:BoundField DataField="fecha_registro" HeaderText="Fecha registro" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="fecha_entrega" HeaderText="Fecha entrega" ItemStyle-CssClass="align-middle" />
+                            
+                            <asp:BoundField DataField="fecha_devolucion" HeaderText="Fecha devolución" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}"/>
+                            <asp:BoundField DataField="fecha_emisión" HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}"  />
+                            <asp:BoundField DataField="fecha_registro" HeaderText="Fecha registro" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
+                            <asp:BoundField DataField="fecha_entrega" HeaderText="Fecha entrega" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField DataField="tipoEstadoDevolucion" HeaderText="Tipo estado devolución" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="clienteID" HeaderText="Id cliente" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="trabajadorID" HeaderText="Id trabajador" ItemStyle-CssClass="align-middle" />

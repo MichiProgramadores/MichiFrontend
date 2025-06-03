@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/UsuarioWS?xsd=1" namespace="com.MichiSistema" />
     </xsd:schema>
   </types>
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
+  </message>
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </message>
   <message name="listarUsuarios">
     <part name="parameters" element="tns:listarUsuarios" />
   </message>
   <message name="listarUsuariosResponse">
     <part name="parameters" element="tns:listarUsuariosResponse" />
-  </message>
-  <message name="obtenerUsuario">
-    <part name="parameters" element="tns:obtenerUsuario" />
-  </message>
-  <message name="obtenerUsuarioResponse">
-    <part name="parameters" element="tns:obtenerUsuarioResponse" />
   </message>
   <message name="registrarUsuario">
     <part name="parameters" element="tns:registrarUsuario" />
@@ -29,20 +29,20 @@
   <message name="actualizarUsuarioResponse">
     <part name="parameters" element="tns:actualizarUsuarioResponse" />
   </message>
-  <message name="eliminarUsuario">
-    <part name="parameters" element="tns:eliminarUsuario" />
+  <message name="obtenerUsuario">
+    <part name="parameters" element="tns:obtenerUsuario" />
   </message>
-  <message name="eliminarUsuarioResponse">
-    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  <message name="obtenerUsuarioResponse">
+    <part name="parameters" element="tns:obtenerUsuarioResponse" />
   </message>
   <portType name="UsuarioWS">
+    <operation name="eliminarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    </operation>
     <operation name="listarUsuarios">
       <input wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
-    </operation>
-    <operation name="obtenerUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse" message="tns:obtenerUsuarioResponse" />
     </operation>
     <operation name="registrarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioRequest" message="tns:registrarUsuario" />
@@ -52,14 +52,14 @@
       <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
     </operation>
-    <operation name="eliminarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    <operation name="obtenerUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse" message="tns:obtenerUsuarioResponse" />
     </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarUsuarios">
+    <operation name="eliminarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerUsuario">
+    <operation name="listarUsuarios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarUsuario">
+    <operation name="obtenerUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

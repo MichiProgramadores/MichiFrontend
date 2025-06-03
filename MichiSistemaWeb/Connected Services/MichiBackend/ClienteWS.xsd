@@ -50,18 +50,10 @@
   <xs:complexType name="actualizarCliente">
     <xs:sequence>
       <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarClienteResponse">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="registrarCliente">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
       <xs:element minOccurs="0" name="str_tipoCliente" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="registrarClienteResponse">
+  <xs:complexType name="actualizarClienteResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerCliente">
@@ -73,6 +65,15 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:cliente" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+      <xs:element minOccurs="0" name="str_tipoCliente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarClienteResponse">
+    <xs:sequence />
   </xs:complexType>
   <xs:simpleType name="tipoCliente">
     <xs:restriction base="xs:string">

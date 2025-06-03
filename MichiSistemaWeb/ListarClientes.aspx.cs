@@ -11,6 +11,7 @@ namespace MichiSistemaWeb
     public partial class ListarClientes : System.Web.UI.Page
     {
         protected ClienteWSClient clienteWS;
+        protected List<cliente> clientes;
         protected void Page_Load(object sender, EventArgs e)
         {
             clienteWS = new ClienteWSClient();
@@ -18,7 +19,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvClientes.DataSource = clienteWS.listarClientes();
+            clientes = clienteWS.listarClientes().ToList();
+            dgvClientes.DataSource = clientes;
             dgvClientes.DataBind();
         }
 
@@ -62,8 +64,8 @@ namespace MichiSistemaWeb
         {
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
            
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            // Session["empleadoSeleccionado"] = empleado;
+            cliente cliente= clientes.SingleOrDefault(x => x.persona_id == idCliente);
+            Session["clienteSeleccionado"] = cliente;
             Response.Redirect("RegistrarCliente.aspx?accion=modificar");
         }
 
@@ -76,9 +78,10 @@ namespace MichiSistemaWeb
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-             //ClienteWS empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            //Session["empleadoSeleccionado"] = empleado;
+            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
+            cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
+            //ClienteWS empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
+            Session["clienteSeleccionado"] = cliente;
             Response.Redirect("RegistrarCliente.aspx?accion=ver");
         }
 

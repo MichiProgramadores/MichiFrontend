@@ -52,6 +52,8 @@
   <xs:complexType name="registrarProducto">
     <xs:sequence>
       <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element minOccurs="0" name="str_tipoProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="str_unidadMedida" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarProductoResponse">
@@ -70,8 +72,7 @@
   <xs:simpleType name="tipoProducto">
     <xs:restriction base="xs:string">
       <xs:enumeration value="DECORACION" />
-      <xs:enumeration value="ENVASE" />
-      <xs:enumeration value="REGALO" />
+      <xs:enumeration value="REGALOS" />
       <xs:enumeration value="EQUIPO_AUDIOVISUAL" />
       <xs:enumeration value="VESTIMENTA" />
       <xs:enumeration value="INVITACION" />
@@ -87,7 +88,6 @@
       <xs:enumeration value="YARDA" />
       <xs:enumeration value="ONZA" />
       <xs:enumeration value="LIBRA" />
-      <xs:enumeration value="TONELADA_CORTA" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

@@ -5,6 +5,24 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/ComprobanteWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
+  <message name="registrarComprobante">
+    <part name="parameters" element="tns:registrarComprobante" />
+  </message>
+  <message name="registrarComprobanteResponse">
+    <part name="parameters" element="tns:registrarComprobanteResponse" />
+  </message>
+  <message name="eliminarComprobante">
+    <part name="parameters" element="tns:eliminarComprobante" />
+  </message>
+  <message name="eliminarComprobanteResponse">
+    <part name="parameters" element="tns:eliminarComprobanteResponse" />
+  </message>
+  <message name="actualizarComprobante">
+    <part name="parameters" element="tns:actualizarComprobante" />
+  </message>
+  <message name="actualizarComprobanteResponse">
+    <part name="parameters" element="tns:actualizarComprobanteResponse" />
+  </message>
   <message name="listarComprobante">
     <part name="parameters" element="tns:listarComprobante" />
   </message>
@@ -23,25 +41,19 @@
   <message name="actualizarEstadoComprobanteResponse">
     <part name="parameters" element="tns:actualizarEstadoComprobanteResponse" />
   </message>
-  <message name="actualizarComprobante">
-    <part name="parameters" element="tns:actualizarComprobante" />
-  </message>
-  <message name="actualizarComprobanteResponse">
-    <part name="parameters" element="tns:actualizarComprobanteResponse" />
-  </message>
-  <message name="registrarComprobante">
-    <part name="parameters" element="tns:registrarComprobante" />
-  </message>
-  <message name="registrarComprobanteResponse">
-    <part name="parameters" element="tns:registrarComprobanteResponse" />
-  </message>
-  <message name="eliminarComprobante">
-    <part name="parameters" element="tns:eliminarComprobante" />
-  </message>
-  <message name="eliminarComprobanteResponse">
-    <part name="parameters" element="tns:eliminarComprobanteResponse" />
-  </message>
   <portType name="ComprobanteWS">
+    <operation name="registrarComprobante">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest" message="tns:registrarComprobante" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse" message="tns:registrarComprobanteResponse" />
+    </operation>
+    <operation name="eliminarComprobante">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest" message="tns:eliminarComprobante" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse" message="tns:eliminarComprobanteResponse" />
+    </operation>
+    <operation name="actualizarComprobante">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest" message="tns:actualizarComprobante" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse" message="tns:actualizarComprobanteResponse" />
+    </operation>
     <operation name="listarComprobante">
       <input wsam:Action="http://michisistemaws.com/ComprobanteWS/listarComprobanteRequest" message="tns:listarComprobante" />
       <output wsam:Action="http://michisistemaws.com/ComprobanteWS/listarComprobanteResponse" message="tns:listarComprobanteResponse" />
@@ -54,21 +66,36 @@
       <input wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarEstadoComprobanteRequest" message="tns:actualizarEstadoComprobante" />
       <output wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarEstadoComprobanteResponse" message="tns:actualizarEstadoComprobanteResponse" />
     </operation>
-    <operation name="actualizarComprobante">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest" message="tns:actualizarComprobante" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse" message="tns:actualizarComprobanteResponse" />
-    </operation>
-    <operation name="registrarComprobante">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest" message="tns:registrarComprobante" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse" message="tns:registrarComprobanteResponse" />
-    </operation>
-    <operation name="eliminarComprobante">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest" message="tns:eliminarComprobante" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse" message="tns:eliminarComprobanteResponse" />
-    </operation>
   </portType>
   <binding name="ComprobanteWSPortBinding" type="tns:ComprobanteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="registrarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarComprobante">
       <soap:operation soapAction="" />
       <input>
@@ -88,33 +115,6 @@
       </output>
     </operation>
     <operation name="actualizarEstadoComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="actualizarComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="registrarComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarComprobante">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

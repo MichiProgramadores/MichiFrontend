@@ -29,7 +29,7 @@ namespace MichiSistemaWeb
                 ddlTipoTrabajador.DataBind();
 
                 // Opcional: agregar un valor por defecto
-                ddlTipoTrabajador.Items.Insert(0, new ListItem("Seleccione...", ""));
+                ddlTipoTrabajador.Items.Insert(0, new ListItem("-- Seleccione --", ""));
             }
 
         }

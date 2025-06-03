@@ -14,14 +14,12 @@
                 </h2>
             </div>
             <div class="card-body">
-                <%--
                 <div class="mb-3 row">
                     <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIDCliente" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-                --%>
 
                  <div class="mb-3 row">
                      <asp:Label ID="lblNombres" runat="server" Text="Nombres: " CssClass="col-sm-2 form-label"></asp:Label>
@@ -57,6 +55,27 @@
                     <div class="col-sm-8">
                         <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
                         </asp:DropDownList>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <asp:Label id="lblNumeroTipoCliente" runat="server" Text="Número de tipo de cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:TextBox id="txtNumeroTipoCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <asp:Label id="lblPuntuacion" runat="server" Text="Puntuación: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:TextBox id="txtPuntuacion" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <asp:Label id="lblActivo" runat="server" Text="Activo: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:TextBox id="txtActivo" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 

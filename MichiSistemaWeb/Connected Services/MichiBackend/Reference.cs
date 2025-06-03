@@ -15,6 +15,26 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.ServiceModel.ServiceContractAttribute(Namespace="com.MichiSistema", ConfigurationName="MichiBackend.TrabajadorWS")]
     public interface TrabajadorWS {
         
+        // CODEGEN: Parameter 'trabajador' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/actualizarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/actualizarTrabajadorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse actualizarTrabajador(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/actualizarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/actualizarTrabajadorResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request);
+        
+        // CODEGEN: Parameter 'trabajador' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/registrarTrabajadorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse registrarTrabajador(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/registrarTrabajadorResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request);
+        
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/listarTrabajadoresRequest", ReplyAction="com.MichiSistema/TrabajadorWS/listarTrabajadoresResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -46,26 +66,6 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/obtenerTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/obtenerTrabajadorResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerTrabajadorResponse> obtenerTrabajadorAsync(MichiSistemaWeb.MichiBackend.obtenerTrabajadorRequest request);
-        
-        // CODEGEN: Parameter 'trabajador' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/registrarTrabajadorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse registrarTrabajador(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/registrarTrabajadorResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request);
-        
-        // CODEGEN: Parameter 'trabajador' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/actualizarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/actualizarTrabajadorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse actualizarTrabajador(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/actualizarTrabajadorRequest", ReplyAction="com.MichiSistema/TrabajadorWS/actualizarTrabajadorResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request);
     }
     
     /// <remarks/>
@@ -618,9 +618,6 @@ namespace MichiSistemaWeb.MichiBackend {
         
         /// <remarks/>
         LIBRA,
-        
-        /// <remarks/>
-        TONELADA_CORTA,
     }
     
     /// <remarks/>
@@ -1762,10 +1759,7 @@ namespace MichiSistemaWeb.MichiBackend {
         DECORACION,
         
         /// <remarks/>
-        ENVASE,
-        
-        /// <remarks/>
-        REGALO,
+        REGALOS,
         
         /// <remarks/>
         EQUIPO_AUDIOVISUAL,
@@ -1806,9 +1800,67 @@ namespace MichiSistemaWeb.MichiBackend {
         
         /// <remarks/>
         LIBRA,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarTrabajador", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class actualizarTrabajadorRequest {
         
-        /// <remarks/>
-        TONELADA_CORTA,
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.trabajador trabajador;
+        
+        public actualizarTrabajadorRequest() {
+        }
+        
+        public actualizarTrabajadorRequest(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
+            this.trabajador = trabajador;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarTrabajadorResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class actualizarTrabajadorResponse {
+        
+        public actualizarTrabajadorResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarTrabajador", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class registrarTrabajadorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.trabajador trabajador;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string str_tipoTrabajador;
+        
+        public registrarTrabajadorRequest() {
+        }
+        
+        public registrarTrabajadorRequest(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
+            this.trabajador = trabajador;
+            this.str_tipoTrabajador = str_tipoTrabajador;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarTrabajadorResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class registrarTrabajadorResponse {
+        
+        public registrarTrabajadorResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1903,67 +1955,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarTrabajador", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class registrarTrabajadorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.trabajador trabajador;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string str_tipoTrabajador;
-        
-        public registrarTrabajadorRequest() {
-        }
-        
-        public registrarTrabajadorRequest(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
-            this.trabajador = trabajador;
-            this.str_tipoTrabajador = str_tipoTrabajador;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarTrabajadorResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class registrarTrabajadorResponse {
-        
-        public registrarTrabajadorResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarTrabajador", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class actualizarTrabajadorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.trabajador trabajador;
-        
-        public actualizarTrabajadorRequest() {
-        }
-        
-        public actualizarTrabajadorRequest(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
-            this.trabajador = trabajador;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarTrabajadorResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class actualizarTrabajadorResponse {
-        
-        public actualizarTrabajadorResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface TrabajadorWSChannel : MichiSistemaWeb.MichiBackend.TrabajadorWS, System.ServiceModel.IClientChannel {
     }
@@ -1989,6 +1980,52 @@ namespace MichiSistemaWeb.MichiBackend {
         
         public TrabajadorWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.actualizarTrabajador(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request) {
+            return base.Channel.actualizarTrabajador(request);
+        }
+        
+        public void actualizarTrabajador(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
+            MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest();
+            inValue.trabajador = trabajador;
+            MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).actualizarTrabajador(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request) {
+            return base.Channel.actualizarTrabajadorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
+            MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest();
+            inValue.trabajador = trabajador;
+            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).actualizarTrabajadorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.registrarTrabajador(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request) {
+            return base.Channel.registrarTrabajador(request);
+        }
+        
+        public void registrarTrabajador(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
+            MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest();
+            inValue.trabajador = trabajador;
+            inValue.str_tipoTrabajador = str_tipoTrabajador;
+            MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).registrarTrabajador(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request) {
+            return base.Channel.registrarTrabajadorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
+            MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest();
+            inValue.trabajador = trabajador;
+            inValue.str_tipoTrabajador = str_tipoTrabajador;
+            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).registrarTrabajadorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2056,52 +2093,6 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.idTrabajador = idTrabajador;
             return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).obtenerTrabajadorAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.registrarTrabajador(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request) {
-            return base.Channel.registrarTrabajador(request);
-        }
-        
-        public void registrarTrabajador(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
-            MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest();
-            inValue.trabajador = trabajador;
-            inValue.str_tipoTrabajador = str_tipoTrabajador;
-            MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).registrarTrabajador(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest request) {
-            return base.Channel.registrarTrabajadorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse> registrarTrabajadorAsync(MichiSistemaWeb.MichiBackend.trabajador trabajador, string str_tipoTrabajador) {
-            MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.registrarTrabajadorRequest();
-            inValue.trabajador = trabajador;
-            inValue.str_tipoTrabajador = str_tipoTrabajador;
-            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).registrarTrabajadorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.actualizarTrabajador(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request) {
-            return base.Channel.actualizarTrabajador(request);
-        }
-        
-        public void actualizarTrabajador(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
-            MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest();
-            inValue.trabajador = trabajador;
-            MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).actualizarTrabajador(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest request) {
-            return base.Channel.actualizarTrabajadorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse> actualizarTrabajadorAsync(MichiSistemaWeb.MichiBackend.trabajador trabajador) {
-            MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarTrabajadorRequest();
-            inValue.trabajador = trabajador;
-            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).actualizarTrabajadorAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2139,16 +2130,6 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/actualizarProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/actualizarProductoResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarProductoResponse> actualizarProductoAsync(MichiSistemaWeb.MichiBackend.actualizarProductoRequest request);
         
-        // CODEGEN: Parameter 'idProducto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/eliminarProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/eliminarProductoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.eliminarProductoResponse eliminarProducto(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/eliminarProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/eliminarProductoResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> eliminarProductoAsync(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request);
-        
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/obtenerProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/obtenerProductoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2159,6 +2140,16 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/obtenerProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/obtenerProductoResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerProductoResponse> obtenerProductoAsync(MichiSistemaWeb.MichiBackend.obtenerProductoRequest request);
+        
+        // CODEGEN: Parameter 'idProducto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/eliminarProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/eliminarProductoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.eliminarProductoResponse eliminarProducto(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/ProductoWS/eliminarProductoRequest", ReplyAction="com.MichiSistema/ProductoWS/eliminarProductoResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> eliminarProductoAsync(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2199,11 +2190,21 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public MichiSistemaWeb.MichiBackend.producto producto;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string str_tipoProducto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string str_unidadMedida;
+        
         public registrarProductoRequest() {
         }
         
-        public registrarProductoRequest(MichiSistemaWeb.MichiBackend.producto producto) {
+        public registrarProductoRequest(MichiSistemaWeb.MichiBackend.producto producto, string str_tipoProducto, string str_unidadMedida) {
             this.producto = producto;
+            this.str_tipoProducto = str_tipoProducto;
+            this.str_unidadMedida = str_unidadMedida;
         }
     }
     
@@ -2248,34 +2249,6 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProducto", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class eliminarProductoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idProducto;
-        
-        public eliminarProductoRequest() {
-        }
-        
-        public eliminarProductoRequest(int idProducto) {
-            this.idProducto = idProducto;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class eliminarProductoResponse {
-        
-        public eliminarProductoResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProducto", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
     public partial class obtenerProductoRequest {
         
@@ -2306,6 +2279,34 @@ namespace MichiSistemaWeb.MichiBackend {
         
         public obtenerProductoResponse(MichiSistemaWeb.MichiBackend.producto @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProducto", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class eliminarProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idProducto;
+        
+        public eliminarProductoRequest() {
+        }
+        
+        public eliminarProductoRequest(int idProducto) {
+            this.idProducto = idProducto;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class eliminarProductoResponse {
+        
+        public eliminarProductoResponse() {
         }
     }
     
@@ -2362,9 +2363,11 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.registrarProducto(request);
         }
         
-        public void registrarProducto(MichiSistemaWeb.MichiBackend.producto producto) {
+        public void registrarProducto(MichiSistemaWeb.MichiBackend.producto producto, string str_tipoProducto, string str_unidadMedida) {
             MichiSistemaWeb.MichiBackend.registrarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.registrarProductoRequest();
             inValue.producto = producto;
+            inValue.str_tipoProducto = str_tipoProducto;
+            inValue.str_unidadMedida = str_unidadMedida;
             MichiSistemaWeb.MichiBackend.registrarProductoResponse retVal = ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).registrarProducto(inValue);
         }
         
@@ -2373,9 +2376,11 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.registrarProductoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarProductoResponse> registrarProductoAsync(MichiSistemaWeb.MichiBackend.producto producto) {
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarProductoResponse> registrarProductoAsync(MichiSistemaWeb.MichiBackend.producto producto, string str_tipoProducto, string str_unidadMedida) {
             MichiSistemaWeb.MichiBackend.registrarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.registrarProductoRequest();
             inValue.producto = producto;
+            inValue.str_tipoProducto = str_tipoProducto;
+            inValue.str_unidadMedida = str_unidadMedida;
             return ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).registrarProductoAsync(inValue);
         }
         
@@ -2402,28 +2407,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.eliminarProductoResponse MichiSistemaWeb.MichiBackend.ProductoWS.eliminarProducto(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request) {
-            return base.Channel.eliminarProducto(request);
-        }
-        
-        public void eliminarProducto(int idProducto) {
-            MichiSistemaWeb.MichiBackend.eliminarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarProductoRequest();
-            inValue.idProducto = idProducto;
-            MichiSistemaWeb.MichiBackend.eliminarProductoResponse retVal = ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).eliminarProducto(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> MichiSistemaWeb.MichiBackend.ProductoWS.eliminarProductoAsync(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request) {
-            return base.Channel.eliminarProductoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> eliminarProductoAsync(int idProducto) {
-            MichiSistemaWeb.MichiBackend.eliminarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarProductoRequest();
-            inValue.idProducto = idProducto;
-            return ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).eliminarProductoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.obtenerProductoResponse MichiSistemaWeb.MichiBackend.ProductoWS.obtenerProducto(MichiSistemaWeb.MichiBackend.obtenerProductoRequest request) {
             return base.Channel.obtenerProducto(request);
         }
@@ -2445,11 +2428,54 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.idProducto = idProducto;
             return ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).obtenerProductoAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.eliminarProductoResponse MichiSistemaWeb.MichiBackend.ProductoWS.eliminarProducto(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request) {
+            return base.Channel.eliminarProducto(request);
+        }
+        
+        public void eliminarProducto(int idProducto) {
+            MichiSistemaWeb.MichiBackend.eliminarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarProductoRequest();
+            inValue.idProducto = idProducto;
+            MichiSistemaWeb.MichiBackend.eliminarProductoResponse retVal = ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).eliminarProducto(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> MichiSistemaWeb.MichiBackend.ProductoWS.eliminarProductoAsync(MichiSistemaWeb.MichiBackend.eliminarProductoRequest request) {
+            return base.Channel.eliminarProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarProductoResponse> eliminarProductoAsync(int idProducto) {
+            MichiSistemaWeb.MichiBackend.eliminarProductoRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarProductoRequest();
+            inValue.idProducto = idProducto;
+            return ((MichiSistemaWeb.MichiBackend.ProductoWS)(this)).eliminarProductoAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://michisistemaws.com/", ConfigurationName="MichiBackend.EventoWS")]
     public interface EventoWS {
+        
+        // CODEGEN: Parameter 'evento' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/actualizarEventoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.actualizarEventoResponse actualizarEvento(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/actualizarEventoResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> actualizarEventoAsync(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/obtenerEventoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        MichiSistemaWeb.MichiBackend.obtenerEventoResponse obtenerEvento(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/obtenerEventoResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> obtenerEventoAsync(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request);
         
         // CODEGEN: Parameter 'evento' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/registrarEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/registrarEventoResponse")]
@@ -2472,27 +2498,6 @@ namespace MichiSistemaWeb.MichiBackend {
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarEventoResponse> eliminarEventoAsync(MichiSistemaWeb.MichiBackend.eliminarEventoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/obtenerEventoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        MichiSistemaWeb.MichiBackend.obtenerEventoResponse obtenerEvento(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/obtenerEventoResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> obtenerEventoAsync(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request);
-        
-        // CODEGEN: Parameter 'evento' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/actualizarEventoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.actualizarEventoResponse actualizarEvento(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest", ReplyAction="http://michisistemaws.com/EventoWS/actualizarEventoResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> actualizarEventoAsync(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/listarEventosRequest", ReplyAction="http://michisistemaws.com/EventoWS/listarEventosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
@@ -2502,6 +2507,70 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/EventoWS/listarEventosRequest", ReplyAction="http://michisistemaws.com/EventoWS/listarEventosResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarEventosResponse> listarEventosAsync(MichiSistemaWeb.MichiBackend.listarEventosRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEvento", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarEventoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.evento evento;
+        
+        public actualizarEventoRequest() {
+        }
+        
+        public actualizarEventoRequest(MichiSistemaWeb.MichiBackend.evento evento) {
+            this.evento = evento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEventoResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarEventoResponse {
+        
+        public actualizarEventoResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEvento", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class obtenerEventoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idEvento;
+        
+        public obtenerEventoRequest() {
+        }
+        
+        public obtenerEventoRequest(int idEvento) {
+            this.idEvento = idEvento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEventoResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class obtenerEventoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.evento @return;
+        
+        public obtenerEventoResponse() {
+        }
+        
+        public obtenerEventoResponse(MichiSistemaWeb.MichiBackend.evento @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2563,70 +2632,6 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEvento", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class obtenerEventoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idEvento;
-        
-        public obtenerEventoRequest() {
-        }
-        
-        public obtenerEventoRequest(int idEvento) {
-            this.idEvento = idEvento;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEventoResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class obtenerEventoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.evento @return;
-        
-        public obtenerEventoResponse() {
-        }
-        
-        public obtenerEventoResponse(MichiSistemaWeb.MichiBackend.evento @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEvento", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarEventoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.evento evento;
-        
-        public actualizarEventoRequest() {
-        }
-        
-        public actualizarEventoRequest(MichiSistemaWeb.MichiBackend.evento evento) {
-            this.evento = evento;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEventoResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarEventoResponse {
-        
-        public actualizarEventoResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarEventos", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
     public partial class listarEventosRequest {
         
@@ -2680,6 +2685,51 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.actualizarEventoResponse MichiSistemaWeb.MichiBackend.EventoWS.actualizarEvento(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request) {
+            return base.Channel.actualizarEvento(request);
+        }
+        
+        public void actualizarEvento(MichiSistemaWeb.MichiBackend.evento evento) {
+            MichiSistemaWeb.MichiBackend.actualizarEventoRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEventoRequest();
+            inValue.evento = evento;
+            MichiSistemaWeb.MichiBackend.actualizarEventoResponse retVal = ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).actualizarEvento(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> MichiSistemaWeb.MichiBackend.EventoWS.actualizarEventoAsync(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request) {
+            return base.Channel.actualizarEventoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> actualizarEventoAsync(MichiSistemaWeb.MichiBackend.evento evento) {
+            MichiSistemaWeb.MichiBackend.actualizarEventoRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEventoRequest();
+            inValue.evento = evento;
+            return ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).actualizarEventoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.obtenerEventoResponse MichiSistemaWeb.MichiBackend.EventoWS.obtenerEvento(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request) {
+            return base.Channel.obtenerEvento(request);
+        }
+        
+        public MichiSistemaWeb.MichiBackend.evento obtenerEvento(int idEvento) {
+            MichiSistemaWeb.MichiBackend.obtenerEventoRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerEventoRequest();
+            inValue.idEvento = idEvento;
+            MichiSistemaWeb.MichiBackend.obtenerEventoResponse retVal = ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).obtenerEvento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> MichiSistemaWeb.MichiBackend.EventoWS.obtenerEventoAsync(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request) {
+            return base.Channel.obtenerEventoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> obtenerEventoAsync(int idEvento) {
+            MichiSistemaWeb.MichiBackend.obtenerEventoRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerEventoRequest();
+            inValue.idEvento = idEvento;
+            return ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).obtenerEventoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.registrarEventoResponse MichiSistemaWeb.MichiBackend.EventoWS.registrarEvento(MichiSistemaWeb.MichiBackend.registrarEventoRequest request) {
             return base.Channel.registrarEvento(request);
         }
@@ -2724,51 +2774,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.obtenerEventoResponse MichiSistemaWeb.MichiBackend.EventoWS.obtenerEvento(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request) {
-            return base.Channel.obtenerEvento(request);
-        }
-        
-        public MichiSistemaWeb.MichiBackend.evento obtenerEvento(int idEvento) {
-            MichiSistemaWeb.MichiBackend.obtenerEventoRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerEventoRequest();
-            inValue.idEvento = idEvento;
-            MichiSistemaWeb.MichiBackend.obtenerEventoResponse retVal = ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).obtenerEvento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> MichiSistemaWeb.MichiBackend.EventoWS.obtenerEventoAsync(MichiSistemaWeb.MichiBackend.obtenerEventoRequest request) {
-            return base.Channel.obtenerEventoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerEventoResponse> obtenerEventoAsync(int idEvento) {
-            MichiSistemaWeb.MichiBackend.obtenerEventoRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerEventoRequest();
-            inValue.idEvento = idEvento;
-            return ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).obtenerEventoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.actualizarEventoResponse MichiSistemaWeb.MichiBackend.EventoWS.actualizarEvento(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request) {
-            return base.Channel.actualizarEvento(request);
-        }
-        
-        public void actualizarEvento(MichiSistemaWeb.MichiBackend.evento evento) {
-            MichiSistemaWeb.MichiBackend.actualizarEventoRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEventoRequest();
-            inValue.evento = evento;
-            MichiSistemaWeb.MichiBackend.actualizarEventoResponse retVal = ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).actualizarEvento(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> MichiSistemaWeb.MichiBackend.EventoWS.actualizarEventoAsync(MichiSistemaWeb.MichiBackend.actualizarEventoRequest request) {
-            return base.Channel.actualizarEventoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEventoResponse> actualizarEventoAsync(MichiSistemaWeb.MichiBackend.evento evento) {
-            MichiSistemaWeb.MichiBackend.actualizarEventoRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEventoRequest();
-            inValue.evento = evento;
-            return ((MichiSistemaWeb.MichiBackend.EventoWS)(this)).actualizarEventoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.listarEventosResponse MichiSistemaWeb.MichiBackend.EventoWS.listarEventos(MichiSistemaWeb.MichiBackend.listarEventosRequest request) {
             return base.Channel.listarEventos(request);
         }
@@ -2793,6 +2798,36 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://michisistemaws.com/", ConfigurationName="MichiBackend.ComprobanteWS")]
     public interface ComprobanteWS {
+        
+        // CODEGEN: Parameter 'comprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.registrarComprobanteResponse registrarComprobante(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request);
+        
+        // CODEGEN: Parameter 'idComprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse eliminarComprobante(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> eliminarComprobanteAsync(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request);
+        
+        // CODEGEN: Parameter 'comprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse actualizarComprobante(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/listarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/listarComprobanteResponse")]
@@ -2825,36 +2860,90 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/actualizarEstadoComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/actualizarEstadoComprobanteResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoComprobanteResponse> actualizarEstadoComprobanteAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoComprobanteRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class registrarComprobanteRequest {
         
-        // CODEGEN: Parameter 'comprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse actualizarComprobante(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.comprobante comprobante;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request);
+        public registrarComprobanteRequest() {
+        }
         
-        // CODEGEN: Parameter 'comprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.registrarComprobanteResponse registrarComprobante(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request);
+        public registrarComprobanteRequest(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            this.comprobante = comprobante;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class registrarComprobanteResponse {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/registrarComprobanteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request);
+        public registrarComprobanteResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class eliminarComprobanteRequest {
         
-        // CODEGEN: Parameter 'idComprobante' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse eliminarComprobante(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idComprobante;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest", ReplyAction="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> eliminarComprobanteAsync(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request);
+        public eliminarComprobanteRequest() {
+        }
+        
+        public eliminarComprobanteRequest(int idComprobante) {
+            this.idComprobante = idComprobante;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class eliminarComprobanteResponse {
+        
+        public eliminarComprobanteResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarComprobanteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.comprobante comprobante;
+        
+        public actualizarComprobanteRequest() {
+        }
+        
+        public actualizarComprobanteRequest(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            this.comprobante = comprobante;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarComprobanteResponse {
+        
+        public actualizarComprobanteResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2954,90 +3043,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarComprobanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.comprobante comprobante;
-        
-        public actualizarComprobanteRequest() {
-        }
-        
-        public actualizarComprobanteRequest(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            this.comprobante = comprobante;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarComprobanteResponse {
-        
-        public actualizarComprobanteResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class registrarComprobanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.comprobante comprobante;
-        
-        public registrarComprobanteRequest() {
-        }
-        
-        public registrarComprobanteRequest(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            this.comprobante = comprobante;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class registrarComprobanteResponse {
-        
-        public registrarComprobanteResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarComprobante", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class eliminarComprobanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idComprobante;
-        
-        public eliminarComprobanteRequest() {
-        }
-        
-        public eliminarComprobanteRequest(int idComprobante) {
-            this.idComprobante = idComprobante;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarComprobanteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class eliminarComprobanteResponse {
-        
-        public eliminarComprobanteResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ComprobanteWSChannel : MichiSistemaWeb.MichiBackend.ComprobanteWS, System.ServiceModel.IClientChannel {
     }
@@ -3063,6 +3068,72 @@ namespace MichiSistemaWeb.MichiBackend {
         
         public ComprobanteWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.registrarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.registrarComprobante(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request) {
+            return base.Channel.registrarComprobante(request);
+        }
+        
+        public void registrarComprobante(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            MichiSistemaWeb.MichiBackend.registrarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            MichiSistemaWeb.MichiBackend.registrarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).registrarComprobante(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request) {
+            return base.Channel.registrarComprobanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            MichiSistemaWeb.MichiBackend.registrarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).registrarComprobanteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.eliminarComprobante(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request) {
+            return base.Channel.eliminarComprobante(request);
+        }
+        
+        public void eliminarComprobante(int idComprobante) {
+            MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest();
+            inValue.idComprobante = idComprobante;
+            MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).eliminarComprobante(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.eliminarComprobanteAsync(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request) {
+            return base.Channel.eliminarComprobanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> eliminarComprobanteAsync(int idComprobante) {
+            MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest();
+            inValue.idComprobante = idComprobante;
+            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).eliminarComprobanteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.actualizarComprobante(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request) {
+            return base.Channel.actualizarComprobante(request);
+        }
+        
+        public void actualizarComprobante(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).actualizarComprobante(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request) {
+            return base.Channel.actualizarComprobanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
+            MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).actualizarComprobanteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3132,77 +3203,21 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.toString = toString;
             return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).actualizarEstadoComprobanteAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.actualizarComprobante(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request) {
-            return base.Channel.actualizarComprobante(request);
-        }
-        
-        public void actualizarComprobante(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).actualizarComprobante(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest request) {
-            return base.Channel.actualizarComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse> actualizarComprobanteAsync(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).actualizarComprobanteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.registrarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.registrarComprobante(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request) {
-            return base.Channel.registrarComprobante(request);
-        }
-        
-        public void registrarComprobante(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            MichiSistemaWeb.MichiBackend.registrarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            MichiSistemaWeb.MichiBackend.registrarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).registrarComprobante(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.registrarComprobanteRequest request) {
-            return base.Channel.registrarComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarComprobanteResponse> registrarComprobanteAsync(MichiSistemaWeb.MichiBackend.comprobante comprobante) {
-            MichiSistemaWeb.MichiBackend.registrarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).registrarComprobanteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse MichiSistemaWeb.MichiBackend.ComprobanteWS.eliminarComprobante(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request) {
-            return base.Channel.eliminarComprobante(request);
-        }
-        
-        public void eliminarComprobante(int idComprobante) {
-            MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest();
-            inValue.idComprobante = idComprobante;
-            MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse retVal = ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).eliminarComprobante(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> MichiSistemaWeb.MichiBackend.ComprobanteWS.eliminarComprobanteAsync(MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest request) {
-            return base.Channel.eliminarComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse> eliminarComprobanteAsync(int idComprobante) {
-            MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarComprobanteRequest();
-            inValue.idComprobante = idComprobante;
-            return ((MichiSistemaWeb.MichiBackend.ComprobanteWS)(this)).eliminarComprobanteAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://michisistemaws.com/", ConfigurationName="MichiBackend.OrdenWS")]
     public interface OrdenWS {
+        
+        // CODEGEN: Parameter 'ventaId' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse actualizarEstadoDevolucion(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request);
         
         // CODEGEN: Parameter 'orden' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/registrarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/registrarOrdenResponse")]
@@ -3235,6 +3250,16 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/obtenerOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/obtenerOrdenResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerOrdenResponse> obtenerOrdenAsync(MichiSistemaWeb.MichiBackend.obtenerOrdenRequest request);
         
+        // CODEGEN: Parameter 'idOrden' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/eliminarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/eliminarOrdenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.eliminarOrdenResponse eliminarOrden(MichiSistemaWeb.MichiBackend.eliminarOrdenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/eliminarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/eliminarOrdenResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarOrdenResponse> eliminarOrdenAsync(MichiSistemaWeb.MichiBackend.eliminarOrdenRequest request);
+        
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/listarOrdenesRequest", ReplyAction="http://michisistemaws.com/OrdenWS/listarOrdenesResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3246,16 +3271,6 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/listarOrdenesRequest", ReplyAction="http://michisistemaws.com/OrdenWS/listarOrdenesResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarOrdenesResponse> listarOrdenesAsync(MichiSistemaWeb.MichiBackend.listarOrdenesRequest request);
         
-        // CODEGEN: Parameter 'idOrden' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/eliminarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/eliminarOrdenResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.eliminarOrdenResponse eliminarOrden(MichiSistemaWeb.MichiBackend.eliminarOrdenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/eliminarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/eliminarOrdenResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarOrdenResponse> eliminarOrdenAsync(MichiSistemaWeb.MichiBackend.eliminarOrdenRequest request);
-        
         // CODEGEN: Parameter 'ventaId' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3265,16 +3280,39 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse> actualizarEstadoFechaDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstadoDevolucion", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarEstadoDevolucionRequest {
         
-        // CODEGEN: Parameter 'ventaId' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse actualizarEstadoDevolucion(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ventaId;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado;
+        
+        public actualizarEstadoDevolucionRequest() {
+        }
+        
+        public actualizarEstadoDevolucionRequest(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
+            this.ventaId = ventaId;
+            this.estado = estado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstadoDevolucionResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarEstadoDevolucionResponse {
+        
+        public actualizarEstadoDevolucionResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3372,34 +3410,6 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenes", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class listarOrdenesRequest {
-        
-        public listarOrdenesRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class listarOrdenesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.orden[] @return;
-        
-        public listarOrdenesResponse() {
-        }
-        
-        public listarOrdenesResponse(MichiSistemaWeb.MichiBackend.orden[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrden", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
     public partial class eliminarOrdenRequest {
         
@@ -3422,6 +3432,34 @@ namespace MichiSistemaWeb.MichiBackend {
     public partial class eliminarOrdenResponse {
         
         public eliminarOrdenResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenes", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class listarOrdenesRequest {
+        
+        public listarOrdenesRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class listarOrdenesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.orden[] @return;
+        
+        public listarOrdenesResponse() {
+        }
+        
+        public listarOrdenesResponse(MichiSistemaWeb.MichiBackend.orden[] @return) {
+            this.@return = @return;
         }
     }
     
@@ -3458,39 +3496,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstadoDevolucion", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarEstadoDevolucionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int ventaId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado;
-        
-        public actualizarEstadoDevolucionRequest() {
-        }
-        
-        public actualizarEstadoDevolucionRequest(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
-            this.ventaId = ventaId;
-            this.estado = estado;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstadoDevolucionResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarEstadoDevolucionResponse {
-        
-        public actualizarEstadoDevolucionResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface OrdenWSChannel : MichiSistemaWeb.MichiBackend.OrdenWS, System.ServiceModel.IClientChannel {
     }
@@ -3516,6 +3521,30 @@ namespace MichiSistemaWeb.MichiBackend {
         
         public OrdenWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse MichiSistemaWeb.MichiBackend.OrdenWS.actualizarEstadoDevolucion(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request) {
+            return base.Channel.actualizarEstadoDevolucion(request);
+        }
+        
+        public void actualizarEstadoDevolucion(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
+            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
+            inValue.ventaId = ventaId;
+            inValue.estado = estado;
+            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucion(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> MichiSistemaWeb.MichiBackend.OrdenWS.actualizarEstadoDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request) {
+            return base.Channel.actualizarEstadoDevolucionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
+            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
+            inValue.ventaId = ventaId;
+            inValue.estado = estado;
+            return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3586,27 +3615,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.listarOrdenesResponse MichiSistemaWeb.MichiBackend.OrdenWS.listarOrdenes(MichiSistemaWeb.MichiBackend.listarOrdenesRequest request) {
-            return base.Channel.listarOrdenes(request);
-        }
-        
-        public MichiSistemaWeb.MichiBackend.orden[] listarOrdenes() {
-            MichiSistemaWeb.MichiBackend.listarOrdenesRequest inValue = new MichiSistemaWeb.MichiBackend.listarOrdenesRequest();
-            MichiSistemaWeb.MichiBackend.listarOrdenesResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).listarOrdenes(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarOrdenesResponse> MichiSistemaWeb.MichiBackend.OrdenWS.listarOrdenesAsync(MichiSistemaWeb.MichiBackend.listarOrdenesRequest request) {
-            return base.Channel.listarOrdenesAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarOrdenesResponse> listarOrdenesAsync() {
-            MichiSistemaWeb.MichiBackend.listarOrdenesRequest inValue = new MichiSistemaWeb.MichiBackend.listarOrdenesRequest();
-            return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).listarOrdenesAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.eliminarOrdenResponse MichiSistemaWeb.MichiBackend.OrdenWS.eliminarOrden(MichiSistemaWeb.MichiBackend.eliminarOrdenRequest request) {
             return base.Channel.eliminarOrden(request);
         }
@@ -3626,6 +3634,27 @@ namespace MichiSistemaWeb.MichiBackend {
             MichiSistemaWeb.MichiBackend.eliminarOrdenRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarOrdenRequest();
             inValue.idOrden = idOrden;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).eliminarOrdenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.listarOrdenesResponse MichiSistemaWeb.MichiBackend.OrdenWS.listarOrdenes(MichiSistemaWeb.MichiBackend.listarOrdenesRequest request) {
+            return base.Channel.listarOrdenes(request);
+        }
+        
+        public MichiSistemaWeb.MichiBackend.orden[] listarOrdenes() {
+            MichiSistemaWeb.MichiBackend.listarOrdenesRequest inValue = new MichiSistemaWeb.MichiBackend.listarOrdenesRequest();
+            MichiSistemaWeb.MichiBackend.listarOrdenesResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).listarOrdenes(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarOrdenesResponse> MichiSistemaWeb.MichiBackend.OrdenWS.listarOrdenesAsync(MichiSistemaWeb.MichiBackend.listarOrdenesRequest request) {
+            return base.Channel.listarOrdenesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarOrdenesResponse> listarOrdenesAsync() {
+            MichiSistemaWeb.MichiBackend.listarOrdenesRequest inValue = new MichiSistemaWeb.MichiBackend.listarOrdenesRequest();
+            return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).listarOrdenesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3651,35 +3680,21 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.estado = estado;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoFechaDevolucionAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse MichiSistemaWeb.MichiBackend.OrdenWS.actualizarEstadoDevolucion(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request) {
-            return base.Channel.actualizarEstadoDevolucion(request);
-        }
-        
-        public void actualizarEstadoDevolucion(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
-            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
-            inValue.ventaId = ventaId;
-            inValue.estado = estado;
-            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucion(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> MichiSistemaWeb.MichiBackend.OrdenWS.actualizarEstadoDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest request) {
-            return base.Channel.actualizarEstadoDevolucionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
-            MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
-            inValue.ventaId = ventaId;
-            inValue.estado = estado;
-            return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucionAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="com.MichiSistema", ConfigurationName="MichiBackend.UsuarioWS")]
     public interface UsuarioWS {
+        
+        // CODEGEN: Parameter 'idUsuario' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse eliminarUsuario(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> eliminarUsuarioAsync(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest", ReplyAction="com.MichiSistema/UsuarioWS/listarUsuariosResponse")]
@@ -3691,17 +3706,6 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest", ReplyAction="com.MichiSistema/UsuarioWS/listarUsuariosResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarUsuariosResponse> listarUsuariosAsync(MichiSistemaWeb.MichiBackend.listarUsuariosRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse obtenerUsuario(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> obtenerUsuarioAsync(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request);
         
         // CODEGEN: Parameter 'usuario' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/registrarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/registrarUsuarioResponse")]
@@ -3723,15 +3727,44 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarUsuarioResponse> actualizarUsuarioAsync(MichiSistemaWeb.MichiBackend.actualizarUsuarioRequest request);
         
-        // CODEGEN: Parameter 'idUsuario' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse")]
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse eliminarUsuario(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse obtenerUsuario(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> eliminarUsuarioAsync(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest", ReplyAction="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> obtenerUsuarioAsync(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarUsuario", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class eliminarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario;
+        
+        public eliminarUsuarioRequest() {
+        }
+        
+        public eliminarUsuarioRequest(int idUsuario) {
+            this.idUsuario = idUsuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarUsuarioResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class eliminarUsuarioResponse {
+        
+        public eliminarUsuarioResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3758,42 +3791,6 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         public listarUsuariosResponse(MichiSistemaWeb.MichiBackend.usuario[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerUsuario", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class obtenerUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
-        
-        public obtenerUsuarioRequest() {
-        }
-        
-        public obtenerUsuarioRequest(int idUsuario) {
-            this.idUsuario = idUsuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerUsuarioResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class obtenerUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.usuario @return;
-        
-        public obtenerUsuarioResponse() {
-        }
-        
-        public obtenerUsuarioResponse(MichiSistemaWeb.MichiBackend.usuario @return) {
             this.@return = @return;
         }
     }
@@ -3857,17 +3854,17 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarUsuario", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class eliminarUsuarioRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerUsuario", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class obtenerUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idUsuario;
         
-        public eliminarUsuarioRequest() {
+        public obtenerUsuarioRequest() {
         }
         
-        public eliminarUsuarioRequest(int idUsuario) {
+        public obtenerUsuarioRequest(int idUsuario) {
             this.idUsuario = idUsuario;
         }
     }
@@ -3875,10 +3872,18 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarUsuarioResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
-    public partial class eliminarUsuarioResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerUsuarioResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class obtenerUsuarioResponse {
         
-        public eliminarUsuarioResponse() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.usuario @return;
+        
+        public obtenerUsuarioResponse() {
+        }
+        
+        public obtenerUsuarioResponse(MichiSistemaWeb.MichiBackend.usuario @return) {
+            this.@return = @return;
         }
     }
     
@@ -3910,6 +3915,28 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse MichiSistemaWeb.MichiBackend.UsuarioWS.eliminarUsuario(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request) {
+            return base.Channel.eliminarUsuario(request);
+        }
+        
+        public void eliminarUsuario(int idUsuario) {
+            MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse retVal = ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).eliminarUsuario(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> MichiSistemaWeb.MichiBackend.UsuarioWS.eliminarUsuarioAsync(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request) {
+            return base.Channel.eliminarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> eliminarUsuarioAsync(int idUsuario) {
+            MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            return ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).eliminarUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.listarUsuariosResponse MichiSistemaWeb.MichiBackend.UsuarioWS.listarUsuarios(MichiSistemaWeb.MichiBackend.listarUsuariosRequest request) {
             return base.Channel.listarUsuarios(request);
         }
@@ -3928,29 +3955,6 @@ namespace MichiSistemaWeb.MichiBackend {
         public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarUsuariosResponse> listarUsuariosAsync() {
             MichiSistemaWeb.MichiBackend.listarUsuariosRequest inValue = new MichiSistemaWeb.MichiBackend.listarUsuariosRequest();
             return ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).listarUsuariosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse MichiSistemaWeb.MichiBackend.UsuarioWS.obtenerUsuario(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request) {
-            return base.Channel.obtenerUsuario(request);
-        }
-        
-        public MichiSistemaWeb.MichiBackend.usuario obtenerUsuario(int idUsuario) {
-            MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse retVal = ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).obtenerUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> MichiSistemaWeb.MichiBackend.UsuarioWS.obtenerUsuarioAsync(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request) {
-            return base.Channel.obtenerUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> obtenerUsuarioAsync(int idUsuario) {
-            MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            return ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).obtenerUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3998,31 +4002,42 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse MichiSistemaWeb.MichiBackend.UsuarioWS.eliminarUsuario(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request) {
-            return base.Channel.eliminarUsuario(request);
+        MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse MichiSistemaWeb.MichiBackend.UsuarioWS.obtenerUsuario(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request) {
+            return base.Channel.obtenerUsuario(request);
         }
         
-        public void eliminarUsuario(int idUsuario) {
-            MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest();
+        public MichiSistemaWeb.MichiBackend.usuario obtenerUsuario(int idUsuario) {
+            MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest();
             inValue.idUsuario = idUsuario;
-            MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse retVal = ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).eliminarUsuario(inValue);
+            MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse retVal = ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).obtenerUsuario(inValue);
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> MichiSistemaWeb.MichiBackend.UsuarioWS.eliminarUsuarioAsync(MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest request) {
-            return base.Channel.eliminarUsuarioAsync(request);
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> MichiSistemaWeb.MichiBackend.UsuarioWS.obtenerUsuarioAsync(MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest request) {
+            return base.Channel.obtenerUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse> eliminarUsuarioAsync(int idUsuario) {
-            MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarUsuarioRequest();
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse> obtenerUsuarioAsync(int idUsuario) {
+            MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest inValue = new MichiSistemaWeb.MichiBackend.obtenerUsuarioRequest();
             inValue.idUsuario = idUsuario;
-            return ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).eliminarUsuarioAsync(inValue);
+            return ((MichiSistemaWeb.MichiBackend.UsuarioWS)(this)).obtenerUsuarioAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://michisistemaws.com/", ConfigurationName="MichiBackend.ClienteWS")]
     public interface ClienteWS {
+        
+        // CODEGEN: Parameter 'idCliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/eliminarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/eliminarClienteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        MichiSistemaWeb.MichiBackend.eliminarClienteResponse eliminarCliente(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/eliminarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/eliminarClienteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> eliminarClienteAsync(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/listarClientesRequest", ReplyAction="http://michisistemaws.com/ClienteWS/listarClientesResponse")]
@@ -4036,14 +4051,14 @@ namespace MichiSistemaWeb.MichiBackend {
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listarClientesResponse> listarClientesAsync(MichiSistemaWeb.MichiBackend.listarClientesRequest request);
         
         // CODEGEN: Parameter 'cliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/registrarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/registrarClienteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/actualizarClienteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.registrarClienteResponse registrarCliente(MichiSistemaWeb.MichiBackend.registrarClienteRequest request);
+        MichiSistemaWeb.MichiBackend.actualizarClienteResponse actualizarCliente(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/registrarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/registrarClienteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> registrarClienteAsync(MichiSistemaWeb.MichiBackend.registrarClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/actualizarClienteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> actualizarClienteAsync(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/obtenerClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/obtenerClienteResponse")]
@@ -4056,25 +4071,43 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/obtenerClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/obtenerClienteResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerClienteResponse> obtenerClienteAsync(MichiSistemaWeb.MichiBackend.obtenerClienteRequest request);
         
-        // CODEGEN: Parameter 'idCliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/eliminarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/eliminarClienteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.eliminarClienteResponse eliminarCliente(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/eliminarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/eliminarClienteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> eliminarClienteAsync(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request);
-        
         // CODEGEN: Parameter 'cliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/actualizarClienteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/registrarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/registrarClienteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        MichiSistemaWeb.MichiBackend.actualizarClienteResponse actualizarCliente(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request);
+        MichiSistemaWeb.MichiBackend.registrarClienteResponse registrarCliente(MichiSistemaWeb.MichiBackend.registrarClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/actualizarClienteResponse")]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> actualizarClienteAsync(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/ClienteWS/registrarClienteRequest", ReplyAction="http://michisistemaws.com/ClienteWS/registrarClienteResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> registrarClienteAsync(MichiSistemaWeb.MichiBackend.registrarClienteRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class eliminarClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idCliente;
+        
+        public eliminarClienteRequest() {
+        }
+        
+        public eliminarClienteRequest(int idCliente) {
+            this.idCliente = idCliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class eliminarClienteResponse {
+        
+        public eliminarClienteResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4108,8 +4141,8 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class registrarClienteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarClienteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -4119,10 +4152,10 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string str_tipoCliente;
         
-        public registrarClienteRequest() {
+        public actualizarClienteRequest() {
         }
         
-        public registrarClienteRequest(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
+        public actualizarClienteRequest(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
             this.cliente = cliente;
             this.str_tipoCliente = str_tipoCliente;
         }
@@ -4131,10 +4164,10 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class registrarClienteResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarClienteResponse {
         
-        public registrarClienteResponse() {
+        public actualizarClienteResponse() {
         }
     }
     
@@ -4177,56 +4210,33 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class eliminarClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idCliente;
-        
-        public eliminarClienteRequest() {
-        }
-        
-        public eliminarClienteRequest(int idCliente) {
-            this.idCliente = idCliente;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class eliminarClienteResponse {
-        
-        public eliminarClienteResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarClienteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarCliente", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class registrarClienteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public MichiSistemaWeb.MichiBackend.cliente cliente;
         
-        public actualizarClienteRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string str_tipoCliente;
+        
+        public registrarClienteRequest() {
         }
         
-        public actualizarClienteRequest(MichiSistemaWeb.MichiBackend.cliente cliente) {
+        public registrarClienteRequest(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
             this.cliente = cliente;
+            this.str_tipoCliente = str_tipoCliente;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
-    public partial class actualizarClienteResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="registrarClienteResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class registrarClienteResponse {
         
-        public actualizarClienteResponse() {
+        public registrarClienteResponse() {
         }
     }
     
@@ -4258,6 +4268,28 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.eliminarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.eliminarCliente(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request) {
+            return base.Channel.eliminarCliente(request);
+        }
+        
+        public void eliminarCliente(int idCliente) {
+            MichiSistemaWeb.MichiBackend.eliminarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarClienteRequest();
+            inValue.idCliente = idCliente;
+            MichiSistemaWeb.MichiBackend.eliminarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).eliminarCliente(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.eliminarClienteAsync(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request) {
+            return base.Channel.eliminarClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> eliminarClienteAsync(int idCliente) {
+            MichiSistemaWeb.MichiBackend.eliminarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarClienteRequest();
+            inValue.idCliente = idCliente;
+            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).eliminarClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MichiSistemaWeb.MichiBackend.listarClientesResponse MichiSistemaWeb.MichiBackend.ClienteWS.listarClientes(MichiSistemaWeb.MichiBackend.listarClientesRequest request) {
             return base.Channel.listarClientes(request);
         }
@@ -4279,27 +4311,27 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.registrarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.registrarCliente(MichiSistemaWeb.MichiBackend.registrarClienteRequest request) {
-            return base.Channel.registrarCliente(request);
+        MichiSistemaWeb.MichiBackend.actualizarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.actualizarCliente(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request) {
+            return base.Channel.actualizarCliente(request);
         }
         
-        public void registrarCliente(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
-            MichiSistemaWeb.MichiBackend.registrarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarClienteRequest();
+        public void actualizarCliente(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
+            MichiSistemaWeb.MichiBackend.actualizarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarClienteRequest();
             inValue.cliente = cliente;
             inValue.str_tipoCliente = str_tipoCliente;
-            MichiSistemaWeb.MichiBackend.registrarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).registrarCliente(inValue);
+            MichiSistemaWeb.MichiBackend.actualizarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).actualizarCliente(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.registrarClienteAsync(MichiSistemaWeb.MichiBackend.registrarClienteRequest request) {
-            return base.Channel.registrarClienteAsync(request);
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.actualizarClienteAsync(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request) {
+            return base.Channel.actualizarClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> registrarClienteAsync(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
-            MichiSistemaWeb.MichiBackend.registrarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarClienteRequest();
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> actualizarClienteAsync(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
+            MichiSistemaWeb.MichiBackend.actualizarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarClienteRequest();
             inValue.cliente = cliente;
             inValue.str_tipoCliente = str_tipoCliente;
-            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).registrarClienteAsync(inValue);
+            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).actualizarClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4326,47 +4358,27 @@ namespace MichiSistemaWeb.MichiBackend {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.eliminarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.eliminarCliente(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request) {
-            return base.Channel.eliminarCliente(request);
+        MichiSistemaWeb.MichiBackend.registrarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.registrarCliente(MichiSistemaWeb.MichiBackend.registrarClienteRequest request) {
+            return base.Channel.registrarCliente(request);
         }
         
-        public void eliminarCliente(int idCliente) {
-            MichiSistemaWeb.MichiBackend.eliminarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarClienteRequest();
-            inValue.idCliente = idCliente;
-            MichiSistemaWeb.MichiBackend.eliminarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).eliminarCliente(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.eliminarClienteAsync(MichiSistemaWeb.MichiBackend.eliminarClienteRequest request) {
-            return base.Channel.eliminarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.eliminarClienteResponse> eliminarClienteAsync(int idCliente) {
-            MichiSistemaWeb.MichiBackend.eliminarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.eliminarClienteRequest();
-            inValue.idCliente = idCliente;
-            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).eliminarClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MichiSistemaWeb.MichiBackend.actualizarClienteResponse MichiSistemaWeb.MichiBackend.ClienteWS.actualizarCliente(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request) {
-            return base.Channel.actualizarCliente(request);
-        }
-        
-        public void actualizarCliente(MichiSistemaWeb.MichiBackend.cliente cliente) {
-            MichiSistemaWeb.MichiBackend.actualizarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarClienteRequest();
+        public void registrarCliente(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
+            MichiSistemaWeb.MichiBackend.registrarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarClienteRequest();
             inValue.cliente = cliente;
-            MichiSistemaWeb.MichiBackend.actualizarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).actualizarCliente(inValue);
+            inValue.str_tipoCliente = str_tipoCliente;
+            MichiSistemaWeb.MichiBackend.registrarClienteResponse retVal = ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).registrarCliente(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.actualizarClienteAsync(MichiSistemaWeb.MichiBackend.actualizarClienteRequest request) {
-            return base.Channel.actualizarClienteAsync(request);
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> MichiSistemaWeb.MichiBackend.ClienteWS.registrarClienteAsync(MichiSistemaWeb.MichiBackend.registrarClienteRequest request) {
+            return base.Channel.registrarClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarClienteResponse> actualizarClienteAsync(MichiSistemaWeb.MichiBackend.cliente cliente) {
-            MichiSistemaWeb.MichiBackend.actualizarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarClienteRequest();
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.registrarClienteResponse> registrarClienteAsync(MichiSistemaWeb.MichiBackend.cliente cliente, string str_tipoCliente) {
+            MichiSistemaWeb.MichiBackend.registrarClienteRequest inValue = new MichiSistemaWeb.MichiBackend.registrarClienteRequest();
             inValue.cliente = cliente;
-            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).actualizarClienteAsync(inValue);
+            inValue.str_tipoCliente = str_tipoCliente;
+            return ((MichiSistemaWeb.MichiBackend.ClienteWS)(this)).registrarClienteAsync(inValue);
         }
     }
 }

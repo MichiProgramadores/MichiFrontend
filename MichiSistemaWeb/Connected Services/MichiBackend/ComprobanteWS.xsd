@@ -92,7 +92,6 @@
       <xs:enumeration value="YARDA" />
       <xs:enumeration value="ONZA" />
       <xs:enumeration value="LIBRA" />
-      <xs:enumeration value="TONELADA_CORTA" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="tipoComprobante">

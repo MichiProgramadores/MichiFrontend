@@ -12,6 +12,7 @@ namespace MichiSistemaWeb
     {
 		
         protected OrdenWSClient ordenWS;
+        protected List<orden> ordenes;
         protected void Page_Load(object sender, EventArgs e)
         {
             ordenWS = new OrdenWSClient();
@@ -19,8 +20,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            var lista= ordenWS.listarOrdenes().ToList();
-            dgvOrdenes.DataSource = lista;
+            ordenes = ordenWS.listarOrdenes().ToList();
+            dgvOrdenes.DataSource = ordenes;
             dgvOrdenes.DataBind();
         }
 

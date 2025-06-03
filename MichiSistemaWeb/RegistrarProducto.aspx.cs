@@ -4,115 +4,88 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MichiSistemaWeb.MichiBackend;
 
 namespace MichiSistemaWeb
 {
     public partial class RegistrarProducto : System.Web.UI.Page
     {
+
+        protected ProductoWSClient productoService;
+        protected producto producto;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            productoService = new ProductoWSClient();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    boArea = new AreaBO();
-            //    ddlAreas.DataSource = boArea.listarTodos();
-            //    ddlAreas.DataTextField = "Nombre";
-            //    ddlAreas.DataValueField = "IdArea";
-            //    ddlAreas.DataBind();
-            //}
+            if (!IsPostBack)
+            {
+                // Obtener los valores del enum tipoProducto
+                ddlTipo.DataSource = Enum.GetValues(typeof(tipoProducto));
+                ddlTipo.DataBind();
+                // Opcional: agregar un valor por defecto
+                ddlTipo.Items.Insert(0, new ListItem("-- Seleccione --", ""));
 
-            //string accion = Request.QueryString["accion"];
-            //if (accion == null)
-            //{
-            //    estado = Estado.Nuevo;
-            //    empleado = new Empleado();
-            //    lblTitulo.Text = "Registrar Empleado";
-            //}
-            //else if (accion == "modificar")
-            //{
-            //    estado = Estado.Modificar;
-            //    lblTitulo.Text = "Modificar Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
-            //    if (!IsPostBack)
-            //    {
-            //        AsignarValores();
-            //    }
-            //}
-            //else if (accion == "ver")
-            //{
-            //    lblTitulo.Text = "Ver Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
-            //    AsignarValores();
-            //    txtDNIEmpleado.Enabled = false;
-            //    txtNombre.Enabled = false;
-            //    txtApellidoPaterno.Enabled = false;
-            //    txtCargo.Enabled = false;
-            //    txtSueldo.Enabled = false;
-            //    ddlAreas.Enabled = false;
-            //    rbMasculino.Disabled = true;
-            //    rbFemenino.Disabled = true;
-            //    btnGuardar.Visible = false;
-            //    dtpFechaNacimiento.Disabled = true;
-            //}
-
+                // Obtener los valores del enum UnidadMedida
+                ddlUnidadMedida.DataSource = Enum.GetValues(typeof(unidadMedida));
+                ddlUnidadMedida.DataBind();
+                // Opcional: agregar un valor por defecto
+                ddlUnidadMedida.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+            }
         }
 
         protected void AsignarValores()
         {
-            //txtDNIEmpleado.Text = empleado.DNI;
-            //txtNombre.Text = empleado.Nombre;
-            //txtApellidoPaterno.Text = empleado.ApellidoPaterno;
-            //txtCargo.Text = empleado.Cargo;
-            //txtSueldo.Text = empleado.Sueldo.ToString("F2");
-            //ddlAreas.SelectedValue = empleado.Area.IdArea.ToString();
-            //if (empleado.Genero.Equals('M')) rbMasculino.Checked = true;
-            //else rbFemenino.Checked = true;
-            //dtpFechaNacimiento.Value = empleado.FechaNacimiento.ToString("yyyy-MM-dd");
+            producto = new producto();
+            producto.nombre = txtNombre.Text.Trim();
+            producto.precio = double.Parse(txtPrecio.Text.Trim());
+            producto.edad_minima = int.Parse(txtEdadMin.Text.Trim());
+            producto.stockActual = int.Parse(txtStockAct.Text.Trim());
+            producto.stockMinimo = int.Parse(txtStockMin.Text.Trim());
+            producto.volumen = double.Parse(txtVolumen.Text.Trim());
+            producto.descripcion = txtDescrip.Text.Trim();
+            if (int.Parse(ddlEstado.SelectedValue)==1) producto.estado='A';
+            else producto.estado = 'I';
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            // boEmpleado = new EmpleadoBO();
-            //empleado.DNI = txtDNIEmpleado.Text;
-            //empleado.Nombre = txtNombre.Text;
-            //empleado.ApellidoPaterno = txtApellidoPaterno.Text;
+            try
+            {
+                // Validación básica
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtPrecio.Text) ||
+                    string.IsNullOrWhiteSpace(txtEdadMin.Text) ||
+                    string.IsNullOrWhiteSpace(txtStockAct.Text) ||
+                    string.IsNullOrWhiteSpace(txtStockMin.Text) ||
+                    string.IsNullOrWhiteSpace(txtVolumen.Text) ||
+                    string.IsNullOrWhiteSpace(txtDescrip.Text) ||
+                    string.IsNullOrWhiteSpace(ddlTipo.SelectedValue) ||
+                    string.IsNullOrWhiteSpace(ddlEstado.SelectedValue) ||
+                    string.IsNullOrWhiteSpace(ddlUnidadMedida.SelectedValue))
+                {
+                    lanzarMensajedeError("Por favor, complete todos los campos.");
+                    return;
+                }
 
-            //try
-            //{
-            //    empleado.FechaNacimiento = DateTime.Parse(dtpFechaNacimiento.Value);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe seleccionar una fecha de nacimiento"); return; }
+                // Asignar los valores del formulario al objeto producto
+                AsignarValores();
 
+                // Insertar producto
+                string valorSeleccionadoTipo = ddlTipo.SelectedValue;
+                string valorSeleccionadoMedida = ddlUnidadMedida.SelectedValue;
+                productoService.registrarProducto(producto, valorSeleccionadoTipo, valorSeleccionadoMedida);
 
-            //if (rbMasculino.Checked) empleado.Genero = 'M';
-            //else if (rbFemenino.Checked) empleado.Genero = 'F';
-            //try
-            //{
-            //    empleado.Sueldo = Double.Parse(txtSueldo.Text);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe colocar un valor de sueldo apropiado"); return; }
-
-            //empleado.Cargo = txtCargo.Text;
-            //Area area = new Area();
-            //area.IdArea = Int32.Parse(ddlAreas.SelectedValue);
-            //empleado.Area = area;
-
-            //try
-            //{
-            //    if (estado == Estado.Nuevo)
-            //    {
-            //        boEmpleado.insertar(empleado);
-            //    }
-            //    else if (estado == Estado.Modificar)
-            //    {
-            //        boEmpleado.modificar(empleado);
-            //   }
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError(ex.Message); return; }
-
-            //Response.Redirect("ListarTrabajadores.aspx");
+                // Redirigir
+                Response.Redirect("ListarProductos.aspx");
+            }
+            catch (Exception ex)
+            {
+                lanzarMensajedeError("No se pudo registrar el producto: " + ex.Message);
+            }
         }
 
         public void lanzarMensajedeError(String mensaje)
@@ -124,7 +97,7 @@ namespace MichiSistemaWeb
 
         public void btnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListarClientes.aspx");
+            Response.Redirect("ListarProductos.aspx");
         }
     }
 }

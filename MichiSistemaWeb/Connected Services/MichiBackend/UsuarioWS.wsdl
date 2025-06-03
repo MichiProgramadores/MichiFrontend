@@ -11,17 +11,17 @@
   <message name="registrarUsuarioResponse">
     <part name="parameters" element="tns:registrarUsuarioResponse" />
   </message>
-  <message name="eliminarUsuario">
-    <part name="parameters" element="tns:eliminarUsuario" />
-  </message>
-  <message name="eliminarUsuarioResponse">
-    <part name="parameters" element="tns:eliminarUsuarioResponse" />
-  </message>
   <message name="actualizarUsuario">
     <part name="parameters" element="tns:actualizarUsuario" />
   </message>
   <message name="actualizarUsuarioResponse">
     <part name="parameters" element="tns:actualizarUsuarioResponse" />
+  </message>
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
+  </message>
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
   <message name="obtenerUsuario">
     <part name="parameters" element="tns:obtenerUsuario" />
@@ -40,13 +40,13 @@
       <input wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioRequest" message="tns:registrarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioResponse" message="tns:registrarUsuarioResponse" />
     </operation>
-    <operation name="eliminarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
-    </operation>
     <operation name="actualizarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
+    </operation>
+    <operation name="eliminarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
     </operation>
     <operation name="obtenerUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarUsuario">
+    <operation name="actualizarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarUsuario">
+    <operation name="eliminarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

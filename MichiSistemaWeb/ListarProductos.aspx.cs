@@ -35,23 +35,9 @@ namespace MichiSistemaWeb
                 e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
                 e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
                 e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
-                var valor = DataBinder.Eval(e.Row.DataItem, "estado");
-                if (valor != DBNull.Value && valor != null)
-                {
-                    string estadoStr = valor.ToString(); // lo convertimos a string primero
-                    if (!string.IsNullOrEmpty(estadoStr) && estadoStr == "65")
-                    {
-                        e.Row.Cells[9].Text = "Activo";  // Aquí ya debería salir 'I' o 'A'
-                    }
-                    else
-                    {
-                        e.Row.Cells[9].Text = "Inactivo";
-                    }
-                }
-                else
-                {
-                    e.Row.Cells[9].Text = "Nulo";
-                }
+                e.Row.Cells[9].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString(); ;
+               
+              
             }
         }
 

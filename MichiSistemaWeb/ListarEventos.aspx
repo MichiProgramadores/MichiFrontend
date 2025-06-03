@@ -44,12 +44,13 @@
 
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="Editar" CssClass="btn btn-warning"
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>"
                                 CommandArgument='<%# Eval("evento_id") %>' OnClick="lbModificar_Click" />
-                            <asp:LinkButton runat="server" Text="Eliminar" CssClass="btn btn-danger"
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"
                                 CommandArgument='<%# Eval("evento_id") %>' OnClick="lbEliminar_Click" />
-                            <asp:LinkButton runat="server" Text="Ver" CssClass="btn btn-info"
+                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"
                                 CommandArgument='<%# Eval("evento_id") %>' OnClick="lbVisualizar_Click" />
+
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -47,8 +47,7 @@ namespace MichiSistemaWeb
             producto.stockMinimo = int.Parse(txtStockMin.Text.Trim());
             producto.volumen = double.Parse(txtVolumen.Text.Trim());
             producto.descripcion = txtDescrip.Text.Trim();
-            if (int.Parse(ddlEstado.SelectedValue)==1) producto.estado='A';
-            else producto.estado = 'I';
+             producto.estado = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

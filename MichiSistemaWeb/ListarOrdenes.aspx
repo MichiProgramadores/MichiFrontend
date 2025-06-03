@@ -46,9 +46,10 @@
 
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i> Eliminar" CssClass="btn btn-danger" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbEliminar_Click" />
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye'></i> Ver" CssClass="btn btn-info" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVisualizar_Click" />
+
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbEliminar_Click"/>
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVisualizar_Click"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

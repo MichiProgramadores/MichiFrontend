@@ -20,7 +20,7 @@
       <xs:element minOccurs="0" name="categoriaProducto" type="tns:tipoProducto" />
       <xs:element minOccurs="0" name="descripcion" type="xs:string" />
       <xs:element name="edad_minima" type="xs:int" />
-      <xs:element name="estado" type="xs:unsignedShort" />
+      <xs:element name="estado" type="xs:boolean" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="precio" type="xs:double" />
       <xs:element name="producto_id" type="xs:int" />

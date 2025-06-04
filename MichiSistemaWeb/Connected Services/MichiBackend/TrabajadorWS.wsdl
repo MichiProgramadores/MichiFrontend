@@ -17,6 +17,12 @@
   <message name="registrarTrabajadorResponse">
     <part name="parameters" element="tns:registrarTrabajadorResponse" />
   </message>
+  <message name="obtenerTrabajador">
+    <part name="parameters" element="tns:obtenerTrabajador" />
+  </message>
+  <message name="obtenerTrabajadorResponse">
+    <part name="parameters" element="tns:obtenerTrabajadorResponse" />
+  </message>
   <message name="eliminarTrabajador">
     <part name="parameters" element="tns:eliminarTrabajador" />
   </message>
@@ -29,12 +35,6 @@
   <message name="listarTrabajadoresResponse">
     <part name="parameters" element="tns:listarTrabajadoresResponse" />
   </message>
-  <message name="obtenerTrabajador">
-    <part name="parameters" element="tns:obtenerTrabajador" />
-  </message>
-  <message name="obtenerTrabajadorResponse">
-    <part name="parameters" element="tns:obtenerTrabajadorResponse" />
-  </message>
   <portType name="TrabajadorWS">
     <operation name="actualizarTrabajador">
       <input wsam:Action="com.MichiSistema/TrabajadorWS/actualizarTrabajadorRequest" message="tns:actualizarTrabajador" />
@@ -44,6 +44,10 @@
       <input wsam:Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorRequest" message="tns:registrarTrabajador" />
       <output wsam:Action="com.MichiSistema/TrabajadorWS/registrarTrabajadorResponse" message="tns:registrarTrabajadorResponse" />
     </operation>
+    <operation name="obtenerTrabajador">
+      <input wsam:Action="com.MichiSistema/TrabajadorWS/obtenerTrabajadorRequest" message="tns:obtenerTrabajador" />
+      <output wsam:Action="com.MichiSistema/TrabajadorWS/obtenerTrabajadorResponse" message="tns:obtenerTrabajadorResponse" />
+    </operation>
     <operation name="eliminarTrabajador">
       <input wsam:Action="com.MichiSistema/TrabajadorWS/eliminarTrabajadorRequest" message="tns:eliminarTrabajador" />
       <output wsam:Action="com.MichiSistema/TrabajadorWS/eliminarTrabajadorResponse" message="tns:eliminarTrabajadorResponse" />
@@ -51,10 +55,6 @@
     <operation name="listarTrabajadores">
       <input wsam:Action="com.MichiSistema/TrabajadorWS/listarTrabajadoresRequest" message="tns:listarTrabajadores" />
       <output wsam:Action="com.MichiSistema/TrabajadorWS/listarTrabajadoresResponse" message="tns:listarTrabajadoresResponse" />
-    </operation>
-    <operation name="obtenerTrabajador">
-      <input wsam:Action="com.MichiSistema/TrabajadorWS/obtenerTrabajadorRequest" message="tns:obtenerTrabajador" />
-      <output wsam:Action="com.MichiSistema/TrabajadorWS/obtenerTrabajadorResponse" message="tns:obtenerTrabajadorResponse" />
     </operation>
   </portType>
   <binding name="TrabajadorWSPortBinding" type="tns:TrabajadorWS">
@@ -77,6 +77,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="obtenerTrabajador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarTrabajador">
       <soap:operation soapAction="" />
       <input>
@@ -87,15 +96,6 @@
       </output>
     </operation>
     <operation name="listarTrabajadores">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerTrabajador">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

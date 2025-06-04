@@ -11,15 +11,34 @@ namespace MichiSistemaWeb
     public partial class ListarProductos : System.Web.UI.Page
     {
         protected ProductoWSClient productoWS;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            /*productoWS = new ProductoWSClient();
+            CargarDatos();*/
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             productoWS = new ProductoWSClient();
             CargarDatos();
+            
         }
         protected void CargarDatos()
         {
             dgvProductos.DataSource = productoWS.listarProductos();
             dgvProductos.DataBind();
+           // DdlTipoProducto.Items.Clear();
+            /*
+            DdlTipoProducto.Items.Add(new ListItem("Seleccione un tipo", "0"));
+
+            // Obtener la lista de tipos de producto desde el WS
+            List<string> tipos = productoWS.listarTipoProducto().ToList();
+
+            foreach (string tipo in tipos)
+            {
+                DdlTipoProducto.Items.Add(new ListItem(tipo, tipo));
+            }*/
+
         }
 
         protected void dgvProductos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -117,6 +136,25 @@ namespace MichiSistemaWeb
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
 
+        }
+
+        protected void DdlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipo_seleccionado = Convert.ToString(DdlTipoProducto.SelectedValue);
+
+            // Verificamos si el valor seleccionado es el valor predeterminado "0" (Select type)
+            if (tipo_seleccionado == "0")
+            {
+                // Si no se ha seleccionado un valor válido, mostrar todos los productos
+                dgvProductos.DataSource = productoWS.listarProductos();
+                dgvProductos.DataBind();
+            }
+            else
+            {
+                // Si se ha seleccionado un tipo válido, mostrar productos por tipo
+                dgvProductos.DataSource = productoWS.listarProductosPorTipo(tipo_seleccionado);
+                dgvProductos.DataBind();
+            }
         }
     }
 }

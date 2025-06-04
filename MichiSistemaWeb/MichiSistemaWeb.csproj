@@ -213,6 +213,12 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarTipoProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarProductosPorTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />
     <None Include="Connected Services\MichiBackend\OrdenWS.xsd">
       <SubType>Designer</SubType>

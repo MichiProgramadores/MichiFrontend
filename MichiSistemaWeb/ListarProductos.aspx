@@ -7,6 +7,20 @@
     <div class="container">
     <div class="container row">
         <div class="row align-items-center">
+             <div class="col-auto">
+                <asp:DropDownList ID="DdlTipoProducto" runat="server" CssClass="form-select" 
+                  OnSelectedIndexChanged="DdlTipoProducto_SelectedIndexChanged" AutoPostBack="True">
+                    <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                    <asp:ListItem Text="Decoración" Value="DECORACION" />
+                    <asp:ListItem Text="Regalos" Value="REGALOS" />
+                    <asp:ListItem Text="Equipo Audiovisual" Value="EQUIPO_AUDIOVISUAL" />
+                    <asp:ListItem Text="Vestimenta" Value="VESTIMENTA" />
+                    <asp:ListItem Text="Invitación" Value="INVITACION" />
+                    <asp:ListItem Text="Mobiliario" Value="MOBILIARIO" />
+                    <asp:ListItem Text="Tecnología" Value="TECNOLOGIA" />
+                    <asp:ListItem Text="Otro" Value="OTRO" />
+                </asp:DropDownList>
+            </div>
             <div class="col-auto">
                 <asp:Label ID="lblID" CssClass="form-label" runat="server" Text="Ingrese el ID del producto:"></asp:Label>
             </div>

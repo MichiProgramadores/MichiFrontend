@@ -5,14 +5,23 @@
   <xs:element name="eliminarProducto" type="tns:eliminarProducto" />
   <xs:element name="eliminarProductoResponse" type="tns:eliminarProductoResponse" />
   <xs:element name="listarProductos" type="tns:listarProductos" />
+  <xs:element name="listarProductosPorTipo" type="tns:listarProductosPorTipo" />
+  <xs:element name="listarProductosPorTipoResponse" type="tns:listarProductosPorTipoResponse" />
   <xs:element name="listarProductosResponse" type="tns:listarProductosResponse" />
+  <xs:element name="listarTipoProducto" type="tns:listarTipoProducto" />
+  <xs:element name="listarTipoProductoResponse" type="tns:listarTipoProductoResponse" />
   <xs:element name="obtenerProducto" type="tns:obtenerProducto" />
   <xs:element name="obtenerProductoResponse" type="tns:obtenerProductoResponse" />
   <xs:element name="registrarProducto" type="tns:registrarProducto" />
   <xs:element name="registrarProductoResponse" type="tns:registrarProductoResponse" />
-  <xs:complexType name="actualizarProducto">
+  <xs:complexType name="listarProductosPorTipo">
     <xs:sequence>
-      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element minOccurs="0" name="tipoProducto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorTipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="producto">
@@ -30,8 +39,21 @@
       <xs:element name="volumen" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="actualizarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarProductoResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoProducto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarProducto">
     <xs:sequence>

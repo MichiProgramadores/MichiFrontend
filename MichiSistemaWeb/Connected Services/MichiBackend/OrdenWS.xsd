@@ -23,14 +23,6 @@
   <xs:complexType name="actualizarEstadoDevolucionResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="eliminarOrden">
-    <xs:sequence>
-      <xs:element name="idOrden" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarOrdenResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="actualizarOrden">
     <xs:sequence>
       <xs:element minOccurs="0" name="orden" type="tns:orden" />
@@ -74,6 +66,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarOrdenResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarOrden">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarOrdenResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerOrden">

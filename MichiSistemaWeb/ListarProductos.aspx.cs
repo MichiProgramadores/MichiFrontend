@@ -47,14 +47,13 @@ namespace MichiSistemaWeb
             {
                 e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "producto_id").ToString();
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "nombre").ToString();
-                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();
-                e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "categoriaProducto").ToString();
-                e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "precio").ToString();
-                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
-                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
-                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
-                e.Row.Cells[9].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString(); ;
+                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "categoriaProducto").ToString();
+                e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "precio").ToString();
+                e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
+                e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
+                e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
+                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
+                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString(); ;
                
               
             }

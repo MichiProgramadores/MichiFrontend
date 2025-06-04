@@ -42,7 +42,6 @@
                 <Columns>
                     <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField HeaderText="Nombre" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" /> 
                     <asp:BoundField HeaderText="Tipo" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField HeaderText="Precio" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField HeaderText="Stock minimo" ItemStyle-CssClass="align-middle" />

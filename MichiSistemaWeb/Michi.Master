@@ -8,7 +8,8 @@
 
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/site.css?v1.1" rel="stylesheet" />
+   
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
@@ -26,13 +27,13 @@
         <!-- Division de la izquierda-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/imagen.jpg" width="150"/>
+                <img src="Images/logo.jpg" width="150"/>
             </a>
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
                     <a href="ListarOrdenes.aspx">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Ordenes
+                        <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar Ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -47,12 +48,15 @@
                 </li>  
                 <li class="nav-item mb-1">
                     <a href="ListarProductos.aspx">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Productos
+                        <i class="fa-solid fa-box-open pe-2"></i> Gestionar Productos
+                      
                     </a>
                 </li>
+
                 <li class="nav-item mb-1">
+                   
                     <a href="ListarEventos.aspx" >
-                        <i class="fa-solid fa-money-bill pe-2"></i>Gestionar Eventos
+                        <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar Eventos
                     </a>
                 </li>
             </ul>

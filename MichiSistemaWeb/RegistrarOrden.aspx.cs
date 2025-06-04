@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MichiSistemaWeb.MichiBackend;
+using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,49 +11,91 @@ namespace MichiSistemaWeb
 {
     public partial class RegistrarOrden : System.Web.UI.Page
     {
+        protected OrdenWSClient ordenService;
+        protected orden orden;
+        protected Estado estado;
+        protected void Page_Init(object sender, EventArgs e)
+        {
+           ordenService = new OrdenWSClient();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    boArea = new AreaBO();
-            //    ddlAreas.DataSource = boArea.listarTodos();
-            //    ddlAreas.DataTextField = "Nombre";
-            //    ddlAreas.DataValueField = "IdArea";
-            //    ddlAreas.DataBind();
-            //}
+
+            if (!IsPostBack)
+            {
+
+                // Obtener los valores del enum tipoCliente
+                //ddl.DataSource = Enum.GetValues(typeof(tipoCliente));
+                //ddlTipoCliente.DataBind();
+
+                // Opcional: agregar un valor por defecto
+                //ddlTipoCliente.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+            }
 
             //string accion = Request.QueryString["accion"];
             //if (accion == null)
             //{
             //    estado = Estado.Nuevo;
-            //    empleado = new Empleado();
-            //    lblTitulo.Text = "Registrar Empleado";
+            //    orden = new orden();
+            //    lblTitulo.Text = "Registrar Cliente";
+
+            //    lblID.Visible = false;
+            //    txtIDCliente.Visible = false;
+
+            //    lblPuntuacion.Visible = false;
+            //    txtPuntuacion.Visible = false;
+
+            //    lblActivo.Visible = false;
+            //    txtActivo.Visible = false;
+
             //}
             //else if (accion == "modificar")
             //{
             //    estado = Estado.Modificar;
-            //    lblTitulo.Text = "Modificar Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
+            //    lblTitulo.Text = "Modificar Cliente";
+            //    cliente = (cliente)Session["clienteSeleccionado"];
             //    if (!IsPostBack)
             //    {
-            //        AsignarValores();
+            //        AsignarValoresTexto();
             //    }
+            //    lblID.Visible = true;
+            //    txtIDCliente.Visible = true;
+            //    txtIDCliente.Enabled = false;
+
+            //    lblPuntuacion.Visible = true;
+            //    txtPuntuacion.Visible = true;
+            //    txtPuntuacion.Enabled = false;
+
+            //    lblActivo.Visible = false;
+            //    txtActivo.Visible = false;
             //}
             //else if (accion == "ver")
             //{
-            //    lblTitulo.Text = "Ver Empleado";
-            //    empleado = (Empleado)Session["empleadoSeleccionado"];
-            //    AsignarValores();
-            //    txtDNIEmpleado.Enabled = false;
-            //    txtNombre.Enabled = false;
-            //    txtApellidoPaterno.Enabled = false;
-            //    txtCargo.Enabled = false;
-            //    txtSueldo.Enabled = false;
-            //    ddlAreas.Enabled = false;
-            //    rbMasculino.Disabled = true;
-            //    rbFemenino.Disabled = true;
+            //    lblTitulo.Text = "Ver Cliente";
+            //    cliente = (cliente)Session["clienteSeleccionado"];
+            //    AsignarValoresTexto();
+
+            //    lblID.Visible = true;
+            //    txtIDCliente.Visible = true;
+            //    txtIDCliente.Enabled = false;
+
+            //    lblPuntuacion.Visible = true;
+            //    txtPuntuacion.Visible = true;
+            //    txtPuntuacion.Enabled = false;
+
+            //    lblActivo.Visible = true;
+            //    txtActivo.Visible = true;
+            //    txtActivo.Enabled = false;
+
+            //    txtNombres.Enabled = false;
+            //    txtApellidos.Enabled = false;
+            //    txtCelular.Enabled = false;
+            //    txtEmail.Enabled = false;
+            //    txtNumeroTipoCliente.Enabled = false;
+
+            //    ddlTipoCliente.Enabled = false;
+
             //    btnGuardar.Visible = false;
-            //    dtpFechaNacimiento.Disabled = true;
             //}
 
         }
@@ -124,7 +168,7 @@ namespace MichiSistemaWeb
 
         public void btnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListarClientes.aspx");
+            Response.Redirect("ListarOrdenes.aspx");
         }
     }
 }

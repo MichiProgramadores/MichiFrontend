@@ -14,22 +14,21 @@
                     <asp:Label ID="lblTitulo" runat="server" Text="Registrar Producto"></asp:Label>
                 </h2>
             </div>
-            <div class="card-body">
-                <%--
+            <div class="card-body">           
                 <div class="mb-3 row">
                     <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIDProducto" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-                --%>
 
                 <div class="mb-3 row">
-                    <asp:Label CssClass="col-sm-2 form-label" ID="lblNombre" runat="server" Text="Nombre: "></asp:Label>
+                    <asp:Label ID="lblNombre" runat="server" Text="Nombre: " CssClass="col-sm-2 form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblPrecio" runat="server" Text="Precio: " CssClass="col-sm-2 col-form-label"></asp:Label>
@@ -92,11 +91,7 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblEstado" runat="server" Text="Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
-                            <asp:ListItem Value="1">Activo</asp:ListItem>
-                            <asp:ListItem Value="2">Inactivo</asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 

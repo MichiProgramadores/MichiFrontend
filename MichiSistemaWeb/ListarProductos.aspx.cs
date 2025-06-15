@@ -11,7 +11,7 @@ namespace MichiSistemaWeb
     public partial class ListarProductos : System.Web.UI.Page
     {
         protected ProductoWSClient productoWS;
-
+        protected List<producto> productos;
         protected void Page_Init(object sender, EventArgs e)
         {
             /*productoWS = new ProductoWSClient();
@@ -25,7 +25,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvProductos.DataSource = productoWS.listarProductos();
+            productos=productoWS.listarProductos().ToList();
+            dgvProductos.DataSource = productos;
             dgvProductos.DataBind();
            // DdlTipoProducto.Items.Clear();
             /*
@@ -53,9 +54,7 @@ namespace MichiSistemaWeb
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
                 e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
                 e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString(); ;
-               
-              
+                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();        
             }
         }
 
@@ -72,9 +71,9 @@ namespace MichiSistemaWeb
 
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument); //queda actualizar esto por producto
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            // Session["empleadoSeleccionado"] = empleado;
+            int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument); //queda actualizar esto por producto
+            producto producto= productos.SingleOrDefault(x => x.producto_id == idProducto);          
+            Session["productoSeleccionado"] = producto;
             Response.Redirect("RegistrarProducto.aspx?accion=modificar");
         }
 
@@ -87,9 +86,9 @@ namespace MichiSistemaWeb
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            //Session["empleadoSeleccionado"] = empleado;
+            int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
+            producto producto = productos.SingleOrDefault(x => x.producto_id == idProducto);
+            Session["productoSeleccionado"] = producto;
             Response.Redirect("RegistrarProducto.aspx?accion=ver");
         }
 
@@ -99,13 +98,10 @@ namespace MichiSistemaWeb
             {
                 // Obtener el texto del textbox
                 string textoId = txtID.Text.Trim();
-
                 if (int.TryParse(textoId, out int idProducto))
                 {
                     // Buscar cliente por ID usando tu capa de negocio o servicio
-
                     var producto = productoWS.obtenerProducto(idProducto);
-
                     if (producto != null)
                     {
                         // Si encontró el cliente, lo pone en una lista para enlazar
@@ -125,7 +121,7 @@ namespace MichiSistemaWeb
                 else
                 {
                     // Si no ingresó un número válido
-                    dgvProductos.DataSource = null;
+                    dgvProductos.DataSource = productos; // Volver a mostrar todos los productos
                     dgvProductos.DataBind();
                     //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                 }

@@ -14,14 +14,15 @@ namespace MichiSistemaWeb
         protected List<producto> productos;
         protected void Page_Init(object sender, EventArgs e)
         {
-            /*productoWS = new ProductoWSClient();
-            CargarDatos();*/
+            productoWS = new ProductoWSClient();
+            CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             productoWS = new ProductoWSClient();
             CargarDatos();
-            
+            */
         }
         protected void CargarDatos()
         {

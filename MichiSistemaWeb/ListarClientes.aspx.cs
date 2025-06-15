@@ -12,10 +12,15 @@ namespace MichiSistemaWeb
     {
         protected ClienteWSClient clienteWS;
         protected List<cliente> clientes;
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             clienteWS = new ClienteWSClient();
             CargarDatos();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //clienteWS = new ClienteWSClient();
+            //CargarDatos();
         }
         protected void CargarDatos()
         {
@@ -23,7 +28,6 @@ namespace MichiSistemaWeb
             dgvClientes.DataSource = clientes;
             dgvClientes.DataBind();
         }
-
         protected void dgvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -65,7 +69,6 @@ namespace MichiSistemaWeb
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
            
             cliente cliente= clientes.SingleOrDefault(x => x.persona_id == idCliente);
-          
       
             if (cliente != null)
             {
@@ -93,7 +96,6 @@ namespace MichiSistemaWeb
             Session["clienteSeleccionado"] = cliente;
             Response.Redirect("RegistrarCliente.aspx?accion=ver");
         }
-
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -105,14 +107,23 @@ namespace MichiSistemaWeb
                 {
                     // Buscar cliente por ID usando tu capa de negocio o servicio
 
-                    var cliente = clienteWS.obtenerCliente(idCliente);
+                    //var cliente = clienteWS.obtenerCliente(idCliente);
+                    cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
 
                     if (cliente != null)
                     {
                         // Si encontró el cliente, lo pone en una lista para enlazar
+
+                        /*
                         var lista = new List<cliente> { cliente };
                         dgvClientes.DataSource = lista;
                         dgvClientes.DataBind();
+                        */
+
+                        clientes= new List<cliente> { cliente };
+                        dgvClientes.DataSource = clientes;
+                        dgvClientes.DataBind();
+
                         //lblMensaje.Text = "";
                     }
                     else

@@ -14,10 +14,17 @@ namespace MichiSistemaWeb
 
         protected TrabajadorWSClient trabajadorWS;
         protected List<trabajador> trabajadores;
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             trabajadorWS = new TrabajadorWSClient();
             CargarDatos();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            /*
+            trabajadorWS = new TrabajadorWSClient();
+            CargarDatos();
+            */
         }
         protected void CargarDatos()
         {

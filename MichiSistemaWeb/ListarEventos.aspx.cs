@@ -11,14 +11,16 @@ namespace MichiSistemaWeb
     public partial class ListarEventos : System.Web.UI.Page
     {
         protected EventoWSClient eventoWS;
-        protected void Page_Load(object sender, EventArgs e)
+        protected List<evento> eventos;
+        protected void Page_Init(object sender, EventArgs e)
         {
             eventoWS = new EventoWSClient();
             CargarDatos();
         }
         protected void CargarDatos()
         {
-            dgvEventos.DataSource = eventoWS.listarEventos();
+            eventos = eventoWS.listarEventos().ToList();
+            dgvEventos.DataSource = eventos;
             dgvEventos.DataBind();
         }
 
@@ -42,6 +44,7 @@ namespace MichiSistemaWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "evento_id").ToString();
                 e.Row.Cells[1].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaInicio"));
                 e.Row.Cells[2].Text = FormatDate(DataBinder.Eval(e.Row.DataItem, "fechaFin"));
                 e.Row.Cells[3].Text = FormatTime(DataBinder.Eval(e.Row.DataItem, "horaInicio"));
@@ -65,30 +68,30 @@ namespace MichiSistemaWeb
 
         protected void lbRegistrar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistrarCliente.aspx");
+            Response.Redirect("RegistrarEvento.aspx");
         }
 
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            // Session["empleadoSeleccionado"] = empleado;
-            Response.Redirect("RegistrarCliente.aspx?accion=modificar");
+            int idEvento = Int32.Parse(((LinkButton)sender).CommandArgument);
+            evento evento= eventos.SingleOrDefault(x => x.evento_id == idEvento);
+            Session["eventoSeleccionado"] = evento;
+            Response.Redirect("RegistrarEvento.aspx?accion=modificar");
         }
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idEvento = Int32.Parse(((LinkButton)sender).CommandArgument);
             eventoWS.eliminarEvento(idEvento);
-            Response.Redirect("ListarClientes.aspx");
+            Response.Redirect("ListarEventos.aspx");
         }
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            //Session["empleadoSeleccionado"] = empleado;
-            Response.Redirect("RegistrarCliente.aspx?accion=ver");
+            int idEvento = Int32.Parse(((LinkButton)sender).CommandArgument);
+            evento evento = eventos.SingleOrDefault(x => x.evento_id == idEvento);
+            Session["eventoSeleccionado"] = evento;
+            Response.Redirect("RegistrarEvento.aspx?accion=ver");
         }
 
         protected void lbBuscar_Click(object sender, EventArgs e)

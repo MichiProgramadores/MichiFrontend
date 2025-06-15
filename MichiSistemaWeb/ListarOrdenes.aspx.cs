@@ -13,7 +13,7 @@ namespace MichiSistemaWeb
 		
         protected OrdenWSClient ordenWS;
         protected List<orden> ordenes;
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             ordenWS = new OrdenWSClient();
             CargarDatos();
@@ -24,7 +24,6 @@ namespace MichiSistemaWeb
             dgvOrdenes.DataSource = ordenes;
             dgvOrdenes.DataBind();
         }
-
 
         private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
         {

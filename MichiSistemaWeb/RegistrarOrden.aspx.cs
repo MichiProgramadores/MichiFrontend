@@ -32,23 +32,38 @@ namespace MichiSistemaWeb
                 //ddlTipoCliente.Items.Insert(0, new ListItem("-- Seleccione --", ""));
             }
 
-            //string accion = Request.QueryString["accion"];
-            //if (accion == null)
-            //{
-            //    estado = Estado.Nuevo;
-            //    orden = new orden();
-            //    lblTitulo.Text = "Registrar Cliente";
+            string accion = Request.QueryString["accion"];
+            if (accion == null)
+            {
+                estado = Estado.Nuevo;
+                orden = new orden();
+                lblTitulo.Text = "Registrar Orden";
 
-            //    lblID.Visible = false;
-            //    txtIDCliente.Visible = false;
+                lblIdOrden.Visible = false;
+                txtIdOrden.Visible = false;
 
-            //    lblPuntuacion.Visible = false;
-            //    txtPuntuacion.Visible = false;
+                lblIdTrabaj.Visible = false;
+                txtIdTrabaj.Visible = false;
 
-            //    lblActivo.Visible = false;
-            //    txtActivo.Visible = false;
+                lblIdCliente.Visible = false;
+                txtIdCliente.Visible = false;
 
-            //}
+                lblTipoEstDevol.Visible = false;
+                DropDownList2.Visible = false;
+
+                lblFechaEntr.Visible = false;
+                txtFechaEntr.Enabled = false;
+
+                txtMonto.Enabled = false;
+                txtSaldo.Enabled = false;
+                txtCantDias.Enabled = false;
+                txtFechaDevol.Enabled = false;
+                txtFechaEmis.Enabled = false;
+
+                lblFechaReg.Visible = false;
+                txtFechaReg.Enabled = false;
+
+            }
             //else if (accion == "modificar")
             //{
             //    estado = Estado.Modificar;

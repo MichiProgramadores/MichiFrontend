@@ -22,7 +22,7 @@
                     </div>
                 </div>
                  <div class="mb-3 row">
-                     <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoRecepcion" runat="server" Text="Tipo recepción: "></asp:Label>
+                     <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoRecepcion" runat="server" Text="*Tipo recepción: "></asp:Label>
                      <div class="col-sm-8">
                          <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
@@ -32,34 +32,34 @@
                      </div>
                  </div>
                 <div class="mb-3 row">
-                    <asp:Label id="lblSetUpPersonalizado" runat="server" Text="Set up personalizado: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblSetUpPersonalizado" runat="server" Text="*Set up personalizado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtSetUpPersonalizado" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="Monto total: "></asp:Label>
+                    <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="*Monto total: "></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtMonto" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>    
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblSaldo" runat="server" Text="Saldo: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblSaldo" runat="server" Text="*Saldo: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtSaldo" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblCantDias" runat="server" Text="Cantidad dias: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblCantDias" runat="server" Text="*Cantidad dias: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtCantDias" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblFechaDevol" runat="server" Text="Fecha devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaDevol" runat="server" Text="*Fecha devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtFechaDevol" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </div>
@@ -67,28 +67,28 @@
 
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblFechaEmis" runat="server" Text="Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaEmis" runat="server" Text="*Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtFechaEmis" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblFechaReg" runat="server" Text="Fecha registro: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaReg" runat="server" Text="*Fecha registro: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtFechaReg" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblFechaEntr" runat="server" Text="Fecha entrega: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaEntr" runat="server" Text="*Fecha entrega: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtFechaEntr" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblTipoEstDevol" runat="server" Text="Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblTipoEstDevol" runat="server" Text="*Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
@@ -100,14 +100,14 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblIdCliente" runat="server" Text="Id del cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblIdCliente" runat="server" Text="*Id del cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblIdTrabaj" runat="server" Text="Id del trabajador: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblIdTrabaj" runat="server" Text="*Id del trabajador: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIdTrabaj" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>

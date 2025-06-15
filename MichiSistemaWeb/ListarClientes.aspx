@@ -24,7 +24,7 @@
             <div class="container row">
                 <asp:GridView ID="dgvClientes" runat="server" AutoGenerateColumns="false"
                     OnRowDataBound="dgvClientes_RowDataBound" AllowPaging="true"
-                    OnPageIndexChanging="dgvClientes_PageIndexChanging" PageSize="5"
+                    OnPageIndexChanging="dgvClientes_PageIndexChanging" PageSize="10"
                     CssClass="table table-hover table-responsive table-striped">
                     <Columns>
                         <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />

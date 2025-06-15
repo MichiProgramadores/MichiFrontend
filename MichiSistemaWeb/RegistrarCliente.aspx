@@ -22,14 +22,14 @@
                 </div>
 
                  <div class="mb-3 row">
-                     <asp:Label ID="lblNombres" runat="server" Text="Nombres: " CssClass="col-sm-2 form-label"></asp:Label>
+                     <asp:Label ID="lblNombres" runat="server" Text="*Nombres: " CssClass="col-sm-2 form-label"></asp:Label>
                      <div class="col-sm-8">
                           <asp:TextBox id="txtNombres" runat="server" CssClass="form-control"></asp:TextBox>
                      </div>
                  </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblApellidos" runat="server" Text="Apellidos: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblApellidos" runat="server" Text="*Apellidos: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
@@ -37,21 +37,21 @@
 
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblCelular" CssClass="col-sm-2 form-label" runat="server" Text="Celular:"></asp:Label>
+                    <asp:Label id="lblCelular" CssClass="col-sm-2 form-label" runat="server" Text="*Celular:"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtCelular" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblEmail" runat="server" Text="Email: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblEmail" runat="server" Text="*Email: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label ID="lblTipoCliente" runat="server" Text="Tipo de Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label ID="lblTipoCliente" runat="server" Text="*Tipo de Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
                         </asp:DropDownList>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblNumeroTipoCliente" runat="server" Text="Número de tipo de cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblNumeroTipoCliente" runat="server" Text="*Número de tipo de cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtNumeroTipoCliente" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>

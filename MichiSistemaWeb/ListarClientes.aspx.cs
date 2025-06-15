@@ -65,8 +65,17 @@ namespace MichiSistemaWeb
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
            
             cliente cliente= clientes.SingleOrDefault(x => x.persona_id == idCliente);
-            Session["clienteSeleccionado"] = cliente;
-            Response.Redirect("RegistrarCliente.aspx?accion=modificar");
+          
+      
+            if (cliente != null)
+            {
+                // Almacenar el cliente seleccionado en la sesión
+                Session["clienteSeleccionado"] = cliente;
+
+                // Redirigir a la página de edición
+                Response.Redirect("RegistrarCliente.aspx?accion=modificar");
+            }
+          
         }
 
         protected void lbEliminar_Click(object sender, EventArgs e)
@@ -98,7 +107,7 @@ namespace MichiSistemaWeb
 
                     var cliente = clienteWS.obtenerCliente(idCliente);
 
-                        if (cliente != null)
+                    if (cliente != null)
                     {
                         // Si encontró el cliente, lo pone en una lista para enlazar
                         var lista = new List<cliente> { cliente };
@@ -117,7 +126,7 @@ namespace MichiSistemaWeb
                 else
                 {
                     // Si no ingresó un número válido
-                    dgvClientes.DataSource = null;
+                    dgvClientes.DataSource = clientes;
                     dgvClientes.DataBind();
                   //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                 }

@@ -13,6 +13,7 @@ namespace MichiSistemaWeb
     {
 
         protected TrabajadorWSClient trabajadorWS;
+        protected List<trabajador> trabajadores;
         protected void Page_Load(object sender, EventArgs e)
         {
             trabajadorWS = new TrabajadorWSClient();
@@ -20,7 +21,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            dgvEmpleados.DataSource = trabajadorWS.listarTrabajadores();
+            trabajadores = trabajadorWS.listarTrabajadores().ToList();
+            dgvEmpleados.DataSource = trabajadores;
             dgvEmpleados.DataBind();
         }
 
@@ -51,8 +53,8 @@ namespace MichiSistemaWeb
         protected void lbModificar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-           // Session["empleadoSeleccionado"] = empleado;
+            trabajador trabajador = trabajadores.SingleOrDefault(x => x.persona_id == idEmpleado);
+           Session["trabajadorSeleccionado"] = trabajador;
             Response.Redirect("RegistrarTrabajador.aspx?accion=modificar");
         }
 
@@ -66,9 +68,9 @@ namespace MichiSistemaWeb
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            //Session["empleadoSeleccionado"] = empleado;
-            Response.Redirect("RegistrarEmpleado.aspx?accion=ver");
+            trabajador trabajador = trabajadores.SingleOrDefault(x => x.persona_id == idEmpleado);
+            Session["trabajadorSeleccionado"] = trabajador;
+            Response.Redirect("RegistrarTrabajador.aspx?accion=ver");
         }
 
         protected void lbBuscar_Click(object sender, EventArgs e)
@@ -104,7 +106,7 @@ namespace MichiSistemaWeb
                 else
                 {
                     // Si no ingresó un número válido
-                    dgvEmpleados.DataSource = null;
+                    dgvEmpleados.DataSource = trabajadores;
                     dgvEmpleados.DataBind();
                     //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                 }

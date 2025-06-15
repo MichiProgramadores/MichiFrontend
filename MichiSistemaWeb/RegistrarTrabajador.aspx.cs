@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,7 @@ namespace MichiSistemaWeb
 
         protected TrabajadorWSClient trabajadorService;
         protected trabajador trabajador;
-
+        protected Estado estado;
         protected void Page_Init(object sender, EventArgs e)
         {
             trabajadorService = new TrabajadorWSClient();
@@ -32,15 +33,72 @@ namespace MichiSistemaWeb
                 ddlTipoTrabajador.Items.Insert(0, new ListItem("-- Seleccione --", ""));
             }
 
+            string accion = Request.QueryString["accion"];
+            if (accion == null)
+            {
+
+                estado = Estado.Nuevo;
+                trabajador = new trabajador();
+                lblTitulo.Text = "Registrar Trabajador";
+                lblID.Visible = false;
+                txtIDTrabajador.Visible = false;
+                lblActivo.Visible = false;
+                txtActivo.Visible = false;
+
+            }
+            else if (accion == "modificar")
+            {
+                estado = Estado.Modificar;
+                lblTitulo.Text = "Modificar Trabajador";
+                trabajador = (trabajador)Session["trabajadorSeleccionado"];
+                if (!IsPostBack)
+                {
+                    AsignarValoresTexto();
+                }
+                 lblID.Visible = true;
+                 txtIDTrabajador.Visible = true;
+                 txtIDTrabajador.Enabled = false;
+                lblActivo.Visible = false;
+                txtActivo.Visible = false;
+            }
+            else if (accion == "ver")
+            {
+                lblTitulo.Text = "Ver Trabajador";
+                trabajador = (trabajador)Session["trabajadorSeleccionado"];
+                AsignarValoresTexto();
+                txtIDTrabajador.Enabled = false;
+                txtNombres.Enabled = false;
+                txtApellidos.Enabled = false;
+                txtCelular.Enabled = false;
+                txtEmail.Enabled = false;
+                ddlTipoTrabajador.Enabled = false;
+                btnGuardar.Visible = false;
+                lblActivo.Visible = true;
+                txtActivo.Visible = true;
+                txtActivo.Enabled = false;
+            }
+
         }
 
-        protected void AsignarValores()
+        protected void AsignarValoresTexto()
         {
-            trabajador = new trabajador();
+
+
+            txtIDTrabajador.Text = trabajador.persona_id.ToString();
+            txtNombres.Text = trabajador.nombres;
+            txtApellidos.Text = trabajador.apellidos;
+            txtCelular.Text = trabajador.celular.ToString();
+            txtEmail.Text = trabajador.email;
+            ddlTipoTrabajador.SelectedValue = trabajador.tipoTrabajador.ToString();
+        }
+        private void AsignarValoresTrabajador()
+        {
+            
             trabajador.nombres = txtNombres.Text.Trim();
             trabajador.apellidos = txtApellidos.Text.Trim();
             trabajador.celular = int.Parse(txtCelular.Text.Trim());
             trabajador.email = txtEmail.Text.Trim();
+
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -59,11 +117,19 @@ namespace MichiSistemaWeb
                 }
 
                 // Asignar los valores del formulario al objeto cliente
-                AsignarValores();
-
-                // Insertar cliente
+                AsignarValoresTrabajador();
+                // Insertar trabajador
                 string valorSeleccionado = ddlTipoTrabajador.SelectedValue;
-                trabajadorService.registrarTrabajador(trabajador, valorSeleccionado);
+               
+
+                if (estado == Estado.Nuevo)
+                {
+                    trabajadorService.registrarTrabajador(trabajador, valorSeleccionado);
+                }
+                else if (estado == Estado.Modificar)
+                {
+                    trabajadorService.actualizarTrabajador(trabajador);
+                }
 
                 // Redirigir
                 Response.Redirect("ListarTrabajadores.aspx");
@@ -73,6 +139,8 @@ namespace MichiSistemaWeb
                 lanzarMensajedeError("No se pudo registrar el trabajador: " + ex.Message);
             }
         }
+
+
 
         public void lanzarMensajedeError(String mensaje)
         {

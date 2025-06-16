@@ -63,6 +63,11 @@
                         <i class="fa-solid  fa-receipt pe-2"></i>Gestionar Comprobantes
                     </a>
                 </li>
+                <li class="nav-item mb-1">
+                    <a href="ListarUsuarios.aspx">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar Usuarios
+                    </a>
+                </li>
             </ul>
             <hr />
             <div class="d-flex">

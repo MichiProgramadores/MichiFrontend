@@ -308,6 +308,7 @@
     <Content Include="ListarOrdenes.aspx" />
     <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
+    <Content Include="ListarUsuarios.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistrarComprobante.aspx" />
     <Content Include="RegistrarOrden.aspx" />
@@ -444,6 +445,13 @@
     </Compile>
     <Compile Include="ListarTrabajadores.aspx.designer.cs">
       <DependentUpon>ListarTrabajadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Michi.Master.cs">
       <DependentUpon>Michi.Master</DependentUpon>

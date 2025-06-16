@@ -36,9 +36,6 @@
                     <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click"/>
                 </div>
             </form>
-            <div class="text-center mt-3">
-                <small>¿Olvidaste tu contraseña? <a href="#">Recuperar</a></small>
-            </div>
         </div>
     </div>
 </body>

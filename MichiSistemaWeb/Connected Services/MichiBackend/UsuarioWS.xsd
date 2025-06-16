@@ -53,7 +53,7 @@
   </xs:complexType>
   <xs:complexType name="autenticarUsuarioResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:usuario" />
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarUsuario">

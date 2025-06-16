@@ -15,22 +15,22 @@ namespace MichiSistemaWeb
     {
 
         /// <summary>
-        /// Control lblNombre.
+        /// Control lblNombreID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lblNombreID;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control txtNombreID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreID;
 
         /// <summary>
         /// Control lbBuscar.
@@ -42,13 +42,13 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.LinkButton lbBuscar;
 
         /// <summary>
-        /// Control lbRegistrar.
+        /// Control btnNuevaOrden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbRegistrar;
+        protected global::System.Web.UI.WebControls.Button btnNuevaOrden;
 
         /// <summary>
         /// Control dgvOrdenes.
@@ -58,5 +58,23 @@ namespace MichiSistemaWeb
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvOrdenes;
+
+        /// <summary>
+        /// Control lblError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// Control dgvDetalles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvDetalles;
     }
 }

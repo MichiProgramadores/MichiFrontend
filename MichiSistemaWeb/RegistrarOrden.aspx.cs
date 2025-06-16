@@ -87,6 +87,7 @@ namespace MichiSistemaWeb
                 lblMontoTotal.Visible = false;
                 lblSaldo.Visible = false;
                 lblCantDias.Visible = false;
+                
                 //lblFechaDevol.Visible = false;
                 //lblFechaEmis.Visible = false;
                 //lblSetUpPersonalizado.Visible = false;
@@ -174,7 +175,7 @@ namespace MichiSistemaWeb
                 ddlTipoEstDevol.Enabled = false;
                 btnGuardar.Visible = false;
                 btnGuardar.Enabled = false;
-
+                lblCantDias.Visible = false;
 
             }
         }

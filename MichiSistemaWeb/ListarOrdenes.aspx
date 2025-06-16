@@ -49,20 +49,23 @@
                             CommandName="Editar"
                             Text="<i class='fa-solid fa-edit pe-4'></i>" 
                             CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
-                        <asp:LinkButton ID="lbVerDetalles" runat="server" 
-                            CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>'
-                            OnClick="lbVerDetalles_Click"
-                            Text="<i class='fa-solid fa-eye pe-4'></i>" />
+
                        <asp:LinkButton ID="lbEliminar" runat="server"
                             CommandName="Eliminar"
+                           Text="<i class='fa-solid fa-trash pe-4'></i> "
                             CommandArgument='<%# Eval("idOrden") %>'
                             OnClick="lbEliminar_Click"
+                           Style="text-decoration: none !important;"
                             OnClientClick="return confirm('¿Está seguro de eliminar esta orden?');"
-                            >
-                            <i class='fa-solid fa-trash pe-4'></i>
-                      </asp:LinkButton>
+                            />
+                            
+                      
+                       
+                        <asp:LinkButton ID="lbVerDetalles" runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"
+                         CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVerDetalles_Click" />
                     </ItemTemplate>
                </asp:TemplateField>
+
             </Columns>
             <EmptyDataTemplate>
                 <div class="text-center">No hay ordenes registradas</div>

@@ -34,11 +34,6 @@
 
                     <asp:BoundField DataField="fechaInicio" HeaderText="Fecha Inicio" ItemStyle-CssClass="align-middle"  DataFormatString="{0:dd/MM/yyyy}" />
                     <asp:BoundField DataField="fechaFin" HeaderText="Fecha Fin" ItemStyle-CssClass="align-middle"  DataFormatString="{0:dd/MM/yyyy}"/>
-                    <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" ItemStyle-CssClass="align-middle" />
-
-                    <asp:BoundField DataField="direccion" HeaderText="Dirección" ItemStyle-CssClass="align-middle" />
-                    <asp:BoundField DataField="codigoPostal" HeaderText="Código Postal" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField DataField="descripcion" HeaderText="Descripción" ItemStyle-CssClass="align-middle" />
                     <asp:BoundField DataField="tipoEvento" HeaderText="Tipo Evento" ItemStyle-CssClass="align-middle" />
 

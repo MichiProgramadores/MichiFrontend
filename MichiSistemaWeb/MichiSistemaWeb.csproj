@@ -278,14 +278,17 @@
     <Content Include="Home.aspx" />
     <Content Include="Images\imagen.jpg" />
     <Content Include="Images\logo.jpg" />
+    <Content Include="Images\logo2.png" />
     <Content Include="Images\pucp.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />
+    <Content Include="ListarComprobantes.aspx" />
     <Content Include="ListarEventos.aspx" />
     <Content Include="ListarOrdenes.aspx" />
     <Content Include="ListarProductos.aspx" />
     <Content Include="ListarTrabajadores.aspx" />
     <Content Include="RegistrarCliente.aspx" />
+    <Content Include="RegistrarComprobante.aspx" />
     <Content Include="RegistrarOrden.aspx" />
     <Content Include="RegistrarEvento.aspx" />
     <Content Include="RegistrarProducto.aspx" />
@@ -386,6 +389,13 @@
     <Compile Include="ListarClientes.aspx.designer.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListarComprobantes.aspx.cs">
+      <DependentUpon>ListarComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarComprobantes.aspx.designer.cs">
+      <DependentUpon>ListarComprobantes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListarEventos.aspx.cs">
       <DependentUpon>ListarEventos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -428,6 +438,13 @@
     </Compile>
     <Compile Include="RegistrarCliente.aspx.designer.cs">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarComprobante.aspx.cs">
+      <DependentUpon>RegistrarComprobante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarComprobante.aspx.designer.cs">
+      <DependentUpon>RegistrarComprobante.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarOrden.aspx.cs">
       <DependentUpon>RegistrarOrden.aspx</DependentUpon>

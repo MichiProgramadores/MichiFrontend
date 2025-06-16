@@ -25,9 +25,9 @@
 <body>
     <div class="container-fluid d-flex p-0 h-100">
         <!-- Division de la izquierda-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start">
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start" style="justify-content: center; align-items: center;">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/logo.jpg" width="150"/>
+                <img src="Images/logo2.png" width="100" />
             </a>
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">
@@ -52,11 +52,15 @@
                       
                     </a>
                 </li>
-
                 <li class="nav-item mb-1">
                    
                     <a href="ListarEventos.aspx" >
                         <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar Eventos
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="ListarComprobantes.aspx">
+                        <i class="fa-solid  fa-receipt pe-2"></i>Gestionar Comprobantes
                     </a>
                 </li>
             </ul>
@@ -87,8 +91,6 @@
                                 <asp:Label ID="lblNombreCompleto" runat="server" Text="Label"></asp:Label>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
                                 <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                             </ul>
                         </div>

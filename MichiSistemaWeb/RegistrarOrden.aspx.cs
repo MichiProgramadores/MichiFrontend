@@ -1,9 +1,7 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.EnterpriseServices;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,19 +12,10 @@ namespace MichiSistemaWeb
     public partial class RegistrarOrden : System.Web.UI.Page
     {
         protected OrdenWSClient ordenService;
-        protected TrabajadorWSClient trabajadorService;
-        protected ClienteWSClient clienteService;
-        protected ProductoWSClient productoService;
         protected orden orden;
-        private List<detalleOrden> detallesOrden;
-        
         protected Estado estado;
         protected void Page_Init(object sender, EventArgs e)
         {
-            clienteService = new ClienteWSClient();
-            trabajadorService = new TrabajadorWSClient();
-            productoService= new ProductoWSClient();
-           
            ordenService = new OrdenWSClient();
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -34,24 +23,13 @@ namespace MichiSistemaWeb
 
             if (!IsPostBack)
             {
-                detallesOrden = new List<detalleOrden>();
-                Session["DetallesOrden"] = detallesOrden;
-                CargarClientes();
-                CargarTrabajadores();
-                CargarProductos();
-                // Obtener los valores del enum TipoRecepcion
-                ddlTipoRecepcion.DataSource = Enum.GetValues(typeof(tipoRecepcion));
-                ddlTipoRecepcion.DataBind();
-
-                // Opcional: agregar un valor por defecto
-                ddlTipoRecepcion.Items.Insert(0, new ListItem("-- Seleccione --", ""));
 
                 // Obtener los valores del enum tipoCliente
-                ddlTipoEstDevol.DataSource = Enum.GetValues(typeof(tipoEstadoDevolucion));
-                ddlTipoEstDevol.DataBind();
+                //ddl.DataSource = Enum.GetValues(typeof(tipoCliente));
+                //ddlTipoCliente.DataBind();
 
                 // Opcional: agregar un valor por defecto
-                ddlTipoEstDevol.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+                //ddlTipoCliente.Items.Insert(0, new ListItem("-- Seleccione --", ""));
             }
 
             string accion = Request.QueryString["accion"];
@@ -64,364 +42,137 @@ namespace MichiSistemaWeb
                 lblIdOrden.Visible = false;
                 txtIdOrden.Visible = false;
 
-                //lblIdTrabaj.Visible = false;
-                //txtIdTrabaj.Visible = false;
+                lblIdTrabaj.Visible = false;
+                txtIdTrabaj.Visible = false;
 
-                lblIdCliente.Visible = true;
-                txtIdCliente.Visible = true;
+                lblIdCliente.Visible = false;
+                txtIdCliente.Visible = false;
 
-                //lblTipoEstDevol.Visible = false;
-                //ddlTipoEstDevol.Visible = false;
+                lblTipoEstDevol.Visible = false;
+                DropDownList2.Visible = false;
 
-                //lblTipoRecepcion.Visible = false;
-                //ddlTipoRecepcion.Enabled = false;
+                lblFechaEntr.Visible = false;
+                txtFechaEntr.Enabled = false;
 
-                //lblFechaEntr.Visible = false;
-                //txtFechaEntr.Enabled = false;
-
-                txtMonto.Visible = false;
-                txtSaldo.Visible = false;
-                txtCantDias.Visible = false;
-                //txtFechaDevol.Enabled = false;
-                //txtFechaEmis.Enabled = false;
-                lblMontoTotal.Visible = false;
-                lblSaldo.Visible = false;
-                lblCantDias.Visible = false;
-                //lblFechaDevol.Visible = false;
-                //lblFechaEmis.Visible = false;
-                //lblSetUpPersonalizado.Visible = false;
-                //txtSetUpPersonalizado.Enabled = false;
-                lblFechaReg.Visible = false;
-                txtFechaReg.Visible = false;
-
-            }
-            else if (accion == "modificar")
-            {
-                estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Orden";
-                orden = (orden)Session["ordenSeleccionada"];
-                if (!IsPostBack)
-                {
-                    // Cargar detalles de la orden en la sesión
-                    detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
-                    Session["DetallesOrden"] = detallesOrden;
-                    ActualizarGrillaDetalles();
-                    AsignarValoresTexto();
-                }
-
-                lblIdOrden.Visible = false;
-                txtIdOrden.Visible = false;
-
-                //lblIdTrabaj.Visible = false;
-                //txtIdTrabaj.Visible = false;
-
-                lblIdCliente.Visible = true;
-                txtIdCliente.Visible = true;
-
-                //lblTipoEstDevol.Visible = false;
-                //ddlTipoEstDevol.Visible = false;
-
-                //lblTipoRecepcion.Visible = false;
-                //ddlTipoRecepcion.Enabled = false;
-
-                //lblFechaEntr.Visible = false;
-                //txtFechaEntr.Enabled = false;
-
-                txtMonto.Visible = false;
-                txtSaldo.Visible = false;
-                txtCantDias.Visible = false;
-                //txtFechaDevol.Enabled = false;
-                //txtFechaEmis.Enabled = false;
-                lblMontoTotal.Visible = false;
-                lblSaldo.Visible = false;
-                lblCantDias.Visible = false;
-                //lblFechaDevol.Visible = false;
-                //lblFechaEmis.Visible = false;
-                //lblSetUpPersonalizado.Visible = false;
-                //txtSetUpPersonalizado.Enabled = false;
-                lblFechaReg.Visible = false;
-                txtFechaReg.Visible = false;
-            }
-            else if (accion == "ver")
-            {
-                
-                lblTitulo.Text = "Visualizar Orden";
-                orden = (orden)Session["ordenSeleccionada"];
-                if (!IsPostBack)
-                {
-                    // Cargar detalles de la orden en la sesión
-                    detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
-                    Session["DetallesOrden"] = detallesOrden;
-                    ActualizarGrillaDetalles();
-                    AsignarValoresTexto();
-                }
-
-                lblIdOrden.Visible = false;
-                txtIdOrden.Visible = false;
-                txtSetUpPersonalizado.Enabled = false;
-                txtIdCliente.Enabled = false;
-                txtIdTrabaj.Enabled = false;
-                txtIdOrden.Enabled = false;
+                txtMonto.Enabled = false;
+                txtSaldo.Enabled = false;
+                txtCantDias.Enabled = false;
                 txtFechaDevol.Enabled = false;
                 txtFechaEmis.Enabled = false;
-                txtFechaEntr.Enabled = false;
-                txtMonto.Enabled = false;
-                lblTipoRecepcion.Enabled = false;
-                txtSaldo.Enabled = false;
-                txtCantDias.Visible = false;
+
                 lblFechaReg.Visible = false;
-                txtFechaReg.Visible = false;
-                ddlTipoEstDevol.Enabled = false;
-                btnGuardar.Visible = false;
-                btnGuardar.Enabled = false;
-               
+                txtFechaReg.Enabled = false;
 
             }
+            //else if (accion == "modificar")
+            //{
+            //    estado = Estado.Modificar;
+            //    lblTitulo.Text = "Modificar Cliente";
+            //    cliente = (cliente)Session["clienteSeleccionado"];
+            //    if (!IsPostBack)
+            //    {
+            //        AsignarValoresTexto();
+            //    }
+            //    lblID.Visible = true;
+            //    txtIDCliente.Visible = true;
+            //    txtIDCliente.Enabled = false;
+
+            //    lblPuntuacion.Visible = true;
+            //    txtPuntuacion.Visible = true;
+            //    txtPuntuacion.Enabled = false;
+
+            //    lblActivo.Visible = false;
+            //    txtActivo.Visible = false;
+            //}
+            //else if (accion == "ver")
+            //{
+            //    lblTitulo.Text = "Ver Cliente";
+            //    cliente = (cliente)Session["clienteSeleccionado"];
+            //    AsignarValoresTexto();
+
+            //    lblID.Visible = true;
+            //    txtIDCliente.Visible = true;
+            //    txtIDCliente.Enabled = false;
+
+            //    lblPuntuacion.Visible = true;
+            //    txtPuntuacion.Visible = true;
+            //    txtPuntuacion.Enabled = false;
+
+            //    lblActivo.Visible = true;
+            //    txtActivo.Visible = true;
+            //    txtActivo.Enabled = false;
+
+            //    txtNombres.Enabled = false;
+            //    txtApellidos.Enabled = false;
+            //    txtCelular.Enabled = false;
+            //    txtEmail.Enabled = false;
+            //    txtNumeroTipoCliente.Enabled = false;
+
+            //    ddlTipoCliente.Enabled = false;
+
+            //    btnGuardar.Visible = false;
+            //}
+
         }
 
-        protected void AsignarValoresTexto()
+        protected void AsignarValores()
         {
-            
-            int idTrabajador = orden.trabajadorID;
-            trabajador trabajador = trabajadorService.obtenerTrabajador(idTrabajador);
-            hdnTrabajadorId.Value = idTrabajador.ToString();
-            txtIdTrabaj.Text = $"{trabajador.nombres} {trabajador.apellidos}";
-            txtIdOrden.Text = orden.idOrden.ToString();
-
-            int clienteId = orden.clienteID;
-            cliente cliente = clienteService.obtenerCliente(clienteId);
-
-            hdnClienteId.Value = clienteId.ToString();
-            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}";
-
-            txtSetUpPersonalizado.Text = orden.setUpPersonalizado;
-
-            ddlTipoRecepcion.SelectedValue = orden.tipoRecepcion.ToString();
-            txtFechaReg.Text = orden.fecha_emisión.ToString("yyyy-MM-dd");
-            txtFechaDevol.Text = orden.fecha_devolucion.ToString("yyyy-MM-dd");
-            txtFechaEntr.Text = orden.fecha_entrega.ToString("yyyy-MM-dd");
-            txtFechaEmis.Text = orden.fecha_emisión.ToString("yyyy-MM-dd");
-            if(orden.tipoEstadoDevolucion.ToString()!=null)
-            ddlTipoEstDevol.SelectedValue = orden.tipoEstadoDevolucion.ToString();
-            txtMonto.Text = orden.totalPagar.ToString();
-            txtSaldo.Text = orden.saldo.ToString();
-
-
+            //txtDNIEmpleado.Text = empleado.DNI;
+            //txtNombre.Text = empleado.Nombre;
+            //txtApellidoPaterno.Text = empleado.ApellidoPaterno;
+            //txtCargo.Text = empleado.Cargo;
+            //txtSueldo.Text = empleado.Sueldo.ToString("F2");
+            //ddlAreas.SelectedValue = empleado.Area.IdArea.ToString();
+            //if (empleado.Genero.Equals('M')) rbMasculino.Checked = true;
+            //else rbFemenino.Checked = true;
+            //dtpFechaNacimiento.Value = empleado.FechaNacimiento.ToString("yyyy-MM-dd");
         }
-
-        private void CargarProductos()
-        {
-            ddlProductos.DataSource = productoService.listarProductos();
-            ddlProductos.DataTextField = "nombre";
-            ddlProductos.DataValueField = "producto_id";
-            ddlProductos.DataBind();
-            ddlProductos.Items.Insert(0, new ListItem("Seleccione un producto", ""));
-        }
-
-        private void CargarClientes()
-        {
-            dgvClientes.DataSource = clienteService.listarClientes();
-            dgvClientes.DataBind();
-        }
-
-        private void CargarTrabajadores()
-        {
-            dgvTrabajadores.DataSource = trabajadorService.listarTrabajadores();
-            dgvTrabajadores.DataBind();
-        }
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            int index = Convert.ToInt32(btn.CommandArgument);
-            detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-            detallesOrden.RemoveAt(index);
-            Session["DetallesOrden"] = detallesOrden;
-            ActualizarGrillaDetalles();
-        }
-
-        private void ActualizarGrillaDetalles()
-        {
-            detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-            gvDetalles.DataSource = detallesOrden;
-            gvDetalles.DataBind();
-
-            double total = 0;
-            foreach (detalleOrden detalle in detallesOrden)
-            {
-                //CALCULO DE SUBTOTAL FALTA
-
-                total += detalle.subtotal;
-            }
-           
-            txtMonto.Text = total.ToString("F2");
-            lblTotal.Text= total.ToString("F2");
-        }
-        protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
-        {
-            //prueba para despues escribir//
-            LinkButton btn = (LinkButton)sender;
-            int clienteId = Convert.ToInt32(btn.CommandArgument);
-            cliente cliente = clienteService.obtenerCliente(clienteId);
-
-            hdnClienteId.Value = clienteId.ToString();
-            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
-
-        }
-        protected void btnSeleccionarTrabajador_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            int idTrabajador = int.Parse(btn.CommandArgument);
-            trabajador trabajador = trabajadorService.obtenerTrabajador(idTrabajador);
-
-            hdnTrabajadorId.Value = idTrabajador.ToString();
-            txtIdTrabaj.Text = $"{trabajador.nombres} {trabajador.apellidos}";
-        }
-
-        protected void ddlProductos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(ddlProductos.SelectedValue))
-            {
-                int productoId = Convert.ToInt32(ddlProductos.SelectedValue);
-                producto producto = productoService.obtenerProducto(productoId);
-                txtPrecioUnitario.Text = producto.precio.ToString("F2");
-                txtStockProducto.Text = producto.stockActual.ToString();
-                
-            }
-            else
-            {
-                txtPrecioUnitario.Text = "";
-                txtStockProducto.Text = "";
-            }
-            upModalDetalle.Update();
-        }
-        private void LimpiarError()
-        {
-            lblError.Text = "";
-            divError.Style["display"] = "none";
-        }
-        private void MostrarError(string mensaje)
-        {
-            lblError.Text = mensaje;
-            divError.Style["display"] = "block";
-        }
-        protected void btnAgregarDetalle_Click(object sender, EventArgs e)
-        {
-            LimpiarError();
-
-            if (string.IsNullOrEmpty(ddlProductos.SelectedValue))
-            {
-                MostrarError("Debe seleccionar un producto");
-                return;
-            }
-
-            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
-            {
-                MostrarError("La cantidad debe ser un número mayor a 0");
-                return;
-            }
-
-
-            if (!double.TryParse(txtPrecioUnitario.Text, out double precio) || precio <= 0)
-            {
-                MostrarError("El precio debe ser un número mayor a 0");
-                return;
-            }
-
-            int productoId = Convert.ToInt32(ddlProductos.SelectedValue);
-            producto producto = productoService.obtenerProducto(productoId);
-
-            if (cantidad > producto.stockActual)
-            {
-                MostrarError($"No hay suficiente stock. Stock disponible: {producto.stockActual}");
-                return;
-            }
-
-            detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-            detalleOrden detalle = new detalleOrden
-            {
-               
-                producto = producto.producto_id,
-                cantidadSolicitada = cantidad,
-                precioAsignado = precio, subtotal = precio*cantidad
-            };
-
-            detallesOrden.Add(detalle);
-            Session["DetallesVenta"] = detallesOrden;
-
-            ActualizarGrillaDetalles();
-            LimpiarFormularioDetalle();
-        }
-
-        private void LimpiarFormularioDetalle()
-        {
-            ddlProductos.SelectedIndex = 0;
-            txtPrecioUnitario.Text = "";
-            txtCantidad.Text = "";
-            txtStockProducto.Text = "";
-        }
-
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                LimpiarError();
+            // boEmpleado = new EmpleadoBO();
+            //empleado.DNI = txtDNIEmpleado.Text;
+            //empleado.Nombre = txtNombre.Text;
+            //empleado.ApellidoPaterno = txtApellidoPaterno.Text;
 
-                if (string.IsNullOrEmpty(hdnClienteId.Value))
-                {
-                    MostrarError("Debe seleccionar un cliente");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(hdnTrabajadorId.Value))
-                {
-                    MostrarError("Debe seleccionar un trabajador");
-                    return;
-                }
-
-                detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-                if (detallesOrden.Count == 0)
-                {
-                    MostrarError("Debe agregar al menos un producto");
-                    return;
-                }
-                CultureInfo cultura = CultureInfo.InvariantCulture;
-                DateTime fechaInicio = DateTime.ParseExact(txtFechaEmis.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                DateTime fechaFin = DateTime.ParseExact(txtFechaDevol.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-                int diasDiferencia = (fechaFin - fechaInicio).Days;
+            //try
+            //{
+            //    empleado.FechaNacimiento = DateTime.Parse(dtpFechaNacimiento.Value);
+            //}
+            //catch (Exception ex)
+            //{ lanzarMensajedeError("Debe seleccionar una fecha de nacimiento"); return; }
 
 
+            //if (rbMasculino.Checked) empleado.Genero = 'M';
+            //else if (rbFemenino.Checked) empleado.Genero = 'F';
+            //try
+            //{
+            //    empleado.Sueldo = Double.Parse(txtSueldo.Text);
+            //}
+            //catch (Exception ex)
+            //{ lanzarMensajedeError("Debe colocar un valor de sueldo apropiado"); return; }
 
-                orden orden = new orden()
-                {
-                    tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
+            //empleado.Cargo = txtCargo.Text;
+            //Area area = new Area();
+            //area.IdArea = Int32.Parse(ddlAreas.SelectedValue);
+            //empleado.Area = area;
 
-                    setUpPersonalizado = txtSetUpPersonalizado.Text.ToString(),
+            //try
+            //{
+            //    if (estado == Estado.Nuevo)
+            //    {
+            //        boEmpleado.insertar(empleado);
+            //    }
+            //    else if (estado == Estado.Modificar)
+            //    {
+            //        boEmpleado.modificar(empleado);
+            //   }
+            //}
+            //catch (Exception ex)
+            //{ lanzarMensajedeError(ex.Message); return; }
 
-                    totalPagar = double.Parse(txtMonto.Text.Trim()),
-
-                    saldo = double.Parse(txtMonto.Text.Trim()),
-                    cantDias = diasDiferencia,
-                    fecha_registro = DateTime.Today,
-                    fecha_devolucion = fechaFin,
-                    fecha_emisión = fechaInicio,
-                    clienteID = Convert.ToInt32(hdnClienteId.Value),
-                    trabajadorID = Convert.ToInt32(hdnTrabajadorId.Value),
-                    listaOrdenes = detallesOrden.ToArray(),
-
-                };
-                Console.WriteLine("Tipo de recepción asignado en la orden: " + orden.tipoRecepcion.ToString());
-                ordenService.registrarOrden(orden);
-                Response.Redirect("ListaOrdenes.aspx");
-            }
-            catch (Exception ex)
-            {
-                MostrarError(ex.Message);
-            }
+            //Response.Redirect("ListarTrabajadores.aspx");
         }
-        
 
         public void lanzarMensajedeError(String mensaje)
         {
@@ -434,6 +185,5 @@ namespace MichiSistemaWeb
         {
             Response.Redirect("ListarOrdenes.aspx");
         }
-        
     }
 }

@@ -77,7 +77,7 @@ namespace MichiSistemaWeb
                 lblID.Visible = true;
                 txtIDProducto.Visible = true;
                 txtIDProducto.Enabled = false;
-                
+
                 txtNombre.Enabled = false;
                 ddlTipo.Enabled = false;       
                 txtPrecio.Enabled = false;

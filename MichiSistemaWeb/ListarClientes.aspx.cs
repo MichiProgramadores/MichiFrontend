@@ -1,7 +1,6 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,7 +30,6 @@ namespace MichiSistemaWeb
         }
         protected void dgvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //CargarDatos();
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "persona_id").ToString();

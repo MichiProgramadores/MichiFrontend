@@ -1,62 +1,110 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarOrdenes.aspx.cs" Inherits="MichiSistemaWeb.ListarOrdenes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="~/ListarOrdenes.aspx.cs" Inherits="MichiSistemaWeb.ListarOrdenes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
-    <div class="container">
-        <div class="container row">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el ID de la orden:"></asp:Label>
-                </div>
-                <div class="col-sm-3">
-                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
-                </div>
-                <div class="col text-end p-3">
-                    <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Orden" OnClick="lbRegistrar_Click" />
-                </div>
+<%--<asp:Content ID="Content4" ContentPlaceHolderID="cph_Scripts" runat="server">
+</asp:Content>--%>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_Contenido" runat="server">
+    <div class="container mt-4">
+        <h2>Listado de Órdenes</h2>
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID"></asp:Label>
             </div>
-            <div class="container">
-                <div class="table-responsive">
-                    <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false"
-                        OnRowDataBound="dgvOrdenes_RowDataBound" AllowPaging="true"
-                        OnPageIndexChanging="dgvOrdenes_PageIndexChanging" PageSize="13"
-                        Width="100%"
-                        CssClass="table table-hover table-striped">
+                        <div class="col-sm-3">
+                <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-sm-2">
+                <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+            </div>
+<%--            <div class="col text-end p-3">
+                <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" />
+            </div>--%>
+        </div>
+        
+        <div class="text-end pb-3">
+            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server" 
+                Text="Nueva Orden" CssClass="btn btn-success" />
+        </div>
+        <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false" 
+            AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
+            CssClass="table table-striped table-responsive table-hover">
+     <Columns>
+                <asp:BoundField DataField="idOrden" HeaderText="N° Orden" />
+                <%--<asp:BoundField DataField="clienteID" HeaderText="Cliente" />
+                <asp:BoundField DataField="trabajadorID" HeaderText="Empleado" />--%>
+<%--                <asp:BoundField DataField="fecha" HeaderText="Emisión" 
+                    DataFormatString="{0:dd/MM/yyyy}" />--%>
+                <asp:BoundField DataField="totalPagar" HeaderText="Total" 
+                    DataFormatString="{0:C2}" />
+                <asp:TemplateField HeaderText="Recepción">
+                    <ItemTemplate>
+                        <%# Enum.GetName(typeof(MichiSistemaWeb.MichiBackend.tipoRecepcion), Eval("tipoRecepcion")) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+         
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lbEditar" runat="server" 
+                            CommandName="Editar"
+                            Text="<i class='fa-solid fa-edit pe-4'></i>" 
+                            CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
+                        <asp:LinkButton ID="lbVerDetalles" runat="server" 
+                            CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>'
+                            OnClick="lbVerDetalles_Click"
+                            Text="<i class='fa-solid fa-eye pe-4'></i>" />
+                       <asp:LinkButton ID="lbEliminar" runat="server"
+                            CommandName="Eliminar"
+                            CommandArgument='<%# Eval("idOrden") %>'
+                            OnClick="lbEliminar_Click"
+                            OnClientClick="return confirm('¿Está seguro de eliminar esta orden?');"
+                            >
+                            <i class='fa-solid fa-trash pe-4'></i>
+                      </asp:LinkButton>
+                    </ItemTemplate>
+               </asp:TemplateField>
+            </Columns>
+            <EmptyDataTemplate>
+                <div class="text-center">No hay ordenes registradas</div>
+            </EmptyDataTemplate>
+        </asp:GridView>
+              <asp:Label ID="lblError" runat="server" Text="" CssClass="text-danger"></asp:Label>
+    </div>
+    
+    <!-- Modal Detalles -->
+    <div class="modal fade" id="modalDetalles" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalles de Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:GridView ID="dgvDetalles" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"
+                        CssClass="table table-striped">
                         <Columns>
-                            <asp:BoundField DataField="idOrden" HeaderText="ID" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="tipoRecepcion" HeaderText="Tipo recepcion" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="setUpPersonalizado" HeaderText="Set up personalizado" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="totalPagar" HeaderText="Monto total" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="saldo" HeaderText="Saldo" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="cantDias" HeaderText="Cantidad dias" ItemStyle-CssClass="align-middle" />
-                            
-                            <asp:BoundField DataField="fecha_devolucion" HeaderText="Fecha devolución" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}"/>
-                            <asp:BoundField DataField="fecha_emisión" HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}"  />
-                            <asp:BoundField DataField="fecha_registro" HeaderText="Fecha registro" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
-                            <asp:BoundField DataField="fecha_entrega" HeaderText="Fecha entrega" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
-                            <asp:BoundField DataField="tipoEstadoDevolucion" HeaderText="Tipo estado devolución" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="clienteID" HeaderText="Id cliente" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="trabajadorID" HeaderText="Id trabajador" ItemStyle-CssClass="align-middle" />
-
-                            <asp:TemplateField>
-                                <ItemTemplate>
-
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbEliminar_Click"/>
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"  CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVisualizar_Click"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:BoundField DataField="Producto.Nombre" HeaderText="Producto" />
+                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+                            <asp:BoundField DataField="PrecioUnitario" HeaderText="Precio Unit." 
+                                DataFormatString="{0:C2}" />
+                            <asp:BoundField DataField="Subtotal" HeaderText="Subtotal" 
+                                DataFormatString="{0:C2}" />
                         </Columns>
                     </asp:GridView>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
-
-        </div>
+                    </div>
     </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_Scripts" runat="server">
+    <script type="text/javascript">
+        function showModalForm() {
+            var modalForm = new bootstrap.Modal(document.getElementById('modalDetalles'));
+            modalForm.toggle();
+        }
+    </script>
+
 </asp:Content>

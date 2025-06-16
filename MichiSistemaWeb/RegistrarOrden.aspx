@@ -5,7 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script src="Scripts/michi/registrarOrden.js"></script>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -14,20 +16,49 @@
                 </h2>
             </div>
             <div class="card-body">
-
                 <div class="mb-3 row">
-                    <asp:Label id="lblIdOrden" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
+
+                     <asp:Label id="lblIdOrden" runat="server" CssClass="col-md-6 col-form-label" Text="ID: " ></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <asp:Label ID="lblIdCliente" runat="server" Text="*Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
+
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:HiddenField ID="hdnClienteId" runat="server" />
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalClientes">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                        <asp:Label ID="lblIdTrabaj" runat="server" Text="*Trabajador:" CssClass="col-sm-2 col-form-label"></asp:Label>
+    
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <asp:TextBox ID="txtIdTrabaj" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:HiddenField ID="hdnTrabajadorId" runat="server" />
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                  <div class="mb-3 row">
                      <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoRecepcion" runat="server" Text="*Tipo recepción: "></asp:Label>
                      <div class="col-sm-8">
-                         <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                         <asp:DropDownList ID="ddlTipoRecepcion" runat="server" CssClass="form-control">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
-                            <asp:ListItem Value="1">Delivery</asp:ListItem>
-                            <asp:ListItem Value="2">Recojo en tienda</asp:ListItem>
+                            <asp:ListItem Value="DELIVERY">Delivery</asp:ListItem>
+                            <asp:ListItem Value="RECOJO_EN_TIENDA">Recojo en tienda</asp:ListItem>
                          </asp:DropDownList>
                      </div>
                  </div>
@@ -58,12 +89,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
-                    <asp:Label id="lblFechaDevol" runat="server" Text="*Fecha devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaDevol" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                    </div>
-                </div>
+
 
 
                 <div class="mb-3 row">
@@ -86,11 +112,16 @@
                         <asp:TextBox id="txtFechaEntr" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </div>
                 </div>
-
                 <div class="mb-3 row">
-                    <asp:Label id="lblTipoEstDevol" runat="server" Text="*Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaDevol" runat="server" Text="*Fecha devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                        <asp:TextBox id="txtFechaDevol" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <asp:Label id="lblTipoEstDevol" runat="server" Text="Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:DropDownList ID="ddlTipoEstDevol" runat="server" CssClass="form-select">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
                             <asp:ListItem Value="1">Devuelto en buenas condiciones</asp:ListItem>
                             <asp:ListItem Value="2">Devuelto en malas condiciones</asp:ListItem>
@@ -98,29 +129,154 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-
-                <div class="mb-3 row">
-                    <asp:Label id="lblIdCliente" runat="server" Text="*Id del cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox id="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <asp:Label id="lblIdTrabaj" runat="server" Text="*Id del trabajador: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox id="txtIdTrabaj" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-
-
+                 
+                
+                
             </div>
+                   <!-- Tabla de detalles -->
+           <div class="row mb-3">
+               <div class="col">
+                   <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
+                       <i class="fas fa-plus"></i> Agregar Producto
+                   </button>
+                   <asp:GridView ID="gvDetalles" runat="server" CssClass="table table-striped" 
+                       AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
+                       <Columns>
+                           <asp:BoundField DataField="producto" HeaderText="Producto" />
+                           <asp:BoundField DataField="cantidadSolicitada" HeaderText="Stock" />
+                           <asp:BoundField DataField="unidadMedida" HeaderText="Unid." />
+                           <asp:BoundField DataField="precioAsignado" HeaderText="Subtotal" DataFormatString="{0:C2}" />
+                         
+                           <asp:TemplateField HeaderText="Acciones">
+                               <ItemTemplate>
+                                   <asp:LinkButton ID="btnEliminar" runat="server" CssClass="btn btn-danger btn-sm"
+                                       OnClick="btnEliminar_Click" CommandArgument='<%# Container.DataItemIndex %>'>
+                                       <i class="fas fa-trash"></i>
+                                   </asp:LinkButton>
+                               </ItemTemplate>
+                               
+                           </asp:TemplateField>
+                       </Columns>
+                   </asp:GridView>
+               </div>
+           </div>
+
+
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click"/>
                 <asp:LinkButton ID="btnGuardar" CssClass="float-end btn btn-primary" runat="server" Text="<i class='fa-solid fa-floppy-disk pe-2'></i> Guardar" OnClick="btnGuardar_Click"/>
             </div>
+            <div class="col-md-12 mt-4 alert alert-danger" id="divError" runat="server" style="display: none;">
+                <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="col-md-6 text-end">
+                 <h3>Total: <asp:Label ID="lblTotal" runat="server" Text="S/. 0.00"></asp:Label></h3>
+            </div>
         </div>
     </div>
+    
+    <!-- Modal Clientes -->
+    <div class="modal fade" id="modalClientes" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Seleccionar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:GridView ID="dgvClientes" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="persona_id" HeaderText="ID" />
+                         
+                            <asp:TemplateField HeaderText="Acciones">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm"
+                                        OnClick="btnSeleccionarCliente_Click" CommandArgument='<%# Eval("persona_id") %>'>
+                                        Seleccionar
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Trabajadores -->
+    <div class="modal fade" id="modalTrabajadores" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Seleccionar Empleado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:GridView ID="dgvTrabajadores" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="persona_id" HeaderText="ID" />
+                           
+                            <asp:TemplateField HeaderText="Acciones">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm"
+                                        OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'>
+                                        Seleccionar
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalle -->
+    <div class="modal fade" id="modalDetalle" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:UpdatePanel ID="upModalDetalle" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="form-group mb-3">
+                                <label>Producto:</label>
+                                <asp:DropDownList ID="ddlProductos" runat="server" CssClass="form-select" 
+                                    AutoPostBack="true" OnSelectedIndexChanged="ddlProductos_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Stock:</label>
+                                <asp:TextBox ID="txtStockProducto" runat="server" TextMode="Number" CssClass="form-control" 
+                                    ReadOnly="true"></asp:TextBox>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Precio Unitario:</label>
+                                <asp:TextBox ID="txtPrecioUnitario" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Cantidad:</label>
+                                <asp:TextBox ID="txtCantidad" runat="server" CssClass="form-control" 
+                                    TextMode="Number"></asp:TextBox>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <asp:Button ID="btnAgregarDetalle" runat="server" Text="Agregar" 
+                        CssClass="btn btn-primary" OnClick="btnAgregarDetalle_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

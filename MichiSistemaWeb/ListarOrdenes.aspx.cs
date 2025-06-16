@@ -1,6 +1,7 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,22 +9,37 @@ using System.Web.UI.WebControls;
 
 namespace MichiSistemaWeb
 {
-	public partial class ListarOrdenes : System.Web.UI.Page
+    public partial class ListarOrdenes : System.Web.UI.Page
     {
-		
+
         protected OrdenWSClient ordenWS;
         protected List<orden> ordenes;
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             ordenWS = new OrdenWSClient();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+
+
             CargarDatos();
+
         }
         protected void CargarDatos()
         {
-            ordenes = ordenWS.listarOrdenes().ToList();
-            dgvOrdenes.DataSource = ordenes;
-            dgvOrdenes.DataBind();
+            try
+            {
+                ordenes = ordenWS.listarOrdenes().ToList();
+                dgvOrdenes.DataSource = ordenes;
+                dgvOrdenes.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al cargar las ordenes: " + ex.Message;
+            }
         }
+
 
         private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
         {
@@ -32,6 +48,16 @@ namespace MichiSistemaWeb
             if (DateTime.TryParse(str, out DateTime dt))
                 return dt.ToString(format);
             return str; // O "" si prefieres ocultar valores no parseables
+        }
+        protected void GvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvOrdenes.PageIndex = e.NewPageIndex;
+            CargarDatos();
+        }
+
+        protected void BtnNuevaOrden_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistrarOrden.aspx");
         }
 
         protected void dgvOrdenes_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -57,6 +83,7 @@ namespace MichiSistemaWeb
         }
 
 
+
         protected void dgvOrdenes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvOrdenes.PageIndex = e.NewPageIndex;
@@ -70,9 +97,13 @@ namespace MichiSistemaWeb
 
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            // Session["empleadoSeleccionado"] = empleado;
+            int idOrden = Int32.Parse(((LinkButton)sender).CommandArgument);
+            orden orden = ordenes.SingleOrDefault(x => x.idOrden == idOrden);
+            if (orden != null)
+            {
+                Session["ordenSeleccionada"] = orden;
+            }
+            // 
             Response.Redirect("RegistrarOrden.aspx?accion=modificar");
         }
 
@@ -83,11 +114,31 @@ namespace MichiSistemaWeb
             Response.Redirect("ListarOrdenes.aspx");
         }
 
-        protected void lbVisualizar_Click(object sender, EventArgs e)
+        protected void lbVerDetalles_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Empleado empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            //Session["empleadoSeleccionado"] = empleado;
+            //int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+
+
+            try
+            {
+                LinkButton btn = (LinkButton)sender;
+                int idOrden = Convert.ToInt32(btn.CommandArgument);
+
+                orden orden = ordenWS.obtenerOrden(idOrden);
+                if (orden != null)
+                {
+                    Session["ordenSeleccionada"] = orden;
+                }
+                dgvDetalles.DataSource = orden.listaOrdenes;
+                dgvDetalles.DataBind();
+
+                string script = "window.onload = function() {showModalForm(); };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al cargar los detalles: " + ex.Message;
+            }
             Response.Redirect("RegistrarOrden.aspx?accion=ver");
         }
 
@@ -96,7 +147,7 @@ namespace MichiSistemaWeb
             try
             {
                 // Obtener el texto del textbox
-                string textoId = txtNombre.Text.Trim();
+                string textoId = txtNombreID.Text.Trim();
 
                 if (int.TryParse(textoId, out int idOrden))
                 {
@@ -122,7 +173,7 @@ namespace MichiSistemaWeb
                 else
                 {
                     // Si no ingresó un número válido
-                    dgvOrdenes.DataSource = null;
+                    dgvOrdenes.DataSource = ordenes;
                     dgvOrdenes.DataBind();
                     //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                 }

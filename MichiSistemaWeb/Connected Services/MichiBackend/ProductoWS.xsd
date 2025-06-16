@@ -4,7 +4,11 @@
   <xs:element name="actualizarProductoResponse" type="tns:actualizarProductoResponse" />
   <xs:element name="eliminarProducto" type="tns:eliminarProducto" />
   <xs:element name="eliminarProductoResponse" type="tns:eliminarProductoResponse" />
+  <xs:element name="listaProductosActivos" type="tns:listaProductosActivos" />
+  <xs:element name="listaProductosActivosResponse" type="tns:listaProductosActivosResponse" />
   <xs:element name="listarProductos" type="tns:listarProductos" />
+  <xs:element name="listarProductosPorNombre" type="tns:listarProductosPorNombre" />
+  <xs:element name="listarProductosPorNombreResponse" type="tns:listarProductosPorNombreResponse" />
   <xs:element name="listarProductosPorTipo" type="tns:listarProductosPorTipo" />
   <xs:element name="listarProductosPorTipoResponse" type="tns:listarProductosPorTipoResponse" />
   <xs:element name="listarProductosResponse" type="tns:listarProductosResponse" />
@@ -67,6 +71,24 @@
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarProductosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaProductosActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaProductosActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorNombreResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>

@@ -9,17 +9,33 @@
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
-                    <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID o el nombre:"></asp:Label>
+                    <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID:"></asp:Label>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click"/>
                 </div>
-                <div class="col text-end p-3">
-                    <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click"/>
+                <div class="col-auto">
+                    <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
                 </div>
+                <div class="col-sm-3">
+                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <asp:LinkButton ID="lbBuscarN" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarN_Click" />
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="p-2">
+                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" />
+                    </div>
+                    <div class="p-2">
+                        
+                        <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" Text="Listar todos" OnClick="ListarTodos_Click" />
+                    </div>
+                </div>
+
             </div>
             <div class="container row">
                 <asp:GridView ID="dgvClientes" runat="server" AutoGenerateColumns="false"
@@ -47,6 +63,7 @@
             </div>
         </div>
     </div>
+
 </asp:Content>
 
 

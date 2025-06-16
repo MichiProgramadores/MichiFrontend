@@ -219,6 +219,27 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarProductosPorTipoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.autenticarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaProductosActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarProductosPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaTrabajadoresActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaTrabajadoresPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />
     <None Include="Connected Services\MichiBackend\OrdenWS.xsd">
       <SubType>Designer</SubType>

@@ -28,7 +28,7 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            trabajadores = trabajadorWS.listarTrabajadores().ToList();
+            trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
             dgvEmpleados.DataSource = trabajadores;
             dgvEmpleados.DataBind();
         }
@@ -122,6 +122,57 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
+
+        }
+
+        protected void lbBuscarN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el texto del textbox
+                string texto = txtNombre.Text.Trim();
+
+                if (texto != null)
+                {
+
+                    List<trabajador> trabajador = trabajadorWS.listaTrabajadoresPorNombre(texto).ToList();
+
+                    if (trabajador != null)
+                    {
+
+                        trabajadores = trabajador;
+                        dgvEmpleados.DataSource =trabajador;
+                        dgvEmpleados.DataBind();
+
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvEmpleados.DataSource = null;
+                        dgvEmpleados.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvEmpleados.DataSource = trabajadores;
+                    dgvEmpleados.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
+        }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            trabajadores = trabajadorWS.listarTrabajadores().ToList();
+            dgvEmpleados.DataSource = trabajadores;
+            dgvEmpleados.DataBind();
 
         }
     }

@@ -4,23 +4,24 @@
   <xs:element name="actualizarTrabajadorResponse" type="tns:actualizarTrabajadorResponse" />
   <xs:element name="eliminarTrabajador" type="tns:eliminarTrabajador" />
   <xs:element name="eliminarTrabajadorResponse" type="tns:eliminarTrabajadorResponse" />
+  <xs:element name="listaTrabajadoresActivos" type="tns:listaTrabajadoresActivos" />
+  <xs:element name="listaTrabajadoresActivosResponse" type="tns:listaTrabajadoresActivosResponse" />
+  <xs:element name="listaTrabajadoresPorNombre" type="tns:listaTrabajadoresPorNombre" />
+  <xs:element name="listaTrabajadoresPorNombreResponse" type="tns:listaTrabajadoresPorNombreResponse" />
   <xs:element name="listarTrabajadores" type="tns:listarTrabajadores" />
   <xs:element name="listarTrabajadoresResponse" type="tns:listarTrabajadoresResponse" />
   <xs:element name="obtenerTrabajador" type="tns:obtenerTrabajador" />
   <xs:element name="obtenerTrabajadorResponse" type="tns:obtenerTrabajadorResponse" />
   <xs:element name="registrarTrabajador" type="tns:registrarTrabajador" />
   <xs:element name="registrarTrabajadorResponse" type="tns:registrarTrabajadorResponse" />
-  <xs:complexType name="eliminarTrabajador">
+  <xs:complexType name="listaTrabajadoresPorNombre">
     <xs:sequence>
-      <xs:element name="idTrabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarTrabajadorResponse">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="actualizarTrabajador">
+  <xs:complexType name="listaTrabajadoresPorNombreResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="trabajador">
@@ -42,6 +43,19 @@
       <xs:element name="persona_id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="eliminarTrabajador">
+    <xs:sequence>
+      <xs:element name="idTrabajador" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarTrabajadorResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarTrabajadorResponse">
     <xs:sequence />
   </xs:complexType>
@@ -58,6 +72,14 @@
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarTrabajadoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaTrabajadoresActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaTrabajadoresActivosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>

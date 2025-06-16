@@ -152,5 +152,55 @@ namespace MichiSistemaWeb
                 dgvProductos.DataBind();
             }
         }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            productos = productoWS.listarProductos().ToList();
+            dgvProductos.DataSource = productos;
+            dgvProductos.DataBind();
+        }
+
+        protected void lblBuscarN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el texto del textbox
+                string texto = txtNombre.Text.Trim();
+
+                if (texto != null)
+                {
+
+                    List<producto> producto = productoWS.listarProductosPorNombre(texto).ToList();
+
+                    if (producto != null)
+                    {
+
+                        productos = producto;
+                        dgvProductos.DataSource = productos;
+                        dgvProductos.DataBind();
+
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvProductos.DataSource = null;
+                        dgvProductos.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvProductos.DataSource = productos;
+                    dgvProductos.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
+        }
     }
 }

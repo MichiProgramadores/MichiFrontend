@@ -24,7 +24,7 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            clientes = clienteWS.listarClientes().ToList();
+            clientes = clienteWS.listarClientesActivos().ToList();
             dgvClientes.DataSource = clientes;
             dgvClientes.DataBind();
         }
@@ -148,5 +148,55 @@ namespace MichiSistemaWeb
             }
         }
 
+        protected void lbBuscarN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el texto del textbox
+                string texto = txtNombre.Text.Trim();
+
+                if (texto!=null)
+                {
+
+                    List<cliente> cliente = clienteWS.listarClientesPorNombre(texto).ToList();
+
+                    if (cliente != null)
+                    {
+
+                        clientes = cliente;
+                        dgvClientes.DataSource = clientes;
+                        dgvClientes.DataBind();
+
+                        //lblMensaje.Text = "";
+                    }
+                    else
+                    {
+                        // Si no encontró resultados
+                        dgvClientes.DataSource = null;
+                        dgvClientes.DataBind();
+                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                    }
+                }
+                else
+                {
+                    // Si no ingresó un número válido
+                    dgvClientes.DataSource = clientes;
+                    dgvClientes.DataBind();
+                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                }
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            }
+        }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            clientes = clienteWS.listarClientes().ToList();
+            dgvClientes.DataSource = clientes;
+            dgvClientes.DataBind();
+
+        }
     }
 }

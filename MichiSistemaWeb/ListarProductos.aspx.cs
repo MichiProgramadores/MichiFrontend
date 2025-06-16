@@ -26,7 +26,7 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            productos=productoWS.listarProductos().ToList();
+            productos=productoWS.listaProductosActivos().ToList();
             dgvProductos.DataSource = productos;
             dgvProductos.DataBind();
            // DdlTipoProducto.Items.Clear();

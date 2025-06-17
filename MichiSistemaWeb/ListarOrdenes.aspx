@@ -50,6 +50,7 @@
                             Text="<i class='fa-solid fa-edit pe-4'></i>" 
                             CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
 
+                        <%-- 
                        <asp:LinkButton ID="lbEliminar" runat="server"
                             CommandName="Eliminar"
                            Text="<i class='fa-solid fa-trash pe-4'></i> "
@@ -58,8 +59,11 @@
                            Style="text-decoration: none !important;"
                             OnClientClick="return confirm('¿Está seguro de eliminar esta orden?');"
                             />
-                            
+                        --%>    
                       
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("idOrden") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("idOrden") + "); return false;" %>' />
+
+
                        
                         <asp:LinkButton ID="lbVerDetalles" runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"
                          CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVerDetalles_Click" />
@@ -101,6 +105,31 @@
             </div>
                     </div>
     </div>
+
+
+    <asp:HiddenField ID="hfIdEliminar" runat="server" />
+
+    <!-- Modal Bootstrap -->
+    <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea eliminar esta orden?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <asp:LinkButton ID="btnConfirmarEliminar" runat="server" CssClass="btn btn-danger" OnClick="btnConfirmarEliminar_Click"> Eliminar </asp:LinkButton>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script type="text/javascript">
@@ -109,5 +138,18 @@
             modalForm.toggle();
         }
     </script>
+
+    <script type="text/javascript">
+        function mostrarModalEliminar(id) {
+            const campoOculto = document.getElementById('<%= hfIdEliminar.ClientID %>');
+            campoOculto.value = id;
+
+            const modal = new bootstrap.Modal(document.getElementById('modalConfirmarEliminar'));
+            modal.show();
+        }
+    </script>
+
+
+
 
 </asp:Content>

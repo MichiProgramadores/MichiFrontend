@@ -65,9 +65,9 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarTrabajador.aspx?accion=modificar");
         }
 
-        protected void lbEliminar_Click(object sender, EventArgs e)
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int idEmpleado = int.Parse(hfIdEliminar.Value);
             trabajadorWS.eliminarTrabajador(idEmpleado);
             Response.Redirect("ListarTrabajadores.aspx");
         }

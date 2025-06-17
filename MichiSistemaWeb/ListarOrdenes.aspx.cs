@@ -107,9 +107,18 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarOrden.aspx?accion=modificar");
         }
 
+        /*
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idOrden = Int32.Parse(((LinkButton)sender).CommandArgument);
+            ordenWS.eliminarOrden(idOrden);
+            Response.Redirect("ListarOrdenes.aspx");
+        }
+        */
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            int idOrden = int.Parse(hfIdEliminar.Value);
             ordenWS.eliminarOrden(idOrden);
             Response.Redirect("ListarOrdenes.aspx");
         }

@@ -81,12 +81,23 @@ namespace MichiSistemaWeb
           
         }
 
+        /*
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
             clienteWS.eliminarCliente(idCliente);
             Response.Redirect("ListarClientes.aspx");
         }
+        */
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            int idCliente = int.Parse(hfIdEliminar.Value);
+            clienteWS.eliminarCliente(idCliente);
+            Response.Redirect("ListarClientes.aspx");
+        }
+
+
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {

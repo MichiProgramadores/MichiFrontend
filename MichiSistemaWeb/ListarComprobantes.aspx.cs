@@ -53,9 +53,18 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarComprobante.aspx?accion=modificar");
         }
 
+        /*
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idComprobante = Int32.Parse(((LinkButton)sender).CommandArgument);
+            comprobanteWS.eliminarComprobante(idComprobante);
+            Response.Redirect("ListarComprobantes.aspx");
+        }
+        */
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            int idComprobante = int.Parse(hfIdEliminar.Value);
             comprobanteWS.eliminarComprobante(idComprobante);
             Response.Redirect("ListarComprobantes.aspx");
         }

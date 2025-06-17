@@ -78,9 +78,9 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarProducto.aspx?accion=modificar");
         }
 
-        protected void lbEliminar_Click(object sender, EventArgs e)
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {
-            int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int idProducto = int.Parse(hfIdEliminar.Value);
             productoWS.eliminarProducto(idProducto);
             Response.Redirect("ListarProductos.aspx");
         }

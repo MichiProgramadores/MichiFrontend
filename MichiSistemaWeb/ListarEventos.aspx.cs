@@ -77,9 +77,9 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarEvento.aspx?accion=modificar");
         }
 
-        protected void lbEliminar_Click(object sender, EventArgs e)
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {
-            int idEvento = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int idEvento = int.Parse(hfIdEliminar.Value);
             eventoWS.eliminarEvento(idEvento);
             Response.Redirect("ListarEventos.aspx");
         }
@@ -117,7 +117,7 @@ namespace MichiSistemaWeb
                         // Si no encontró resultados
                         dgvEventos.DataSource = null;
                         dgvEventos.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
+                        // lblMensaje.Text = "No se encontró evento con ese ID.";
                     }
                 }
                 else
@@ -130,7 +130,7 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+                // lblMensaje.Text = "Error al buscar evento: " + ex.Message;
             }
         }
 

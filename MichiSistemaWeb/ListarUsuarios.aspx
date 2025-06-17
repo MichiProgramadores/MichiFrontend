@@ -2,6 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
+    <script type="text/javascript">
+    function mostrarModalEliminar(id) {
+        const campoOculto = document.getElementById('<%= hfIdEliminar.ClientID %>');
+        campoOculto.value = id;
+
+        const modal = new bootstrap.Modal(document.getElementById('modalConfirmarEliminar'));
+        modal.show();
+    }
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
@@ -38,11 +47,41 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbModificar_Click" />
+                                
+                                <%-- 
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbEliminar_Click" />
+                                --%>
+                            
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("usuario_id") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("usuario_id") + "); return false;" %>' />
+
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+
+                <asp:HiddenField ID="hfIdEliminar" runat="server" />
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea eliminar este usuario?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <asp:LinkButton ID="btnConfirmarEliminar" runat="server" CssClass="btn btn-danger" OnClick="btnConfirmarEliminar_Click"> Eliminar </asp:LinkButton>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
             </div>
         </div>
     </div>

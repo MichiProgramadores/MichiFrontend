@@ -15,6 +15,15 @@
     <script src="Scripts/michi/iniciarSesion.js"></script>
 
     <title>Inicio de Sesion</title>
+    
+    <style>
+        body {
+            background-image: url('Images/conFondo.jpg');
+            background-size: contain; /* Ajusta la imagen para que se vea completa */
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">

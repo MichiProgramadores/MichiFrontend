@@ -18,10 +18,12 @@
     
     <style>
         body {
-            background-image: url('Images/conFondo.jpg');
+            background-image: url('Images/loginSF.png');
             background-size: contain; /* Ajusta la imagen para que se vea completa */
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #0d6efd;
+           // background-attachment: fixed;
         }
     </style>
 </head>

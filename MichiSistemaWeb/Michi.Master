@@ -27,7 +27,7 @@
         <!-- Division de la izquierda-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start" style="justify-content: center; align-items: center;">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/logo2.png" width="100" />
+                <img src="Images/logo4.png" width="100" />
             </a>
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">

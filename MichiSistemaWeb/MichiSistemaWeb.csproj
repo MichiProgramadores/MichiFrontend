@@ -300,6 +300,8 @@
     <Content Include="Images\imagen.jpg" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo2.png" />
+    <Content Include="Images\logo3.png" />
+    <Content Include="Images\logo4.png" />
     <Content Include="Images\pucp.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />

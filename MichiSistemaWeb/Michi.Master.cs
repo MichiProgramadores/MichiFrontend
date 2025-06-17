@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MichiSistemaWeb.MichiBackend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace MichiSistemaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["trabajador"] != null)
+            {
+                trabajador  trabajador= (trabajador)Session["trabajador"];
+                lblNombreCompleto.Text = trabajador.nombres;  // Asignamos el nombre del usuario
+            }
         }
     }
 }

@@ -33,7 +33,7 @@ namespace MichiSistemaWeb
             {
                 trabajador = new TrabajadorWSClient();
                 trabajador empleado = trabajador.obtenerTrabajador(resultado);
-                Session["empleado"] = empleado;
+                Session["trabajador"] = empleado;
                 FormsAuthenticationTicket tkt;
                 string cookiestr;
                 HttpCookie ck;
@@ -52,7 +52,7 @@ namespace MichiSistemaWeb
                 string strRedirect;
                 strRedirect = Request["ReturnUrl"];
                 if (strRedirect == null)
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("ListarOrdenes.aspx");
                 Response.Redirect(strRedirect, true);
             }
             else

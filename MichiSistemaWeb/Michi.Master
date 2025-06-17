@@ -93,7 +93,7 @@
                         <div class="dropdown ps-3">
                             <button class="btn btn-outline-light dropdown-toggle" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>
-                                <asp:Label ID="lblNombreCompleto" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario">
                                 <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>

@@ -405,7 +405,9 @@ namespace MichiSistemaWeb
                 orden orden = new orden()
                 {
                     tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
-
+                //    if (Enum.TryParse(ddlTipoRecepcion.SelectedValue, out tipoRecepcionEnum))
+                //{
+                //    orden.tipoRecepcion = tipoRecepcionEnum;
                     setUpPersonalizado = txtSetUpPersonalizado.Text.ToString(),
 
                     totalPagar = double.Parse(txtMonto.Text.Trim()),

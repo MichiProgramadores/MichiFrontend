@@ -86,8 +86,7 @@
             <!-- Barra de usuario -->
             <nav class="navbar navbar-dark bg-primary">
                 <div class="container-fluid">
-                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#">
-                        Michi Sistema
+                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#">Michi Sistema
                     </a>
                     <form class="d-flex">
                         <div class="dropdown ps-3">
@@ -96,12 +95,12 @@
                                 <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario">
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="InicioSesion.aspx" id="btnCerrarSesion" runat="server" onclick="CerrarSesion_Click">Cerrar Sesión</a></li>
                             </ul>
                         </div>
                     </form>
                 </div>
-            </nav>
+             </nav>
             <!-- Contenido de la Página web -->
             <div class="p-4">
                 <form runat="server">

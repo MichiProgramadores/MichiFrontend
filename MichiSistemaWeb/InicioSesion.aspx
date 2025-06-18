@@ -13,7 +13,23 @@
     <script src="Scripts/jquery-3.7.1.js"></script>
     
     <script src="Scripts/michi/iniciarSesion.js"></script>
-
+    <script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById('<%= txtPassword.ClientID %>');
+        var eyeIcon = document.getElementById('eyeIcon');
+        
+        // Si la contraseña está oculta, la hacemos visible
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
+    }
+    </script>
     <title>Inicio de Sesion</title>
     
     <style>
@@ -38,8 +54,15 @@
                 </div>
                 <div class="form-group mt-3">
                     <label for="txtPassword">Contraseña</label>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña"></asp:TextBox>
+                    <div class="input-group">
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña"></asp:TextBox>
+                        <span class="input-group-text" id="eyeIcon" onclick="togglePasswordVisibility()" style="cursor: pointer;">
+                            <i class="fas fa-eye-slash"></i>
+                        </span>
+                    </div>
                 </div>
+
+
                 <div class="form-group mt-2">
                     <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger text-center d-block" EnableViewState="false"></asp:Label>
                 </div>

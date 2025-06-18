@@ -9,6 +9,8 @@
   <xs:element name="listarClientesActivosResponse" type="tns:listarClientesActivosResponse" />
   <xs:element name="listarClientesPorNombre" type="tns:listarClientesPorNombre" />
   <xs:element name="listarClientesPorNombreResponse" type="tns:listarClientesPorNombreResponse" />
+  <xs:element name="listarClientesPorTipo" type="tns:listarClientesPorTipo" />
+  <xs:element name="listarClientesPorTipoResponse" type="tns:listarClientesPorTipoResponse" />
   <xs:element name="listarClientesResponse" type="tns:listarClientesResponse" />
   <xs:element name="obtenerCliente" type="tns:obtenerCliente" />
   <xs:element name="obtenerClienteResponse" type="tns:obtenerClienteResponse" />
@@ -43,6 +45,16 @@
       <xs:element name="estado" type="xs:boolean" />
       <xs:element minOccurs="0" name="nombres" type="xs:string" />
       <xs:element name="persona_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientesPorTipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoCliente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientesPorTipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarCliente">

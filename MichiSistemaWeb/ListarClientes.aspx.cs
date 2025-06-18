@@ -209,5 +209,24 @@ namespace MichiSistemaWeb
             dgvClientes.DataBind();
 
         }
+
+        protected void DdlTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipo_seleccionado = Convert.ToString(DdlTipoCliente.SelectedValue);
+
+            // Verificamos si el valor seleccionado es el valor predeterminado "0" (Select type)
+            if (tipo_seleccionado == "0")
+            {
+                // Si no se ha seleccionado un valor válido, mostrar todos los productos
+                dgvClientes.DataSource = clienteWS.listarClientes();
+                dgvClientes.DataBind();
+            }
+            else
+            {
+                // Si se ha seleccionado un tipo válido, mostrar productos por tipo
+                dgvClientes.DataSource = clienteWS.listarClientesPorTipo(tipo_seleccionado);
+                dgvClientes.DataBind();
+            }
+        }
     }
 }

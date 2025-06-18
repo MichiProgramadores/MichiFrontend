@@ -19,10 +19,20 @@
     <div class="container">
         <div class="container row">
             <div class="row align-items-center">
+                 <div class="col-auto">
+                     <asp:DropDownList ID="DdlTipoCliente" runat="server" CssClass="form-select"
+                         OnSelectedIndexChanged="DdlTipoCliente_SelectedIndexChanged" AutoPostBack="True">
+                         <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                         <asp:ListItem Text="Empleador" Value="EIN" />
+                         <asp:ListItem Text="Persona Contribuyente" Value="TIN" />
+                         <asp:ListItem Text="Seguridad Social" Value="SSN" />
+                     </asp:DropDownList>
+                 </div>
+
                 <div class="col-auto">
                     <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID:"></asp:Label>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
@@ -31,12 +41,13 @@
                 <div class="col-auto">
                     <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscarN" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarN_Click" />
                 </div>
+                
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
                         <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" />

@@ -16,6 +16,7 @@
                 </h2>
             </div>
             <div class="card-body">
+
                 <div class="mb-3 row">
 
                      <asp:Label id="lblIdOrden" runat="server" CssClass="col-md-6 col-form-label" Text="ID: " ></asp:Label>
@@ -23,6 +24,7 @@
                         <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     </div>
+
                     <div class="mb-3 row">
                         <asp:Label ID="lblIdCliente" runat="server" Text="*Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
 
@@ -89,9 +91,6 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaEmis" runat="server" Text="*Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
@@ -129,8 +128,6 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                 
-                
                 
             </div>
                    <!-- Tabla de detalles -->
@@ -160,7 +157,6 @@
                    </asp:GridView>
                </div>
            </div>
-
 
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click"/>
@@ -273,9 +269,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

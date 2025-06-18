@@ -13,148 +13,281 @@ namespace MichiSistemaWeb
         protected ComprobanteWSClient comprobanteService;
         protected comprobante comprobante;
         protected Estado estado;
+
+        protected OrdenWSClient ordenService;
+        protected ClienteWSClient clienteService;
+
+        //protected ProductoWSClient productoService;
+        private List<detalleComprobante> detallesComprobante;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteService = new ComprobanteWSClient();
+
+            ordenService = new OrdenWSClient();
+            clienteService = new ClienteWSClient();
+            //productoService = new ProductoWSClient();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                detallesComprobante = new List<detalleComprobante>();
+                Session["DetallesComprobante"] = detallesComprobante;
+                CargarClientes();
+                CargarOrdenes();
+                //CargarProductos();
 
-                // Obtener los valores del enum tipoCliente
-                //ddl.DataSource = Enum.GetValues(typeof(tipoCliente));
-                //ddlTipoCliente.DataBind();
+                //Obtener los valores del enum tipoComprobante
+                ddlTipoComprobante.DataSource = Enum.GetValues(typeof(tipoComprobante));
+                ddlTipoComprobante.DataBind();
 
                 // Opcional: agregar un valor por defecto
-                //ddlTipoCliente.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+                ddlTipoComprobante.Items.Insert(0, new ListItem("-- Seleccione --", ""));
             }
 
-            //string accion = Request.QueryString["accion"];
-            //if (accion == null)
-            //{
-            //    estado = Estado.Nuevo;
-            //    orden = new orden();
-            //    lblTitulo.Text = "Registrar Cliente";
+            string accion = Request.QueryString["accion"];
+            if (accion == null)
+            {
+                estado = Estado.Nuevo;
+                comprobante = new comprobante();
+                lblTitulo.Text = "Registrar Comprobante";
 
-            //    lblID.Visible = false;
-            //    txtIDCliente.Visible = false;
+                lblIdComprobante.Visible = false;
+                txtIdComprobante.Visible = false;
 
-            //    lblPuntuacion.Visible = false;
-            //    txtPuntuacion.Visible = false;
+                lblMontoTotal.Visible = false;
+                txtMonto.Visible = false;
 
-            //    lblActivo.Visible = false;
-            //    txtActivo.Visible = false;
+                lblFechaEmis.Visible = false;
+                txtFechaEmis.Visible = false;
 
-            //}
-            //else if (accion == "modificar")
-            //{
-            //    estado = Estado.Modificar;
-            //    lblTitulo.Text = "Modificar Cliente";
-            //    cliente = (cliente)Session["clienteSeleccionado"];
-            //    if (!IsPostBack)
-            //    {
-            //        AsignarValoresTexto();
-            //    }
-            //    lblID.Visible = true;
-            //    txtIDCliente.Visible = true;
-            //    txtIDCliente.Enabled = false;
+            }
+            else if (accion == "modificar")
+            {
+                
+                estado = Estado.Modificar;
+                lblTitulo.Text = "Modificar Comprobante";
+                comprobante = (comprobante)Session["comprobanteSeleccionado"];
+                if (!IsPostBack)
+                {
+                    AsignarValoresTexto();
+                }
+                lblIdComprobante.Visible = true;
+                txtIdComprobante.Visible = true;
+                txtIdComprobante.Enabled = false;
+                
+            }
+            else if (accion == "ver")
+            {
+                
+                lblTitulo.Text = "Ver Comprobante";
+                comprobante = (comprobante)Session["comprobanteSeleccionado"];
+                AsignarValoresTexto();
 
-            //    lblPuntuacion.Visible = true;
-            //    txtPuntuacion.Visible = true;
-            //    txtPuntuacion.Enabled = false;
+                lblIdComprobante.Visible = true;
+                txtIdComprobante.Visible = true;
+                txtIdComprobante.Enabled = false;
 
-            //    lblActivo.Visible = false;
-            //    txtActivo.Visible = false;
-            //}
-            //else if (accion == "ver")
-            //{
-            //    lblTitulo.Text = "Ver Cliente";
-            //    cliente = (cliente)Session["clienteSeleccionado"];
-            //    AsignarValoresTexto();
+                txtMonto.Enabled = false;
+                txtEstado.Enabled = false;
+                txtFechaEmis.Enabled = false;
+                txtTax.Enabled = false;
+                txtIdCliente.Enabled = false;
+                txtIdOrden.Enabled = false;
 
-            //    lblID.Visible = true;
-            //    txtIDCliente.Visible = true;
-            //    txtIDCliente.Enabled = false;
+                ddlTipoComprobante.Enabled = false;
 
-            //    lblPuntuacion.Visible = true;
-            //    txtPuntuacion.Visible = true;
-            //    txtPuntuacion.Enabled = false;
-
-            //    lblActivo.Visible = true;
-            //    txtActivo.Visible = true;
-            //    txtActivo.Enabled = false;
-
-            //    txtNombres.Enabled = false;
-            //    txtApellidos.Enabled = false;
-            //    txtCelular.Enabled = false;
-            //    txtEmail.Enabled = false;
-            //    txtNumeroTipoCliente.Enabled = false;
-
-            //    ddlTipoCliente.Enabled = false;
-
-            //    btnGuardar.Visible = false;
-            //}
+                btnGuardar.Visible = false;
+            }
         }
 
-        protected void AsignarValores()
+        private void CargarClientes()
         {
-            //txtDNIEmpleado.Text = empleado.DNI;
-            //txtNombre.Text = empleado.Nombre;
-            //txtApellidoPaterno.Text = empleado.ApellidoPaterno;
-            //txtCargo.Text = empleado.Cargo;
-            //txtSueldo.Text = empleado.Sueldo.ToString("F2");
-            //ddlAreas.SelectedValue = empleado.Area.IdArea.ToString();
-            //if (empleado.Genero.Equals('M')) rbMasculino.Checked = true;
-            //else rbFemenino.Checked = true;
-            //dtpFechaNacimiento.Value = empleado.FechaNacimiento.ToString("yyyy-MM-dd");
+            dgvClientes.DataSource = clienteService.listarClientes();
+            dgvClientes.DataBind();
+        }
+
+        private void CargarOrdenes()
+        {
+            dgvOrdenes.DataSource = ordenService.listarOrdenes();
+            dgvOrdenes.DataBind();
+        }
+
+        /*
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            int index = Convert.ToInt32(btn.CommandArgument);
+            detallesComprobante = (List<detalleComprobante>)Session["DetallesComprobante"];
+            detallesComprobante.RemoveAt(index);
+            Session["DetallesComprobante"] = detallesComprobante;
+            ActualizarGrillaDetalles();
+        }
+        */
+
+        private void ActualizarGrillaDetalles()
+        {
+            detallesComprobante = (List<detalleComprobante>)Session["DetallesComprobante"];
+            gvDetalles.DataSource = detallesComprobante;
+            gvDetalles.DataBind();
+
+            double total = 0;
+            foreach (detalleComprobante detalle in detallesComprobante)
+            {
+                total += detalle.subtotal;
+            }
+
+            txtMonto.Text = total.ToString("F2");
+            lblTotal.Text = total.ToString("F2");
+        }
+
+        protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            //prueba para despues escribir//
+            LinkButton btn = (LinkButton)sender;
+            int clienteId = Convert.ToInt32(btn.CommandArgument);
+            cliente cliente = clienteService.obtenerCliente(clienteId);
+
+            hdnClienteId.Value = clienteId.ToString();
+            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
+
+        }
+        protected void btnSeleccionarOrden_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            int idOrden = int.Parse(btn.CommandArgument);
+            orden orden= ordenService.obtenerOrden(idOrden);
+
+            hdnOrdenId.Value = idOrden.ToString();
+            txtIdOrden.Text = idOrden.ToString();
+
+            List<detalleOrden> detallesOrden;
+            detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
+
+            detallesComprobante = new List<detalleComprobante>();
+            foreach (var detalleOrden in detallesOrden)
+            {
+                //producto producto = productoService.obtenerProducto(detalleOrden.producto);
+
+                detalleComprobante detalle = new detalleComprobante
+                {
+                    producto_id = detalleOrden.producto,
+                    cantidad = detalleOrden.cantidadEntregada,
+                    subtotal = detalleOrden.subtotal,
+                    unidad_medida = (unidadMedida1)detalleOrden.unidadMedida
+                };
+
+                detallesComprobante.Add(detalle);
+            }
+
+            Session["DetallesComprobante"] = detallesComprobante;
+            ActualizarGrillaDetalles();
+
+        }
+
+        protected void AsignarValoresTexto()
+        {
+
+            txtIdComprobante.Text = comprobante.id_comprobante.ToString();
+            txtMonto.Text = comprobante.monto_total.ToString();
+            txtEstado.Text = comprobante.estado;
+            txtFechaEmis.Text = comprobante.fecha_emision.ToString("yyyy-MM-dd");
+            txtTax.Text = comprobante.tax.ToString();
+            //txtIdCliente.Text = comprobante.cliente_id.ToString();
+            txtIdOrden.Text = comprobante.orden_id.ToString();
+
+            ddlTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
+
+            int clienteId = comprobante.cliente_id;
+            cliente cliente = clienteService.obtenerCliente(clienteId);
+
+            hdnClienteId.Value = clienteId.ToString();
+            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}";
+
+        }
+
+        protected void AsignarValoresComprobante()
+        {
+            comprobante.orden_id = int.Parse(txtIdOrden.Text.Trim());
+            comprobante.cliente_id = int.Parse(hdnClienteId.Value);
+            comprobante.estado = txtEstado.Text.Trim();
+
+            //Test, no hay ordenes pa testear xd:
+            comprobante.monto_total = 500;
+            //
+            //Real:
+            //comprobante.monto_total = double.Parse(lblTotal.Text.Trim());
+
+            comprobante.tax = double.Parse(txtTax.Text.Trim());
+            
+            string valorSeleccionado = ddlTipoComprobante.SelectedValue;
+            comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), valorSeleccionado);
+
+            /* DEBUG 1:
+            string valorSeleccionado = ddlTipoCliente.SelectedValue;
+            lblMensajeError.Text = "Tipo seleccionado: " + valorSeleccionado; // DEBUG
+            System.Diagnostics.Debug.WriteLine("Tipo seleccionado: " + ddlTipoCliente.SelectedValue);
+
+            if (string.IsNullOrEmpty(valorSeleccionado))
+            {
+                throw new Exception("Debe seleccionar un tipo de cliente.");
+            }
+            */
+
+            /* DEBUG 2:
+            string valorSeleccionado = ddlTipoCliente.SelectedValue;
+            //cliente.tipoCliente = (tipoCliente)Enum.Parse(typeof(tipoCliente), valorSeleccionado);
+            //cliente.tipoCliente = tipoCliente.EIN;
+
+            System.Diagnostics.Debug.WriteLine("Tipo seleccionado: " + cliente.tipoCliente.ToString());
+            */
+
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            // boEmpleado = new EmpleadoBO();
-            //empleado.DNI = txtDNIEmpleado.Text;
-            //empleado.Nombre = txtNombre.Text;
-            //empleado.ApellidoPaterno = txtApellidoPaterno.Text;
+            try
+            {
+                // Validación básica
+                if (string.IsNullOrWhiteSpace(txtIdOrden.Text) ||
+                    string.IsNullOrWhiteSpace(txtIdCliente.Text) ||
+                    string.IsNullOrWhiteSpace(txtEstado.Text) ||
+                    string.IsNullOrWhiteSpace(txtTax.Text) ||
+                    string.IsNullOrWhiteSpace(ddlTipoComprobante.SelectedValue))
+                {
+                    lanzarMensajedeError("Por favor, complete todos los campos.");
+                    return;
+                }
 
-            //try
-            //{
-            //    empleado.FechaNacimiento = DateTime.Parse(dtpFechaNacimiento.Value);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe seleccionar una fecha de nacimiento"); return; }
+                // Asignar los valores del formulario al objeto cliente
+                AsignarValoresComprobante();
 
+                // Insertar o modificar el cliente:
+                string valorSeleccionado = ddlTipoComprobante.SelectedValue;
 
-            //if (rbMasculino.Checked) empleado.Genero = 'M';
-            //else if (rbFemenino.Checked) empleado.Genero = 'F';
-            //try
-            //{
-            //    empleado.Sueldo = Double.Parse(txtSueldo.Text);
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError("Debe colocar un valor de sueldo apropiado"); return; }
+                //clienteService.registrarCliente(cliente, valorSeleccionado);
+                //clienteService.registrarCliente(cliente);
 
-            //empleado.Cargo = txtCargo.Text;
-            //Area area = new Area();
-            //area.IdArea = Int32.Parse(ddlAreas.SelectedValue);
-            //empleado.Area = area;
+                if (estado == Estado.Nuevo)
+                {
+                    comprobanteService.registrarComprobante(comprobante);
+                    //comprobanteService.registrarComprobante(comprobante, valorSeleccionado);
+                }
+                else if (estado == Estado.Modificar)
+                {
+                    comprobanteService.actualizarComprobante(comprobante);
+                    //comprobanteService.actualizarComprobante(comprobante, valorSeleccionado);
+                }
 
-            //try
-            //{
-            //    if (estado == Estado.Nuevo)
-            //    {
-            //        boEmpleado.insertar(empleado);
-            //    }
-            //    else if (estado == Estado.Modificar)
-            //    {
-            //        boEmpleado.modificar(empleado);
-            //   }
-            //}
-            //catch (Exception ex)
-            //{ lanzarMensajedeError(ex.Message); return; }
-
-            //Response.Redirect("ListarTrabajadores.aspx");
+                // Redirigir
+                Response.Redirect("ListarComprobantes.aspx");
+            }
+            catch (Exception ex)
+            {
+                lanzarMensajedeError("No se pudo registrar el comprobante: " + ex.Message);
+            }
         }
 
         public void lanzarMensajedeError(String mensaje)

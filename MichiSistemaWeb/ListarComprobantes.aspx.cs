@@ -19,8 +19,8 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            //comprobantes = comprobanteWS.listarComprobante().ToList();
-            dgvComprobantes.DataSource = comprobanteWS.listarComprobante();
+            comprobantes = comprobanteWS.listarComprobante().ToList();
+            dgvComprobantes.DataSource = comprobantes;
             dgvComprobantes.DataBind();
         }
         private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
@@ -49,8 +49,18 @@ namespace MichiSistemaWeb
 
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            Response.Redirect("RegistrarComprobante.aspx?accion=modificar");
+            int idComprobante = Int32.Parse(((LinkButton)sender).CommandArgument);
+
+            comprobante comprobante = comprobantes.SingleOrDefault(x => x.id_comprobante == idComprobante);
+
+            if (comprobante != null)
+            {
+                // Almacenar el cliente seleccionado en la sesión
+                Session["comprobanteSeleccionado"] = comprobante;
+
+                // Redirigir a la página de edición
+                Response.Redirect("RegistrarComprobante.aspx?accion=modificar");
+            }
         }
 
         /*
@@ -71,7 +81,9 @@ namespace MichiSistemaWeb
 
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
-            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int idComprobante = Int32.Parse(((LinkButton)sender).CommandArgument);
+            comprobante comprobante = comprobantes.SingleOrDefault(x => x.id_comprobante == idComprobante);
+            Session["comprobanteSeleccionado"] = comprobante;
             Response.Redirect("RegistrarComprobante.aspx?accion=ver");
         }
 

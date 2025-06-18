@@ -383,6 +383,7 @@
     <Content Include="Scripts\michi\iniciarSesion.js" />
     <Content Include="Scripts\michi\registrarArea.js" />
     <Content Include="Scripts\michi\registrarEmpleado.js" />
+    <Content Include="Scripts\michi\registrarComprobante.js" />
     <Content Include="Scripts\michi\registrarOrden.js" />
     <Content Include="Scripts\michi\registrarOrdenesVenta.js" />
     <Content Include="Scripts\michi\registrarProducto.js" />

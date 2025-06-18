@@ -347,9 +347,10 @@ namespace MichiSistemaWeb
             detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
             detalleOrden detalle = new detalleOrden
             {
-
+                //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
                 producto = producto.producto_id,
                 cantidadSolicitada = cantidad,
+                cantidadEntregada =cantidad,
                 precioAsignado = precio,
                 subtotal = precio * cantidad
             };
@@ -397,17 +398,23 @@ namespace MichiSistemaWeb
                 CultureInfo cultura = CultureInfo.InvariantCulture;
                 DateTime fechaInicio = DateTime.ParseExact(txtFechaEmis.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime fechaFin = DateTime.ParseExact(txtFechaDevol.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                DateTime fechaEntrega = DateTime.ParseExact(txtFechaEntr.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
                 int diasDiferencia = (fechaFin - fechaInicio).Days;
 
+                string valorSeleccionado = ddlTipoRecepcion.SelectedValue;
+                foreach (var d in detallesOrden)
+                {
 
-
+                    d.unidadMedidaSpecified = true;
+                }
                 orden orden = new orden()
                 {
-                    tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
-                //    if (Enum.TryParse(ddlTipoRecepcion.SelectedValue, out tipoRecepcionEnum))
+                    //tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
+                //        if (Enum.TryParse(ddlTipoRecepcion.SelectedValue, out tipoRecepcionEnum))
                 //{
                 //    orden.tipoRecepcion = tipoRecepcionEnum;
+                    
                     setUpPersonalizado = txtSetUpPersonalizado.Text.ToString(),
 
                     totalPagar = double.Parse(txtMonto.Text.Trim()),
@@ -415,16 +422,24 @@ namespace MichiSistemaWeb
                     saldo = double.Parse(txtMonto.Text.Trim()),
                     cantDias = diasDiferencia,
                     fecha_registro = DateTime.Today,
+                    fecha_registroSpecified = true,
                     fecha_devolucion = fechaFin,
+                    fecha_devolucionSpecified = true,
                     fecha_emisión = fechaInicio,
+                    fecha_emisiónSpecified = true,
+                    fecha_entrega =fechaEntrega,
+                    fecha_entregaSpecified = true,
                     clienteID = Convert.ToInt32(hdnClienteId.Value),
                     trabajadorID = Convert.ToInt32(hdnTrabajadorId.Value),
                     listaOrdenes = detallesOrden.ToArray(),
 
                 };
-                Console.WriteLine("Tipo de recepción asignado en la orden: " + orden.tipoRecepcion.ToString());
-                ordenService.registrarOrden(orden);
-                Response.Redirect("ListaOrdenes.aspx");
+
+                if (estado == Estado.Nuevo)
+                    ordenService.registrarOrden(orden, valorSeleccionado);
+                else if (estado == Estado.Modificar)
+                    ordenService.actualizarOrden(orden);
+                Response.Redirect("ListarOrdenes.aspx");
             }
             catch (Exception ex)
             {

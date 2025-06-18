@@ -6,12 +6,14 @@
   <xs:element name="actualizarEstadoFechaDevolucionResponse" type="tns:actualizarEstadoFechaDevolucionResponse" />
   <xs:element name="actualizarOrden" type="tns:actualizarOrden" />
   <xs:element name="actualizarOrdenResponse" type="tns:actualizarOrdenResponse" />
+  <xs:element name="detalleOrden" type="tns:detalleOrden" />
   <xs:element name="eliminarOrden" type="tns:eliminarOrden" />
   <xs:element name="eliminarOrdenResponse" type="tns:eliminarOrdenResponse" />
   <xs:element name="listarOrdenes" type="tns:listarOrdenes" />
   <xs:element name="listarOrdenesResponse" type="tns:listarOrdenesResponse" />
   <xs:element name="obtenerOrden" type="tns:obtenerOrden" />
   <xs:element name="obtenerOrdenResponse" type="tns:obtenerOrdenResponse" />
+  <xs:element name="orden" type="tns:orden" />
   <xs:element name="registrarOrden" type="tns:registrarOrden" />
   <xs:element name="registrarOrdenResponse" type="tns:registrarOrdenResponse" />
   <xs:complexType name="actualizarEstadoDevolucion">
@@ -21,6 +23,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarEstadoDevolucionResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarOrden">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarOrdenResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="actualizarOrden">
@@ -38,7 +48,13 @@
       <xs:element minOccurs="0" name="fecha_entrega" type="xs:dateTime" />
       <xs:element minOccurs="0" name="fecha_registro" type="xs:dateTime" />
       <xs:element name="idOrden" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaOrdenes" nillable="true" type="tns:detalleOrden" />
+      <xs:element minOccurs="0" name="listaOrdenes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleOrden" type="tns:detalleOrden" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="saldo" type="xs:double" />
       <xs:element minOccurs="0" name="setUpPersonalizado" type="xs:string" />
       <xs:element minOccurs="0" name="tipoEstadoDevolucion" type="tns:tipoEstadoDevolucion" />
@@ -66,14 +82,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarOrdenResponse">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="eliminarOrden">
-    <xs:sequence>
-      <xs:element name="idOrden" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarOrdenResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerOrden">
@@ -106,6 +114,7 @@
   <xs:complexType name="registrarOrden">
     <xs:sequence>
       <xs:element minOccurs="0" name="orden" type="tns:orden" />
+      <xs:element minOccurs="0" name="str_tipoRecepcion" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarOrdenResponse">

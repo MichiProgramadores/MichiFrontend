@@ -82,12 +82,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarClientesActivos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarClientesActivosResponse">
+  <xs:complexType name="obtenerCliente">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+      <xs:element name="idCliente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarCliente">
@@ -99,14 +101,12 @@
   <xs:complexType name="registrarClienteResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="obtenerCliente">
-    <xs:sequence>
-      <xs:element name="idCliente" type="xs:int" />
-    </xs:sequence>
+  <xs:complexType name="listarClientesActivos">
+    <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="obtenerClienteResponse">
+  <xs:complexType name="listarClientesActivosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:cliente" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoCliente">

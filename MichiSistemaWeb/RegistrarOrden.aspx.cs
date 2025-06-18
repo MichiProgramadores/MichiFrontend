@@ -87,7 +87,7 @@ namespace MichiSistemaWeb
                 lblMontoTotal.Visible = false;
                 lblSaldo.Visible = false;
                 lblCantDias.Visible = false;
-                
+
                 //lblFechaDevol.Visible = false;
                 //lblFechaEmis.Visible = false;
                 //lblSetUpPersonalizado.Visible = false;
@@ -100,14 +100,15 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Modificar;
                 lblTitulo.Text = "Modificar Orden";
-                orden = (orden)Session["ordenSeleccionada"];
+                orden = ordenService.obtenerOrden(((orden)Session["ordenSeleccionada"]).idOrden);
                 if (!IsPostBack)
                 {
                     // Cargar detalles de la orden en la sesión
                     detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
                     Session["DetallesOrden"] = detallesOrden;
-                    ActualizarGrillaDetalles();
+
                     AsignarValoresTexto();
+                    ActualizarGrillaDetalles();
                 }
 
                 lblIdOrden.Visible = false;
@@ -128,13 +129,13 @@ namespace MichiSistemaWeb
                 //lblFechaEntr.Visible = false;
                 //txtFechaEntr.Enabled = false;
 
-                txtMonto.Visible = false;
-                txtSaldo.Visible = false;
+                txtMonto.Enabled = false;
+                // txtSaldo.Enabled = false;
                 txtCantDias.Visible = false;
                 //txtFechaDevol.Enabled = false;
                 //txtFechaEmis.Enabled = false;
-                lblMontoTotal.Visible = false;
-                lblSaldo.Visible = false;
+                lblMontoTotal.Enabled = false;
+                lblSaldo.Enabled = false;
                 lblCantDias.Visible = false;
                 //lblFechaDevol.Visible = false;
                 //lblFechaEmis.Visible = false;
@@ -153,8 +154,9 @@ namespace MichiSistemaWeb
                     // Cargar detalles de la orden en la sesión
                     detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
                     Session["DetallesOrden"] = detallesOrden;
-                    ActualizarGrillaDetalles();
+
                     AsignarValoresTexto();
+                    ActualizarGrillaDetalles();
                 }
 
                 lblIdOrden.Visible = false;
@@ -176,7 +178,9 @@ namespace MichiSistemaWeb
                 btnGuardar.Visible = false;
                 btnGuardar.Enabled = false;
                 lblCantDias.Visible = false;
-
+                gvDetalles.Columns[4].Visible = false;
+                phAgregarProducto.Visible = false;
+                ddlTipoRecepcion.Enabled = false;
             }
         }
 
@@ -207,6 +211,8 @@ namespace MichiSistemaWeb
             txtMonto.Text = orden.totalPagar.ToString();
             txtSaldo.Text = orden.saldo.ToString();
 
+            gvDetalles.DataSource = orden.listaOrdenes;
+            gvDetalles.DataBind();
 
         }
 

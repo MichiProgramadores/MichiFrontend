@@ -16,7 +16,6 @@
                 </h2>
             </div>
             <div class="card-body">
-
                 <div class="mb-3 row">
 
                      <asp:Label id="lblIdOrden" runat="server" CssClass="col-md-6 col-form-label" Text="ID: " ></asp:Label>
@@ -24,7 +23,6 @@
                         <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     </div>
-
                     <div class="mb-3 row">
                         <asp:Label ID="lblIdCliente" runat="server" Text="*Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
 
@@ -91,6 +89,9 @@
                     </div>
                 </div>
 
+
+
+
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaEmis" runat="server" Text="*Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
@@ -128,21 +129,29 @@
                         </asp:DropDownList>
                     </div>
                 </div>
+                 
+                
                 
             </div>
                    <!-- Tabla de detalles -->
            <div class="row mb-3">
                <div class="col">
-                   <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
+                  <%-- <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
                        <i class="fas fa-plus"></i> Agregar Producto
-                   </button>
+                   </button>--%>
+                   <asp:PlaceHolder ID="phAgregarProducto" runat="server">
+                        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
+                            <i class="fas fa-plus"></i> Agregar Producto
+                        </button>
+                    </asp:PlaceHolder>
+
                    <asp:GridView ID="gvDetalles" runat="server" CssClass="table table-striped" 
                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
                        <Columns>
-                           <asp:BoundField DataField="producto" HeaderText="Producto" />
-                           <asp:BoundField DataField="cantidadSolicitada" HeaderText="Stock" />
-                           <asp:BoundField DataField="unidadMedida" HeaderText="Unid." />
-                           <asp:BoundField DataField="precioAsignado" HeaderText="Subtotal" DataFormatString="{0:C2}" />
+                           <asp:BoundField DataField="producto" HeaderText="Código" />
+                           <asp:BoundField DataField="cantidadSolicitada" HeaderText="Cant. Solicitada" />
+                           <asp:BoundField DataField="unidadMedida" HeaderText="Medida/Unidad" />
+                           <asp:BoundField DataField="precioAsignado" HeaderText="Precio" DataFormatString="{0:C2}" />
                          
                            <asp:TemplateField HeaderText="Acciones">
                                <ItemTemplate>
@@ -157,6 +166,7 @@
                    </asp:GridView>
                </div>
            </div>
+
 
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click"/>
@@ -269,6 +279,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

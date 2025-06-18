@@ -90,9 +90,11 @@
                     <asp:GridView ID="dgvDetalles" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"
                         CssClass="table table-striped">
                         <Columns>
+                            <asp:BoundField DataField="producto" HeaderText="Producto" />
                             <asp:BoundField DataField="Producto.Nombre" HeaderText="Producto" />
-                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
-                            <asp:BoundField DataField="PrecioUnitario" HeaderText="Precio Unit." 
+                            <asp:BoundField DataField="cantidadSolicitada" HeaderText="Cantidad" />
+                            <asp:BoundField DataField="cantidadEntregada" HeaderText="Cantidad" />
+                            <asp:BoundField DataField="PrecioAsignado" HeaderText="Precio Unit." 
                                 DataFormatString="{0:C2}" />
                             <asp:BoundField DataField="Subtotal" HeaderText="Subtotal" 
                                 DataFormatString="{0:C2}" />

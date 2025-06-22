@@ -74,7 +74,7 @@
         <div class="bg-light flex-fill overflow-auto">
             <!-- Barra superior para dispositivos pequeños -->
             <div class="p-2 d-md-none d-flex text-white bg-primary ">
-                <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
+                <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#" style="background-color: #E0E0E0;">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </div>
@@ -85,7 +85,7 @@
                     </a>
                     <form class="d-flex">
                         <div class="dropdown ps-3">
-                            <button class="btn btn-outline-light dropdown-toggle" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+                            <button class="btn btn-outline-light dropdown-toggle" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false" style="background-color: #E0E0E0; color:black">
                                 <i class="fas fa-user me-2"></i>
                                 <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
                             </button>

@@ -22,9 +22,6 @@ namespace MichiSistemaWeb
                 if (trabajador.nombres != "Carlos")
                 {
                     lbRegistrar.Visible = false;
-                   
-                    // También puedes recorrer la grilla para ocultar botones
-                    //dgvUsuarios.Columns[dgvUsuarios.Columns.Count - 1].Visible = false;
                 }
             }
             else
@@ -85,21 +82,26 @@ namespace MichiSistemaWeb
 
         protected void lbRegistrar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("RegistrarUsuario.aspx");
         }
         protected void lbModificar_Click(object sender, EventArgs e)
         {
-     
-
+            int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+            usuario usuario= usuarios.SingleOrDefault(x => x.id == idEmpleado);
+            Session["usuarioSeleccionado"] = usuario;
+            Response.Redirect("RegistrarUsuario.aspx?accion=modificar");
         }
-
-
         protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvUsuarios.PageIndex = e.NewPageIndex;
             dgvUsuarios.DataBind();
         }
-
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            int idUsuario= int.Parse(hfIdEliminar.Value);
+            usuarioWS.eliminarUsuario(idUsuario);
+            Response.Redirect("ListarUsuarios.aspx");
+        }
         protected void dgvUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -107,8 +109,36 @@ namespace MichiSistemaWeb
                 e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "id").ToString();
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "nombreUsuario").ToString();
               
-               
+  
+                // Obtén los controles dentro de la fila
+                LinkButton lbEliminar = (LinkButton)e.Row.FindControl("lbEliminar");
+                LinkButton lbModificar = (LinkButton)e.Row.FindControl("lbModificar");
+
+                // Verificar el rol del usuario (suponiendo que tienes un rol almacenado en la sesión)
+                if (Session["trabajador"] != null)
+                {
+                    trabajador trabajador = (trabajador)Session["trabajador"];
+
+                    // Verificas si es admin
+                    if (trabajador.nombres == "Carlos")
+                    {
+                        lbEliminar.Visible = true;
+                        lbModificar.Visible = true;
+                    }
+                    else
+                    {
+                        lbEliminar.Visible = false;
+                        lbModificar.Visible = false;
+
+                    }   
+                }
+                else
+                {
+                    lbEliminar.Visible = false;
+                    lbModificar.Visible = false;
+                }
             }
         }
+
     }
 }

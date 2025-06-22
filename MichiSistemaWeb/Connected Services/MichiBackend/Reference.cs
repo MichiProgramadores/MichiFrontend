@@ -3657,7 +3657,7 @@ namespace MichiSistemaWeb.MichiBackend {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://michisistemaws.com/", ConfigurationName="MichiBackend.OrdenWS")]
     public interface OrdenWS {
         
-        // CODEGEN: El parámetro 'ventaId' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        // CODEGEN: El parámetro 'idOrden' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
@@ -3725,7 +3725,7 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/obtenerOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/obtenerOrdenResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.obtenerOrdenResponse> obtenerOrdenAsync(MichiSistemaWeb.MichiBackend.obtenerOrdenRequest request);
         
-        // CODEGEN: El parámetro 'ventaId' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        // CODEGEN: El parámetro 'idOrden' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
@@ -3745,18 +3745,18 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int ventaId;
+        public int idOrden;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado;
+        public string str_tipoEstadoDevol;
         
         public actualizarEstadoDevolucionRequest() {
         }
         
-        public actualizarEstadoDevolucionRequest(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
-            this.ventaId = ventaId;
-            this.estado = estado;
+        public actualizarEstadoDevolucionRequest(int idOrden, string str_tipoEstadoDevol) {
+            this.idOrden = idOrden;
+            this.str_tipoEstadoDevol = str_tipoEstadoDevol;
         }
     }
     
@@ -3841,11 +3841,16 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public MichiSistemaWeb.MichiBackend.orden orden;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string str_tipoRecepcion;
+        
         public actualizarOrdenRequest() {
         }
         
-        public actualizarOrdenRequest(MichiSistemaWeb.MichiBackend.orden orden) {
+        public actualizarOrdenRequest(MichiSistemaWeb.MichiBackend.orden orden, string str_tipoRecepcion) {
             this.orden = orden;
+            this.str_tipoRecepcion = str_tipoRecepcion;
         }
     }
     
@@ -3931,7 +3936,7 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int ventaId;
+        public int idOrden;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -3940,8 +3945,8 @@ namespace MichiSistemaWeb.MichiBackend {
         public actualizarEstadoFechaDevolucionRequest() {
         }
         
-        public actualizarEstadoFechaDevolucionRequest(int ventaId, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
-            this.ventaId = ventaId;
+        public actualizarEstadoFechaDevolucionRequest(int idOrden, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
+            this.idOrden = idOrden;
             this.estado = estado;
         }
     }
@@ -3988,10 +3993,10 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarEstadoDevolucion(request);
         }
         
-        public void actualizarEstadoDevolucion(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
+        public void actualizarEstadoDevolucion(int idOrden, string str_tipoEstadoDevol) {
             MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
-            inValue.ventaId = ventaId;
-            inValue.estado = estado;
+            inValue.idOrden = idOrden;
+            inValue.str_tipoEstadoDevol = str_tipoEstadoDevol;
             MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucion(inValue);
         }
         
@@ -4000,10 +4005,10 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarEstadoDevolucionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(int ventaId, MichiSistemaWeb.MichiBackend.tipoEstadoDevolucion estado) {
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse> actualizarEstadoDevolucionAsync(int idOrden, string str_tipoEstadoDevol) {
             MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionRequest();
-            inValue.ventaId = ventaId;
-            inValue.estado = estado;
+            inValue.idOrden = idOrden;
+            inValue.str_tipoEstadoDevol = str_tipoEstadoDevol;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoDevolucionAsync(inValue);
         }
         
@@ -4057,9 +4062,10 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarOrden(request);
         }
         
-        public void actualizarOrden(MichiSistemaWeb.MichiBackend.orden orden) {
+        public void actualizarOrden(MichiSistemaWeb.MichiBackend.orden orden, string str_tipoRecepcion) {
             MichiSistemaWeb.MichiBackend.actualizarOrdenRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarOrdenRequest();
             inValue.orden = orden;
+            inValue.str_tipoRecepcion = str_tipoRecepcion;
             MichiSistemaWeb.MichiBackend.actualizarOrdenResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarOrden(inValue);
         }
         
@@ -4068,9 +4074,10 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarOrdenAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarOrdenResponse> actualizarOrdenAsync(MichiSistemaWeb.MichiBackend.orden orden) {
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarOrdenResponse> actualizarOrdenAsync(MichiSistemaWeb.MichiBackend.orden orden, string str_tipoRecepcion) {
             MichiSistemaWeb.MichiBackend.actualizarOrdenRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarOrdenRequest();
             inValue.orden = orden;
+            inValue.str_tipoRecepcion = str_tipoRecepcion;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarOrdenAsync(inValue);
         }
         
@@ -4124,9 +4131,9 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarEstadoFechaDevolucion(request);
         }
         
-        public void actualizarEstadoFechaDevolucion(int ventaId, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
+        public void actualizarEstadoFechaDevolucion(int idOrden, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
             MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest();
-            inValue.ventaId = ventaId;
+            inValue.idOrden = idOrden;
             inValue.estado = estado;
             MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoFechaDevolucion(inValue);
         }
@@ -4136,9 +4143,9 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.actualizarEstadoFechaDevolucionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse> actualizarEstadoFechaDevolucionAsync(int ventaId, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse> actualizarEstadoFechaDevolucionAsync(int idOrden, MichiSistemaWeb.MichiBackend.tipoFechaDevolucion estado) {
             MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest();
-            inValue.ventaId = ventaId;
+            inValue.idOrden = idOrden;
             inValue.estado = estado;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoFechaDevolucionAsync(inValue);
         }

@@ -54,8 +54,8 @@ namespace MichiSistemaWeb
                 e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
                 e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
-                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
-                e.Row.Cells[8].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();        
+                //e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
+                e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();        
             }
         }
 

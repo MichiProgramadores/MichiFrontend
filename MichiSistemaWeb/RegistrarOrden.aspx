@@ -140,7 +140,7 @@
                        <i class="fas fa-plus"></i> Agregar Producto
                    </button>--%>
                    <asp:PlaceHolder ID="phAgregarProducto" runat="server">
-                        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
+                        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle" >
                             <i class="fas fa-plus"></i> Agregar Producto
                         </button>
                     </asp:PlaceHolder>
@@ -197,7 +197,7 @@
                             <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm"
+                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
                                         OnClick="btnSeleccionarCliente_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>
@@ -226,7 +226,7 @@
                             <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm"
+                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
                                         OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>

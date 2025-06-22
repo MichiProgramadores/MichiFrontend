@@ -11,6 +11,7 @@ namespace MichiSistemaWeb
     public partial class RegistrarComprobante : System.Web.UI.Page
     {
         protected ComprobanteWSClient comprobanteService;
+        protected ProductoWSClient productoService;  //nueva incersion          
         protected comprobante comprobante;
         protected Estado estado;
 
@@ -22,7 +23,7 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteService = new ComprobanteWSClient();
-
+            productoService = new ProductoWSClient();  // Inicializa el cliente del servicio
             ordenService = new OrdenWSClient();
             clienteService = new ClienteWSClient();
             //productoService = new ProductoWSClient();
@@ -163,6 +164,14 @@ namespace MichiSistemaWeb
         }
         */
 
+        //METODO PARA LLAMAR AL NOMBRE
+        public string GetProductName(object producto_id)
+        {
+            int productoId = Convert.ToInt32(producto_id);
+            producto producto = productoService.obtenerProducto(productoId); 
+            return producto != null ? producto.nombre : "Desconocido"; 
+        }
+        
         protected void btnSeleccionarOrden_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
@@ -188,8 +197,6 @@ namespace MichiSistemaWeb
             detallesComprobante = new List<detalleComprobante>();
             foreach (var detalleOrden in detallesOrden)
             {
-                //producto producto = productoService.obtenerProducto(detalleOrden.producto);
-
                 detalleComprobante detalle = new detalleComprobante
                 {
                     producto_id = detalleOrden.producto,
@@ -199,8 +206,6 @@ namespace MichiSistemaWeb
                     //
                     cantidad = detalleOrden.cantidadSolicitada,
                     subtotal = detalleOrden.precioAsignado,
-
-                    unidad_medida = (unidadMedida1)detalleOrden.unidadMedida
                 };
 
                 detallesComprobante.Add(detalle);

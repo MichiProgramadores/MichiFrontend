@@ -111,11 +111,14 @@
             AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
             <Columns>
                 <asp:BoundField DataField="producto_id" HeaderText="Código" />
+                <%-- iMPLEMENTACION DE NOMBRE--%>
+                <asp:TemplateField HeaderText="Nombre">
+                    <ItemTemplate>
+                        <%# GetProductName(Eval("producto_id")) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                <%--Quitar medida y poner nombre producto --%>
-                <asp:BoundField DataField="unidad_medida" HeaderText="Medida/Unidad" />
                 <asp:BoundField DataField="subtotal" HeaderText="Precio" DataFormatString="{0:C2}" />
-              
 
                 <%--
                 <asp:TemplateField HeaderText="Acciones">

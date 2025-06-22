@@ -210,7 +210,7 @@ namespace MichiSistemaWeb
                 ddlTipoEstDevol.SelectedValue = orden.tipoEstadoDevolucion.ToString();
             txtMonto.Text = orden.totalPagar.ToString();
             txtSaldo.Text = orden.saldo.ToString();
-
+            lblTotal.Text = orden.totalPagar.ToString("F2");
             gvDetalles.DataSource = orden.listaOrdenes;
             gvDetalles.DataBind();
 
@@ -253,17 +253,21 @@ namespace MichiSistemaWeb
             gvDetalles.DataSource = detallesOrden;
             gvDetalles.DataBind();
 
-            double total = 0;
-            foreach (detalleOrden detalle in detallesOrden)
+            string accion = Request.QueryString["accion"];
+            if (accion == null)
             {
-                //CALCULO DE SUBTOTAL FALTA
+                double total = 0;
+                foreach (detalleOrden detalle in detallesOrden)
+                {
+                    total += detalle.subtotal;
+                }
 
-                total += detalle.subtotal;
+                txtMonto.Text = total.ToString("F2");
+                lblTotal.Text = total.ToString("F2");
             }
 
-            txtMonto.Text = total.ToString("F2");
-            lblTotal.Text = total.ToString("F2");
         }
+
         protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
         {
             //prueba para despues escribir//
@@ -403,11 +407,18 @@ namespace MichiSistemaWeb
                 int diasDiferencia = (fechaFin - fechaInicio).Days;
 
                 string valorSeleccionado = ddlTipoRecepcion.SelectedValue;
+                //para segmentar en edicion
+                //if(double.Parse(txtMonto.Text.Trim())==0)
+                //    montoTotal
+                //double montototal= double.Parse(txtMonto.Text.Trim());
+
+
                 foreach (var d in detallesOrden)
                 {
 
                     d.unidadMedidaSpecified = true;
                 }
+
                 orden orden = new orden()
                 {
                     //tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
@@ -416,9 +427,8 @@ namespace MichiSistemaWeb
                 //    orden.tipoRecepcion = tipoRecepcionEnum;
                     
                     setUpPersonalizado = txtSetUpPersonalizado.Text.ToString(),
-
+                    //idOrden=int.Parse(txtIdOrden.Text.Trim()),
                     totalPagar = double.Parse(txtMonto.Text.Trim()),
-
                     saldo = double.Parse(txtMonto.Text.Trim()),
                     cantDias = diasDiferencia,
                     fecha_registro = DateTime.Today,
@@ -438,7 +448,16 @@ namespace MichiSistemaWeb
                 if (estado == Estado.Nuevo)
                     ordenService.registrarOrden(orden, valorSeleccionado);
                 else if (estado == Estado.Modificar)
-                    ordenService.actualizarOrden(orden);
+                {
+                    orden.idOrden = int.Parse(txtIdOrden.Text.Trim());
+                    ordenService.actualizarOrden(orden, valorSeleccionado);
+                    if (!string.IsNullOrEmpty(ddlTipoEstDevol.SelectedValue) || ddlTipoEstDevol.SelectedValue.CompareTo(orden.tipoEstadoDevolucion.ToString())==0)
+                    {
+                        string tipoEstadoSeleccionado = ddlTipoEstDevol.SelectedValue.Trim();
+
+                        ordenService.actualizarEstadoDevolucion(orden.idOrden, tipoEstadoSeleccionado);
+                    }
+                }
                 Response.Redirect("ListarOrdenes.aspx");
             }
             catch (Exception ex)

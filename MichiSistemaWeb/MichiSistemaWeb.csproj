@@ -231,6 +231,9 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesPorNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesPorTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarProductosPorNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -238,9 +241,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaTrabajadoresPorNombreResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarClientesPorTipoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />

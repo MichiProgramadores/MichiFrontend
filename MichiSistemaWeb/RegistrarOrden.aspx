@@ -59,7 +59,7 @@
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
                             <asp:ListItem Value="DELIVERY">Delivery</asp:ListItem>
                             <asp:ListItem Value="RECOJO_EN_TIENDA">Recojo en tienda</asp:ListItem>
-                         </asp:DropDownList>
+                        </asp:DropDownList>
                      </div>
                  </div>
                 <div class="mb-3 row">

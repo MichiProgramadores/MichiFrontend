@@ -69,6 +69,7 @@
                     </asp:GridView>
 
                     <asp:HiddenField ID="hfIdEliminar" runat="server" />
+                    <asp:Label ID="lblError" runat="server" Text="" CssClass="text-danger"></asp:Label>
 
 <!-- Modal Bootstrap -->
 <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">

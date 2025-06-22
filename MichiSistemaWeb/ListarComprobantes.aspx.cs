@@ -1,6 +1,7 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,16 +13,30 @@ namespace MichiSistemaWeb
     {
         protected ComprobanteWSClient comprobanteWS;
         protected List<comprobante> comprobantes;
-        protected void Page_Load(object sender, EventArgs e)
+
+        protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteWS = new ComprobanteWSClient();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
             CargarDatos();
         }
         protected void CargarDatos()
         {
-            comprobantes = comprobanteWS.listarComprobante().ToList();
-            dgvComprobantes.DataSource = comprobantes;
-            dgvComprobantes.DataBind();
+
+            try
+            {
+                comprobantes = comprobanteWS.listarComprobante().ToList();
+                dgvComprobantes.DataSource = comprobantes;
+                dgvComprobantes.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al cargar las ordenes: " + ex.Message;
+            }
+
         }
         private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
         {
@@ -62,15 +77,6 @@ namespace MichiSistemaWeb
                 Response.Redirect("RegistrarComprobante.aspx?accion=modificar");
             }
         }
-
-        /*
-        protected void lbEliminar_Click(object sender, EventArgs e)
-        {
-            int idComprobante = Int32.Parse(((LinkButton)sender).CommandArgument);
-            comprobanteWS.eliminarComprobante(idComprobante);
-            Response.Redirect("ListarComprobantes.aspx");
-        }
-        */
 
         protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {

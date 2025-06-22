@@ -40,9 +40,17 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <asp:Label id="lblIdCliente" runat="server" CssClass="col-sm-2 col-form-label" Text="Cliente: "></asp:Label>
+                    <div class="col-sm-8">
+                        <asp:TextBox id="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:HiddenField ID="hdnClienteId" runat="server" />
+                    </div>
+                </div>
+
+                <%--
                  <div class="mb-3 row">
                     <asp:Label ID="lblIdCliente" runat="server" Text="Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
-
                     <div class="col-sm-8">
                         <div class="input-group">
                             <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
@@ -53,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+                    --%>
                 
                 <div class="mb-3 row">
                     <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="Monto total: "></asp:Label>
@@ -88,6 +97,7 @@
                     <asp:Label id="lblTax" runat="server" Text="Tax: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtTax" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:HiddenField ID="hdnTax" runat="server" />
                     </div>
                 </div>
 
@@ -100,10 +110,10 @@
         <asp:GridView ID="gvDetalles" runat="server" CssClass="table table-striped" 
             AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
             <Columns>
-                <asp:BoundField DataField="producto" HeaderText="Producto" />
-                <asp:BoundField DataField="cantidadSolicitada" HeaderText="Stock" />
-                <asp:BoundField DataField="unidadMedida" HeaderText="Unid." />
-                <asp:BoundField DataField="precioAsignado" HeaderText="Subtotal" DataFormatString="{0:C2}" />
+                <asp:BoundField DataField="producto_id" HeaderText="Código" />
+                <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
+                <asp:BoundField DataField="unidad_medida" HeaderText="Medida/Unidad" />
+                <asp:BoundField DataField="subtotal" HeaderText="Precio" DataFormatString="{0:C2}" />
               
                 <%--
                 <asp:TemplateField HeaderText="Acciones">
@@ -134,7 +144,8 @@
 </div>
 
 
-            <!-- Modal Clientes -->
+<!-- Modal Clientes -->
+            <%-- 
 <div class="modal fade" id="modalClientes" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -161,6 +172,8 @@
         </div>
     </div>
 </div>
+    --%>
+
 
             <!-- Modal Ordenes -->
 <div class="modal fade" id="modalOrdenes" tabindex="-1">

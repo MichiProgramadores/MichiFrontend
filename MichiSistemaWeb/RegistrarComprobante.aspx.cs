@@ -16,7 +16,6 @@ namespace MichiSistemaWeb
 
         protected OrdenWSClient ordenService;
         protected ClienteWSClient clienteService;
-
         //protected ProductoWSClient productoService;
         private List<detalleComprobante> detallesComprobante;
 
@@ -35,7 +34,7 @@ namespace MichiSistemaWeb
             {
                 detallesComprobante = new List<detalleComprobante>();
                 Session["DetallesComprobante"] = detallesComprobante;
-                CargarClientes();
+                //CargarClientes();
                 CargarOrdenes();
                 //CargarProductos();
 
@@ -57,8 +56,13 @@ namespace MichiSistemaWeb
                 lblIdComprobante.Visible = false;
                 txtIdComprobante.Visible = false;
 
+                txtIdCliente.Enabled = false;
+
                 lblMontoTotal.Visible = false;
                 txtMonto.Visible = false;
+
+                lblTax.Visible = false;
+                txtTax.Visible = false;
 
                 lblFechaEmis.Visible = false;
                 txtFechaEmis.Visible = false;
@@ -103,11 +107,13 @@ namespace MichiSistemaWeb
             }
         }
 
+        /*
         private void CargarClientes()
         {
             dgvClientes.DataSource = clienteService.listarClientes();
             dgvClientes.DataBind();
         }
+        */
 
         private void CargarOrdenes()
         {
@@ -143,6 +149,7 @@ namespace MichiSistemaWeb
             lblTotal.Text = total.ToString("F2");
         }
 
+        /*
         protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
         {
             //prueba para despues escribir//
@@ -154,14 +161,26 @@ namespace MichiSistemaWeb
             txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
 
         }
+        */
+
         protected void btnSeleccionarOrden_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
             int idOrden = int.Parse(btn.CommandArgument);
             orden orden= ordenService.obtenerOrden(idOrden);
 
+            double monto = orden.totalPagar;
+            double valorTax = (monto * 10 / 100);
+            hdnTax.Value = valorTax.ToString();
+
             hdnOrdenId.Value = idOrden.ToString();
             txtIdOrden.Text = idOrden.ToString();
+
+            int clienteId = orden.clienteID;
+            cliente cliente = clienteService.obtenerCliente(clienteId);
+
+            hdnClienteId.Value = clienteId.ToString();
+            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
 
             List<detalleOrden> detallesOrden;
             detallesOrden = orden.listaOrdenes != null ? orden.listaOrdenes.ToList() : new List<detalleOrden>();
@@ -174,8 +193,13 @@ namespace MichiSistemaWeb
                 detalleComprobante detalle = new detalleComprobante
                 {
                     producto_id = detalleOrden.producto,
-                    cantidad = detalleOrden.cantidadEntregada,
-                    subtotal = detalleOrden.subtotal,
+                    //REAL:
+                    //cantidad = detalleOrden.cantidadEntregada,
+                    //subtotal = detalleOrden.subtotal,
+                    //
+                    cantidad = detalleOrden.cantidadSolicitada,
+                    subtotal = detalleOrden.precioAsignado,
+
                     unidad_medida = (unidadMedida1)detalleOrden.unidadMedida
                 };
 
@@ -213,17 +237,17 @@ namespace MichiSistemaWeb
             comprobante.orden_id = int.Parse(txtIdOrden.Text.Trim());
             comprobante.cliente_id = int.Parse(hdnClienteId.Value);
             comprobante.estado = txtEstado.Text.Trim();
+            comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), ddlTipoComprobante.SelectedValue);
+            comprobante.tipoComprobanteSpecified = true;
 
-            //Test, no hay ordenes pa testear xd:
-            comprobante.monto_total = 500;
-            //
             //Real:
-            //comprobante.monto_total = double.Parse(lblTotal.Text.Trim());
+            double monto = double.Parse(lblTotal.Text.Trim());
+            comprobante.tax = double.Parse(hdnTax.Value);
+            comprobante.monto_total = monto + (comprobante.tax * monto /100);
+            //
 
-            comprobante.tax = double.Parse(txtTax.Text.Trim());
-            
-            string valorSeleccionado = ddlTipoComprobante.SelectedValue;
-            comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), valorSeleccionado);
+            //string valorSeleccionado = ddlTipoComprobante.SelectedValue;
+            //comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), valorSeleccionado);
 
             /* DEBUG 1:
             string valorSeleccionado = ddlTipoCliente.SelectedValue;
@@ -254,7 +278,7 @@ namespace MichiSistemaWeb
                 if (string.IsNullOrWhiteSpace(txtIdOrden.Text) ||
                     string.IsNullOrWhiteSpace(txtIdCliente.Text) ||
                     string.IsNullOrWhiteSpace(txtEstado.Text) ||
-                    string.IsNullOrWhiteSpace(txtTax.Text) ||
+                    //string.IsNullOrWhiteSpace(txtTax.Text) ||
                     string.IsNullOrWhiteSpace(ddlTipoComprobante.SelectedValue))
                 {
                     lanzarMensajedeError("Por favor, complete todos los campos.");

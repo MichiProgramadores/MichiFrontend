@@ -13,7 +13,6 @@
     }
     </script>
 
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">    
      <div class="container">
@@ -29,14 +28,28 @@
                 <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
-                <div class="col text-end p-3">
-                    <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Comprobante" OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;"/>
+
+            <div class="d-flex justify-content-end align-items-center"> <!-- Añade align-items-center -->
+                <div class="p-3"> <!-- Quita col y text-end -->
+                    <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" 
+                        Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Comprobante" 
+                        OnClick="lbRegistrar_Click" 
+                        style="background-color: #FF7E5F; border: none;"/>
                 </div>
+                <div class="p-3"> <!-- Mismo padding que el primero -->
+                    <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" 
+                        Text="Listar todos" 
+                        OnClick="ListarTodos_Click" 
+                        style="background-color: #FF7E5F; border: none;"/>
+                </div>
+            </div>
+
             </div>
             <div class="container">
                 <div class="table-responsive">
                     <asp:GridView ID="dgvComprobantes" runat="server" AutoGenerateColumns="false"
                         OnRowDataBound="dgvComprobantes_RowDataBound" AllowPaging="true"
+                        EnableViewState="true"
                         OnPageIndexChanging="dgvComprobantes_PageIndexChanging" PageSize="8"
                         Width="100%"
                         CssClass="table table-hover table-striped">

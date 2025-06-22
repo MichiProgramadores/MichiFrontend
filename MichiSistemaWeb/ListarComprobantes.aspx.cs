@@ -17,35 +17,49 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteWS = new ComprobanteWSClient();
+            //CargarDatos();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarDatos();
         }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            comprobantes = comprobanteWS.listarComprobante().ToList();
+            ViewState["ComprobantesFiltrados"] = comprobantes; // Guarda en ViewState
+            dgvComprobantes.DataSource = comprobantes;
+            dgvComprobantes.DataBind();
+        }
+
         protected void CargarDatos()
         {
-
             try
             {
-                comprobantes = comprobanteWS.listarComprobante().ToList();
+                // Si ya está cargado en ViewState (evita llamar al WS de nuevo)
+                if (ViewState["ComprobantesFiltrados"] != null)
+                {
+                    comprobantes = (List<comprobante>)ViewState["ComprobantesFiltrados"];
+                }
+                else
+                {
+                    // Si no, filtra y guarda en ViewState
+                    comprobantes = comprobanteWS.listarComprobante()
+                                          .Where(c => c.estado != "Eliminado")
+                                          .ToList();
+                    ViewState["ComprobantesFiltrados"] = comprobantes;
+                }
+
                 dgvComprobantes.DataSource = comprobantes;
                 dgvComprobantes.DataBind();
             }
             catch (Exception ex)
             {
-                lblError.Text = "Error al cargar las ordenes: " + ex.Message;
+                lblError.Text = "Error al cargar las órdenes: " + ex.Message;
             }
+        }
 
-        }
-        private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
-        {
-            if (obj == null || obj == DBNull.Value) return "";
-            string str = obj.ToString();
-            if (DateTime.TryParse(str, out DateTime dt))
-                return dt.ToString(format);
-            return str; // O "" si prefieres ocultar valores no parseables
-        }
         protected void dgvComprobantes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             //
@@ -53,8 +67,8 @@ namespace MichiSistemaWeb
 
         protected void dgvComprobantes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            dgvComprobantes.PageIndex = e.NewPageIndex;
-            dgvComprobantes.DataBind();
+            dgvComprobantes.PageIndex = e.NewPageIndex; // Cambia la página
+            CargarDatos(); // Vuelve a cargar los datos (ya filtrados y con ViewState)
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)
@@ -134,6 +148,17 @@ namespace MichiSistemaWeb
                 // lblMensaje.Text = "Error al buscar comprobante: " + ex.Message;
             }
         }
+
+        /*
+        private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
+        {
+            if (obj == null || obj == DBNull.Value) return "";
+            string str = obj.ToString();
+            if (DateTime.TryParse(str, out DateTime dt))
+                return dt.ToString(format);
+            return str; // O "" si prefieres ocultar valores no parseables
+        }
+        */
 
     }
 }

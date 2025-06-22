@@ -24,7 +24,7 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblFechaInicio" runat="server" Text="*Fecha Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" ></asp:TextBox>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
 
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click" />
-                <asp:LinkButton ID="btnGuardar" CssClass="float-end btn btn-primary" runat="server" Text="<i class='fa-solid fa-floppy-disk pe-2'></i> Guardar" OnClick="btnGuardar_Click" />
+                <asp:LinkButton ID="btnGuardar" CssClass="float-end btn btn-primary" runat="server" Text="<i class='fa-solid fa-floppy-disk pe-2'></i> Guardar" OnClick="btnGuardar_Click"  style="background-color:  #FF7E5F; border: none;"/>
             </div>
         </div>
     </div>

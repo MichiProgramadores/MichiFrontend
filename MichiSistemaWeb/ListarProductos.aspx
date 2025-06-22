@@ -83,7 +83,7 @@
                         <asp:BoundField HeaderText="Stock minimo" ItemStyle-CssClass="align-middle" />
                         <asp:BoundField HeaderText="Stock actual" ItemStyle-CssClass="align-middle" />
                         <asp:BoundField HeaderText="Unidad de medida" ItemStyle-CssClass="align-middle" />
-                        <asp:BoundField HeaderText="Descripción" ItemStyle-CssClass="align-middle" />
+                   
                         <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" />
                         <asp:TemplateField>
                             <ItemTemplate>

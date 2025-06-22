@@ -29,7 +29,7 @@
         </div>
         <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false" 
             AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
-            CssClass="table table-striped table-responsive table-hover">
+            CssClass="table table-striped table-responsive table-hover gridview-pagination">
             <HeaderStyle BackColor="#FFBC8A" ForeColor="black" />
      <Columns>
                 <asp:BoundField DataField="idOrden" HeaderText="N° Orden" />
@@ -151,7 +151,23 @@
         }
     </script>
     <style>
-       
+        /* Estilo personalizado para la paginación */
+        .gridview-pagination .pagination li a {
+            background-color: #FBCB43; /* Color naranja */
+            color: black; /* Color del texto */
+            border: none; /* Eliminar borde */
+        }
+
+            .gridview-pagination .pagination li a:hover {
+                background-color: #FF7E5F; /* Color más oscuro de naranja para hover */
+                color: white; /* Cambiar texto a blanco cuando se pasa el mouse */
+            }
+
+        .gridview-pagination .pagination .active a {
+            background-color: #FF7E5F; /* Color naranja oscuro cuando está activo */
+            color: white; /* Texto blanco para el estado activo */
+        }
+
 
         /* Estilos para los modales */
         .modal-header {

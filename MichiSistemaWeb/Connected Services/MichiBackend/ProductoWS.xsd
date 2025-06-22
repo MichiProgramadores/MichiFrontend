@@ -67,18 +67,18 @@
   <xs:complexType name="eliminarProductoResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarProductos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarProductosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listaProductosActivos">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listaProductosActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProductosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>

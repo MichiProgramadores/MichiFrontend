@@ -30,7 +30,7 @@
                             <div class="input-group">
                                 <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:HiddenField ID="hdnClienteId" runat="server" />
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalClientes">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalClientes"  style="background-color: #FBCB43; border: none;">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -45,7 +45,7 @@
                             <div class="input-group">
                                 <asp:TextBox ID="txtIdTrabaj" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:HiddenField ID="hdnTrabajadorId" runat="server" />
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores"  style="background-color: #FBCB43; border: none;">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -170,7 +170,7 @@
 
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="btnRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="btnRegresar_Click"/>
-                <asp:LinkButton ID="btnGuardar" CssClass="float-end btn btn-primary" runat="server" Text="<i class='fa-solid fa-floppy-disk pe-2'></i> Guardar" OnClick="btnGuardar_Click"/>
+                <asp:LinkButton ID="btnGuardar" CssClass="float-end btn btn-primary" runat="server" Text="<i class='fa-solid fa-floppy-disk pe-2'></i> Guardar" OnClick="btnGuardar_Click" style="background-color:  #FF7E5F; border: none;"/>
             </div>
             <div class="col-md-12 mt-4 alert alert-danger" id="divError" runat="server" style="display: none;">
                 <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
@@ -196,7 +196,7 @@
                          
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm"
+                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
                                         OnClick="btnSeleccionarCliente_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>
@@ -224,7 +224,7 @@
                            
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm"
+                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
                                         OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>

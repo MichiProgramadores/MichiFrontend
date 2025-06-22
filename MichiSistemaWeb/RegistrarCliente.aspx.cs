@@ -43,9 +43,9 @@ namespace MichiSistemaWeb
                 lblTitulo.Text = "Registrar Cliente";
 
                 lblID.Visible = false;
-                txtIDCliente.Visible= false;
+                txtIDCliente.Visible = false;
 
-                lblPuntuacion.Visible= false;
+                lblPuntuacion.Visible = false;
                 txtPuntuacion.Visible = false;
 
                 lblActivo.Visible = false;
@@ -98,7 +98,7 @@ namespace MichiSistemaWeb
 
                 ddlTipoCliente.Enabled = false;
 
-                btnGuardar.Visible = false;
+                //btnGuardar.Visible = false;
             }
 
         }

@@ -87,7 +87,7 @@ namespace MichiSistemaWeb
                 // Almacenar el cliente seleccionado en la sesión
                 Session["comprobanteSeleccionado"] = comprobante;
 
-                // Redirigir a la página de edición
+                // Redirigir a la página de edición:
                 Response.Redirect("RegistrarComprobante.aspx?accion=modificar");
             }
         }

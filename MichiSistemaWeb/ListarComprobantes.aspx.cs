@@ -48,7 +48,7 @@ namespace MichiSistemaWeb
         }
         protected void dgvComprobantes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            //
         }
 
         protected void dgvComprobantes_PageIndexChanging(object sender, GridViewPageEventArgs e)

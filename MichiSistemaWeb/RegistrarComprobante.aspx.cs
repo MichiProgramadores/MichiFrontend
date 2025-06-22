@@ -249,25 +249,6 @@ namespace MichiSistemaWeb
             //string valorSeleccionado = ddlTipoComprobante.SelectedValue;
             //comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), valorSeleccionado);
 
-            /* DEBUG 1:
-            string valorSeleccionado = ddlTipoCliente.SelectedValue;
-            lblMensajeError.Text = "Tipo seleccionado: " + valorSeleccionado; // DEBUG
-            System.Diagnostics.Debug.WriteLine("Tipo seleccionado: " + ddlTipoCliente.SelectedValue);
-
-            if (string.IsNullOrEmpty(valorSeleccionado))
-            {
-                throw new Exception("Debe seleccionar un tipo de cliente.");
-            }
-            */
-
-            /* DEBUG 2:
-            string valorSeleccionado = ddlTipoCliente.SelectedValue;
-            //cliente.tipoCliente = (tipoCliente)Enum.Parse(typeof(tipoCliente), valorSeleccionado);
-            //cliente.tipoCliente = tipoCliente.EIN;
-
-            System.Diagnostics.Debug.WriteLine("Tipo seleccionado: " + cliente.tipoCliente.ToString());
-            */
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

@@ -146,37 +146,6 @@
 </div>
 
 
-<!-- Modal Clientes -->
-            <%-- 
-<div class="modal fade" id="modalClientes" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Seleccionar Cliente</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <asp:GridView ID="dgvClientes" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
-                    <Columns>
-                        <asp:BoundField DataField="persona_id" HeaderText="ID" />
-                     
-                        <asp:TemplateField HeaderText="Acciones">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
-                                    OnClick="btnSeleccionarCliente_Click" CommandArgument='<%# Eval("persona_id") %>'>
-                                    Seleccionar
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
-            </div>
-        </div>
-    </div>
-</div>
-    --%>
-
-
             <!-- Modal Ordenes -->
 <div class="modal fade" id="modalOrdenes" tabindex="-1">
     <div class="modal-dialog modal-lg">

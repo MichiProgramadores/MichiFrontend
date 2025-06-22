@@ -326,6 +326,7 @@
     <Content Include="RegistrarEvento.aspx" />
     <Content Include="RegistrarProducto.aspx" />
     <Content Include="RegistrarTrabajador.aspx" />
+    <Content Include="RegistrarUsuario.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -391,6 +392,7 @@
     <Content Include="Scripts\michi\registrarOrden.js" />
     <Content Include="Scripts\michi\registrarOrdenesVenta.js" />
     <Content Include="Scripts\michi\registrarProducto.js" />
+    <Content Include="Scripts\michi\registrarUsuario.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
@@ -514,6 +516,13 @@
     </Compile>
     <Compile Include="RegistrarTrabajador.aspx.designer.cs">
       <DependentUpon>RegistrarTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarUsuario.aspx.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarUsuario.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

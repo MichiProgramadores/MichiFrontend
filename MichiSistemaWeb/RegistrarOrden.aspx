@@ -193,10 +193,11 @@
                     <asp:GridView ID="dgvClientes" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField DataField="persona_id" HeaderText="ID" />
-                         
+                            <asp:BoundField DataField="nombres" HeaderText="Nombres" />
+                            <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
+                                    <asp:LinkButton ID="btnSeleccionarCliente" runat="server" CssClass="btn btn-primary btn-sm"
                                         OnClick="btnSeleccionarCliente_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>
@@ -221,10 +222,11 @@
                     <asp:GridView ID="dgvTrabajadores" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField DataField="persona_id" HeaderText="ID" />
-                           
+                            <asp:BoundField DataField="nombres" HeaderText="Nombres" />
+                            <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm" style="background-color:  #FF7E5F; border: none; color: black;"
+                                    <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm"
                                         OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'>
                                         Seleccionar
                                     </asp:LinkButton>

@@ -18,7 +18,10 @@ namespace MichiSistemaWeb
                 trabajador  trabajador= (trabajador)Session["trabajador"];
                 lblNombreCompleto.Text = trabajador.nombres;  // Asignamos el nombre del usuario
             }
+            // Establecer la clase 'active' al enlace correspondiente dependiendo de la página
+            
         }
+
         protected void CerrarSesion_Click(object sender, EventArgs e)
         {
             // Cerrar la sesión del usuario

@@ -76,6 +76,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listaTrabajadoresActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaTrabajadoresActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="obtenerTrabajador">
     <xs:sequence>
       <xs:element name="idTrabajador" type="xs:int" />
@@ -84,14 +92,6 @@
   <xs:complexType name="obtenerTrabajadorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:trabajador" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listaTrabajadoresActivos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listaTrabajadoresActivosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoTrabajador">

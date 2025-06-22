@@ -22,71 +22,66 @@
     <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
     <div class="container-fluid d-flex p-0 h-100">
         <!-- Division de la izquierda-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-primary text-white offcanvas-md offcanvas-start" style="justify-content: center; align-items: center;">
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3" style="background-color: #E0E0E0; justify-content: center; align-items: center;">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/logoFin.png" width="180" />
+                <img src="Images/logo_act.png" width="180" />
             </a>
             <hr />
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
-                    <a href="ListarOrdenes.aspx">
+                    <a href="ListarOrdenes.aspx" style="color: black;">
                         <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar Ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarTrabajadores.aspx" >
+                    <a href="ListarTrabajadores.aspx" style="color: black;">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Trabajadores
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarClientes.aspx">
+                    <a href="ListarClientes.aspx" style="color: black;">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Clientes
                     </a>
                 </li>  
                 <li class="nav-item mb-1">
-                    <a href="ListarProductos.aspx">
+                    <a href="ListarProductos.aspx" style="color: black;">
                         <i class="fa-solid fa-box-open pe-2"></i> Gestionar Productos
                       
                     </a>
                 </li>
                 <li class="nav-item mb-1">
                    
-                    <a href="ListarEventos.aspx" >
+                    <a href="ListarEventos.aspx" style="color: black;">
                         <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar Eventos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarComprobantes.aspx">
+                    <a href="ListarComprobantes.aspx" style="color: black;">
                         <i class="fa-solid  fa-receipt pe-2"></i>Gestionar Comprobantes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarUsuarios.aspx">
+                    <a href="ListarUsuarios.aspx" style="color: black;">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Usuarios
                     </a>
                 </li>
             </ul>
             <hr />
-            <div class="d-flex">
-                <i class="fa-solid fa-book me-2"></i>
-                <h6 class="mt-1 mb-0">PUCP - Programación 3</h6>
-            </div>
         </div>
         <!-- Division de la derecha-->
         <div class="bg-light flex-fill overflow-auto">
             <!-- Barra superior para dispositivos pequeños -->
-            <div class="p-2 d-md-none d-flex text-white bg-primary">
+            <div class="p-2 d-md-none d-flex text-white bg-primary ">
                 <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </div>
             <!-- Barra de usuario -->
-            <nav class="navbar navbar-dark bg-primary">
+            <nav class="navbar navbar-dark" style="background-color: #F4F4F4; color: black">
                 <div class="container-fluid">
-                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#">Michi Sistema
+                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#" style="color: black;">Michi Sistema
                     </a>
                     <form class="d-flex">
                         <div class="dropdown ps-3">

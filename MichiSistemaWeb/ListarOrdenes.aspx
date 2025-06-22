@@ -1,21 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="~/ListarOrdenes.aspx.cs" Inherits="MichiSistemaWeb.ListarOrdenes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
+
 </asp:Content>
 <%--<asp:Content ID="Content4" ContentPlaceHolderID="cph_Scripts" runat="server">
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Contenido" runat="server">
-    <div class="container mt-4">
+    <div class="container">
         <h2>Listado de Órdenes</h2>
         <div class="row align-items-center">
-            <div class="col-auto">
+            <div class="col-auto" >
                 <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID"></asp:Label>
             </div>
                         <div class="col-sm-3">
                 <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-2">
-                <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+                <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
+
             </div>
 <%--            <div class="col text-end p-3">
                 <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" />
@@ -23,12 +25,12 @@
         </div>
         
         <div class="text-end pb-3">
-            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server" 
-                Text="Nueva Orden" CssClass="btn btn-success" />
+            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server"  Text="Nueva Orden" CssClass="btn btn-success"  style="background-color:  #FF7E5F; border: none;"/>
         </div>
         <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false" 
             AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
             CssClass="table table-striped table-responsive table-hover">
+            <HeaderStyle BackColor="#FFBC8A" ForeColor="black" />
      <Columns>
                 <asp:BoundField DataField="idOrden" HeaderText="N° Orden" />
                 <%--<asp:BoundField DataField="clienteID" HeaderText="Cliente" />
@@ -47,8 +49,8 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="lbEditar" runat="server" 
                             CommandName="Editar"
-                            Text="<i class='fa-solid fa-edit pe-4'></i>" 
-                            CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" />
+                            Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i> " 
+                            CommandArgument='<%# Eval("idOrden") %>' OnClick="lbModificar_Click" colo/>
 
                         <%-- 
                        <asp:LinkButton ID="lbEliminar" runat="server"
@@ -61,11 +63,9 @@
                             />
                         --%>    
                       
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("idOrden") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("idOrden") + "); return false;" %>' />
-
-
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4' style='color: #FBCB43;'></i>" CommandArgument='<%# Eval("idOrden") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("idOrden") + "); return false;" %>'  style="text-decoration: none;" />
                        
-                        <asp:LinkButton ID="lbVerDetalles" runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"
+                        <asp:LinkButton ID="lbVerDetalles" runat="server" Text="<i class='fa-solid fa-eye pe-4' style='color: #FF7E5F;'></i>"
                          CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVerDetalles_Click" />
                     </ItemTemplate>
                </asp:TemplateField>
@@ -150,8 +150,24 @@
             modal.show();
         }
     </script>
+    <style>
+       
 
+        /* Estilos para los modales */
+        .modal-header {
+            background-color: #f4f4f4;
+            color: #343a40;
+        }
 
+        .modal-footer .btn-secondary {
+            background-color: #f1f1f1;
+        }
 
-
+        .modal-footer .btn-danger {
+            background-color: #ff3333;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+    </style>
 </asp:Content>

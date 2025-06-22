@@ -34,11 +34,11 @@
     
     <style>
         body {
-            background-image: url('Images/loginSF.png');
+            background-image: url('Images/logo_act.png');
             background-size: contain; /* Ajusta la imagen para que se vea completa */
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #0d6efd;
+            background-color: #F4F4F4;
            // background-attachment: fixed;
         }
     </style>
@@ -66,8 +66,8 @@
                 <div class="form-group mt-2">
                     <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger text-center d-block" EnableViewState="false"></asp:Label>
                 </div>
-                <div class="text-center mt-3">
-                    <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click"/>
+                <div class="text-center mt-3" >
+                    <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click" style="background-color: #FBCB43; border: none; color: #000000;"/>
                 </div>
             </form>
         </div>

@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
+        <h2>Listado de Usuarios</h2>
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
@@ -14,12 +15,12 @@
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
       
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
-                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Usuario" OnClick="lbRegistrar_Click" />
+                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server"  Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Usuario" OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>
 
                 </div>
@@ -36,7 +37,7 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>" CommandArgument='<%# Eval("id") %>' OnClick="lbModificar_Click" />
+                                <asp:LinkButton ID="lbModificar" runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("id") %>' OnClick="lbModificar_Click" />
                                                    
                             </ItemTemplate>
                         </asp:TemplateField>

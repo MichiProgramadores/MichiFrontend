@@ -311,6 +311,7 @@
     <Content Include="Images\logo2.png" />
     <Content Include="Images\logoFin.png" />
     <Content Include="Images\logoMulti.png" />
+    <Content Include="Images\logo_act.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />
     <Content Include="ListarComprobantes.aspx" />

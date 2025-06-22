@@ -18,6 +18,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
+        <h2>Listado de Productos</h2>
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
@@ -43,28 +44,28 @@
                 <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server"
                         Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar"
-                        OnClick="lbBuscar_Click" />
+                        OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;"/>
                 </div>
                 <div class="col-auto">
                     <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese el nombre:"></asp:Label>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <asp:LinkButton ID="lblBuscarN" CssClass="btn btn-info" runat="server"
                         Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar"
-                        OnClick="lblBuscarN_Click" />
+                        OnClick="lblBuscarN_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
                         <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server"
                             Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Producto"
-                            OnClick="lbRegistrar_Click" />
+                            OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>
                     <div class="p-2">
                         <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server"
-                            Text="Listar todos" OnClick="ListarTodos_Click" />
+                            Text="Listar todos" OnClick="ListarTodos_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>
                 </div>
             </div>
@@ -86,14 +87,14 @@
                         <asp:BoundField HeaderText="Estado" ItemStyle-CssClass="align-middle" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>"
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>"
                                     CommandArgument='<%# Eval("producto_id") %>' OnClick="lbModificar_Click" />
 
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4' style='color:  #FBCB43;'></i>"
                                     CommandArgument='<%# Eval("producto_id") %>'
                                     OnClientClick='<%# "mostrarModalEliminar(" + Eval("producto_id") + "); return false;" %>' />
 
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>"
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4' style='color: #FF7E5F;'></i>"
                                     CommandArgument='<%# Eval("producto_id") %>' OnClick="lbVisualizar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>

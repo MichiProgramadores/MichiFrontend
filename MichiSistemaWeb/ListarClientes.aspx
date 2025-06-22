@@ -17,6 +17,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
+        <h2>Listado de Clientes</h2>
         <div class="container row">
             <div class="row align-items-center">
                  <div class="col-auto">
@@ -36,25 +37,25 @@
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" />
+                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
                 <div class="col-auto">
                     <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscarN" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarN_Click" />
+                    <asp:LinkButton ID="lbBuscarN" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarN_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
                 
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
-                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" />
+                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" style="background-color: #FF7E5F; border: none;"/>
                     </div>
                     <div class="p-2">
 
-                        <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" Text="Listar todos" OnClick="ListarTodos_Click" />
+                        <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" Text="Listar todos" OnClick="ListarTodos_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>
                 </div>
 
@@ -75,7 +76,7 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbModificar_Click" />
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbModificar_Click" />
 
                                 <%--1:
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"  CommandArgument='<%# Eval("persona_id") %>' OnClick="lbEliminar_Click"/>
@@ -84,9 +85,9 @@
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbEliminar_Click" OnClientClick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');" />
                                 --%>
 
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("persona_id") + "); return false;" %>' />
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4' style='color: #FBCB43;'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("persona_id") + "); return false;" %>' />
 
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbVisualizar_Click" />
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbVisualizar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

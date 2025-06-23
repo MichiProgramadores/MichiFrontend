@@ -25,7 +25,7 @@
         </div>
         
         <div class="text-end pb-3">
-            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server"  Text="Nueva Orden" CssClass="btn btn-success"  style="background-color:  #FF7E5F; border: none;"/>
+            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server"  Text="Nueva orden" CssClass="btn btn-success"  style="background-color:  #FF7E5F; border: none;"/>
         </div>
         <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false" 
             AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvOrdenes_PageIndexChanging"

@@ -16,7 +16,7 @@ namespace MichiSistemaWeb
         protected OrdenWSClient ordenService;
         protected TrabajadorWSClient trabajadorService;
         protected ClienteWSClient clienteService;
-        protected ProductoWSClient productoService;
+        protected ProductoWSClient productoService; 
         protected orden orden;
         private List<detalleOrden> detallesOrden;
 
@@ -316,6 +316,16 @@ namespace MichiSistemaWeb
             lblError.Text = mensaje;
             divError.Style["display"] = "block";
         }
+
+        public string GetProductName(object producto_id)
+        {
+            int productoId = Convert.ToInt32(producto_id);  // Convertir el ID del producto a entero
+            // Llamar al servicio de productos para obtener el nombre
+            producto producto = productoService.obtenerProducto(productoId);
+            // Retornar el nombre del producto o "Desconocido" si no se encuentra
+            return producto != null ? producto.nombre : "Desconocido";
+        }
+
         protected void btnAgregarDetalle_Click(object sender, EventArgs e)
         {
             LimpiarError();

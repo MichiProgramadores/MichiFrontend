@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar Orden"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar orden"></asp:Label>
                 </h2>
             </div>
             <div class="card-body">
@@ -149,6 +149,14 @@
                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
                        <Columns>
                            <asp:BoundField DataField="producto" HeaderText="Código" />
+                           
+                           <%-- Aqui va el nombre --%>
+                           <asp:TemplateField HeaderText="Nombre">
+                                <ItemTemplate>
+                                    <%# GetProductName(Eval("producto")) %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
                            <asp:BoundField DataField="cantidadSolicitada" HeaderText="Cant. Solicitada" />
                            <asp:BoundField DataField="unidadMedida" HeaderText="Medida/Unidad" />
                            <asp:BoundField DataField="precioAsignado" HeaderText="Precio" DataFormatString="{0:C2}" />

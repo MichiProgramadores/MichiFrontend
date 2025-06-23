@@ -30,7 +30,7 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 usuario = new usuario();
-                lblTitulo.Text = "Registrar Usuario";
+                lblTitulo.Text = "Registrar usuario";
                 lblUser.Visible = false;
                 txtNombre.Visible = false;
                 txtNombre.Enabled = false;
@@ -39,7 +39,7 @@ namespace MichiSistemaWeb
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Usuario";
+                lblTitulo.Text = "Modificar usuario";
                 usuario = (usuario)Session["usuarioSeleccionado"];
                 if (!IsPostBack)
                 {

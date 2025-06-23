@@ -52,7 +52,7 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 comprobante = new comprobante();
-                lblTitulo.Text = "Registrar Comprobante";
+                lblTitulo.Text = "Registrar comprobante";
 
                 lblIdComprobante.Visible = false;
                 txtIdComprobante.Visible = false;
@@ -73,7 +73,7 @@ namespace MichiSistemaWeb
             {
                 
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Comprobante";
+                lblTitulo.Text = "Modificar comprobante";
                 comprobante = (comprobante)Session["comprobanteSeleccionado"];
                 if (!IsPostBack)
                 {
@@ -87,7 +87,7 @@ namespace MichiSistemaWeb
             else if (accion == "ver")
             {
                 
-                lblTitulo.Text = "Ver Comprobante";
+                lblTitulo.Text = "Ver comprobante";
                 comprobante = (comprobante)Session["comprobanteSeleccionado"];
                 AsignarValoresTexto();
 

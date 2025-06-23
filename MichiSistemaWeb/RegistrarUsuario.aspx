@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="RegistrarUsuario.aspx.cs" Inherits="MichiSistemaWeb.RegistrarUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Registrar Usuario
+    Registrar usuario
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script src="Scripts/michi/registrarUsuario.js"></script>
@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar Usuario"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar usuario"></asp:Label>
                 </h2>
             </div>
             <div class="card-body">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <asp:Label id="lblUser" runat="server" Text=" Nombre Usuario: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                        <asp:Label id="lblUser" runat="server" Text=" Nombre usuario: " CssClass="col-sm-2 col-form-label"></asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox id="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="RegistrarComprobante.aspx.cs" Inherits="MichiSistemaWeb.RegistrarComprobante" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Registrar Comprobante
+    Registrar comprobante
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script src="Scripts/michi/registrarComprobante.js"></script>
@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar Comprobante"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar comprobante"></asp:Label>
                 </h2>
             </div>
 

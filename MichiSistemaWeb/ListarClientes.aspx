@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="MichiSistemaWeb.ListarClientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Listar Clientes
+    Listar clientes
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script type="text/javascript">
@@ -17,7 +17,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
-        <h2>Listado de Clientes</h2>
+        <h2>Listado de clientes</h2>
         <div class="container row">
             <div class="row align-items-center">
                  <div class="col-auto">
@@ -99,7 +99,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header bg-danger text-white">
-                                <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                                <h5 class="modal-title" id="modalEliminarLabel">Confirmar eliminación</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">

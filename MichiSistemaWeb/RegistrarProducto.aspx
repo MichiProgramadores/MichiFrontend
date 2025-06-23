@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="RegistrarProducto.aspx.cs" Inherits="MichiSistemaWeb.RegistrarProducto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Registrar Producto
+    Registrar producto
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script src="Scripts/michi/registrarProducto.js"></script>
@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar Producto"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Registrar producto"></asp:Label>
                 </h2>
             </div>
             <div class="card-body">           
@@ -107,7 +107,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title" id="errorModalLabel">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de Error
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de error
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarProductos.aspx.cs" Inherits="MichiSistemaWeb.ListarProductos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Listar Productos
+    Listar productos
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
@@ -18,7 +18,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
-        <h2>Listado de Productos</h2>
+        <h2>Listado de productos</h2>
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
@@ -60,7 +60,7 @@
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
                         <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server"
-                            Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Producto"
+                            Text="<i class='fa-solid fa-plus pe-2'></i> Registrar producto"
                             OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>
                     <div class="p-2">
@@ -108,7 +108,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header bg-danger text-white">
-                                <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                                <h5 class="modal-title" id="modalEliminarLabel">Confirmar eliminación</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body">

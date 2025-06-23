@@ -141,7 +141,7 @@
                    </button>--%>
                    <asp:PlaceHolder ID="phAgregarProducto" runat="server">
                         <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle" >
-                            <i class="fas fa-plus"></i> Agregar Producto
+                            <i class="fas fa-plus"></i> Agregar producto
                         </button>
                     </asp:PlaceHolder>
 
@@ -252,7 +252,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Agregar Producto</h5>
+                    <h5 class="modal-title">Agregar producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">

@@ -43,7 +43,7 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 producto = new producto();
-                lblTitulo.Text = "Registrar Producto";
+                lblTitulo.Text = "Registrar producto";
 
                 lblID.Visible = false;
                 txtIDProducto.Visible = false;
@@ -55,7 +55,7 @@ namespace MichiSistemaWeb
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Producto";
+                lblTitulo.Text = "Modificar producto";
                 producto = (producto)Session["productoSeleccionado"];
                 if (!IsPostBack)
                 {
@@ -70,7 +70,7 @@ namespace MichiSistemaWeb
             }
             else if (accion == "ver")
             {
-                lblTitulo.Text = "Ver Producto";
+                lblTitulo.Text = "Ver producto";
                 producto = (producto)Session["productoSeleccionado"];
                 AsignarValoresTexto();
 

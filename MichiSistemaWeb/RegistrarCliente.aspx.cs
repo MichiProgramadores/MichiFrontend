@@ -40,7 +40,7 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 cliente = new cliente();
-                lblTitulo.Text = "Registrar Cliente";
+                lblTitulo.Text = "Registrar cliente";
 
                 lblID.Visible = false;
                 txtIDCliente.Visible = false;
@@ -55,7 +55,7 @@ namespace MichiSistemaWeb
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Cliente";
+                lblTitulo.Text = "Modificar cliente";
                 cliente = (cliente)Session["clienteSeleccionado"];
                 if (!IsPostBack)
                 {
@@ -74,7 +74,7 @@ namespace MichiSistemaWeb
             }
             else if (accion == "ver")
             {
-                lblTitulo.Text = "Ver Cliente";
+                lblTitulo.Text = "Ver cliente";
                 cliente = (cliente)Session["clienteSeleccionado"];
                 AsignarValoresTexto();
 

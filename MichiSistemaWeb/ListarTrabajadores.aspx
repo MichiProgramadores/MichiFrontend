@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Michi.Master" AutoEventWireup="true" CodeBehind="ListarTrabajadores.aspx.cs" Inherits="MichiSistemaWeb.ListarTrabajadores" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_Title" runat="server">
-    Listar Empleados
+    Listar trabajadores
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
@@ -26,7 +26,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
-        <h2>Listado de Trabajadores</h2>
+        <h2>Listado de trabajadores</h2> 
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
@@ -39,7 +39,7 @@
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
                 <div class="col-auto">
-                    <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
+                    <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el nombre:"></asp:Label>
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="d-flex justify-content-end">
                     <div class="p-2">
-                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Trabajador" OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;" />
+                        <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar trabajador" OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;" />
                     </div>
                     <div class="p-2">
                         <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" Text="Listar todos" OnClick="ListarTodos_Click" style="background-color:  #FF7E5F; border: none;"/>

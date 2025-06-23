@@ -7,10 +7,10 @@
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Contenido" runat="server">
     <div class="container">
-        <h2>Listado de Órdenes</h2>
+        <h2>Listado de órdenes</h2>
         <div class="row align-items-center">
             <div class="col-auto" >
-                <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID"></asp:Label>
+                <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID:"></asp:Label>
             </div>
                         <div class="col-sm-3">
                 <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
@@ -116,7 +116,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                    <h5 class="modal-title" id="modalEliminarLabel">Confirmar eliminación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
@@ -176,7 +176,7 @@
         }
 
         .modal-footer .btn-secondary {
-            background-color: #f1f1f1;
+            background-color: #6c757d; /* cambio de color */
         }
 
         .modal-footer .btn-danger {

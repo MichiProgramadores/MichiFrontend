@@ -39,7 +39,7 @@ namespace MichiSistemaWeb
 
                 estado = Estado.Nuevo;
                 trabajador = new trabajador();
-                lblTitulo.Text = "Registrar Trabajador";
+                lblTitulo.Text = "Registrar trabajador";
                 lblID.Visible = false;
                 txtIDTrabajador.Visible = false;
                 lblActivo.Visible = false;
@@ -49,7 +49,7 @@ namespace MichiSistemaWeb
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Trabajador";
+                lblTitulo.Text = "Modificar trabajador";
                 trabajador = (trabajador)Session["trabajadorSeleccionado"];
                 if (!IsPostBack)
                 {
@@ -63,7 +63,7 @@ namespace MichiSistemaWeb
             }
             else if (accion == "ver")
             {
-                lblTitulo.Text = "Ver Trabajador";
+                lblTitulo.Text = "Ver trabajador";
                 trabajador = (trabajador)Session["trabajadorSeleccionado"];
                 AsignarValoresTexto();
                 txtIDTrabajador.Enabled = false;

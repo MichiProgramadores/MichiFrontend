@@ -59,7 +59,7 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 orden = new orden();
-                lblTitulo.Text = "Registrar Orden";
+                lblTitulo.Text = "Registrar orden";
 
                 lblIdOrden.Visible = false;
                 txtIdOrden.Visible = false;
@@ -99,7 +99,7 @@ namespace MichiSistemaWeb
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Orden";
+                lblTitulo.Text = "Modificar orden";
                 orden = ordenService.obtenerOrden(((orden)Session["ordenSeleccionada"]).idOrden);
                 if (!IsPostBack)
                 {
@@ -147,7 +147,7 @@ namespace MichiSistemaWeb
             else if (accion == "ver")
             {
 
-                lblTitulo.Text = "Visualizar Orden";
+                lblTitulo.Text = "Visualizar orden";
                 orden = (orden)Session["ordenSeleccionada"];
                 if (!IsPostBack)
                 {

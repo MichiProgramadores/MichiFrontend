@@ -35,14 +35,14 @@ namespace MichiSistemaWeb
             {
                 estado = Estado.Nuevo;
                 evento = new evento();
-                lblTitulo.Text = "Registrar Evento";
+                lblTitulo.Text = "Registrar evento";
                 lblID.Visible = false;
                 txtIDEvento.Visible = false;
             }
             else if (accion == "modificar")
             {
                 estado = Estado.Modificar;
-                lblTitulo.Text = "Modificar Evento";
+                lblTitulo.Text = "Modificar evento";
                 evento = (evento)Session["eventoSeleccionado"];
                 if (!IsPostBack)
                 {
@@ -55,7 +55,7 @@ namespace MichiSistemaWeb
             }
             else if (accion == "ver")
             {
-                lblTitulo.Text = "Ver Evento";
+                lblTitulo.Text = "Ver evento";
                 evento = (evento)Session["eventoSeleccionado"];
                 AsignarValoresTexto();
                 

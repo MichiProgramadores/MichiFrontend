@@ -17,7 +17,6 @@ namespace MichiSistemaWeb
 
         protected OrdenWSClient ordenService;
         protected ClienteWSClient clienteService;
-        //protected ProductoWSClient productoService;
         private List<detalleComprobante> detallesComprobante;
 
         protected void Page_Init(object sender, EventArgs e)
@@ -26,7 +25,6 @@ namespace MichiSistemaWeb
             productoService = new ProductoWSClient();  // Inicializa el cliente del servicio
             ordenService = new OrdenWSClient();
             clienteService = new ClienteWSClient();
-            //productoService = new ProductoWSClient();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,9 +33,7 @@ namespace MichiSistemaWeb
             {
                 detallesComprobante = new List<detalleComprobante>();
                 Session["DetallesComprobante"] = detallesComprobante;
-                //CargarClientes();
                 CargarOrdenes();
-                //CargarProductos();
 
                 //Obtener los valores del enum tipoComprobante
                 ddlTipoComprobante.DataSource = Enum.GetValues(typeof(tipoComprobante));
@@ -74,11 +70,29 @@ namespace MichiSistemaWeb
                 
                 estado = Estado.Modificar;
                 lblTitulo.Text = "Modificar comprobante";
-                comprobante = (comprobante)Session["comprobanteSeleccionado"];
+                //comprobante = (comprobante)Session["comprobanteSeleccionado"];
+                comprobante = comprobanteService.obtenerComprobante(((comprobante)Session["comprobanteSeleccionado"]).id_comprobante);
                 if (!IsPostBack)
                 {
+                    // Cargar detalles de la orden en la sesión
+                    detallesComprobante = comprobante.detalles != null ? comprobante.detalles.ToList() : new List<detalleComprobante>();
+                    Session["DetallesComprobante"] = detallesComprobante;
+
                     AsignarValoresTexto();
+                    ActualizarGrillaDetalles();
                 }
+
+                txtIdCliente.Enabled = false;
+
+                lblMontoTotal.Visible = false;
+                txtMonto.Visible = false;
+
+                lblFechaEmis.Visible = false;
+                txtFechaEmis.Visible = false;
+
+                lblTax.Visible = false;
+                txtTax.Visible = false;
+
                 lblIdComprobante.Visible = true;
                 txtIdComprobante.Visible = true;
                 txtIdComprobante.Enabled = false;
@@ -88,8 +102,18 @@ namespace MichiSistemaWeb
             {
                 
                 lblTitulo.Text = "Ver comprobante";
-                comprobante = (comprobante)Session["comprobanteSeleccionado"];
-                AsignarValoresTexto();
+                comprobante = comprobanteService.obtenerComprobante(((comprobante)Session["comprobanteSeleccionado"]).id_comprobante);
+                //comprobante = (comprobante)Session["comprobanteSeleccionado"];
+
+                if (!IsPostBack)
+                {
+                    // Cargar detalles de la orden en la sesión
+                    detallesComprobante = comprobante.detalles != null ? comprobante.detalles.ToList() : new List<detalleComprobante>();
+                    Session["DetallesComprobante"] = detallesComprobante;
+
+                    AsignarValoresTexto();
+                    ActualizarGrillaDetalles();
+                }
 
                 lblIdComprobante.Visible = true;
                 txtIdComprobante.Visible = true;
@@ -104,17 +128,11 @@ namespace MichiSistemaWeb
 
                 ddlTipoComprobante.Enabled = false;
 
+                btnOrdenID.Visible = false;
+
                 btnGuardar.Visible = false;
             }
         }
-
-        /*
-        private void CargarClientes()
-        {
-            dgvClientes.DataSource = clienteService.listarClientes();
-            dgvClientes.DataBind();
-        }
-        */
 
         private void CargarOrdenes()
         {
@@ -146,23 +164,9 @@ namespace MichiSistemaWeb
                 total += detalle.subtotal;
             }
 
-            txtMonto.Text = total.ToString("F2");
+            //txtMonto.Text = total.ToString("F2");
             lblTotal.Text = total.ToString("F2");
         }
-
-        /*
-        protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
-        {
-            //prueba para despues escribir//
-            LinkButton btn = (LinkButton)sender;
-            int clienteId = Convert.ToInt32(btn.CommandArgument);
-            cliente cliente = clienteService.obtenerCliente(clienteId);
-
-            hdnClienteId.Value = clienteId.ToString();
-            txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
-
-        }
-        */
 
         //METODO PARA LLAMAR AL NOMBRE
         public string GetProductName(object producto_id)
@@ -179,7 +183,7 @@ namespace MichiSistemaWeb
             orden orden= ordenService.obtenerOrden(idOrden);
 
             double monto = orden.totalPagar;
-            double valorTax = (monto * 10 / 100);
+            double valorTax = monto * 0.1;
             hdnTax.Value = valorTax.ToString();
 
             hdnOrdenId.Value = idOrden.ToString();
@@ -202,10 +206,11 @@ namespace MichiSistemaWeb
                     producto_id = detalleOrden.producto,
                     //REAL:
                     //cantidad = detalleOrden.cantidadEntregada,
-                    //subtotal = detalleOrden.subtotal,
+                    subtotal = detalleOrden.subtotal,
                     //
                     cantidad = detalleOrden.cantidadSolicitada,
-                    subtotal = detalleOrden.precioAsignado,
+                    //subtotal = detalleOrden.precioAsignado,
+                    unidad_medida = (unidadMedida1)detalleOrden.unidadMedida
                 };
 
                 detallesComprobante.Add(detalle);
@@ -224,7 +229,6 @@ namespace MichiSistemaWeb
             txtEstado.Text = comprobante.estado;
             txtFechaEmis.Text = comprobante.fecha_emision.ToString("yyyy-MM-dd");
             txtTax.Text = comprobante.tax.ToString();
-            //txtIdCliente.Text = comprobante.cliente_id.ToString();
             txtIdOrden.Text = comprobante.orden_id.ToString();
 
             ddlTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
@@ -234,6 +238,9 @@ namespace MichiSistemaWeb
 
             hdnClienteId.Value = clienteId.ToString();
             txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}";
+
+            gvDetalles.DataSource = comprobante.detalles;
+            gvDetalles.DataBind();
 
         }
 
@@ -245,15 +252,19 @@ namespace MichiSistemaWeb
             comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), ddlTipoComprobante.SelectedValue);
             comprobante.tipoComprobanteSpecified = true;
 
+            detallesComprobante = (List<detalleComprobante>)Session["DetallesComprobante"];
+            foreach (var d in detallesComprobante)
+            {
+                d.unidad_medidaSpecified = true;
+            }
+            comprobante.detalles = detallesComprobante.ToArray();
+
             //Real:
             double monto = double.Parse(lblTotal.Text.Trim());
-            comprobante.tax = double.Parse(hdnTax.Value);
-            comprobante.monto_total = monto + (comprobante.tax * monto /100);
+            comprobante.tax = monto * 0.1;
+            //comprobante.tax = double.Parse(hdnTax.Value);
+            comprobante.monto_total = monto + comprobante.tax;
             //
-
-            //string valorSeleccionado = ddlTipoComprobante.SelectedValue;
-            //comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), valorSeleccionado);
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -271,24 +282,16 @@ namespace MichiSistemaWeb
                     return;
                 }
 
-                // Asignar los valores del formulario al objeto cliente
+                // Asignar los valores del formulario al objeto comprobante
                 AsignarValoresComprobante();
-
-                // Insertar o modificar el cliente:
-                string valorSeleccionado = ddlTipoComprobante.SelectedValue;
-
-                //clienteService.registrarCliente(cliente, valorSeleccionado);
-                //clienteService.registrarCliente(cliente);
 
                 if (estado == Estado.Nuevo)
                 {
                     comprobanteService.registrarComprobante(comprobante);
-                    //comprobanteService.registrarComprobante(comprobante, valorSeleccionado);
                 }
                 else if (estado == Estado.Modificar)
                 {
                     comprobanteService.actualizarComprobante(comprobante);
-                    //comprobanteService.actualizarComprobante(comprobante, valorSeleccionado);
                 }
 
                 // Redirigir

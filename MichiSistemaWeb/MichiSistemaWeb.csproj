@@ -120,9 +120,6 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.actualizarEstadoComprobanteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -241,6 +238,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listaTrabajadoresPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />

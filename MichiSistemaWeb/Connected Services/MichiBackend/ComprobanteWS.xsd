@@ -2,8 +2,8 @@
 <xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizarComprobante" type="tns:actualizarComprobante" />
   <xs:element name="actualizarComprobanteResponse" type="tns:actualizarComprobanteResponse" />
-  <xs:element name="actualizarEstadoComprobante" type="tns:actualizarEstadoComprobante" />
-  <xs:element name="actualizarEstadoComprobanteResponse" type="tns:actualizarEstadoComprobanteResponse" />
+  <xs:element name="comprobante" type="tns:comprobante" />
+  <xs:element name="detalleComprobante" type="tns:detalleComprobante" />
   <xs:element name="eliminarComprobante" type="tns:eliminarComprobante" />
   <xs:element name="eliminarComprobanteResponse" type="tns:eliminarComprobanteResponse" />
   <xs:element name="listarComprobante" type="tns:listarComprobante" />
@@ -23,7 +23,13 @@
   <xs:complexType name="comprobante">
     <xs:sequence>
       <xs:element name="cliente_id" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalles" nillable="true" type="tns:detalleComprobante" />
+      <xs:element minOccurs="0" name="detalles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="detalle" type="tns:detalleComprobante" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element minOccurs="0" name="estado" type="xs:string" />
       <xs:element minOccurs="0" name="fecha_emision" type="xs:dateTime" />
       <xs:element name="id_comprobante" type="xs:int" />
@@ -56,15 +62,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarComprobanteResponse">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="actualizarEstadoComprobante">
-    <xs:sequence>
-      <xs:element name="idComprobante" type="xs:int" />
-      <xs:element minOccurs="0" name="toString" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarEstadoComprobanteResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerComprobante">
@@ -102,7 +99,6 @@
       <xs:enumeration value="DEBIT_NOTE" />
       <xs:enumeration value="PURCHASE_ORDER" />
       <xs:enumeration value="SALES_ORDER" />
-      <xs:enumeration value="HOLA_SOY_OSCAR" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

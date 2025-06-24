@@ -11,6 +11,24 @@
   <message name="obtenerUsuarioResponse">
     <part name="parameters" element="tns:obtenerUsuarioResponse" />
   </message>
+  <message name="listarUsuarios">
+    <part name="parameters" element="tns:listarUsuarios" />
+  </message>
+  <message name="listarUsuariosResponse">
+    <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
+  <message name="autenticarUsuario">
+    <part name="parameters" element="tns:autenticarUsuario" />
+  </message>
+  <message name="autenticarUsuarioResponse">
+    <part name="parameters" element="tns:autenticarUsuarioResponse" />
+  </message>
+  <message name="actualizarUsuario">
+    <part name="parameters" element="tns:actualizarUsuario" />
+  </message>
+  <message name="actualizarUsuarioResponse">
+    <part name="parameters" element="tns:actualizarUsuarioResponse" />
+  </message>
   <message name="eliminarUsuario">
     <part name="parameters" element="tns:eliminarUsuario" />
   </message>
@@ -23,28 +41,22 @@
   <message name="registrarUsuarioResponse">
     <part name="parameters" element="tns:registrarUsuarioResponse" />
   </message>
-  <message name="listarUsuarios">
-    <part name="parameters" element="tns:listarUsuarios" />
-  </message>
-  <message name="listarUsuariosResponse">
-    <part name="parameters" element="tns:listarUsuariosResponse" />
-  </message>
-  <message name="actualizarUsuario">
-    <part name="parameters" element="tns:actualizarUsuario" />
-  </message>
-  <message name="actualizarUsuarioResponse">
-    <part name="parameters" element="tns:actualizarUsuarioResponse" />
-  </message>
-  <message name="autenticarUsuario">
-    <part name="parameters" element="tns:autenticarUsuario" />
-  </message>
-  <message name="autenticarUsuarioResponse">
-    <part name="parameters" element="tns:autenticarUsuarioResponse" />
-  </message>
   <portType name="UsuarioWS">
     <operation name="obtenerUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse" message="tns:obtenerUsuarioResponse" />
+    </operation>
+    <operation name="listarUsuarios">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
+    <operation name="autenticarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
+    </operation>
+    <operation name="actualizarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
     </operation>
     <operation name="eliminarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
@@ -53,18 +65,6 @@
     <operation name="registrarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioRequest" message="tns:registrarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioResponse" message="tns:registrarUsuarioResponse" />
-    </operation>
-    <operation name="listarUsuarios">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
-    </operation>
-    <operation name="actualizarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
-    </operation>
-    <operation name="autenticarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
     </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
@@ -78,25 +78,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="registrarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="autenticarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +105,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="autenticarUsuario">
+    <operation name="eliminarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registrarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

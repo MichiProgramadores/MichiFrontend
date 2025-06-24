@@ -46,7 +46,7 @@ namespace MichiSistemaWeb
                 {
                     // Si no, filtra y guarda en ViewState
                     comprobantes = comprobanteWS.listarComprobante()
-                                          .Where(c => c.estado != "Eliminado")
+                                          .Where(c => c.estado != "ELIMINADO")
                                           .ToList();
                     ViewState["ComprobantesFiltrados"] = comprobantes;
                 }
@@ -96,6 +96,7 @@ namespace MichiSistemaWeb
         {
             int idComprobante = int.Parse(hfIdEliminar.Value);
             comprobanteWS.eliminarComprobante(idComprobante);
+            //comprobanteWS.actualizarEstadoComprobante(idComprobante, "ELIMINADO");
             Response.Redirect("ListarComprobantes.aspx");
         }
 
@@ -137,15 +138,27 @@ namespace MichiSistemaWeb
                 }
                 else
                 {
-                    // Si no ingresó un número válido
-                    dgvComprobantes.DataSource = null;
-                    dgvComprobantes.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    if (txtNombre.Text == "")
+                    {
+                        // Si no ingresó un número válido
+                        dgvComprobantes.DataSource = comprobantes;
+                        dgvComprobantes.DataBind();
+                        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    }
+                    else
+                    {
+                        // Si no ingresó un número válido
+                        dgvComprobantes.DataSource = null;
+                        dgvComprobantes.DataBind();
+                        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    }
                 }
             }
             catch (Exception ex)
             {
                 // lblMensaje.Text = "Error al buscar comprobante: " + ex.Message;
+                dgvComprobantes.DataSource = null;
+                dgvComprobantes.DataBind();
             }
         }
 

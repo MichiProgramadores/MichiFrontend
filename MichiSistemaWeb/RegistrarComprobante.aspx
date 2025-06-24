@@ -33,9 +33,22 @@
                         <div class="input-group">
                             <asp:TextBox ID="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:HiddenField ID="hdnOrdenId" runat="server" />
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOrdenes"  style="background-color: #FBCB43; border: none;">
+
+                           
+                            <button type="button" ID="btnOrdenID" runat="server" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOrdenes"  style="background-color: #FBCB43; border: none;">
                                 <i class="fas fa-search"></i>
                             </button>
+                               
+
+                            <%--
+                            <button type="button" ID="btnOrdenID" runat="server" class="btn btn-primary" 
+                                OnClientClick="return false;"  <!-- Evita postback -->
+                                data-bs-toggle="modal" data-bs-target="#modalOrdenes"  
+                                style="background-color: #FBCB43; border: none;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                                --%>
+
                         </div>
                     </div>
                 </div>
@@ -118,7 +131,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                <asp:BoundField DataField="subtotal" HeaderText="Precio" DataFormatString="{0:C2}" />
+                <asp:BoundField DataField="subtotal" HeaderText="Subtotal" DataFormatString="{0:C2}" />
 
                 <%--
                 <asp:TemplateField HeaderText="Acciones">

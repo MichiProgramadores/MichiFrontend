@@ -1,5 +1,7 @@
 ﻿let modalFormError;
 function mostrarModalError() {
-    modalFormError = new bootstrap.Modal(document.getElementById('errorModal'));
+    if (!modalFormError) {
+        modalFormError = new bootstrap.Modal(document.getElementById('errorModal'));
+    }
     modalFormError.show();
 }

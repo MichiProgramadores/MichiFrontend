@@ -506,10 +506,10 @@ textarea {
 }
 
 fieldset {
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 legend {
@@ -5582,6 +5582,17 @@ textarea.form-control-lg {
   padding: var(--bs-modal-padding);
 }
 
+.modal-body .form-text {
+    font-size: 1.25rem; /* Texto grande */
+    font-weight: bold; /* Texto en negrita */
+}
+    /* Clase personalizada solo para los mensajes de error */
+    .modal-body .form-text.error-message {
+        color: black !important; /* Cambia el color a negro */
+        font-size: 1.3rem; /* Puedes ajustar el tamaño de fuente */
+        font-weight: bold;
+    }
+
 .modal-footer {
   display: flex;
   flex-shrink: 0;
@@ -6854,8 +6865,8 @@ textarea.form-control-lg {
 }
 
 .text-bg-light {
-  color: #000 !important;
-  background-color: RGBA(var(--bs-light-rgb), var(--bs-bg-opacity, 1)) !important;
+    color: #000 !important;
+    background-color: RGBA(var(--bs-light-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-dark {

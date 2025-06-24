@@ -25,7 +25,16 @@
         </div>
         
         <div class="text-end pb-3">
-            <asp:Button ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" runat="server"  Text="Nueva orden" CssClass="btn btn-success"  style="background-color:  #FF7E5F; border: none;"/>
+            
+          <%--  <asp:LinkButton ID="btnNuevaOrden" OnClick="BtnNuevaOrden_Click" 
+               CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar orden" 
+                  style="background-color:  #FF7E5F; border: none;"/>--%>
+            <asp:LinkButton ID="lnkBtnNuevaOrden" runat="server" OnClick="BtnNuevaOrden_Click" 
+                CssClass="btn btn-success" 
+                style="background-color: #FF7E5F; border: none;">
+                <i class="fa-solid fa-plus pe-2"></i> Registrar orden
+            </asp:LinkButton>
+
         </div>
         <asp:GridView ID="dgvOrdenes" runat="server" AutoGenerateColumns="false" 
             AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvOrdenes_PageIndexChanging"

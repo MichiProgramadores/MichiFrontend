@@ -227,7 +227,7 @@ namespace MichiSistemaWeb
 
         private void CargarClientes()
         {
-            dgvClientes.DataSource = clienteService.listarClientes();
+            dgvClientes.DataSource = clienteService.listarClientesActivos();
             dgvClientes.DataBind();
         }
 
@@ -274,6 +274,17 @@ namespace MichiSistemaWeb
             LinkButton btn = (LinkButton)sender;
             int clienteId = Convert.ToInt32(btn.CommandArgument);
             cliente cliente = clienteService.obtenerCliente(clienteId);
+     
+               
+                if (cliente.puntuacion == 0)
+                {
+                    lanzarMensajedeError("El cliente seleccionado no es apto.");
+                   // MostrarError("Cliente no apto.");
+                    return;
+                }
+        
+            
+          
 
             hdnClienteId.Value = clienteId.ToString();
             txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido

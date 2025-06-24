@@ -289,21 +289,20 @@
             </div>
         </div>
     </div>
+    
 
-
-
-
+    
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title" id="errorModalLabel">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de Error
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Error
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <asp:Label ID="lblMensajeError" runat="server" Text="Mensaje de ejemplo..." CssClass="form-text text-danger"></asp:Label>
+                    <asp:Label ID="lblMensajeError" runat="server" Text="Mensaje de ejemplo..." CssClass="form-text error-message"></asp:Label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -311,4 +310,21 @@
             </div>
         </div>
     </div>
+
+    <style>
+
+        .modal-header.bg-danger {
+            background-color: #dc3545 !important;
+            color: white !important;
+        }
+
+        .modal-body .form-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #f5c6cb;
+        }
+    </style>
 </asp:Content>

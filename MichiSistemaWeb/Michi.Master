@@ -8,8 +8,7 @@
 
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
-    <link href="Content/site.css?v1.1" rel="stylesheet" />
-   
+    <link href="Content/site.css" rel="stylesheet" />
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
@@ -22,14 +21,15 @@
     <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-    <div class="container-fluid d-flex p-0 h-100">
+<body>
+    <div class="container-fluid d-flex p-0 h-100" style="background-color: #E0E0E0;">
         <!-- Division de la izquierda-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3" style="background-color: #E0E0E0; justify-content: center; align-items: center;">
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start" style="background-color: #E0E0E0;">
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/logo_act.png" width="180" />
+                <img src="Images/logo_act.png" width="150" />
             </a>
             <hr />
-            <ul class="mynav nav nav-pills flex-column mb-auto">
+            <ul class="mynav nav nav-pills flex-column mb-auto" style="background-color: #E0E0E0;">
                 <li class="nav-item mb-1">
                     <a href="ListarOrdenes.aspx" style="color: black;">
                         <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar Ordenes
@@ -73,7 +73,7 @@
         <!-- Division de la derecha-->
         <div class="bg-light flex-fill overflow-auto">
             <!-- Barra superior para dispositivos pequeños -->
-            <div class="p-2 d-md-none d-flex text-white bg-primary ">
+            <div class="p-2 d-md-none d-flex text-white" style="background-color: #E0E0E0;">
                 <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#" style="background-color: #E0E0E0;">
                     <i class="fa-solid fa-bars"></i>
                 </a>

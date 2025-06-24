@@ -36,20 +36,6 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label ID="lblHoraInicio" runat="server" Text="*Hora Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox ID="txtHoraInicio" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <asp:Label ID="lblHoraFin" runat="server" Text="*Hora Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox ID="txtHoraFin" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
                     <asp:Label ID="lblDireccion" runat="server" Text="*Dirección: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>

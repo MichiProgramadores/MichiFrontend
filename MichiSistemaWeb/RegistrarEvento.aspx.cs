@@ -62,8 +62,6 @@ namespace MichiSistemaWeb
                 txtIDEvento.Enabled = false;
                 txtFechaInicio.Enabled = false;
                 txtFechaFin.Enabled = false;
-                txtHoraInicio.Enabled = false;
-                txtHoraFin.Enabled = false;
                 txtDireccion.Enabled = false;
                 txtCodigoPostal.Enabled = false;
                 txtDescripcion.Enabled = false;
@@ -77,8 +75,6 @@ namespace MichiSistemaWeb
             txtIDEvento.Text = evento.evento_id.ToString();
             txtFechaInicio.Text = evento.fechaInicio.ToString("yyyy-MM-dd");
             txtFechaFin.Text = evento.fechaFin.ToString("yyyy-MM-dd");
-            //txtHoraInicio.Text = evento.horaInicio.ToString(@"hh\:mm");
-            //txtHoraFin.Text = evento.horaFin.ToString(@"hh\:mm");
             txtDireccion.Text = evento.direccion;
             txtCodigoPostal.Text = evento.codigoPostal;
             txtDescripcion.Text = evento.descripcion;
@@ -89,8 +85,6 @@ namespace MichiSistemaWeb
         {
             evento.fechaInicio = DateTime.Parse(txtFechaInicio.Text);
             evento.fechaFin = DateTime.Parse(txtFechaFin.Text);
-            //evento.horaInicio = TimeSpan.Parse(txtHoraInicio.Text);
-            //evento.horaFin = TimeSpan.Parse(txtHoraFin.Text);
             evento.direccion = txtDireccion.Text.Trim();
             evento.codigoPostal = txtCodigoPostal.Text.Trim();
             evento.descripcion = txtDescripcion.Text.Trim();
@@ -103,8 +97,6 @@ namespace MichiSistemaWeb
             {
                 if (string.IsNullOrWhiteSpace(txtFechaInicio.Text) ||
                     string.IsNullOrWhiteSpace(txtFechaFin.Text) ||
-                    //string.IsNullOrWhiteSpace(txtHoraInicio.Text) ||
-                    //string.IsNullOrWhiteSpace(txtHoraFin.Text) ||
                     string.IsNullOrWhiteSpace(txtDireccion.Text) ||
                     string.IsNullOrWhiteSpace(txtCodigoPostal.Text) ||
                     string.IsNullOrWhiteSpace(txtDescripcion.Text) ||

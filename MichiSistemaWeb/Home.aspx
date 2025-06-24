@@ -11,7 +11,11 @@
                     <div class="row align-items-center">
                         <div class="d-flex justify-content-end">
                             <div class="p-2">
-                                <asp:LinkButton ID="LinkButton5" CssClass="btn btn-success" runat="server" Text="Obtener reporte" OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;" />
+                                <asp:LinkButton ID="LinkButton5" runat="server"
+                                    OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;">
+    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte
+                                </asp:LinkButton>
+
                             </div>
                         </div>
                     </div>

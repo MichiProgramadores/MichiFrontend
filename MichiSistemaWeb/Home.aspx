@@ -8,12 +8,15 @@
     <h2>
         Bienvenido al Software de Programación 3 - El Michi Sistema
     </h2>
+
+     <!-- Aquí esta todo lo de reporte -->
                     <div class="row align-items-center">
                         <div class="d-flex justify-content-end">
                             <div class="p-2">
+
                                 <asp:LinkButton ID="LinkButton5" runat="server"
                                     OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;">
-    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte
+    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de trabajadores
                                 </asp:LinkButton>
 
                             </div>
@@ -66,28 +69,20 @@
                         <div class="col-sm-3">
                         </div>
                         <div class="modal-footer">
-                            <asp:LinkButton ID="LinkButtonLimpiar" CssClass="btn btn-warning" runat="server" OnClick="LinkButtonLimpiar_Click">
-Limpiar
+                            <asp:LinkButton ID="LinkButtonLimpiar" CssClass="btn btn-warning" runat="server" OnClick="LinkButtonLimpiar_Click">Limpiar
                             </asp:LinkButton>
                             <button type="button" class="btn btn-secondary" onclick="$('#tipoTrabajadorModal').modal('hide')">Cerrar</button>
-
-
-                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Obtener Reporte de Trabajadores</asp:LinkButton>
-
+                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Obtener Reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
             <!-- Modal de selección de trabajador -->
             <div class="modal fade" id="modalTrabajadores" tabindex="-1" role="dialog" aria-labelledby="modalTrabajadoresLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalTrabajadoresLabel">Seleccionar Empleado</h5>
-
                         </div>
                         <div class="modal-body">
                             <asp:GridView ID="dgvTrabajadoresEleccion" runat="server" CssClass="table table-striped" AutoGenerateColumns="false">
@@ -98,8 +93,7 @@ Limpiar
                                     <asp:TemplateField HeaderText="Acciones">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="btnSeleccionarTrabajador" runat="server" CssClass="btn btn-primary btn-sm"
-                                                OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'>
-    <i class="fas fa-check"></i> <!-- Icono de check -->
+                                                OnClick="btnSeleccionarTrabajador_Click" CommandArgument='<%# Eval("persona_id") %>'> <i class="fas fa-check"></i>
                                             </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -113,7 +107,6 @@ Limpiar
                     </div>
                 </div>
             </div>
-
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="LinkButton1" />

@@ -5,29 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/OrdenWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
-  <message name="actualizarEstadoDevolucion">
-    <part name="parameters" element="tns:actualizarEstadoDevolucion" />
+  <message name="listarOrdenes">
+    <part name="parameters" element="tns:listarOrdenes" />
   </message>
-  <message name="actualizarEstadoDevolucionResponse">
-    <part name="parameters" element="tns:actualizarEstadoDevolucionResponse" />
+  <message name="listarOrdenesResponse">
+    <part name="parameters" element="tns:listarOrdenesResponse" />
   </message>
   <message name="registrarOrden">
     <part name="parameters" element="tns:registrarOrden" />
   </message>
   <message name="registrarOrdenResponse">
     <part name="parameters" element="tns:registrarOrdenResponse" />
-  </message>
-  <message name="obtenerOrden">
-    <part name="parameters" element="tns:obtenerOrden" />
-  </message>
-  <message name="obtenerOrdenResponse">
-    <part name="parameters" element="tns:obtenerOrdenResponse" />
-  </message>
-  <message name="listarOrdenes">
-    <part name="parameters" element="tns:listarOrdenes" />
-  </message>
-  <message name="listarOrdenesResponse">
-    <part name="parameters" element="tns:listarOrdenesResponse" />
   </message>
   <message name="actualizarOrden">
     <part name="parameters" element="tns:actualizarOrden" />
@@ -41,6 +29,18 @@
   <message name="eliminarOrdenResponse">
     <part name="parameters" element="tns:eliminarOrdenResponse" />
   </message>
+  <message name="obtenerOrden">
+    <part name="parameters" element="tns:obtenerOrden" />
+  </message>
+  <message name="obtenerOrdenResponse">
+    <part name="parameters" element="tns:obtenerOrdenResponse" />
+  </message>
+  <message name="actualizarEstadoDevolucion">
+    <part name="parameters" element="tns:actualizarEstadoDevolucion" />
+  </message>
+  <message name="actualizarEstadoDevolucionResponse">
+    <part name="parameters" element="tns:actualizarEstadoDevolucionResponse" />
+  </message>
   <message name="actualizarEstadoFechaDevolucion">
     <part name="parameters" element="tns:actualizarEstadoFechaDevolucion" />
   </message>
@@ -48,21 +48,13 @@
     <part name="parameters" element="tns:actualizarEstadoFechaDevolucionResponse" />
   </message>
   <portType name="OrdenWS">
-    <operation name="actualizarEstadoDevolucion">
-      <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest" message="tns:actualizarEstadoDevolucion" />
-      <output wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse" message="tns:actualizarEstadoDevolucionResponse" />
+    <operation name="listarOrdenes">
+      <input wsam:Action="http://michisistemaws.com/OrdenWS/listarOrdenesRequest" message="tns:listarOrdenes" />
+      <output wsam:Action="http://michisistemaws.com/OrdenWS/listarOrdenesResponse" message="tns:listarOrdenesResponse" />
     </operation>
     <operation name="registrarOrden">
       <input wsam:Action="http://michisistemaws.com/OrdenWS/registrarOrdenRequest" message="tns:registrarOrden" />
       <output wsam:Action="http://michisistemaws.com/OrdenWS/registrarOrdenResponse" message="tns:registrarOrdenResponse" />
-    </operation>
-    <operation name="obtenerOrden">
-      <input wsam:Action="http://michisistemaws.com/OrdenWS/obtenerOrdenRequest" message="tns:obtenerOrden" />
-      <output wsam:Action="http://michisistemaws.com/OrdenWS/obtenerOrdenResponse" message="tns:obtenerOrdenResponse" />
-    </operation>
-    <operation name="listarOrdenes">
-      <input wsam:Action="http://michisistemaws.com/OrdenWS/listarOrdenesRequest" message="tns:listarOrdenes" />
-      <output wsam:Action="http://michisistemaws.com/OrdenWS/listarOrdenesResponse" message="tns:listarOrdenesResponse" />
     </operation>
     <operation name="actualizarOrden">
       <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarOrdenRequest" message="tns:actualizarOrden" />
@@ -72,6 +64,14 @@
       <input wsam:Action="http://michisistemaws.com/OrdenWS/eliminarOrdenRequest" message="tns:eliminarOrden" />
       <output wsam:Action="http://michisistemaws.com/OrdenWS/eliminarOrdenResponse" message="tns:eliminarOrdenResponse" />
     </operation>
+    <operation name="obtenerOrden">
+      <input wsam:Action="http://michisistemaws.com/OrdenWS/obtenerOrdenRequest" message="tns:obtenerOrden" />
+      <output wsam:Action="http://michisistemaws.com/OrdenWS/obtenerOrdenResponse" message="tns:obtenerOrdenResponse" />
+    </operation>
+    <operation name="actualizarEstadoDevolucion">
+      <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionRequest" message="tns:actualizarEstadoDevolucion" />
+      <output wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoDevolucionResponse" message="tns:actualizarEstadoDevolucionResponse" />
+    </operation>
     <operation name="actualizarEstadoFechaDevolucion">
       <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest" message="tns:actualizarEstadoFechaDevolucion" />
       <output wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse" message="tns:actualizarEstadoFechaDevolucionResponse" />
@@ -79,7 +79,7 @@
   </portType>
   <binding name="OrdenWSPortBinding" type="tns:OrdenWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarEstadoDevolucion">
+    <operation name="listarOrdenes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -89,24 +89,6 @@
       </output>
     </operation>
     <operation name="registrarOrden">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerOrden">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarOrdenes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -125,6 +107,24 @@
       </output>
     </operation>
     <operation name="eliminarOrden">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerOrden">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarEstadoDevolucion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

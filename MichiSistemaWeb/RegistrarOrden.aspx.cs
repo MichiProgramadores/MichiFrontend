@@ -302,19 +302,26 @@ namespace MichiSistemaWeb
 
         protected void ddlProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(ddlProductos.SelectedValue))
             {
+                txtPrecioUnitario.Enabled =false;
+                txtStockProducto.Enabled = false;
+                txtStockMinimo.Enabled = false;
+
                 int productoId = Convert.ToInt32(ddlProductos.SelectedValue);
                 producto producto = productoService.obtenerProducto(productoId);
                 txtPrecioUnitario.Text = producto.precio.ToString("F2");
                 txtStockProducto.Text = producto.stockActual.ToString();
-
+                txtStockMinimo.Text = producto.stockMinimo.ToString();
             }
             else
             {
                 txtPrecioUnitario.Text = "";
                 txtStockProducto.Text = "";
+                txtStockMinimo.Text = "";
             }
+
             upModalDetalle.Update();
         }
         private void LimpiarError()
@@ -366,6 +373,11 @@ namespace MichiSistemaWeb
             if (cantidad > producto.stockActual)
             {
                 MostrarError($"No hay suficiente stock. Stock disponible: {producto.stockActual}");
+                return;
+            }
+            if (cantidad > producto.stockActual-producto.stockMinimo)
+            {
+                MostrarError($"Restricción de stock mínimo. Stock minimo: {producto.stockMinimo}");
                 return;
             }
 
@@ -424,6 +436,26 @@ namespace MichiSistemaWeb
                 DateTime fechaInicio = DateTime.ParseExact(txtFechaEmis.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime fechaFin = DateTime.ParseExact(txtFechaDevol.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime fechaEntrega = DateTime.ParseExact(txtFechaEntr.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+               
+                if (fechaEntrega <= fechaInicio)
+                {
+                    MostrarError("La fecha de entrega debe ser mayor que la fecha de emisión.");
+                    return;
+                }
+
+                // Verificar que la fecha de devolución sea mayor que la fecha de entrega
+                if (fechaFin <= fechaEntrega)
+                {
+                    MostrarError("La fecha de devolución debe ser mayor que la fecha de entrega.");
+                    return;
+                }
+
+                // Validar que la fecha de devolución no sea menor que la fecha de emisión
+                if (fechaFin <= fechaInicio)
+                {
+                    MostrarError("La fecha de devolución debe ser mayor que la fecha de emisión.");
+                    return;
+                }
 
                 int diasDiferencia = (fechaFin - fechaInicio).Days;
 

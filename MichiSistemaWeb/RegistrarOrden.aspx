@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-
+                
 
                     <div class="mb-3 row">
                         <asp:Label ID="lblIdTrabaj" runat="server" Text="*Trabajador:" CssClass="col-sm-2 col-form-label"></asp:Label>
@@ -269,6 +269,13 @@
                                 <asp:TextBox ID="txtStockProducto" runat="server" TextMode="Number" CssClass="form-control" 
                                     ReadOnly="true"></asp:TextBox>
                             </div>
+
+                            <div class="form-group mb-3">
+                                <label>Stock Minimo:</label>
+                                <asp:TextBox ID="txtStockMinimo" runat="server" TextMode="Number" CssClass="form-control" 
+                                    ReadOnly="true"></asp:TextBox>
+                            </div>
+
                             <div class="form-group mb-3">
                                 <label>Precio Unitario:</label>
                                 <asp:TextBox ID="txtPrecioUnitario" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>

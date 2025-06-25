@@ -113,7 +113,59 @@
             <asp:AsyncPostBackTrigger ControlID="ddlTipoTrabajador" EventName="SelectedIndexChanged" />
         </Triggers>
     </asp:UpdatePanel>
+    <!-- Aquí esta todo lo de reporte facturacion-->
+    <div class="row align-items-center">
+        <div class="d-flex justify-content-end">
+            <div class="p-2">
 
+                <asp:LinkButton ID="LinkButton2" runat="server"
+                    OnClientClick="$('#reporteFacturacionModal').modal('show'); return false;">
+<i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de facturación
+                </asp:LinkButton>
+
+            </div>
+        </div>
+    </div>
+
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+            <!-- Modal de selección de tipo de trabajador -->
+            <div class="modal fade" id="reporteFacturacionModal" tabindex="-1" role="dialog" aria-labelledby="tipoTrabajadorModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de Facturación</h5>
+                        </div>
+
+
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <asp:Label ID="lblFechaFin" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <asp:LinkButton ID="BotonLimpiarCampos" CssClass="btn btn-warning" runat="server" OnClick="LinkButtonLimpiar_Click">Limpiar
+                            </asp:LinkButton>
+                            <button type="button" class="btn btn-secondary" onclick="$('#reporteFacturacionModal').modal('hide')">Cerrar</button>
+                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Obtener Reporte</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 
 </asp:Content>

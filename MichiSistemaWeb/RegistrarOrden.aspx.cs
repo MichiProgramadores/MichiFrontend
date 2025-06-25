@@ -143,6 +143,7 @@ namespace MichiSistemaWeb
                 //txtSetUpPersonalizado.Enabled = false;
                 lblFechaReg.Visible = false;
                 txtFechaReg.Visible = false;
+                phAgregarProducto.Visible = false;
             }
             else if (accion == "ver")
             {
@@ -255,7 +256,7 @@ namespace MichiSistemaWeb
             gvDetalles.DataBind();
 
             string accion = Request.QueryString["accion"];
-            if (accion == null)
+            if (accion == null || accion == "modificar")
             {
                 double total = 0;
                 foreach (detalleOrden detalle in detallesOrden)
@@ -265,6 +266,7 @@ namespace MichiSistemaWeb
 
                 txtMonto.Text = total.ToString("F2");
                 lblTotal.Text = total.ToString("F2");
+                //lblMontoTotal.Text = total.ToString("F2");
             }
 
         }
@@ -383,7 +385,7 @@ namespace MichiSistemaWeb
             }
 
             detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-           
+            Boolean encontro = false;
             if (detallesOrden.Count != 0)
             {
                 foreach (detalleOrden d in detallesOrden)
@@ -393,24 +395,27 @@ namespace MichiSistemaWeb
                         d.cantidadEntregada += cantidad;
                         d.cantidadSolicitada += cantidad;
                         d.subtotal = precio * d.cantidadSolicitada;
+                        encontro = true;
+                        break;
                     }
-                    else
-                    {
-                        detalleOrden detalle = new detalleOrden
-                        {
-                            //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
-                            producto = producto.producto_id,
-                            cantidadSolicitada = cantidad,
-                            cantidadEntregada = cantidad,
-                            precioAsignado = precio,
-                            subtotal = precio * cantidad
-                        };
 
-                        detallesOrden.Add(detalle);
-                    }
                 }
             }
-            else
+            //else
+            //{
+            //    detalleOrden detalle = new detalleOrden
+            //    {
+            //        //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
+            //        producto = producto.producto_id,
+            //        cantidadSolicitada = cantidad,
+            //        cantidadEntregada = cantidad,
+            //        precioAsignado = precio,
+            //        subtotal = precio * cantidad
+            //    };
+
+            //    detallesOrden.Add(detalle);
+            //}
+            if (!encontro || detallesOrden.Count == 0)
             {
                 detalleOrden detalle = new detalleOrden
                 {
@@ -425,8 +430,7 @@ namespace MichiSistemaWeb
                 detallesOrden.Add(detalle);
             }
 
-
-            Session["DetallesVenta"] = detallesOrden;
+            Session["DetallesOrden"] = detallesOrden;
 
             ActualizarGrillaDetalles();
             LimpiarFormularioDetalle();

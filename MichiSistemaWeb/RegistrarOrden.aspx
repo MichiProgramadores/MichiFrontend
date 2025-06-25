@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="mb-3 row">
-
+                    
                      <asp:Label id="lblIdOrden" runat="server" CssClass="col-md-6 col-form-label" Text="ID: " ></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
@@ -74,7 +74,7 @@
                         <asp:TextBox id="txtMonto" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>    
-
+                
                 <div class="mb-3 row">
                     <asp:Label id="lblSaldo" runat="server" Text="*Saldo: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">

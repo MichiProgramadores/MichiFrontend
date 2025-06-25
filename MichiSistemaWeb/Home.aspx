@@ -59,7 +59,7 @@
                                     <asp:TextBox ID="NOMBREREPORTE" CssClass="form-control" runat="server" disabled></asp:TextBox>
                                 </div>
                                 <div class="col-sm-3">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores" style="background-color:  #FF7E5F; border: none; color: black;"> 
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
@@ -72,8 +72,8 @@
                         <div class="modal-footer">
                             <asp:LinkButton ID="LinkButtonLimpiar" CssClass="btn btn-warning" runat="server" OnClick="LinkButtonLimpiar_Click">Limpiar
                             </asp:LinkButton>
-                            <button type="button" class="btn btn-secondary" onclick="$('#tipoTrabajadorModal').modal('hide')">Cerrar</button>
-                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Obtener Reporte</asp:LinkButton>
+                            <button type="button" class="btn btn-secondary" onclick="$('#tipoTrabajadorModal').modal('hide')">Cerrar</button >
+                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="LinkButton1_Click">Obtener Reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                         <div class="modal-footer">
                             
                             <asp:LinkButton ID="BotonCerrar" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click">Cerrar</asp:LinkButton>
-                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" OnClick="BotonReporteFacturacion_Click">Obtener Reporte</asp:LinkButton>
+                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteFacturacion_Click">Obtener Reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>

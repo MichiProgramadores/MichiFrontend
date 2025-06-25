@@ -5,17 +5,23 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/ProductoWS?xsd=1" namespace="com.MichiSistema" />
     </xsd:schema>
   </types>
-  <message name="obtenerProducto">
-    <part name="parameters" element="tns:obtenerProducto" />
+  <message name="listarProductos">
+    <part name="parameters" element="tns:listarProductos" />
   </message>
-  <message name="obtenerProductoResponse">
-    <part name="parameters" element="tns:obtenerProductoResponse" />
+  <message name="listarProductosResponse">
+    <part name="parameters" element="tns:listarProductosResponse" />
   </message>
   <message name="registrarProducto">
     <part name="parameters" element="tns:registrarProducto" />
   </message>
   <message name="registrarProductoResponse">
     <part name="parameters" element="tns:registrarProductoResponse" />
+  </message>
+  <message name="obtenerProducto">
+    <part name="parameters" element="tns:obtenerProducto" />
+  </message>
+  <message name="obtenerProductoResponse">
+    <part name="parameters" element="tns:obtenerProductoResponse" />
   </message>
   <message name="eliminarProducto">
     <part name="parameters" element="tns:eliminarProducto" />
@@ -35,17 +41,11 @@
   <message name="listarTipoProductoResponse">
     <part name="parameters" element="tns:listarTipoProductoResponse" />
   </message>
-  <message name="listarProductos">
-    <part name="parameters" element="tns:listarProductos" />
+  <message name="listarProductosPorTipo">
+    <part name="parameters" element="tns:listarProductosPorTipo" />
   </message>
-  <message name="listarProductosResponse">
-    <part name="parameters" element="tns:listarProductosResponse" />
-  </message>
-  <message name="listaProductosActivos">
-    <part name="parameters" element="tns:listaProductosActivos" />
-  </message>
-  <message name="listaProductosActivosResponse">
-    <part name="parameters" element="tns:listaProductosActivosResponse" />
+  <message name="listarProductosPorTipoResponse">
+    <part name="parameters" element="tns:listarProductosPorTipoResponse" />
   </message>
   <message name="listarProductosPorNombre">
     <part name="parameters" element="tns:listarProductosPorNombre" />
@@ -53,20 +53,24 @@
   <message name="listarProductosPorNombreResponse">
     <part name="parameters" element="tns:listarProductosPorNombreResponse" />
   </message>
-  <message name="listarProductosPorTipo">
-    <part name="parameters" element="tns:listarProductosPorTipo" />
+  <message name="listaProductosActivos">
+    <part name="parameters" element="tns:listaProductosActivos" />
   </message>
-  <message name="listarProductosPorTipoResponse">
-    <part name="parameters" element="tns:listarProductosPorTipoResponse" />
+  <message name="listaProductosActivosResponse">
+    <part name="parameters" element="tns:listaProductosActivosResponse" />
   </message>
   <portType name="ProductoWS">
-    <operation name="obtenerProducto">
-      <input wsam:Action="com.MichiSistema/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
-      <output wsam:Action="com.MichiSistema/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
+    <operation name="listarProductos">
+      <input wsam:Action="com.MichiSistema/ProductoWS/listarProductosRequest" message="tns:listarProductos" />
+      <output wsam:Action="com.MichiSistema/ProductoWS/listarProductosResponse" message="tns:listarProductosResponse" />
     </operation>
     <operation name="registrarProducto">
       <input wsam:Action="com.MichiSistema/ProductoWS/registrarProductoRequest" message="tns:registrarProducto" />
       <output wsam:Action="com.MichiSistema/ProductoWS/registrarProductoResponse" message="tns:registrarProductoResponse" />
+    </operation>
+    <operation name="obtenerProducto">
+      <input wsam:Action="com.MichiSistema/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
+      <output wsam:Action="com.MichiSistema/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
     </operation>
     <operation name="eliminarProducto">
       <input wsam:Action="com.MichiSistema/ProductoWS/eliminarProductoRequest" message="tns:eliminarProducto" />
@@ -80,26 +84,22 @@
       <input wsam:Action="com.MichiSistema/ProductoWS/listarTipoProductoRequest" message="tns:listarTipoProducto" />
       <output wsam:Action="com.MichiSistema/ProductoWS/listarTipoProductoResponse" message="tns:listarTipoProductoResponse" />
     </operation>
-    <operation name="listarProductos">
-      <input wsam:Action="com.MichiSistema/ProductoWS/listarProductosRequest" message="tns:listarProductos" />
-      <output wsam:Action="com.MichiSistema/ProductoWS/listarProductosResponse" message="tns:listarProductosResponse" />
-    </operation>
-    <operation name="listaProductosActivos">
-      <input wsam:Action="com.MichiSistema/ProductoWS/listaProductosActivosRequest" message="tns:listaProductosActivos" />
-      <output wsam:Action="com.MichiSistema/ProductoWS/listaProductosActivosResponse" message="tns:listaProductosActivosResponse" />
+    <operation name="listarProductosPorTipo">
+      <input wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorTipoRequest" message="tns:listarProductosPorTipo" />
+      <output wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorTipoResponse" message="tns:listarProductosPorTipoResponse" />
     </operation>
     <operation name="listarProductosPorNombre">
       <input wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorNombreRequest" message="tns:listarProductosPorNombre" />
       <output wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorNombreResponse" message="tns:listarProductosPorNombreResponse" />
     </operation>
-    <operation name="listarProductosPorTipo">
-      <input wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorTipoRequest" message="tns:listarProductosPorTipo" />
-      <output wsam:Action="com.MichiSistema/ProductoWS/listarProductosPorTipoResponse" message="tns:listarProductosPorTipoResponse" />
+    <operation name="listaProductosActivos">
+      <input wsam:Action="com.MichiSistema/ProductoWS/listaProductosActivosRequest" message="tns:listaProductosActivos" />
+      <output wsam:Action="com.MichiSistema/ProductoWS/listaProductosActivosResponse" message="tns:listaProductosActivosResponse" />
     </operation>
   </portType>
   <binding name="ProductoWSPortBinding" type="tns:ProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerProducto">
+    <operation name="listarProductos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -109,6 +109,15 @@
       </output>
     </operation>
     <operation name="registrarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -144,16 +153,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listaProductosActivos">
+    <operation name="listarProductosPorTipo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -171,7 +171,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductosPorTipo">
+    <operation name="listaProductosActivos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

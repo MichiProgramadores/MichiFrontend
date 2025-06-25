@@ -90,14 +90,15 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerTrabajador">
+  <xs:complexType name="reporteTrabajadores">
     <xs:sequence>
-      <xs:element name="idTrabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="TIPO_TRABAJADOR" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_BUSCADO" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerTrabajadorResponse">
+  <xs:complexType name="reporteTrabajadoresResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:trabajador" />
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listaTrabajadoresActivos">
@@ -108,15 +109,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="reporteTrabajadores">
+  <xs:complexType name="obtenerTrabajador">
     <xs:sequence>
-      <xs:element minOccurs="0" name="TIPO_TRABAJADOR" type="xs:string" />
-      <xs:element minOccurs="0" name="ID_BUSCADO" type="xs:int" />
+      <xs:element name="idTrabajador" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="reporteTrabajadoresResponse">
+  <xs:complexType name="obtenerTrabajadorResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoTrabajador">

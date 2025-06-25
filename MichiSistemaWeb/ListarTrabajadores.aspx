@@ -13,7 +13,9 @@
             const modal = new bootstrap.Modal(document.getElementById('modalConfirmarEliminar'));
             modal.show();
         }
-        .container.row: first - child {
+    </script>
+    <style type="text/css">
+        container.row: first - child {
             background - color: #FF7E5F; /* Color de fondo naranja */
             color: white; /* Cambiar el color del texto a blanco */
         }
@@ -21,7 +23,7 @@
             background - color: #FFA500; /* Naranja */
             color: white; /* Texto blanco */
         }
-    </script>
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">

@@ -1,6 +1,7 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,19 +16,100 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             clienteWS = new ClienteWSClient();
-            CargarDatos();
+            //CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             //clienteWS = new ClienteWSClient();
-            //CargarDatos();
+            CargarDatos();
         }
         protected void CargarDatos()
         {
-            clientes = clienteWS.listarClientesActivos().ToList();
+            // Si ya está cargado en ViewState (evita llamar al WS de nuevo)
+            if (ViewState["ClientesFiltrados"] != null)
+            {
+                clientes = (List<cliente>)ViewState["ClientesFiltrados"];
+            }
+            else
+            {
+                // Si no, filtra y guarda en ViewState
+                clientes = clienteWS.listarClientesActivos().ToList();
+                ViewState["ClientesFiltrados"] = clientes;
+            }
+
             dgvClientes.DataSource = clientes;
             dgvClientes.DataBind();
         }
+
+        protected void lbBuscarN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Obtener parámetros de búsqueda
+                string textoNombre = txtNombre.Text.Trim();
+                string textoId = txtNombreID.Text.Trim();
+                string tipoSeleccionado = DdlTipoCliente.SelectedValue;
+
+                // 2. Obtener TODOS los clientes (sin filtros iniciales)
+                List<cliente> listaCompleta = clienteWS.listarClientes().ToList();
+                List<cliente> resultados = listaCompleta;
+
+                // 3. Aplicar filtros SOLO si el campo tiene valor
+                if (!string.IsNullOrEmpty(textoNombre))
+                {
+                    resultados = resultados
+                        .Where(c => c.nombres.ToLower().Contains(textoNombre.ToLower()))
+                        .ToList();
+                }
+
+                if (!string.IsNullOrEmpty(textoId))
+                {
+                    resultados = resultados
+                        .Where(c => c.persona_id.ToString().Contains(textoId))
+                        .ToList();
+                }
+
+                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
+                {
+                    resultados = resultados
+                        .Where(c => c.tipoCliente.ToString() == tipoSeleccionado)
+                        .ToList();
+                }
+                
+                if(textoNombre=="" && textoId=="" && tipoSeleccionado=="0")
+                {
+                    resultados = clienteWS.listarClientesActivos().ToList();
+                }
+
+                // 4. Mostrar resultados
+                dgvClientes.DataSource = resultados;
+                dgvClientes.DataBind();
+
+                // 5. Opcional: Guardar en ViewState
+                ViewState["ClientesFiltrados"] = resultados;
+            }
+            catch (Exception ex)
+            {
+                dgvClientes.DataSource = null;
+                dgvClientes.DataBind();
+                // lblMensaje.Text = "Error: " + ex.Message;
+            }
+        }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            clientes = clienteWS.listarClientes().ToList();
+            ViewState["ClientesFiltrados"] = clientes; // Guarda en ViewState
+            dgvClientes.DataSource = clientes;
+            dgvClientes.DataBind();
+        }
+
+        protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvClientes.PageIndex = e.NewPageIndex;
+            dgvClientes.DataBind();
+        }
+
         protected void dgvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -53,12 +135,6 @@ namespace MichiSistemaWeb
             }
         }
 
-        protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            dgvClientes.PageIndex = e.NewPageIndex;
-            dgvClientes.DataBind();
-        }
-
         protected void lbRegistrar_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegistrarCliente.aspx");
@@ -67,9 +143,9 @@ namespace MichiSistemaWeb
         protected void lbModificar_Click(object sender, EventArgs e)
         {
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
-           
-            cliente cliente= clientes.SingleOrDefault(x => x.persona_id == idCliente);
-      
+
+            cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
+
             if (cliente != null)
             {
                 // Almacenar el cliente seleccionado en la sesión
@@ -78,7 +154,23 @@ namespace MichiSistemaWeb
                 // Redirigir a la página de edición
                 Response.Redirect("RegistrarCliente.aspx?accion=modificar");
             }
-          
+
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            int idCliente = int.Parse(hfIdEliminar.Value);
+            clienteWS.eliminarCliente(idCliente);
+            Response.Redirect("ListarClientes.aspx");
+        }
+
+        protected void lbVisualizar_Click(object sender, EventArgs e)
+        {
+            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
+            cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
+            //ClienteWS empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
+            Session["clienteSeleccionado"] = cliente;
+            Response.Redirect("RegistrarCliente.aspx?accion=ver");
         }
 
         /*
@@ -90,23 +182,7 @@ namespace MichiSistemaWeb
         }
         */
 
-        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
-        {
-            int idCliente = int.Parse(hfIdEliminar.Value);
-            clienteWS.eliminarCliente(idCliente);
-            Response.Redirect("ListarClientes.aspx");
-        }
-
-
-
-        protected void lbVisualizar_Click(object sender, EventArgs e)
-        {
-            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
-            cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
-            //ClienteWS empleado = empleados.SingleOrDefault(x => x.IdPersona == idEmpleado);
-            Session["clienteSeleccionado"] = cliente;
-            Response.Redirect("RegistrarCliente.aspx?accion=ver");
-        }
+        /*
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -125,11 +201,10 @@ namespace MichiSistemaWeb
                     {
                         // Si encontró el cliente, lo pone en una lista para enlazar
 
-                        /*
-                        var lista = new List<cliente> { cliente };
-                        dgvClientes.DataSource = lista;
-                        dgvClientes.DataBind();
-                        */
+                        
+                        //var lista = new List<cliente> { cliente };
+                        //dgvClientes.DataSource = lista;
+                        //dgvClientes.DataBind();
 
                         clientes= new List<cliente> { cliente };
                         dgvClientes.DataSource = clientes;
@@ -158,7 +233,9 @@ namespace MichiSistemaWeb
                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
         }
+        */
 
+        /*
         protected void lbBuscarN_Click(object sender, EventArgs e)
         {
             try
@@ -201,15 +278,9 @@ namespace MichiSistemaWeb
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
         }
+        */
 
-        protected void ListarTodos_Click(object sender, EventArgs e)
-        {
-            clientes = clienteWS.listarClientes().ToList();
-            dgvClientes.DataSource = clientes;
-            dgvClientes.DataBind();
-
-        }
-
+        /*
         protected void DdlTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tipo_seleccionado = Convert.ToString(DdlTipoCliente.SelectedValue);
@@ -228,5 +299,7 @@ namespace MichiSistemaWeb
                 dgvClientes.DataBind();
             }
         }
+        */
+
     }
 }

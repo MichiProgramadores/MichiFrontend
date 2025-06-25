@@ -137,7 +137,7 @@
                             <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de Facturación</h5>
                         </div>
 
-
+                        <label>Si no se específica la fecha, se emitirá el reporte del año actual:</label>
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
@@ -163,11 +163,15 @@
                     </div>
                 </div>
             </div>
+
+
+            
+
         </ContentTemplate>
 
         <Triggers>
-    <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
-</Triggers>
+            <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
+        </Triggers>
     </asp:UpdatePanel>
 
 

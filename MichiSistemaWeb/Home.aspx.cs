@@ -142,33 +142,57 @@ namespace MichiSistemaWeb
 
         protected void BotonReporteFacturacion_Click(object sender, EventArgs e)
         {
-            string fechaInicioStr = txtFechaInicio.Text;
-            string fechaFinStr = txtFechaFin.Text;
-
-
             try
             {
-                // Convertir las fechas a DateTime
-                DateTime fechaInicio = DateTime.Parse(fechaInicioStr);
-                DateTime fechaFin = DateTime.Parse(fechaFinStr);
+                // Obtener las fechas desde los TextBox
+                string fechaInicioStr = txtFechaInicio.Text;
+                string fechaFinStr = txtFechaFin.Text;
 
-                // Llamar al web service con las fechas convertidas
+                // Validar si fechaInicio es null o vacío, asignar 1 de enero del año actual si lo es
+                DateTime fechaInicio;
+                if (string.IsNullOrEmpty(fechaInicioStr))
+                {
+                    // Obtener el año actual del sistema
+                    int currentYear = DateTime.Now.Year;
+                    // Asignar el 1 de enero del año actual
+                    fechaInicio = new DateTime(currentYear, 1, 1);
+                }
+                else
+                {
+                    // Convertir la fecha de inicio desde el string a DateTime
+                    fechaInicio = DateTime.Parse(fechaInicioStr);
+                }
+
+                // Validar si fechaFin es null o vacío, asignar fecha actual si lo es
+                DateTime fechaFin;
+                if (string.IsNullOrEmpty(fechaFinStr))
+                {
+                    // Asignar la fecha actual
+                    fechaFin = DateTime.Now;
+                }
+                else
+                {
+                    // Convertir la fecha de fin desde el string a DateTime
+                    fechaFin = DateTime.Parse(fechaFinStr);
+                }
+
+                // Llamar al servicio para generar el reporte de facturación
                 Byte[] fileBuffer = comprobanteWS.reporteFacturacion(fechaInicio, fechaFin);
 
+                // Si el reporte se generó correctamente, enviarlo como PDF
                 if (fileBuffer != null)
                 {
-                    // Enviar el archivo PDF al navegador
                     Response.ContentType = "application/pdf";
                     Response.AddHeader("content-length", fileBuffer.Length.ToString());
                     Response.BinaryWrite(fileBuffer);
                 }
             }
-            catch (FormatException)
+            catch (Exception ex)
             {
-                // Si las fechas no tienen el formato correcto, mostrar un error
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowInvalidDateFormatModal", "$('#modalFechaInvalida').modal('show');", true);
+                // Manejo de errores si hay problemas con la conversión de fechas o la generación del reporte
+                // Puedes mostrar un mensaje de error o hacer un logging aquí
+                Response.Write("Error: " + ex.Message);
             }
-
         }
 
         protected void BotonCerrar_Click(object sender, EventArgs e)

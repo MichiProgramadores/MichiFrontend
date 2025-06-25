@@ -177,13 +177,13 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
 
         /// <summary>
-        /// Control BotonLimpiarCampos.
+        /// Control BotonCerrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BotonLimpiarCampos;
+        protected global::System.Web.UI.WebControls.LinkButton BotonCerrar;
 
         /// <summary>
         /// Control BotonReporteFacturacion.

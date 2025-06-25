@@ -156,10 +156,9 @@
 
 
                         <div class="modal-footer">
-                            <asp:LinkButton ID="BotonLimpiarCampos" CssClass="btn btn-warning" runat="server" OnClick="LinkButtonLimpiar_Click">Limpiar
-                            </asp:LinkButton>
-                            <button type="button" class="btn btn-secondary" onclick="$('#reporteFacturacionModal').modal('hide')">Cerrar</button>
-                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" OnClick="LinkButton1_Click">Obtener Reporte</asp:LinkButton>
+                            
+                            <asp:LinkButton ID="BotonCerrar" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click">Cerrar</asp:LinkButton>
+                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" OnClick="BotonReporteFacturacion_Click">Obtener Reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>

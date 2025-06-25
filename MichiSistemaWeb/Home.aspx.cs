@@ -22,7 +22,7 @@ namespace MichiSistemaWeb
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             if (!IsPostBack)
             {
 
@@ -120,12 +120,39 @@ namespace MichiSistemaWeb
 
         protected void LinkButtonCerrarModal2_Click(object sender, EventArgs e)
         {
+            
             ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
         "$('#tipoTrabajadorModal').modal('hide');" + // Cierra el primer modal
         "$('#modalTrabajadores').modal('hide');" + // Cierra el segundo modal si está abierto
         "$('.modal-backdrop').remove();" + // Elimina cualquier fondo residual de modal
         "$('#tipoTrabajadorModal').modal('show');", // Abre el modal de tipo trabajador
         true);
+        }
+
+        /*protected void BotonLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            txtFechaInicio.Text = string.Empty;
+            txtFechaFin.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
+            //"$('#reporteFacturacionModal').modal('hide');" +
+            "$('.modal-backdrop').remove();" +
+            "$('#reporteFacturacionModal').modal('show');",
+            true);
+        }*/
+
+        protected void BotonReporteFacturacion_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void BotonCerrar_Click(object sender, EventArgs e)
+        {
+            txtFechaInicio.Text = string.Empty;
+            txtFechaFin.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModal",
+                "$('.modal-backdrop').remove();" +
+            "$('#reporteFacturacionModal').modal('hide');", true);
+           
         }
     }
 }

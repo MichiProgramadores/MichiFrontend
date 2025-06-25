@@ -383,17 +383,49 @@ namespace MichiSistemaWeb
             }
 
             detallesOrden = (List<detalleOrden>)Session["DetallesOrden"];
-            detalleOrden detalle = new detalleOrden
+           
+            if (detallesOrden.Count != 0)
             {
-                //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
-                producto = producto.producto_id,
-                cantidadSolicitada = cantidad,
-                cantidadEntregada = cantidad,
-                precioAsignado = precio,
-                subtotal = precio * cantidad
-            };
+                foreach (detalleOrden d in detallesOrden)
+                {
+                    if (productoId == d.producto)
+                    {
+                        d.cantidadEntregada += cantidad;
+                        d.cantidadSolicitada += cantidad;
+                        d.subtotal = precio * d.cantidadSolicitada;
+                    }
+                    else
+                    {
+                        detalleOrden detalle = new detalleOrden
+                        {
+                            //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
+                            producto = producto.producto_id,
+                            cantidadSolicitada = cantidad,
+                            cantidadEntregada = cantidad,
+                            precioAsignado = precio,
+                            subtotal = precio * cantidad
+                        };
 
-            detallesOrden.Add(detalle);
+                        detallesOrden.Add(detalle);
+                    }
+                }
+            }
+            else
+            {
+                detalleOrden detalle = new detalleOrden
+                {
+                    //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
+                    producto = producto.producto_id,
+                    cantidadSolicitada = cantidad,
+                    cantidadEntregada = cantidad,
+                    precioAsignado = precio,
+                    subtotal = precio * cantidad
+                };
+
+                detallesOrden.Add(detalle);
+            }
+
+
             Session["DetallesVenta"] = detallesOrden;
 
             ActualizarGrillaDetalles();
@@ -406,6 +438,7 @@ namespace MichiSistemaWeb
             txtPrecioUnitario.Text = "";
             txtCantidad.Text = "";
             txtStockProducto.Text = "";
+            txtStockMinimo.Text = "";
         }
 
 

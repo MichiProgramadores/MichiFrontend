@@ -10,18 +10,19 @@
     </h2>
 
      <!-- Aquí esta todo lo de reporte -->
-                    <div class="row align-items-center">
-                        <div class="d-flex justify-content-end">
-                            <div class="p-2">
+    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="d-flex justify-content-center">
+            <div class="p-2" style="display: inline-block; margin-right: 10px;">
+                <asp:LinkButton ID="LinkButton5" runat="server" 
+                    OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;" 
+                    style="background-color: #FBCB43; color: black; padding: 10px 20px; font-size: 16px; border: none; 
+                    cursor: pointer; text-align: center; width: 200px; border-radius: 50px; text-decoration: none;">
+                    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de trabajadores
+                </asp:LinkButton>
+            </div
+        </div>
+    </div>
 
-                                <asp:LinkButton ID="LinkButton5" runat="server"
-                                    OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;">
-    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de trabajadores
-                                </asp:LinkButton>
-
-                            </div>
-                        </div>
-                    </div>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -114,15 +115,15 @@
         </Triggers>
     </asp:UpdatePanel>
     <!-- Aquí esta todo lo de reporte facturacion-->
-    <div class="row align-items-center">
-        <div class="d-flex justify-content-end">
-            <div class="p-2">
-
-                <asp:LinkButton ID="LinkButton2" runat="server"
-                    OnClientClick="$('#reporteFacturacionModal').modal('show'); return false;">
-<i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de facturación
+    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="d-flex justify-content-center">
+            <div class="p-2" style="display: inline-block;">
+                <asp:LinkButton ID="LinkButton2" runat="server" 
+                    OnClientClick="$('#reporteFacturacionModal').modal('show'); return false;" 
+                    style="background-color: #F1F1F1; color: black; padding: 10px 20px; font-size: 16px; border: none; 
+                    cursor: pointer; text-align: center; width: 200px; border-radius: 50px; text-decoration: none;">
+                    <i class="fa-solid fa-file-earmark-plus"></i> Obtener reporte de facturación
                 </asp:LinkButton>
-
             </div>
         </div>
     </div>

@@ -164,6 +164,10 @@
                 </div>
             </div>
         </ContentTemplate>
+
+        <Triggers>
+    <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
+</Triggers>
     </asp:UpdatePanel>
 
 

@@ -142,7 +142,33 @@ namespace MichiSistemaWeb
 
         protected void BotonReporteFacturacion_Click(object sender, EventArgs e)
         {
-            
+            string fechaInicioStr = txtFechaInicio.Text;
+            string fechaFinStr = txtFechaFin.Text;
+
+
+            try
+            {
+                // Convertir las fechas a DateTime
+                DateTime fechaInicio = DateTime.Parse(fechaInicioStr);
+                DateTime fechaFin = DateTime.Parse(fechaFinStr);
+
+                // Llamar al web service con las fechas convertidas
+                Byte[] fileBuffer = comprobanteWS.reporteFacturacion(fechaInicio, fechaFin);
+
+                if (fileBuffer != null)
+                {
+                    // Enviar el archivo PDF al navegador
+                    Response.ContentType = "application/pdf";
+                    Response.AddHeader("content-length", fileBuffer.Length.ToString());
+                    Response.BinaryWrite(fileBuffer);
+                }
+            }
+            catch (FormatException)
+            {
+                // Si las fechas no tienen el formato correcto, mostrar un error
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowInvalidDateFormatModal", "$('#modalFechaInvalida').modal('show');", true);
+            }
+
         }
 
         protected void BotonCerrar_Click(object sender, EventArgs e)

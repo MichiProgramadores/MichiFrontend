@@ -52,7 +52,7 @@ namespace MichiSistemaWeb
                 string strRedirect;
                 strRedirect = Request["ReturnUrl"];
                 if (strRedirect == null)
-                    Response.Redirect("ListarOrdenes.aspx");
+                    Response.Redirect("Home.aspx");
                 Response.Redirect(strRedirect, true);
             }
             else

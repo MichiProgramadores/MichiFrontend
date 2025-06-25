@@ -23,8 +23,13 @@
       <xs:element name="evento_id" type="xs:int" />
       <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
       <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horaFin" type="tns:localTime" />
+      <xs:element minOccurs="0" name="horaInicio" type="tns:localTime" />
       <xs:element minOccurs="0" name="tipoEvento" type="tns:tipoEvento" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="localTime" final="extension restriction">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="actualizarEventoResponse">
     <xs:sequence />

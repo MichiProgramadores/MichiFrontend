@@ -16,7 +16,7 @@ namespace MichiSistemaWeb
         protected OrdenWSClient ordenService;
         protected TrabajadorWSClient trabajadorService;
         protected ClienteWSClient clienteService;
-        protected ProductoWSClient productoService; 
+        protected ProductoWSClient productoService;
         protected orden orden;
         private List<detalleOrden> detallesOrden;
 
@@ -211,6 +211,7 @@ namespace MichiSistemaWeb
             txtMonto.Text = orden.totalPagar.ToString();
             txtSaldo.Text = orden.saldo.ToString();
             lblTotal.Text = orden.totalPagar.ToString("F2");
+
             gvDetalles.DataSource = orden.listaOrdenes;
             gvDetalles.DataBind();
 
@@ -274,17 +275,17 @@ namespace MichiSistemaWeb
             LinkButton btn = (LinkButton)sender;
             int clienteId = Convert.ToInt32(btn.CommandArgument);
             cliente cliente = clienteService.obtenerCliente(clienteId);
-     
-               
-                if (cliente.puntuacion == 0)
-                {
-                    lanzarMensajedeError("El cliente seleccionado no es apto.");
-                   // MostrarError("Cliente no apto.");
-                    return;
-                }
-        
-            
-          
+
+
+            if (cliente.puntuacion == 0)
+            {
+                lanzarMensajedeError("El cliente seleccionado no es apto.");
+                // MostrarError("Cliente no apto.");
+                return;
+            }
+
+
+
 
             hdnClienteId.Value = clienteId.ToString();
             txtIdCliente.Text = $"{cliente.nombres} {cliente.apellidos}"; // mostrar nombre y apellido
@@ -302,10 +303,10 @@ namespace MichiSistemaWeb
 
         protected void ddlProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (!string.IsNullOrEmpty(ddlProductos.SelectedValue))
             {
-                txtPrecioUnitario.Enabled =false;
+                txtPrecioUnitario.Enabled = false;
                 txtStockProducto.Enabled = false;
                 txtStockMinimo.Enabled = false;
 
@@ -375,7 +376,7 @@ namespace MichiSistemaWeb
                 MostrarError($"No hay suficiente stock. Stock disponible: {producto.stockActual}");
                 return;
             }
-            if (cantidad > producto.stockActual-producto.stockMinimo)
+            if (cantidad > producto.stockActual - producto.stockMinimo)
             {
                 MostrarError($"Restricción de stock mínimo. Stock minimo: {producto.stockMinimo}");
                 return;
@@ -387,7 +388,7 @@ namespace MichiSistemaWeb
                 //unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), producto.unidadMedida.ToString());,
                 producto = producto.producto_id,
                 cantidadSolicitada = cantidad,
-                cantidadEntregada =cantidad,
+                cantidadEntregada = cantidad,
                 precioAsignado = precio,
                 subtotal = precio * cantidad
             };
@@ -436,7 +437,7 @@ namespace MichiSistemaWeb
                 DateTime fechaInicio = DateTime.ParseExact(txtFechaEmis.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime fechaFin = DateTime.ParseExact(txtFechaDevol.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime fechaEntrega = DateTime.ParseExact(txtFechaEntr.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-               
+
                 if (fechaEntrega <= fechaInicio)
                 {
                     MostrarError("La fecha de entrega debe ser mayor que la fecha de emisión.");
@@ -475,10 +476,10 @@ namespace MichiSistemaWeb
                 orden orden = new orden()
                 {
                     //tipoRecepcion = (tipoRecepcion)Enum.Parse(typeof(tipoRecepcion), ddlTipoRecepcion.SelectedValue),
-                //        if (Enum.TryParse(ddlTipoRecepcion.SelectedValue, out tipoRecepcionEnum))
-                //{
-                //    orden.tipoRecepcion = tipoRecepcionEnum;
-                    
+                    //        if (Enum.TryParse(ddlTipoRecepcion.SelectedValue, out tipoRecepcionEnum))
+                    //{
+                    //    orden.tipoRecepcion = tipoRecepcionEnum;
+
                     setUpPersonalizado = txtSetUpPersonalizado.Text.ToString(),
                     //idOrden=int.Parse(txtIdOrden.Text.Trim()),
                     totalPagar = double.Parse(txtMonto.Text.Trim()),
@@ -490,7 +491,7 @@ namespace MichiSistemaWeb
                     fecha_devolucionSpecified = true,
                     fecha_emisión = fechaInicio,
                     fecha_emisiónSpecified = true,
-                    fecha_entrega =fechaEntrega,
+                    fecha_entrega = fechaEntrega,
                     fecha_entregaSpecified = true,
                     clienteID = Convert.ToInt32(hdnClienteId.Value),
                     trabajadorID = Convert.ToInt32(hdnTrabajadorId.Value),
@@ -504,7 +505,7 @@ namespace MichiSistemaWeb
                 {
                     orden.idOrden = int.Parse(txtIdOrden.Text.Trim());
                     ordenService.actualizarOrden(orden, valorSeleccionado);
-                    if (!string.IsNullOrEmpty(ddlTipoEstDevol.SelectedValue) || ddlTipoEstDevol.SelectedValue.CompareTo(orden.tipoEstadoDevolucion.ToString())==0)
+                    if (!string.IsNullOrEmpty(ddlTipoEstDevol.SelectedValue) || ddlTipoEstDevol.SelectedValue.CompareTo(orden.tipoEstadoDevolucion.ToString()) == 0)
                     {
                         string tipoEstadoSeleccionado = ddlTipoEstDevol.SelectedValue.Trim();
 

@@ -12,8 +12,6 @@
   <xs:element name="obtenerComprobanteResponse" type="tns:obtenerComprobanteResponse" />
   <xs:element name="registrarComprobante" type="tns:registrarComprobante" />
   <xs:element name="registrarComprobanteResponse" type="tns:registrarComprobanteResponse" />
-  <xs:element name="reporteFacturacion" type="tns:reporteFacturacion" />
-  <xs:element name="reporteFacturacionResponse" type="tns:reporteFacturacionResponse" />
   <xs:complexType name="listarComprobante">
     <xs:sequence />
   </xs:complexType>
@@ -57,17 +55,6 @@
   </xs:complexType>
   <xs:complexType name="registrarComprobanteResponse">
     <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="reporteFacturacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fecha_inicio" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="fecha_fin" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="reporteFacturacionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarComprobante">
     <xs:sequence>

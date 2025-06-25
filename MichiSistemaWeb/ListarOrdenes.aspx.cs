@@ -62,24 +62,7 @@ namespace MichiSistemaWeb
 
         protected void dgvOrdenes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "idOrden").ToString();
-            //    e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "tipoRecepcion").ToString();
-            //    e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "setUpPersonalizado").ToString();
-            //    e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "totalPagar").ToString();
-            //    e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "saldo").ToString();
-            //    e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "cantDias").ToString();
 
-            //    e.Row.Cells[6].Text = FormatDateTime(DataBinder.Eval(e.Row.DataItem, "fecha_devolucion"), "dd/MM/yyyy");
-            //    e.Row.Cells[7].Text = FormatDateTime(DataBinder.Eval(e.Row.DataItem, "fecha_emisión"), "dd/MM/yyyy");
-            //    e.Row.Cells[8].Text = FormatDateTime(DataBinder.Eval(e.Row.DataItem, "fecha_registro"), "dd/MM/yyyy HH:mm:ss");
-            //    e.Row.Cells[9].Text = FormatDateTime(DataBinder.Eval(e.Row.DataItem, "fecha_entrega"), "dd/MM/yyyy");
-
-            //    e.Row.Cells[10].Text = DataBinder.Eval(e.Row.DataItem, "tipoEstadoDevolucion").ToString();
-            //    e.Row.Cells[11].Text = DataBinder.Eval(e.Row.DataItem, "clienteID").ToString();
-            //    e.Row.Cells[12].Text = DataBinder.Eval(e.Row.DataItem, "trabajadorID").ToString();
-            //}
         }
 
 

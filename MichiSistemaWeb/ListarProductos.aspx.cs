@@ -104,6 +104,11 @@ namespace MichiSistemaWeb
             ViewState["ProductosFiltrados"] = productos; // Guarda en ViewState
             dgvProductos.DataSource = productos;
             dgvProductos.DataBind();
+            txtID.Text = "";
+            txtNombre.Text = "";
+
+            // Limpiar el dropdown (si es necesario)
+            DdlTipoProducto.SelectedIndex = 0;
         }
 
         protected void lblBuscarN_Click(object sender, EventArgs e)
@@ -159,6 +164,7 @@ namespace MichiSistemaWeb
                 dgvProductos.DataBind();
                 // lblMensaje.Text = "Error: " + ex.Message;
             }
+            
         }
 
         /*

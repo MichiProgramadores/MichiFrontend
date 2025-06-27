@@ -94,6 +94,7 @@ namespace MichiSistemaWeb
                 dgvClientes.DataBind();
                 // lblMensaje.Text = "Error: " + ex.Message;
             }
+    
         }
 
         protected void ListarTodos_Click(object sender, EventArgs e)
@@ -102,6 +103,9 @@ namespace MichiSistemaWeb
             ViewState["ClientesFiltrados"] = clientes; // Guarda en ViewState
             dgvClientes.DataSource = clientes;
             dgvClientes.DataBind();
+            txtNombre.Text = "";
+            txtNombreID.Text = "";
+            DdlTipoCliente.SelectedIndex = 0;
         }
 
         protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)

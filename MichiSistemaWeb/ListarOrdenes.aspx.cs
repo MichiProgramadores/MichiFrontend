@@ -20,9 +20,6 @@ namespace MichiSistemaWeb
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
             CargarDatos();
 
         }
@@ -174,6 +171,7 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
+            txtNombreID.Text = "";
         }
     }
 }

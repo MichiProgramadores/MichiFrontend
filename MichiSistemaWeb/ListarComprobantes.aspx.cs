@@ -160,6 +160,7 @@ namespace MichiSistemaWeb
                 dgvComprobantes.DataSource = null;
                 dgvComprobantes.DataBind();
             }
+            txtNombre.Text = "";
         }
 
         /*

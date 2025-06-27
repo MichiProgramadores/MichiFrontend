@@ -132,6 +132,7 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar evento: " + ex.Message;
             }
+            txtNombre.Text = "";
         }
 
     }

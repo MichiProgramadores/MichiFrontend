@@ -130,6 +130,7 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
+            
 
         }
 
@@ -181,7 +182,8 @@ namespace MichiSistemaWeb
             trabajadores = trabajadorWS.listarTrabajadores().ToList();
             dgvEmpleados.DataSource = trabajadores;
             dgvEmpleados.DataBind();
-
+            txtNombreID.Text = "";
+            txtNombre.Text = "";
         }
     }
 }

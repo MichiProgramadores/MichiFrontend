@@ -140,7 +140,7 @@
                        <i class="fas fa-plus"></i> Agregar Producto
                    </button>--%>
                    <asp:PlaceHolder ID="phAgregarProducto" runat="server">
-                        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle" >
+                        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle" style="margin-left: 10px;">
                             <i class="fas fa-plus"></i> Agregar producto
                         </button>
                     </asp:PlaceHolder>

@@ -1,5 +1,6 @@
 ﻿using MichiSistemaWeb.MichiBackend;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace MichiSistemaWeb
     {
         protected UsuarioWSClient usuarioWS;
         protected List<usuario> usuarios;
+        protected TrabajadorWSClient trabajadorWS;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["trabajador"] != null)
@@ -32,6 +34,7 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             usuarioWS = new UsuarioWSClient();
+            trabajadorWS = new TrabajadorWSClient();
             CargarDatos();
         }
         protected void CargarDatos()
@@ -108,8 +111,29 @@ namespace MichiSistemaWeb
             {
                 e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "id").ToString();
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "nombreUsuario").ToString();
-              
-  
+
+                var idValue = DataBinder.Eval(e.Row.DataItem, "id");
+
+                if (idValue != null && int.TryParse(idValue.ToString(), out int idTrabajador))
+                {
+
+                    // Buscar cliente por ID usando tu capa de negocio o servicio
+
+                    var trabajador = trabajadorWS.obtenerTrabajador(idTrabajador);
+
+                    if (trabajador != null)
+                    {
+                        // Si encontró el cliente, lo pone en una lista para enlaza
+                        e.Row.Cells[2].Text = trabajador.nombres;
+                        e.Row.Cells[3].Text = trabajador.apellidos;
+                    }
+                    else
+                    {
+                        e.Row.Cells[2].Text = "No encontrado";
+                        e.Row.Cells[3].Text = "No encontrado";
+                    }
+                }
+               
                 // Obtén los controles dentro de la fila
                 LinkButton lbEliminar = (LinkButton)e.Row.FindControl("lbEliminar");
                 LinkButton lbModificar = (LinkButton)e.Row.FindControl("lbModificar");

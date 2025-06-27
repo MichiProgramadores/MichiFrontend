@@ -48,7 +48,7 @@
                 <div class="col-auto">
                     <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">

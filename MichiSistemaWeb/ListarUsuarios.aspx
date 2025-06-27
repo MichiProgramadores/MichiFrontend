@@ -42,8 +42,9 @@
                     CssClass="table table-hover table-responsive table-striped">
                     <Columns>
                         <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />
-                        <asp:BoundField HeaderText="Nombre de usuario" ItemStyle-CssClass="align-middle" />
-
+                        <asp:BoundField HeaderText="Usuario" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Nombres" ItemStyle-CssClass="align-middle" />
+                        <asp:BoundField HeaderText="Apellidos" ItemStyle-CssClass="align-middle" />
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="lbModificar" runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("id") %>' OnClick="lbModificar_Click" />

@@ -90,6 +90,16 @@ namespace MichiSistemaWeb
             txtCelular.Text = trabajador.celular.ToString();
             txtEmail.Text = trabajador.email;
             ddlTipoTrabajador.SelectedValue = trabajador.tipoTrabajador.ToString();
+            bool activo = trabajador.estado;
+            if (activo)
+            {
+                txtActivo.Text = "Activo";
+            }
+            else
+            {
+                txtActivo.Text = "Inactivo";
+            }
+            
         }
         private void AsignarValoresTrabajador()
         {
@@ -98,7 +108,16 @@ namespace MichiSistemaWeb
             trabajador.apellidos = txtApellidos.Text.Trim();
             trabajador.celular = int.Parse(txtCelular.Text.Trim());
             trabajador.email = txtEmail.Text.Trim();
-
+            string activo = txtActivo.Text.Trim();
+            if (estado.Equals("Activo"))
+            {
+                trabajador.estado = true;
+            }
+            else
+            {
+                trabajador.estado = false;
+            }
+            
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

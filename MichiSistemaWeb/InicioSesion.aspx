@@ -56,7 +56,7 @@
                     <label for="txtPassword">Contraseña</label>
                     <div class="input-group">
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña"></asp:TextBox>
-                        <span class="input-group-text" id="eyeIcon" onclick="togglePasswordVisibility()" style="cursor: pointer;">
+                        <span class="input-group-text" id="eyeIcon" onclick="togglePasswordVisibility()" style="cursor: pointer;" data-bs-toggle="tooltip" title="Visualizar contraseña">
                             <i class="fas fa-eye-slash"></i>
                         </span>
                     </div>

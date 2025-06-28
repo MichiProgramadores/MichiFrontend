@@ -21,6 +21,19 @@
     </title>
     <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        /* Estilo base para el enlace */
+        .nav-link-hover {
+            color: black;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave para el cambio de color */
+        }
+
+            /* Efecto hover (cuando el mouse pasa sobre el enlace) */
+            .nav-link-hover:hover {
+                background-color: white ; /* El color de fondo en hover (puedes cambiarlo) */
+                color: white; /* Cambia el color del texto al pasar el mouse */
+            }
+    </style>
 </head>
 <body>
     <div class="container-fluid d-flex p-0 h-100" style="background-color: #E0E0E0;">
@@ -30,41 +43,41 @@
                 <img src="Images/logo_act.png" width="150" />
             </a>
             <hr />
-            <ul class="mynav nav nav-pills flex-column mb-auto" style="background-color: #E0E0E0;">
+            <ul class="mynav nav nav-pills nav-link-hover flex-column mb-auto" style="background-color: #E0E0E0;">
                 <li class="nav-item mb-1">
-                    <a href="ListarOrdenes.aspx" style="color: black;">
+                    <a href="ListarOrdenes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aqui puedes gestionar todas las órdenes y sus detalles.">
                         <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar Ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarTrabajadores.aspx" style="color: black;">
+                    <a href="ListarTrabajadores.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los trabajadores.">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Trabajadores
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarClientes.aspx" style="color: black;">
+                    <a href="ListarClientes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los cliente.">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Clientes
                     </a>
                 </li>  
                 <li class="nav-item mb-1">
-                    <a href="ListarProductos.aspx" style="color: black;">
+                    <a href="ListarProductos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los productos.">
                         <i class="fa-solid fa-box-open pe-2"></i> Gestionar Productos
                       
                     </a>
                 </li>
                 <li class="nav-item mb-1">
                    
-                    <a href="ListarEventos.aspx" style="color: black;">
+                    <a href="ListarEventos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los eventos.">
                         <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar Eventos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarComprobantes.aspx" style="color: black;">
+                    <a href="ListarComprobantes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los comprobantes y sus detalles.">
                         <i class="fa-solid  fa-receipt pe-2"></i>Gestionar Comprobantes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarUsuarios.aspx" style="color: black;">
+                    <a href="ListarUsuarios.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí se encuentran los usuarios. No puedes editar esta sección.">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar Usuarios
                     </a>
                 </li>

@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="cph_Contenido" runat="server">
     <h2>
-        Bienvenido al Software de Programación 3 - El Michi Sistema
+        Bienvenido al Michi Sistema - ¿Qué quieres hacer hoy?
     </h2>
 
      <!-- Aquí esta todo lo de reporte -->

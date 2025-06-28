@@ -128,6 +128,8 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
+                dgvEmpleados.DataSource = null;
+                dgvEmpleados.DataBind();
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
             

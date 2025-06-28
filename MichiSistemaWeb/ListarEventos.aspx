@@ -56,7 +56,14 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
+                 <EmptyDataTemplate>
+                        <div class="empty-message-container">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Lo sentimos, no se encontró el Evento. Asegúrese de que el ID es el correcto.</span>
+                        </div>
+                    </EmptyDataTemplate>
                 </asp:GridView>
+
 
                 <asp:HiddenField ID="hfIdEliminar" runat="server" />
 

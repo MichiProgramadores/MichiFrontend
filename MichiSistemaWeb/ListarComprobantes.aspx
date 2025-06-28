@@ -12,7 +12,7 @@
         modal.show();
     }
     </script>
-
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">    
      <div class="container">
@@ -54,15 +54,19 @@
                         Width="100%"
                         CssClass="table table-hover table-striped">
                         <Columns>
-                            <asp:BoundField DataField="id_comprobante" HeaderText="ID" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="monto_total" HeaderText="Monto total" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="align-middle" />
-
+                           
+                           
+                            <asp:BoundField DataField="id_comprobante" HeaderText="ID comprobante" ItemStyle-CssClass="align-middle" />
+                            <asp:BoundField DataField="orden_id" HeaderText="N° orden" ItemStyle-CssClass="align-middle" />
+                            <asp:BoundField DataField="cliente_id" HeaderText="ID cliente" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="fecha_emision" HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField DataField="tipoComprobante" HeaderText="Tipo de comprobante" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="tax" HeaderText="Tax" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="cliente_id" HeaderText="Id cliente" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="orden_id" HeaderText="Id orden" ItemStyle-CssClass="align-middle" />
+                            <asp:BoundField DataField="monto_total" HeaderText="Monto total" ItemStyle-CssClass="align-middle" DataFormatString="{0:C2}" />
+                            <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="align-middle" />
+
+                           
+
 
                             <asp:TemplateField>
                                 <ItemTemplate>
@@ -79,6 +83,12 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                    <EmptyDataTemplate>
+                        <div class="empty-message-container">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Lo sentimos, no se encontró al Comprobante. Asegúrese de que el ID es el correcto.</span>
+                        </div>
+                    </EmptyDataTemplate>
                     </asp:GridView>
 
                     <asp:HiddenField ID="hfIdEliminar" runat="server" />

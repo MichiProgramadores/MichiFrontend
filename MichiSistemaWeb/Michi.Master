@@ -9,6 +9,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
@@ -96,11 +97,15 @@
                     </form>
                 </div>
              </nav>
+             <!-- Este es el Label que mostrará el mensaje en caso de que no haya resultados -->
+             <%--<asp:Label ID="lblMensajeBusqueda" runat="server" CssClass="alert alert-warning" Text="" Visible="false"></asp:Label>--%>
             <!-- Contenido de la Página web -->
             <div class="p-4">
                 <form runat="server">
                     <asp:ContentPlaceHolder ID="cph_Contenido" runat="server">
                     </asp:ContentPlaceHolder>
+                   
+
                 </form>
             </div>
         </div>

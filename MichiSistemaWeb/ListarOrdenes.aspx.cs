@@ -20,6 +20,8 @@ namespace MichiSistemaWeb
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //var masterPage = (MichiSistemaWeb.Michi)Master;
+            //var lblMensajeBusqueda = masterPage.FindControl("lblMensajeBusqueda") as Label;
             CargarDatos();
 
         }
@@ -151,13 +153,7 @@ namespace MichiSistemaWeb
                         dgvOrdenes.DataBind();
                         //lblMensaje.Text = "";
                     }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvOrdenes.DataSource = null;
-                        dgvOrdenes.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
+
                 }
                 else
                 {
@@ -169,7 +165,9 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+                dgvOrdenes.DataSource = null;
+                dgvOrdenes.DataBind();
+
             }
             txtNombreID.Text = "";
         }

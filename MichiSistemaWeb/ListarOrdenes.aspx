@@ -10,7 +10,7 @@
         <h2>Listado de órdenes</h2>
         <div class="row align-items-center">
             <div class="col-auto" >
-                <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID:"></asp:Label>
+                <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el N° de Orden:"></asp:Label>
             </div>
                         <div class="col-sm-3">
                 <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
@@ -46,7 +46,7 @@
                 <asp:BoundField DataField="trabajadorID" HeaderText="Empleado" />--%>
 <%--                <asp:BoundField DataField="fecha" HeaderText="Emisión" 
                     DataFormatString="{0:dd/MM/yyyy}" />--%>
-                <asp:BoundField DataField="totalPagar" HeaderText="Total" 
+                <asp:BoundField DataField="totalPagar" HeaderText="Monto total" 
                     DataFormatString="{0:C2}" />
                 <asp:TemplateField HeaderText="Recepción">
                     <ItemTemplate>
@@ -78,13 +78,20 @@
                          CommandName="Ver" CommandArgument='<%# Eval("idOrden") %>' OnClick="lbVerDetalles_Click" />
                     </ItemTemplate>
                </asp:TemplateField>
-
+         
             </Columns>
-            <EmptyDataTemplate>
-                <div class="text-center">No hay ordenes registradas</div>
-            </EmptyDataTemplate>
+<%--            <EmptyDataTemplate>
+                <div class="text-center">Lo sentimos, esa Orden no existe</div>
+            </EmptyDataTemplate>--%>
+             <EmptyDataTemplate>
+                <div class="empty-message-container">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Lo sentimos, no se encontró una Orden con esa identificación</span>
+                </div>
+             </EmptyDataTemplate>
         </asp:GridView>
               <asp:Label ID="lblError" runat="server" Text="" CssClass="text-danger"></asp:Label>
+                <asp:Label ID="lblMensajeBusqueda" runat="server" CssClass="alert alert-warning" Text="" Visible="false"></asp:Label>
     </div>
     
     <!-- Modal Detalles -->
@@ -159,6 +166,7 @@
             modal.show();
         }
     </script>
+    
     <style>
         /* Estilo personalizado para la paginación */
         .gridview-pagination .pagination li a {
@@ -194,5 +202,27 @@
         .no-underline {
             text-decoration: none;
         }
+        /*.empty-message-container {
+        text-align: center;
+        background-color: #f8d7da;*/ /* Color de fondo (rojo claro) */
+        /*color: #721c24;*/ /* Color de texto (rojo oscuro) */
+        /*padding: 20px;
+        border-radius: 5px;
+        margin-top: 30px;
+        font-size: 18px;
+        border: 2px solid #f5c6cb;*/ /* Borde */
+        /*width: 50%;*/ /* Limitar el ancho para que no ocupe toda la pantalla */
+        /*margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/ /* Sombra sutil */
+        /*font-weight: bold;
+        }
+
+        .empty-message-container i {
+            margin-right: 10px;
+            font-size: 24px;*/ /* Tamaño del icono */
+            /*color: #721c24;*/ /* Color del ícono */
+        /*}*/
+
     </style>
 </asp:Content>

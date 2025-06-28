@@ -63,6 +63,15 @@
   <xs:complexType name="actualizarTrabajadorResponse">
     <xs:sequence />
   </xs:complexType>
+  <xs:complexType name="registrarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+      <xs:element minOccurs="0" name="str_tipoTrabajador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarTrabajadorResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="listarTrabajadoresPorTipo">
     <xs:sequence>
       <xs:element minOccurs="0" name="tipoTrabajador" type="xs:string" />
@@ -73,21 +82,22 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="registrarTrabajador">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
-      <xs:element minOccurs="0" name="str_tipoTrabajador" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="registrarTrabajadorResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="listarTrabajadores">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarTrabajadoresResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerTrabajador">
+    <xs:sequence>
+      <xs:element name="idTrabajador" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerTrabajadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="reporteTrabajadores">
@@ -107,16 +117,6 @@
   <xs:complexType name="listaTrabajadoresActivosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerTrabajador">
-    <xs:sequence>
-      <xs:element name="idTrabajador" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerTrabajadorResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:trabajador" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoTrabajador">

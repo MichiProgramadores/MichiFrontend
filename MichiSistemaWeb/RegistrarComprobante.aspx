@@ -27,7 +27,7 @@
                 </div>
 
                  <div class="mb-3 row">
-                    <asp:Label ID="lblIdOrden" runat="server" Text="Orden:" CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label ID="lblIdOrden" runat="server" Text="*Orden:" CssClass="col-sm-2 col-form-label"></asp:Label>
 
                     <div class="col-sm-8">
                         <div class="input-group">
@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoComprobante" runat="server" Text="Tipo comprobante: "></asp:Label>
+                    <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoComprobante" runat="server" Text="*Tipo comprobante: "></asp:Label>
                     <div class="col-sm-8">
                         <asp:DropDownList ID="ddlTipoComprobante" runat="server" CssClass="form-control">
                         </asp:DropDownList>
@@ -192,13 +192,13 @@
 
         </div>
     </div>
-
+     <!-- Modal ERROR -->
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title" id="errorModalLabel">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de Error
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Error
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

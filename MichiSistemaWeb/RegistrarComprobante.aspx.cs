@@ -285,6 +285,27 @@ namespace MichiSistemaWeb
                 // Asignar los valores del formulario al objeto comprobante
                 AsignarValoresComprobante();
 
+                List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
+
+                    if (comprobantes.Count >= 2)
+                    {
+
+                        lanzarMensajedeError("No se pueden registrar más de 2 comprobantes por orden.");
+                        return;
+                    }
+                    if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE))
+                    {
+                        lanzarMensajedeError("Ya existe una invoice para esta orden.");
+                        return;
+                    }
+                    if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT))
+                    {
+                        lanzarMensajedeError("Ya existe un receipt para esta orden.");
+                        return;
+                    }
+                
+
+
                 if (estado == Estado.Nuevo)
                 {
                     comprobanteService.registrarComprobante(comprobante);

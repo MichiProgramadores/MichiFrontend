@@ -255,6 +255,9 @@
     <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.listarTipoRecepcionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MichiBackend\MichiSistemaWeb.MichiBackend.obtenerComprobantesPorOrdenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MichiBackend\OrdenWS.wsdl" />
     <None Include="Connected Services\MichiBackend\OrdenWS.xsd">
       <SubType>Designer</SubType>

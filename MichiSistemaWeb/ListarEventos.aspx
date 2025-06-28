@@ -20,7 +20,19 @@
     <div class="container">
         <h2>Listado de eventos</h2>
         <div class="container row">
-            <div class="row align-items-center">
+            <div class="col-auto">
+                <asp:DropDownList ID="DdlTipoEvento" runat="server" CssClass="form-select">
+                    <%--
+        OnSelectedIndexChanged="DdlTipoEventoSelectedIndexChanged" AutoPostBack="True">
+                    --%>
+                    <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                    <asp:ListItem Text="Boda" Value="BODA" />
+                    <asp:ListItem Text="Cumpleaños" Value="CUMPLEANHOS" />
+                    <asp:ListItem Text="Concierto" Value="CONCIERTO" />
+                    <asp:ListItem Text="Graduación" Value="GRADUACION" />
+                    <asp:ListItem Text="Otro" Value="OTRO" />
+                </asp:DropDownList>
+            </div>
                 <div class="col-auto">
                     <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el ID del evento:"></asp:Label>
                 </div>

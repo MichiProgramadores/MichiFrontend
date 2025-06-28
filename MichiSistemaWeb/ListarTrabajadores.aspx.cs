@@ -141,42 +141,87 @@ namespace MichiSistemaWeb
             try
             {
                 // Obtener el texto del textbox
-                string texto = txtNombre.Text.Trim();
+                string textoId = txtNombre.Text.Trim();
+                string textoNombre = txtNombre.Text.Trim();
+                string tipoSeleccionado = DdlTipoTrabajador.SelectedValue;
+                // 2. Obtener TODOS los productos (sin filtros iniciales)
+                List<trabajador> listaCompleta = trabajadorWS.listarTrabajadores().ToList();
+                List<trabajador> resultados = listaCompleta;
 
-                if (texto != null)
+                // 3. Aplicar filtros SOLO si el campo tiene valor
+                if (!string.IsNullOrEmpty(textoNombre))
                 {
-
-                    List<trabajador> trabajador = trabajadorWS.listaTrabajadoresPorNombre(texto).ToList();
-
-                    if (trabajador != null)
-                    {
-
-                        trabajadores = trabajador;
-                        dgvEmpleados.DataSource =trabajador;
-                        dgvEmpleados.DataBind();
-
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvEmpleados.DataSource = null;
-                        dgvEmpleados.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
+                    resultados = resultados
+                        .Where(c => c.nombres.ToLower().Contains(textoNombre.ToLower()))
+                        .ToList();
                 }
-                else
+
+                if (!string.IsNullOrEmpty(textoId))
                 {
-                    // Si no ingresó un número válido
-                    dgvEmpleados.DataSource = trabajadores;
-                    dgvEmpleados.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    resultados = resultados
+                        .Where(c => c.persona_id.ToString().Contains(textoId))
+                        .ToList();
                 }
+
+                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
+                {
+                    resultados = resultados
+                        .Where(c => c.tipoTrabajador.ToString() == tipoSeleccionado)
+                        .ToList();
+                }
+
+                if (textoNombre == "" && textoId == "" && tipoSeleccionado == "0")
+                {
+                    resultados = trabajadorWS.listarTrabajadores().ToList();
+                }
+
+                // 4. Mostrar resultados
+                dgvEmpleados.DataSource = resultados;
+                dgvEmpleados.DataBind();
+
+                // 5. Opcional: Guardar en ViewState
+                ViewState["TrabajadoresFiltrados"] = resultados;
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+                dgvEmpleados.DataSource = null;
+                dgvEmpleados.DataBind();
+                // lblMensaje.Text = "Error: " + ex.Message;
             }
+            //    if (texto != null)
+            //    {
+
+            //        List<trabajador> trabajador = trabajadorWS.listaTrabajadoresPorNombre(texto).ToList();
+
+            //        if (trabajador != null)
+            //        {
+
+            //            trabajadores = trabajador;
+            //            dgvEmpleados.DataSource =trabajador;
+            //            dgvEmpleados.DataBind();
+
+            //            //lblMensaje.Text = "";
+            //        }
+            //        else
+            //        {
+            //            // Si no encontró resultados
+            //            dgvEmpleados.DataSource = null;
+            //            dgvEmpleados.DataBind();
+            //            // lblMensaje.Text = "No se encontró cliente con ese ID.";
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // Si no ingresó un número válido
+            //        dgvEmpleados.DataSource = trabajadores;
+            //        dgvEmpleados.DataBind();
+            //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+            //}
         }
 
         protected void ListarTodos_Click(object sender, EventArgs e)

@@ -10,7 +10,11 @@
   <xs:element name="eliminarOrden" type="tns:eliminarOrden" />
   <xs:element name="eliminarOrdenResponse" type="tns:eliminarOrdenResponse" />
   <xs:element name="listarOrdenes" type="tns:listarOrdenes" />
+  <xs:element name="listarOrdenesPorTipo" type="tns:listarOrdenesPorTipo" />
+  <xs:element name="listarOrdenesPorTipoResponse" type="tns:listarOrdenesPorTipoResponse" />
   <xs:element name="listarOrdenesResponse" type="tns:listarOrdenesResponse" />
+  <xs:element name="listarTipoRecepcion" type="tns:listarTipoRecepcion" />
+  <xs:element name="listarTipoRecepcionResponse" type="tns:listarTipoRecepcionResponse" />
   <xs:element name="obtenerOrden" type="tns:obtenerOrden" />
   <xs:element name="obtenerOrdenResponse" type="tns:obtenerOrdenResponse" />
   <xs:element name="orden" type="tns:orden" />
@@ -104,12 +108,30 @@
   <xs:complexType name="actualizarEstadoFechaDevolucionResponse">
     <xs:sequence />
   </xs:complexType>
+  <xs:complexType name="listarOrdenesPorTipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoRecepcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesPorTipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarOrdenes">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarOrdenesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTipoRecepcion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoRecepcionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="registrarOrden">

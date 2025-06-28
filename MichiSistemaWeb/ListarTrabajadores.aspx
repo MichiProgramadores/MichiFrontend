@@ -32,14 +32,25 @@
         <div class="container row">
             <div class="row align-items-center">
                 <div class="col-auto">
+                    <asp:DropDownList ID="DdlTipoTrabajador" runat="server" CssClass="form-select">
+                        <%--
+                             OnSelectedIndexChanged="DdlTipoTrabajador_SelectedIndexChanged" AutoPostBack="True">
+                        --%>
+                        <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                        <asp:ListItem Text="Despachador" Value="DESPACHADOR" />
+                        <asp:ListItem Text="Delivery" Value="DELIVERY" />
+                        <asp:ListItem Text="Asistente" Value="ASISTENTE" />
+                    </asp:DropDownList>
+                </div>
+                <div class="col-auto">
                     <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el ID:"></asp:Label>
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                <div class="col-sm-2">
+                <%--<div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
-                </div>
+                </div>--%>
                 <div class="col-auto">
                     <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el nombre:"></asp:Label>
                 </div>

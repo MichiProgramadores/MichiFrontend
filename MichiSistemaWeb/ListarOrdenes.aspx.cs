@@ -17,6 +17,7 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             ordenWS = new OrdenWSClient();
+            txtNombreID.Text = "";
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -139,37 +140,62 @@ namespace MichiSistemaWeb
             {
                 // Obtener el texto del textbox
                 string textoId = txtNombreID.Text.Trim();
+                string tipoSeleccionado = DdlTipoRecepcion.SelectedValue;
 
-                if (int.TryParse(textoId, out int idOrden))
+                List<orden> listaCompleta = ordenWS.listarOrdenes().ToList();
+                List<orden> resultados = listaCompleta;
+                if (!string.IsNullOrEmpty(textoId))
                 {
-                    // Buscar cliente por ID usando tu capa de negocio o servicio
-                    var orden = ordenWS.obtenerOrden(idOrden);
-
-                    if (orden != null)
-                    {
-                        // Si encontró el cliente, lo pone en una lista para enlazar
-                        var lista = new List<orden> { orden };
-                        dgvOrdenes.DataSource = lista;
-                        dgvOrdenes.DataBind();
-                        //lblMensaje.Text = "";
-                    }
-
+                    resultados = resultados
+                        .Where(c => c.idOrden.ToString().Contains(textoId))
+                        .ToList();
                 }
-                else
+                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
                 {
-                    // Si no ingresó un número válido
-                    dgvOrdenes.DataSource = ordenes;
-                    dgvOrdenes.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    resultados = resultados
+                        .Where(c => c.tipoRecepcion.ToString() == tipoSeleccionado)
+                        .ToList();
                 }
+
+                if (textoId == "" && tipoSeleccionado == "0")
+                {
+                    resultados = ordenWS.listarOrdenes().ToList();
+                }
+                   dgvOrdenes.DataSource = resultados;
+                   dgvOrdenes.DataBind();
+
+                    // 5. Opcional: Guardar en ViewState
+                   ViewState["OrdenesFiltradas"] = resultados;
             }
             catch (Exception ex)
             {
                 dgvOrdenes.DataSource = null;
                 dgvOrdenes.DataBind();
-
+                // lblMensaje.Text = "Error: " + ex.Message;
             }
-            txtNombreID.Text = "";
+
+            //if (int.TryParse(textoId, out int idOrden))
+            //{
+            //    // Buscar cliente por ID usando tu capa de negocio o servicio
+            //    var orden = ordenWS.obtenerOrden(idOrden);
+
+            //    if (orden != null)
+            //    {
+            //        // Si encontró el cliente, lo pone en una lista para enlazar
+            //        var lista = new List<orden> { orden };
+            //        dgvOrdenes.DataSource = lista;
+            //        dgvOrdenes.DataBind();
+            //        //lblMensaje.Text = "";
+            //    }
+
+            //}
+            //else
+            //{
+            //    // Si no ingresó un número válido
+            //    dgvOrdenes.DataSource = ordenes;
+            //    dgvOrdenes.DataBind();
+            //    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+            //}
         }
     }
 }

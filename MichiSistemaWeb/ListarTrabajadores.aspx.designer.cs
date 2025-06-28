@@ -15,6 +15,15 @@ namespace MichiSistemaWeb
     {
 
         /// <summary>
+        /// Control DdlTipoTrabajador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTipoTrabajador;
+
+        /// <summary>
         /// Control lblNombreID.
         /// </summary>
         /// <remarks>
@@ -31,15 +40,6 @@ namespace MichiSistemaWeb
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreID;
-
-        /// <summary>
-        /// Control lbBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbBuscar;
 
         /// <summary>
         /// Control lblNombre.

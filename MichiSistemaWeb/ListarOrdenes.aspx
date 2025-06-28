@@ -9,6 +9,17 @@
     <div class="container">
         <h2>Listado de órdenes</h2>
         <div class="row align-items-center">
+            <div class="col-auto">
+                <asp:DropDownList ID="DdlTipoRecepcion" runat="server" CssClass="form-select">
+                    <%--
+         OnSelectedIndexChanged="DdlTipoRecepcion_SelectedIndexChanged" AutoPostBack="True">
+                    --%>
+                    <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                    <asp:ListItem Text="Delivery" Value="DELIVERY" />
+                    <asp:ListItem Text="Recojo en tienda" Value="RECOJO_EN _TIENDA" />
+                    <asp:ListItem Text="Otro" Value="OTRO" />
+                </asp:DropDownList>
+            </div>
             <div class="col-auto" >
                 <asp:Label ID="lblNombreID" CssClass="form-label" runat="server" Text="Ingrese el N° de Orden:"></asp:Label>
             </div>

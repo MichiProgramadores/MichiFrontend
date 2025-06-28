@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/UsuarioWS?xsd=1" namespace="com.MichiSistema" />
     </xsd:schema>
   </types>
-  <message name="eliminarUsuario">
-    <part name="parameters" element="tns:eliminarUsuario" />
-  </message>
-  <message name="eliminarUsuarioResponse">
-    <part name="parameters" element="tns:eliminarUsuarioResponse" />
-  </message>
   <message name="actualizarUsuario">
     <part name="parameters" element="tns:actualizarUsuario" />
   </message>
@@ -22,6 +16,12 @@
   </message>
   <message name="obtenerUsuarioResponse">
     <part name="parameters" element="tns:obtenerUsuarioResponse" />
+  </message>
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
+  </message>
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
   <message name="autenticarUsuario">
     <part name="parameters" element="tns:autenticarUsuario" />
@@ -42,10 +42,6 @@
     <part name="parameters" element="tns:registrarUsuarioResponse" />
   </message>
   <portType name="UsuarioWS">
-    <operation name="eliminarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
-    </operation>
     <operation name="actualizarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
@@ -53,6 +49,10 @@
     <operation name="obtenerUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioResponse" message="tns:obtenerUsuarioResponse" />
+    </operation>
+    <operation name="eliminarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
     </operation>
     <operation name="autenticarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
@@ -69,15 +69,6 @@
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="actualizarUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -88,6 +79,15 @@
       </output>
     </operation>
     <operation name="obtenerUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

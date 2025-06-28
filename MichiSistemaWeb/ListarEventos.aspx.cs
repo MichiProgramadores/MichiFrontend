@@ -14,6 +14,8 @@ namespace MichiSistemaWeb
         protected List<evento> eventos;
         protected void Page_Init(object sender, EventArgs e)
         {
+            txtNombre.Text = "";
+            DdlTipoEvento.SelectedIndex = 0;
             eventoWS = new EventoWSClient();
             CargarDatos();
         }
@@ -98,41 +100,80 @@ namespace MichiSistemaWeb
             {
                 // Obtener el texto del textbox
                 string textoId = txtNombre.Text.Trim();
+                string tipoSeleccionado = DdlTipoEvento.SelectedValue;
 
-                if (int.TryParse(textoId, out int idEvento))
-                {
-                    // Buscar cliente por ID usando tu capa de negocio o servicio
-                    var evento = eventoWS.obtenerEvento(idEvento);
+                // 2. Obtener TODOS los productos (sin filtros iniciales)
+                List<evento> listaCompleta = eventoWS.listarEventos().ToList();
+                List<evento> resultados = listaCompleta;
 
-                    if (evento != null)
-                    {
-                        // Si encontró el cliente, lo pone en una lista para enlazar
-                        var lista = new List<evento > { evento };
-                        dgvEventos.DataSource = lista;
-                        dgvEventos.DataBind();
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvEventos.DataSource = null;
-                        dgvEventos.DataBind();
-                        // lblMensaje.Text = "No se encontró evento con ese ID.";
-                    }
-                }
-                else
+                // 3. Aplicar filtros SOLO si el campo tiene valor
+                if (!string.IsNullOrEmpty(textoId))
                 {
-                    // Si no ingresó un número válido
-                    dgvEventos.DataSource = null;
-                    dgvEventos.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                    resultados = resultados
+                        .Where(c => c.evento_id.ToString().Contains(textoId))
+                        .ToList();
                 }
+
+                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
+                {
+                    resultados = resultados
+                        .Where(c => c.tipoEvento.ToString() == tipoSeleccionado)
+                        .ToList();
+                }
+
+                if (textoId == "" && tipoSeleccionado == "0")
+                {
+                    resultados = eventoWS.listarEventos().ToList();
+                }
+
+                // 4. Mostrar resultados
+                dgvEventos.DataSource = resultados;
+                dgvEventos.DataBind();
+
+                // 5. Opcional: Guardar en ViewState
+                ViewState["EventosFiltrados"] = resultados;
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar evento: " + ex.Message;
+                dgvEventos.DataSource = null;
+                dgvEventos.DataBind();
+                // lblMensaje.Text = "Error: " + ex.Message;
             }
-            txtNombre.Text = "";
+
+        //    if (int.TryParse(textoId, out int idEvento))
+        //        {
+        //            // Buscar cliente por ID usando tu capa de negocio o servicio
+        //            var evento = eventoWS.obtenerEvento(idEvento);
+
+        //            if (evento != null)
+        //            {
+        //                // Si encontró el cliente, lo pone en una lista para enlazar
+        //                var lista = new List<evento > { evento };
+        //                dgvEventos.DataSource = lista;
+        //                dgvEventos.DataBind();
+        //                //lblMensaje.Text = "";
+        //            }
+        //            else
+        //            {
+        //                // Si no encontró resultados
+        //                dgvEventos.DataSource = null;
+        //                dgvEventos.DataBind();
+        //                // lblMensaje.Text = "No se encontró evento con ese ID.";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // Si no ingresó un número válido
+        //            dgvEventos.DataSource = null;
+        //            dgvEventos.DataBind();
+        //            //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // lblMensaje.Text = "Error al buscar evento: " + ex.Message;
+        //    }
+        //    txtNombre.Text = "";
         }
 
     }

@@ -34,11 +34,11 @@
     
     <style>
         body {
-            background-image: url('Images/logo_act.png');
+            background-image: url('Images/logoG.gif');
             background-size: contain; /* Ajusta la imagen para que se vea completa */
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #F4F4F4;
+            background-color: #ffffff;
            // background-attachment: fixed;
         }
     </style>

@@ -9,6 +9,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/Fonts/css/modalCarga.css" rel="stylesheet" />
+    <link href="Content/Fonts/css/diseñoLink.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
@@ -23,19 +24,7 @@
     </title>
     <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
     </asp:ContentPlaceHolder>
-    <style>
-        /* Estilo base para el enlace */
-        .nav-link-hover {
-            color: black;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave para el cambio de color */
-        }
 
-            /* Efecto hover (cuando el mouse pasa sobre el enlace) */
-            .nav-link-hover:hover {
-                background-color: white ; /* El color de fondo en hover (puedes cambiarlo) */
-                color: white; /* Cambia el color del texto al pasar el mouse */
-            }
-    </style>
 </head>
 <body>
     <div class="container-fluid d-flex p-0 h-100" style="background-color: #E0E0E0;">

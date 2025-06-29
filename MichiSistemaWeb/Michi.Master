@@ -290,8 +290,6 @@ color: white;
 
                 </div>
              </nav>
-             <!-- Este es el Label que mostrará el mensaje en caso de que no haya resultados -->
-             <%--<asp:Label ID="lblMensajeBusqueda" runat="server" CssClass="alert alert-warning" Text="" Visible="false"></asp:Label>--%>
             <!-- Contenido de la Página web -->
             <div class="p-4">
                 <form runat="server">

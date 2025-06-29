@@ -5,10 +5,6 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_Scripts" runat="server">
 </asp:Content>
 
-
-
-
-
 <asp:Content ID="Content6" ContentPlaceHolderID="cph_Contenido" runat="server">
     <asp:Literal ID="LiteralMaxDate" runat="server" Visible="false"></asp:Literal>
     <h2>
@@ -78,10 +74,8 @@
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
-
                             </div>
                         </div>
-
                         <div class="col-sm-3">
                         </div>
                         <div class="modal-footer">
@@ -143,10 +137,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="LinkButton1" />
@@ -154,7 +144,6 @@
             <asp:AsyncPostBackTrigger ControlID="ddlEstadoTrabajador" EventName="SelectedIndexChanged" />
         </Triggers>
     </asp:UpdatePanel>
-    
     <!-- Aquí esta todo lo de reporte facturacion-->
     <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
         <div class="text-center justify-content-center">
@@ -168,7 +157,6 @@
             </div>
         </div>
     </div>
-
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
             <!-- Modal de selección de tipo de facturación -->
@@ -178,7 +166,6 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de facturación</h5>
                         </div>
-
                         <label>Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
                         <div class="modal-body">
                             <div class="mb-3 row">
@@ -187,33 +174,23 @@
                         <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" 
                             MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
                     </div>
-                </div>
-
-                <di class="mb-3 row">
+                </div
+                <div class="mb-3 row">
                     <asp:Label ID="lblFechaFin" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date" 
                             MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
                     </div>
-</di                        v>
-
+                </div>
                         </div>
-
-
                         <div class="modal-footer">
-                            
                             <asp:LinkButton ID="BotonCerrar" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click">Cerrar</asp:LinkButton>
                             <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteFacturacion_Click">Obtener reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            
-
         </ContentTemplate>
-
         <Triggers>
             <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
         </Triggers>
@@ -259,22 +236,15 @@
                                         MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
                                 </div>
                             </div>
-
                         </div>
-
-
                         <div class="modal-footer">
-                        
                             <asp:LinkButton ID="BotonCerrarRenta" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrarRenta_Click">Cerrar</asp:LinkButton>
                             <asp:LinkButton ID="BotonReporteRenta" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteRenta_Click">Obtener reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </ContentTemplate>
-
         <Triggers>
             <asp:PostBackTrigger ControlID="BotonReporteRenta" />
         </Triggers>
@@ -287,9 +257,9 @@
 
             // Obtén los controles de fecha
             var txtFechaRentaIni = document.getElementById('<%= txtFechaRentaIni.ClientID %>');
-        var txtFechaRentaFin = document.getElementById('<%= txtFechaRentaFin.ClientID %>');
-        var txtFechaInicio = document.getElementById('<%= txtFechaInicio.ClientID %>');
-        var txtFechaFin = document.getElementById('<%= txtFechaFin.ClientID %>');
+            var txtFechaRentaFin = document.getElementById('<%= txtFechaRentaFin.ClientID %>');
+            var txtFechaInicio = document.getElementById('<%= txtFechaInicio.ClientID %>');
+            var txtFechaFin = document.getElementById('<%= txtFechaFin.ClientID %>');
 
             // Establece las fechas mínima y máxima para cada uno
             txtFechaRentaIni.setAttribute('min', minDate.toISOString().split('T')[0]);

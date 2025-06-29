@@ -264,8 +264,7 @@ namespace MichiSistemaWeb
             comprobante.tax = monto * 0.1;
             //comprobante.tax = double.Parse(hdnTax.Value);
             comprobante.monto_total = monto + comprobante.tax;
-            comprobante.fecha_emisionSpecified = true;
-            //
+            
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -285,11 +284,13 @@ namespace MichiSistemaWeb
 
                 // Asignar los valores del formulario al objeto comprobante
                 AsignarValoresComprobante();
-                try
+                if (estado == Estado.Nuevo)
                 {
-                    List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
+                    try
+                    {
+                        List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
 
-                        if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobante.tipoComprobante== tipoComprobante.INVOICE)
+                        if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobante.tipoComprobante == tipoComprobante.INVOICE)
                         {
                             lanzarMensajedeError("Ya existe una invoice para esta orden.");
                             return;
@@ -299,26 +300,46 @@ namespace MichiSistemaWeb
                             lanzarMensajedeError("Ya existe un receipt para esta orden.");
                             return;
                         }
+                        if ((comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobantes.Any(c => c.estado == "PENDIENTE"))
+                            && comprobante.tipoComprobante == tipoComprobante.RECEIPT)
+                        {
+                            lanzarMensajedeError("Debe tener una invoice aprobada(completa) para generar un receipt.");
+                            return;
+                        }
+                    }
+                    catch
+                    {
+                        lanzarMensajedeError("Debe tener una invoice aprobada(completa) para generar un receipt.");
+                        return;
+                    }
 
-                }
-                catch
-                {
+                    if (comprobante.tipoComprobante == tipoComprobante.RECEIPT && comprobante.estado=="COMPLETO")
+                         ordenService.actualizarSaldoCero(comprobante.orden_id);
+                        comprobanteService.registrarComprobante(comprobante);
 
-                }
-
-
-
-
-                if (estado == Estado.Nuevo)
-                {
-                    
-                    comprobanteService.registrarComprobante(comprobante);
-                    if( comprobante.tipoComprobante == tipoComprobante.RECEIPT)
-                        ordenService.actualizarSaldoCero(comprobante.orden_id); 
                 }
                 else if (estado == Estado.Modificar)
                 {
-                    comprobanteService.actualizarComprobante(comprobante);
+                 
+                        List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
+                        //si no estoy modificando el tipo de comprobante
+                        if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobante.tipoComprobante == tipoComprobante.INVOICE ||
+                            comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT) && comprobante.tipoComprobante == tipoComprobante.RECEIPT)
+                        {
+                            if(comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT) && comprobante.tipoComprobante == tipoComprobante.RECEIPT 
+                            && comprobante.estado == "COMPLETO" && comprobantes.Any(c => c.estado == "PENDIENTE"))
+                                ordenService.actualizarSaldoCero(comprobante.orden_id);
+                            comprobanteService.actualizarComprobante(comprobante);
+                            
+                        }
+                        else
+                        {
+                            
+                            ordenService.actualizarSaldoCero(comprobante.orden_id);
+                            comprobanteService.actualizarComprobante(comprobante);
+                            
+                        }
+
                 }
 
                 // Redirigir

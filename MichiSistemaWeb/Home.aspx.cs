@@ -38,14 +38,16 @@ namespace MichiSistemaWeb
         {
 
             string tipo_seleccionado = Convert.ToString(ddlTipoTrabajador.SelectedValue);
+            string estado_seleccionado = Convert.ToString(ddlEstadoTrabajador.SelectedValue);
+
             if (tipo_seleccionado == "GENERAL")
             {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorEstado(estado_seleccionado);
                 dgvTrabajadoresEleccion.DataBind();
             }
             else
             {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorTipoEstado(tipo_seleccionado, estado_seleccionado);
                 dgvTrabajadoresEleccion.DataBind();
 
             }
@@ -109,18 +111,22 @@ namespace MichiSistemaWeb
         protected void ddlTipoTrabajador_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tipo_seleccionado = Convert.ToString(ddlTipoTrabajador.SelectedValue);
+            string estado_seleccionado = Convert.ToString(ddlEstadoTrabajador.SelectedValue);
+
 
             if (tipo_seleccionado == "GENERAL")
             {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorEstado(estado_seleccionado);
                 dgvTrabajadoresEleccion.DataBind();
             }
             else
             {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorTipoEstado(tipo_seleccionado, estado_seleccionado);
                 dgvTrabajadoresEleccion.DataBind();
 
             }
+
+
             IDREPORTE.Text = string.Empty;  
             NOMBREREPORTE.Text = string.Empty;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
@@ -260,7 +266,20 @@ namespace MichiSistemaWeb
 
         protected void ddlEstadoTrabajador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tipo_seleccionado = Convert.ToString(ddlEstadoTrabajador.SelectedValue);
+            string tipo_seleccionado = Convert.ToString(ddlTipoTrabajador.SelectedValue);
+            string estado_seleccionado = Convert.ToString(ddlEstadoTrabajador.SelectedValue);
+
+            if (tipo_seleccionado == "GENERAL")
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorEstado(estado_seleccionado);
+                dgvTrabajadoresEleccion.DataBind();
+            }
+            else
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listaTrabajadoresPorTipoEstado(tipo_seleccionado, estado_seleccionado);
+                dgvTrabajadoresEleccion.DataBind();
+
+            }
 
             /*if (tipo_seleccionado == "CUALQUIERA")
             {

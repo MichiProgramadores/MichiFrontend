@@ -119,6 +119,30 @@ namespace MichiSistemaWeb.MichiBackend {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/reporteTrabajadoresRequest", ReplyAction="com.MichiSistema/TrabajadorWS/reporteTrabajadoresResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse> reporteTrabajadoresAsync(MichiSistemaWeb.MichiBackend.reporteTrabajadoresRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorTipoEstadoRequest", ReplyAction="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorTipoEstadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(detalleOrden[]))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse listaTrabajadoresPorTipoEstado(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorTipoEstadoRequest", ReplyAction="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorTipoEstadoResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse> listaTrabajadoresPorTipoEstadoAsync(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorEstadoRequest", ReplyAction="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorEstadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(detalleOrden[]))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse listaTrabajadoresPorEstado(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorEstadoRequest", ReplyAction="com.MichiSistema/TrabajadorWS/listaTrabajadoresPorEstadoResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse> listaTrabajadoresPorEstadoAsync(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest request);
     }
     
     /// <remarks/>
@@ -2125,6 +2149,83 @@ namespace MichiSistemaWeb.MichiBackend {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaTrabajadoresPorTipoEstado", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class listaTrabajadoresPorTipoEstadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string tipo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string estado;
+        
+        public listaTrabajadoresPorTipoEstadoRequest() {
+        }
+        
+        public listaTrabajadoresPorTipoEstadoRequest(string tipo, string estado) {
+            this.tipo = tipo;
+            this.estado = estado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaTrabajadoresPorTipoEstadoResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class listaTrabajadoresPorTipoEstadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.trabajador[] @return;
+        
+        public listaTrabajadoresPorTipoEstadoResponse() {
+        }
+        
+        public listaTrabajadoresPorTipoEstadoResponse(MichiSistemaWeb.MichiBackend.trabajador[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaTrabajadoresPorEstado", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class listaTrabajadoresPorEstadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string estado;
+        
+        public listaTrabajadoresPorEstadoRequest() {
+        }
+        
+        public listaTrabajadoresPorEstadoRequest(string estado) {
+            this.estado = estado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaTrabajadoresPorEstadoResponse", WrapperNamespace="com.MichiSistema", IsWrapped=true)]
+    public partial class listaTrabajadoresPorEstadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public MichiSistemaWeb.MichiBackend.trabajador[] @return;
+        
+        public listaTrabajadoresPorEstadoResponse() {
+        }
+        
+        public listaTrabajadoresPorEstadoResponse(MichiSistemaWeb.MichiBackend.trabajador[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface TrabajadorWSChannel : MichiSistemaWeb.MichiBackend.TrabajadorWS, System.ServiceModel.IClientChannel {
     }
@@ -2356,6 +2457,54 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.ID_BUSCADO = ID_BUSCADO;
             inValue.ESTADO = ESTADO;
             return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).reporteTrabajadoresAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.listaTrabajadoresPorTipoEstado(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest request) {
+            return base.Channel.listaTrabajadoresPorTipoEstado(request);
+        }
+        
+        public MichiSistemaWeb.MichiBackend.trabajador[] listaTrabajadoresPorTipoEstado(string tipo, string estado) {
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest inValue = new MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest();
+            inValue.tipo = tipo;
+            inValue.estado = estado;
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).listaTrabajadoresPorTipoEstado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.listaTrabajadoresPorTipoEstadoAsync(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest request) {
+            return base.Channel.listaTrabajadoresPorTipoEstadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse> listaTrabajadoresPorTipoEstadoAsync(string tipo, string estado) {
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest inValue = new MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoRequest();
+            inValue.tipo = tipo;
+            inValue.estado = estado;
+            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).listaTrabajadoresPorTipoEstadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse MichiSistemaWeb.MichiBackend.TrabajadorWS.listaTrabajadoresPorEstado(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest request) {
+            return base.Channel.listaTrabajadoresPorEstado(request);
+        }
+        
+        public MichiSistemaWeb.MichiBackend.trabajador[] listaTrabajadoresPorEstado(string estado) {
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest inValue = new MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest();
+            inValue.estado = estado;
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).listaTrabajadoresPorEstado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse> MichiSistemaWeb.MichiBackend.TrabajadorWS.listaTrabajadoresPorEstadoAsync(MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest request) {
+            return base.Channel.listaTrabajadoresPorEstadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse> listaTrabajadoresPorEstadoAsync(string estado) {
+            MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest inValue = new MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoRequest();
+            inValue.estado = estado;
+            return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).listaTrabajadoresPorEstadoAsync(inValue);
         }
     }
     

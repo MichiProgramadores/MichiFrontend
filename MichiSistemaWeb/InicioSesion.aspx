@@ -13,6 +13,7 @@
     <script src="Scripts/jquery-3.7.1.js"></script>
     
     <script src="Scripts/michi/iniciarSesion.js"></script>
+    <script src="Scripts/michi/modalCarga.js" ></script>
     <script>
     function togglePasswordVisibility() {
         var passwordField = document.getElementById('<%= txtPassword.ClientID %>');
@@ -27,11 +28,11 @@
             passwordField.type = "password";
             eyeIcon.classList.remove('fa-eye');
             eyeIcon.classList.add('fa-eye-slash');
+            }
         }
-    }
     </script>
     <title>Inicio de Sesion</title>
-    
+
     <style>
         body {
             background-image: url('Images/logoG.gif');
@@ -39,7 +40,33 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #ffffff;
-           // background-attachment: fixed;
+            // background-attachment: fixed;
+        }
+
+        .modalCarga {
+            display: none; /* Ocultar por defecto */
+            position: fixed;
+            z-index: 1000; /* Asegura que el modal esté encima de otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modalCarga-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .modalCarga img {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
@@ -67,10 +94,18 @@
                     <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger text-center d-block" EnableViewState="false"></asp:Label>
                 </div>
                 <div class="text-center mt-3" >
-                    <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click" style="background-color: #FBCB43; border: none; color: #000000;"/>
+                    <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click" OnClientClick="showLoading()"
+                        style="background-color:  #FF7E5F; border: none"/>
                 </div>
+
             </form>
         </div>
+        <div id="loadingModal" class="modalCarga">
+     <div class="modalCarga-content">
+         <img src="Images/cargandoMov.gif" alt=" Cargando..." />
+     </div>
+ </div>
+
     </div>
 </body>
 </html>

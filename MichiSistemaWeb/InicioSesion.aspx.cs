@@ -20,6 +20,7 @@ namespace MichiSistemaWeb
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+
             lblMensaje.Text = "";
             usuario usuario = new usuario();
             string user = txtUsername.Text.Trim();
@@ -57,6 +58,11 @@ namespace MichiSistemaWeb
             }
             else
                 lblMensaje.Text = "No ha ingresado correctamente su usuario/password";
+        }
+
+        protected void btnLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

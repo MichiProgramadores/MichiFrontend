@@ -49,8 +49,8 @@
                                 <asp:DropDownList ID="ddlEstadoTrabajador" runat="server" CssClass="form-select"
                                     OnSelectedIndexChanged="ddlEstadoTrabajador_SelectedIndexChanged" AutoPostBack="true">
                                     <asp:ListItem Text="CUALQUIERA" Value="CUALQUIERA" />
-                                    <asp:ListItem Text="ACTIVOS" Value="DESPACHADOR" />
-                                    <asp:ListItem Text="INACTIVOS" Value="INACTIVOS" />
+                                    <asp:ListItem Text="ACTIVOS" Value="ACTIVO" />
+                                    <asp:ListItem Text="INACTIVOS" Value="INACTIVO" />
                                 </asp:DropDownList>
                             </div>
                             <label>Trabajador específico:</label>

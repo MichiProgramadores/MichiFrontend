@@ -5,18 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/UsuarioWS?xsd=1" namespace="com.MichiSistema" />
     </xsd:schema>
   </types>
-  <message name="listarUsuarios">
-    <part name="parameters" element="tns:listarUsuarios" />
-  </message>
-  <message name="listarUsuariosResponse">
-    <part name="parameters" element="tns:listarUsuariosResponse" />
-  </message>
-  <message name="autenticarUsuario">
-    <part name="parameters" element="tns:autenticarUsuario" />
-  </message>
-  <message name="autenticarUsuarioResponse">
-    <part name="parameters" element="tns:autenticarUsuarioResponse" />
-  </message>
   <message name="actualizarUsuario">
     <part name="parameters" element="tns:actualizarUsuario" />
   </message>
@@ -28,6 +16,18 @@
   </message>
   <message name="registrarUsuarioResponse">
     <part name="parameters" element="tns:registrarUsuarioResponse" />
+  </message>
+  <message name="listarUsuarios">
+    <part name="parameters" element="tns:listarUsuarios" />
+  </message>
+  <message name="listarUsuariosResponse">
+    <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
+  <message name="autenticarUsuario">
+    <part name="parameters" element="tns:autenticarUsuario" />
+  </message>
+  <message name="autenticarUsuarioResponse">
+    <part name="parameters" element="tns:autenticarUsuarioResponse" />
   </message>
   <message name="obtenerUsuario">
     <part name="parameters" element="tns:obtenerUsuario" />
@@ -42,14 +42,6 @@
     <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
   <portType name="UsuarioWS">
-    <operation name="listarUsuarios">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
-    </operation>
-    <operation name="autenticarUsuario">
-      <input wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
-      <output wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
-    </operation>
     <operation name="actualizarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
@@ -57,6 +49,14 @@
     <operation name="registrarUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioRequest" message="tns:registrarUsuario" />
       <output wsam:Action="com.MichiSistema/UsuarioWS/registrarUsuarioResponse" message="tns:registrarUsuarioResponse" />
+    </operation>
+    <operation name="listarUsuarios">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
+    <operation name="autenticarUsuario">
+      <input wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
+      <output wsam:Action="com.MichiSistema/UsuarioWS/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
     </operation>
     <operation name="obtenerUsuario">
       <input wsam:Action="com.MichiSistema/UsuarioWS/obtenerUsuarioRequest" message="tns:obtenerUsuario" />
@@ -69,24 +69,6 @@
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarUsuarios">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="autenticarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="actualizarUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -97,6 +79,24 @@
       </output>
     </operation>
     <operation name="registrarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="autenticarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

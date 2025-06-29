@@ -12,8 +12,8 @@
     </h2>
 
      <!-- Aquí esta todo lo de reporte -->
-    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="d-flex justify-content-center">
+    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="text-center justify-content-center">
             <div class="p-2" style="display: inline-block; margin-right: 10px;">
                 <asp:LinkButton ID="LinkButton5" runat="server" 
                     OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;" 
@@ -145,8 +145,8 @@
         </Triggers>
     </asp:UpdatePanel>
     <!-- Aquí esta todo lo de reporte facturacion-->
-    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="d-flex justify-content-center">
+    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="text-center justify-content-center">
             <div class="p-2" style="display: inline-block;">
                 <asp:LinkButton ID="LinkButton2" runat="server" 
                     OnClientClick="$('#reporteFacturacionModal').modal('show'); return false;" 
@@ -196,8 +196,8 @@
 
 
     <!-- Aquí esta todo lo de reporte rentas -->
-    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="d-flex justify-content-center">
+    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="text-center justify-content-center">
             <div class="p-2" style="display: inline-block;">
                 <asp:LinkButton ID="LinkButton3" runat="server" 
                     OnClientClick="$('#reporteRentasModal').modal('show'); return false;" 

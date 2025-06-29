@@ -255,9 +255,9 @@
 
             // Obtén los controles de fecha
             var txtFechaRentaIni = document.getElementById('<%= txtFechaRentaIni.ClientID %>');
-            var txtFechaRentaFin = document.getElementById('<%= txtFechaRentaFin.ClientID %>');
-            var txtFechaInicio = document.getElementById('<%= txtFechaInicio.ClientID %>');
-            var txtFechaFin = document.getElementById('<%= txtFechaFin.ClientID %>');
+        var txtFechaRentaFin = document.getElementById('<%= txtFechaRentaFin.ClientID %>');
+    var txtFechaInicio = document.getElementById('<%= txtFechaInicio.ClientID %>');
+    var txtFechaFin = document.getElementById('<%= txtFechaFin.ClientID %>');
 
             // Establece las fechas mínima y máxima para cada uno
             txtFechaRentaIni.setAttribute('min', minDate.toISOString().split('T')[0]);
@@ -272,7 +272,7 @@
             txtFechaFin.setAttribute('min', minDate.toISOString().split('T')[0]);
             txtFechaFin.setAttribute('max', currentDate.toISOString().split('T')[0]);
 
-            // Validación adicional en caso de que el usuario ingrese una fecha fuera de rango
+            // Validación adicional para los cambios de fecha
             txtFechaRentaIni.addEventListener('change', function () {
                 var selectedDate = new Date(txtFechaRentaIni.value);
                 if (selectedDate < minDate) {

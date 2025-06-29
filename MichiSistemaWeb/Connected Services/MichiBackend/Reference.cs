@@ -2093,12 +2093,17 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int ID_BUSCADO;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="com.MichiSistema", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ESTADO;
+        
         public reporteTrabajadoresRequest() {
         }
         
-        public reporteTrabajadoresRequest(string TIPO_TRABAJADOR, int ID_BUSCADO) {
+        public reporteTrabajadoresRequest(string TIPO_TRABAJADOR, int ID_BUSCADO, string ESTADO) {
             this.TIPO_TRABAJADOR = TIPO_TRABAJADOR;
             this.ID_BUSCADO = ID_BUSCADO;
+            this.ESTADO = ESTADO;
         }
     }
     
@@ -2331,10 +2336,11 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.reporteTrabajadores(request);
         }
         
-        public byte[] reporteTrabajadores(string TIPO_TRABAJADOR, int ID_BUSCADO) {
+        public byte[] reporteTrabajadores(string TIPO_TRABAJADOR, int ID_BUSCADO, string ESTADO) {
             MichiSistemaWeb.MichiBackend.reporteTrabajadoresRequest inValue = new MichiSistemaWeb.MichiBackend.reporteTrabajadoresRequest();
             inValue.TIPO_TRABAJADOR = TIPO_TRABAJADOR;
             inValue.ID_BUSCADO = ID_BUSCADO;
+            inValue.ESTADO = ESTADO;
             MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse retVal = ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).reporteTrabajadores(inValue);
             return retVal.@return;
         }
@@ -2344,10 +2350,11 @@ namespace MichiSistemaWeb.MichiBackend {
             return base.Channel.reporteTrabajadoresAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse> reporteTrabajadoresAsync(string TIPO_TRABAJADOR, int ID_BUSCADO) {
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse> reporteTrabajadoresAsync(string TIPO_TRABAJADOR, int ID_BUSCADO, string ESTADO) {
             MichiSistemaWeb.MichiBackend.reporteTrabajadoresRequest inValue = new MichiSistemaWeb.MichiBackend.reporteTrabajadoresRequest();
             inValue.TIPO_TRABAJADOR = TIPO_TRABAJADOR;
             inValue.ID_BUSCADO = ID_BUSCADO;
+            inValue.ESTADO = ESTADO;
             return ((MichiSistemaWeb.MichiBackend.TrabajadorWS)(this)).reporteTrabajadoresAsync(inValue);
         }
     }
@@ -3838,6 +3845,17 @@ namespace MichiSistemaWeb.MichiBackend {
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse")]
         System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse> actualizarEstadoFechaDevolucionAsync(MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionRequest request);
         
+        // CODEGEN: El parámetro 'idOrden' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona1))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(detalleOrden[]))]
+        MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse actualizarSaldoCero(MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroRequest", ReplyAction="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroResponse")]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse> actualizarSaldoCeroAsync(MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest request);
+        
         // CODEGEN: El parámetro 'orden' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://michisistemaws.com/OrdenWS/registrarOrdenRequest", ReplyAction="http://michisistemaws.com/OrdenWS/registrarOrdenResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3973,6 +3991,34 @@ namespace MichiSistemaWeb.MichiBackend {
     public partial class actualizarEstadoFechaDevolucionResponse {
         
         public actualizarEstadoFechaDevolucionResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarSaldoCero", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarSaldoCeroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://michisistemaws.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idOrden;
+        
+        public actualizarSaldoCeroRequest() {
+        }
+        
+        public actualizarSaldoCeroRequest(int idOrden) {
+            this.idOrden = idOrden;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarSaldoCeroResponse", WrapperNamespace="http://michisistemaws.com/", IsWrapped=true)]
+    public partial class actualizarSaldoCeroResponse {
+        
+        public actualizarSaldoCeroResponse() {
         }
     }
     
@@ -4321,6 +4367,28 @@ namespace MichiSistemaWeb.MichiBackend {
             inValue.idOrden = idOrden;
             inValue.estado = estado;
             return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarEstadoFechaDevolucionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse MichiSistemaWeb.MichiBackend.OrdenWS.actualizarSaldoCero(MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest request) {
+            return base.Channel.actualizarSaldoCero(request);
+        }
+        
+        public void actualizarSaldoCero(int idOrden) {
+            MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest();
+            inValue.idOrden = idOrden;
+            MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse retVal = ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarSaldoCero(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse> MichiSistemaWeb.MichiBackend.OrdenWS.actualizarSaldoCeroAsync(MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest request) {
+            return base.Channel.actualizarSaldoCeroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse> actualizarSaldoCeroAsync(int idOrden) {
+            MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest inValue = new MichiSistemaWeb.MichiBackend.actualizarSaldoCeroRequest();
+            inValue.idOrden = idOrden;
+            return ((MichiSistemaWeb.MichiBackend.OrdenWS)(this)).actualizarSaldoCeroAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

@@ -38,10 +38,19 @@
                                 <label for="ddlTipoTrabajador">Seleccione el tipo de trabajador:</label>
                                 <asp:DropDownList ID="ddlTipoTrabajador" runat="server" CssClass="form-select"
                                     OnSelectedIndexChanged="ddlTipoTrabajador_SelectedIndexChanged" AutoPostBack="true">
-
+                                    <asp:ListItem Text="GENERAL" Value="GENERAL" />
                                     <asp:ListItem Text="DESPACHADOR" Value="DESPACHADOR" />
                                     <asp:ListItem Text="DELIVERY" Value="DELIVERY" />
                                     <asp:ListItem Text="ASISTENTE" Value="ASISTENTE" />
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlEstado">Seleccione el estado::</label>
+                                <asp:DropDownList ID="ddlEstadoTrabajador" runat="server" CssClass="form-select"
+                                    OnSelectedIndexChanged="ddlEstadoTrabajador_SelectedIndexChanged" AutoPostBack="true">
+                                    <asp:ListItem Text="CUALQUIERA" Value="CUALQUIERA" />
+                                    <asp:ListItem Text="ACTIVOS" Value="DESPACHADOR" />
+                                    <asp:ListItem Text="INACTIVOS" Value="INACTIVOS" />
                                 </asp:DropDownList>
                             </div>
                             <label>Trabajador específico:</label>

@@ -38,8 +38,17 @@ namespace MichiSistemaWeb
         {
 
             string tipo_seleccionado = Convert.ToString(ddlTipoTrabajador.SelectedValue);
-            dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
-            dgvTrabajadoresEleccion.DataBind();
+            if (tipo_seleccionado == "GENERAL")
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
+                dgvTrabajadoresEleccion.DataBind();
+            }
+            else
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
+                dgvTrabajadoresEleccion.DataBind();
+
+            }
         }
 
         protected void LimpiarCampos()
@@ -73,7 +82,9 @@ namespace MichiSistemaWeb
 
             string tipoTrabajador = ddlTipoTrabajador.SelectedValue;
 
-            Byte[] FileBuffer = trabajadorWS.reporteTrabajadores(tipoTrabajador, idTrabajador);
+            string estadoTrabajador = ddlEstadoTrabajador.SelectedValue;
+
+            Byte[] FileBuffer = trabajadorWS.reporteTrabajadores(tipoTrabajador, idTrabajador, estadoTrabajador);
 
             if (FileBuffer != null)
             {
@@ -99,7 +110,7 @@ namespace MichiSistemaWeb
         {
             string tipo_seleccionado = Convert.ToString(ddlTipoTrabajador.SelectedValue);
 
-            if (tipo_seleccionado == "0")
+            if (tipo_seleccionado == "GENERAL")
             {
                 dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
                 dgvTrabajadoresEleccion.DataBind();
@@ -245,6 +256,31 @@ namespace MichiSistemaWeb
             {
                 Response.Write("Error: " + ex.Message);
             }
+        }
+
+        protected void ddlEstadoTrabajador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipo_seleccionado = Convert.ToString(ddlEstadoTrabajador.SelectedValue);
+
+            /*if (tipo_seleccionado == "CUALQUIERA")
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
+                dgvTrabajadoresEleccion.DataBind();
+            }
+            else
+            {
+                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
+                dgvTrabajadoresEleccion.DataBind();
+
+            }*/
+            IDREPORTE.Text = string.Empty;
+            NOMBREREPORTE.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
+            "$('#tipoTrabajadorModal').modal('hide');" +
+            "$('#modalTrabajadores').modal('hide');" +
+            "$('.modal-backdrop').remove();" +
+            "$('#tipoTrabajadorModal').modal('show');",
+            true);
         }
     }
 }

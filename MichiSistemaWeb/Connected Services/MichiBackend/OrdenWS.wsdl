@@ -11,6 +11,12 @@
   <message name="actualizarEstadoFechaDevolucionResponse">
     <part name="parameters" element="tns:actualizarEstadoFechaDevolucionResponse" />
   </message>
+  <message name="actualizarSaldoCero">
+    <part name="parameters" element="tns:actualizarSaldoCero" />
+  </message>
+  <message name="actualizarSaldoCeroResponse">
+    <part name="parameters" element="tns:actualizarSaldoCeroResponse" />
+  </message>
   <message name="registrarOrden">
     <part name="parameters" element="tns:registrarOrden" />
   </message>
@@ -70,6 +76,10 @@
       <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionRequest" message="tns:actualizarEstadoFechaDevolucion" />
       <output wsam:Action="http://michisistemaws.com/OrdenWS/actualizarEstadoFechaDevolucionResponse" message="tns:actualizarEstadoFechaDevolucionResponse" />
     </operation>
+    <operation name="actualizarSaldoCero">
+      <input wsam:Action="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroRequest" message="tns:actualizarSaldoCero" />
+      <output wsam:Action="http://michisistemaws.com/OrdenWS/actualizarSaldoCeroResponse" message="tns:actualizarSaldoCeroResponse" />
+    </operation>
     <operation name="registrarOrden">
       <input wsam:Action="http://michisistemaws.com/OrdenWS/registrarOrdenRequest" message="tns:registrarOrden" />
       <output wsam:Action="http://michisistemaws.com/OrdenWS/registrarOrdenResponse" message="tns:registrarOrdenResponse" />
@@ -110,6 +120,15 @@
   <binding name="OrdenWSPortBinding" type="tns:OrdenWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="actualizarEstadoFechaDevolucion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarSaldoCero">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

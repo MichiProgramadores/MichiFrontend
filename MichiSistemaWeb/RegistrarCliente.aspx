@@ -17,21 +17,24 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtIDCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtIDCliente" runat="server" CssClass="form-control"  
+                            data-bs-toggle="tooltip" title="Identificador del cliente"></asp:TextBox>
                     </div>
                 </div>
 
                  <div class="mb-3 row">
                      <asp:Label ID="lblNombres" runat="server" Text="*Nombres: " CssClass="col-sm-2 form-label"></asp:Label>
                      <div class="col-sm-8">
-                          <asp:TextBox id="txtNombres" runat="server" CssClass="form-control"></asp:TextBox>
+                          <asp:TextBox id="txtNombres" runat="server" CssClass="form-control" 
+                              data-bs-toggle="tooltip" title="Nombre/s del cliente"></asp:TextBox>
                      </div>
                  </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblApellidos" runat="server" Text="*Apellidos: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtApellidos" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Apellidos del cliente"></asp:TextBox>
                     </div>
                 </div>
 
@@ -39,21 +42,24 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblCelular" CssClass="col-sm-2 form-label" runat="server" Text="*Celular:"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtCelular" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtCelular" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Número telefónico del cliente"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblEmail" runat="server" Text="*Email: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtEmail" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Correo electrónico del cliente"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblTipoCliente" runat="server" Text="*Tipo de Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
+                        <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select" 
+                            data-bs-toggle="tooltip" title="Indica la categoría del cliente">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -61,21 +67,24 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblNumeroTipoCliente" runat="server" Text="*Número de tipo de cliente: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtNumeroTipoCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtNumeroTipoCliente" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Identificación única correspondiente al tipo de cliente"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblPuntuacion" runat="server" Text="Puntuación: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtPuntuacion" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtPuntuacion" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Indica la puntuación del cliente (de 0 a 100)"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblActivo" runat="server" Text="Activo: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtActivo" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtActivo" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Indica el estado actual del trabajador"></asp:TextBox>
                     </div>
                 </div>
 

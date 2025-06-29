@@ -63,6 +63,15 @@
   <xs:complexType name="actualizarTrabajadorResponse">
     <xs:sequence />
   </xs:complexType>
+  <xs:complexType name="registrarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
+      <xs:element minOccurs="0" name="str_tipoTrabajador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarTrabajadorResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="listarTrabajadoresPorTipo">
     <xs:sequence>
       <xs:element minOccurs="0" name="tipoTrabajador" type="xs:string" />
@@ -72,15 +81,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="registrarTrabajador">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="trabajador" type="tns:trabajador" />
-      <xs:element minOccurs="0" name="str_tipoTrabajador" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="registrarTrabajadorResponse">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarTrabajadores">
     <xs:sequence />

@@ -18,14 +18,16 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtIDProducto" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtIDProducto" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Identificador del producto"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblNombre" runat="server" Text="*Nombre: " CssClass="col-sm-2 form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Nombre del producto"></asp:TextBox>
                     </div>
                 </div>
 
@@ -33,35 +35,40 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblPrecio" runat="server" Text="*Precio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Precio de alquiler del producto por unidad"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblEdadMin" runat="server" Text="*Edad Mínima: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtEdadMin" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtEdadMin" runat="server" CssClass="form-control" 
+                             data-bs-toggle="tooltip" title="Edad mínima permitida para el uso del producto"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblStockAct" runat="server" Text="*Stock actual: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtStockAct" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtStockAct" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Stock actual del producto en almacén"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblStockMin" runat="server" Text="*Stock minimo: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtStockMin" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtStockMin" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="El stock mínimo del producto que se tiene que tener en almacén"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblTipo" CssClass="col-sm-2 form-label" runat="server" Text="*Categoría: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipo" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlTipo" runat="server" CssClass="form-control"  
+                            data-bs-toggle="tooltip" title="Categoría del producto">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -69,21 +76,24 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblVolumen" runat="server" Text="*Volumen: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtVolumen" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtVolumen" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Estimado del volumen del producto, es relevante para el transporte"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblDescripcion" runat="server" Text="*Descripción: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtDescrip" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtDescrip" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Descripción general del producto"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblUnidMed" runat="server" Text="*Unidad de medida: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlUnidadMedida" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlUnidadMedida" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Unidad de medida del producto">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -91,7 +101,8 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblEstado" runat="server" Text="Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Indica el estado actual del producto"></asp:TextBox>
                     </div>
                 </div>
 

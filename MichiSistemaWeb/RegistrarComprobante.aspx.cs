@@ -264,6 +264,7 @@ namespace MichiSistemaWeb
             comprobante.tax = monto * 0.1;
             //comprobante.tax = double.Parse(hdnTax.Value);
             comprobante.monto_total = monto + comprobante.tax;
+            comprobante.fecha_emisionSpecified = true;
             //
         }
 
@@ -284,31 +285,36 @@ namespace MichiSistemaWeb
 
                 // Asignar los valores del formulario al objeto comprobante
                 AsignarValoresComprobante();
+                try
+                {
+                    List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
 
-                List<comprobante> comprobantes = comprobanteService.obtenerComprobantesPorOrden(comprobante.orden_id).ToList();
+                        if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobante.tipoComprobante== tipoComprobante.INVOICE)
+                        {
+                            lanzarMensajedeError("Ya existe una invoice para esta orden.");
+                            return;
+                        }
+                        if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT) && comprobante.tipoComprobante == tipoComprobante.RECEIPT)
+                        {
+                            lanzarMensajedeError("Ya existe un receipt para esta orden.");
+                            return;
+                        }
 
-                    if (comprobantes.Count >= 2)
-                    {
+                }
+                catch
+                {
 
-                        lanzarMensajedeError("No se pueden registrar más de 2 comprobantes por orden.");
-                        return;
-                    }
-                    if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE))
-                    {
-                        lanzarMensajedeError("Ya existe una invoice para esta orden.");
-                        return;
-                    }
-                    if (comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT))
-                    {
-                        lanzarMensajedeError("Ya existe un receipt para esta orden.");
-                        return;
-                    }
-                
+                }
+
+
 
 
                 if (estado == Estado.Nuevo)
                 {
+                    
                     comprobanteService.registrarComprobante(comprobante);
+                    if( comprobante.tipoComprobante == tipoComprobante.RECEIPT)
+                        ordenService.actualizarSaldoCero(comprobante.orden_id); 
                 }
                 else if (estado == Estado.Modificar)
                 {

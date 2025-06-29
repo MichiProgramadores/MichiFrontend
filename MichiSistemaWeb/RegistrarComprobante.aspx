@@ -22,7 +22,8 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblIdComprobante" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtIdComprobante" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtIdComprobante" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Identificador del comprobante"></asp:TextBox>
                     </div>
                 </div>
 
@@ -31,7 +32,8 @@
 
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <asp:TextBox ID="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtIdOrden" runat="server" CssClass="form-control" 
+                                data-bs-toggle="tooltip" title="Orden asociada al comprobante"></asp:TextBox>
                             <asp:HiddenField ID="hdnOrdenId" runat="server" />
 
                            
@@ -56,7 +58,8 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblIdCliente" runat="server" CssClass="col-sm-2 col-form-label" Text="Cliente: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtIdCliente" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Cliente asociado a la orden y el comprobante"></asp:TextBox>
                         <asp:HiddenField ID="hdnClienteId" runat="server" />
                     </div>
                 </div>
@@ -79,7 +82,8 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="Monto total: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtMonto" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtMonto" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Monto total del comprobante"></asp:TextBox>
                     </div>
                 </div> 
                     
@@ -87,21 +91,24 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblEstado" runat="server" Text="Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtEstado" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtEstado" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Indica el estado actual del comprobante"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaEmis" runat="server" Text="Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaEmis" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox id="txtFechaEmis" runat="server" CssClass="form-control" TextMode="Date"
+                            data-bs-toggle="tooltip" title="Fecha de emisión del comprobante"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoComprobante" runat="server" Text="*Tipo comprobante: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipoComprobante" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlTipoComprobante" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Indica el tipo de comprobante">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -109,7 +116,8 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblTax" runat="server" Text="Tax: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtTax" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtTax" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Indica el tax total del comprobante"></asp:TextBox>
                         <asp:HiddenField ID="hdnTax" runat="server" />
                     </div>
                 </div>

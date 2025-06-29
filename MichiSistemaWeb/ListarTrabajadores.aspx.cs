@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,20 +18,48 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             trabajadorWS = new TrabajadorWSClient();
-            CargarDatos();
+            //CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            trabajadorWS = new TrabajadorWSClient();
+            //trabajadorWS = new TrabajadorWSClient();
             CargarDatos();
-            */
+
         }
         protected void CargarDatos()
         {
+            /*
             trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
             dgvEmpleados.DataSource = trabajadores;
             dgvEmpleados.DataBind();
+            */
+
+            // Si ya está cargado en ViewState (evita llamar al WS de nuevo)
+            if (ViewState["TrabajadoresFiltrados"] != null)
+            {
+                trabajadores = (List<trabajador>)ViewState["TrabajadoresFiltrados"];
+            }
+            else
+            {
+                // Si no, filtra y guarda en ViewState
+                trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
+                ViewState["TrabajadoresFiltrados"] = trabajadores;
+            }
+
+            dgvEmpleados.DataSource = trabajadores;
+            dgvEmpleados.DataBind();
+
+        }
+
+        protected void ListarTodos_Click(object sender, EventArgs e)
+        {
+            trabajadores = trabajadorWS.listarTrabajadores().ToList();
+            ViewState["TrabajadoresFiltrados"] = trabajadores; // Guarda en ViewState
+            dgvEmpleados.DataSource = trabajadores;
+            dgvEmpleados.DataBind();
+            txtNombreID.Text = "";
+            txtNombre.Text = "";
+            DdlTipoTrabajador.SelectedIndex = 0;
         }
 
         protected void dgvEmpleados_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -69,7 +98,7 @@ namespace MichiSistemaWeb
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
             trabajador trabajador = trabajadores.SingleOrDefault(x => x.persona_id == idEmpleado);
-           Session["trabajadorSeleccionado"] = trabajador;
+            Session["trabajadorSeleccionado"] = trabajador;
             Response.Redirect("RegistrarTrabajador.aspx?accion=modificar");
         }
 
@@ -132,7 +161,7 @@ namespace MichiSistemaWeb
                 dgvEmpleados.DataBind();
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
-            
+
 
         }
 
@@ -224,13 +253,5 @@ namespace MichiSistemaWeb
             //}
         }
 
-        protected void ListarTodos_Click(object sender, EventArgs e)
-        {
-            trabajadores = trabajadorWS.listarTrabajadores().ToList();
-            dgvEmpleados.DataSource = trabajadores;
-            dgvEmpleados.DataBind();
-            txtNombreID.Text = "";
-            txtNombre.Text = "";
-        }
     }
 }

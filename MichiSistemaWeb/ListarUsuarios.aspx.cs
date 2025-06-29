@@ -81,7 +81,7 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
-            txtNombreID.Text = "";
+            //txtNombreID.Text = "";
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace MichiSistemaWeb
         protected void lbModificar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
-            usuario usuario= usuarios.SingleOrDefault(x => x.id == idEmpleado);
+            usuario usuario = usuarios.SingleOrDefault(x => x.id == idEmpleado);
             Session["usuarioSeleccionado"] = usuario;
             Response.Redirect("RegistrarUsuario.aspx?accion=modificar");
         }
@@ -102,10 +102,28 @@ namespace MichiSistemaWeb
         }
         protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {
-            int idUsuario= int.Parse(hfIdEliminar.Value);
-            usuarioWS.eliminarUsuario(idUsuario);
-            Response.Redirect("ListarUsuarios.aspx");
+            int idUsuario = int.Parse(hfIdEliminar.Value);
+            trabajador trabajador = (trabajador)Session["trabajador"];
+            int idSesion = trabajador.persona_id;
+
+            if (idUsuario == idSesion)
+            {
+                lanzarMensajedeError("ERROR: No se puede eliminar a si mismo");
+            }
+            else
+            {
+                usuarioWS.eliminarUsuario(idUsuario);
+                Response.Redirect("ListarUsuarios.aspx");
+            }
         }
+
+        public void lanzarMensajedeError(String mensaje)
+        {
+            lblMensajeError.Text = mensaje;
+            string script = "mostrarModalError();";
+            ScriptManager.RegisterStartupScript(this, GetType(), "modalError", script, true);
+        }
+
         protected void dgvUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -134,7 +152,7 @@ namespace MichiSistemaWeb
                         e.Row.Cells[3].Text = "No encontrado";
                     }
                 }
-               
+
                 // Obtén los controles dentro de la fila
                 LinkButton lbEliminar = (LinkButton)e.Row.FindControl("lbEliminar");
                 LinkButton lbModificar = (LinkButton)e.Row.FindControl("lbModificar");
@@ -155,7 +173,7 @@ namespace MichiSistemaWeb
                         lbEliminar.Visible = false;
                         lbModificar.Visible = false;
 
-                    }   
+                    }
                 }
                 else
                 {

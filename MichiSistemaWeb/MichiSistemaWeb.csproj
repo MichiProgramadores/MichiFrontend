@@ -324,15 +324,13 @@
     <Content Include="Content\site.css" />
     <Content Include="Home.aspx" />
     <Content Include="Images\cargando.png" />
+    <Content Include="Images\cargandoMov.gif" />
     <Content Include="Images\conFondo.jpg" />
     <Content Include="Images\fin.png" />
     <Content Include="Images\final.png" />
-    <Content Include="Images\imagen.jpg" />
     <Content Include="Images\login.jpg" />
     <Content Include="Images\loginf.jpg" />
     <Content Include="Images\loginSF.png" />
-    <Content Include="Images\logo.jpg" />
-    <Content Include="Images\logo2.png" />
     <Content Include="Images\logoFin.png" />
     <Content Include="Images\logoG.gif" />
     <Content Include="Images\logoMulti.png" />

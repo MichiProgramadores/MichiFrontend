@@ -57,7 +57,7 @@
                 </div>
 
             </div>
-            <div class="container row">
+            <div class="container-row">
                 <asp:GridView ID="dgvClientes" runat="server" AutoGenerateColumns="false"
                     OnRowDataBound="dgvClientes_RowDataBound" AllowPaging="true"
                     OnPageIndexChanging="dgvClientes_PageIndexChanging" PageSize="8"

@@ -17,7 +17,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_Contenido" runat="server">    
      <div class="container">
          <h2>Listado de comprobantes</h2>
-        <div class="container row">
+        <div class="container-row">
             <div class="row align-items-center">
                 <div class="col-auto">
                     <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el ID del comprobante:"></asp:Label>

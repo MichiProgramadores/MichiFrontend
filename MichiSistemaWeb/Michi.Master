@@ -38,6 +38,7 @@
             }
 
             body .mynav {
+                 background-color: #E0E0E0;
                 color: black;
             }
             body .bg-light{
@@ -205,6 +206,28 @@ color: white;
             background-color: #333; /* Fondo oscuro */
             color: white;
       }
+      body.dark-mode  .d-flex .flex-column{
+           background-color: #1c1c1c; /* Fondo oscuro */
+           color: white;
+      }
+      body  .d-flex .flex-column{
+          background-color: #E0E0E0; /* Fondo oscuro */
+           color: black;
+      }
+      body.dark-mode .row{
+          background-color: #333; /* Fondo oscuro */
+          color: white;
+      }
+     body.dark-mode .container-row{
+         background-color: #333; /* Fondo oscuro */
+         color: white;
+      }
+      body.dark-mode  .table .table-hover .table-responsive .table-striped{
+         background-color: #333; /* Fondo oscuro */
+         color: white;
+      }
+
+  
     </style>
    
      <!-- El nuevo script para aplicar el tema inmediatamente -->
@@ -225,7 +248,7 @@ color: white;
 <body>
     <div class="container-fluid d-flex p-0 h-100" >
         <!-- Division de la izquierda-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start" >
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 offcanvas-md offcanvas-start" >
             <a href="Home.aspx" class="navbar-brand">
                 <img src="Images/logo_act.png" width="150" />
             </a>

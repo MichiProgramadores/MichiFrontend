@@ -20,6 +20,8 @@
   <xs:element name="orden" type="tns:orden" />
   <xs:element name="registrarOrden" type="tns:registrarOrden" />
   <xs:element name="registrarOrdenResponse" type="tns:registrarOrdenResponse" />
+  <xs:element name="reporteRenta" type="tns:reporteRenta" />
+  <xs:element name="reporteRentaResponse" type="tns:reporteRentaResponse" />
   <xs:complexType name="actualizarEstadoDevolucion">
     <xs:sequence>
       <xs:element name="idOrden" type="xs:int" />
@@ -107,6 +109,17 @@
   </xs:complexType>
   <xs:complexType name="actualizarEstadoFechaDevolucionResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="reporteRenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha_inicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_fin" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteRentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarOrdenesPorTipo">
     <xs:sequence>

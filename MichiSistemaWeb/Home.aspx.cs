@@ -13,11 +13,13 @@ namespace MichiSistemaWeb
 
         protected TrabajadorWSClient trabajadorWS;
         protected ComprobanteWSClient comprobanteWS;
+        protected OrdenWSClient ordenWS;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             trabajadorWS = new TrabajadorWSClient();
             comprobanteWS = new ComprobanteWSClient();
+            ordenWS=new OrdenWSClient();
 
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -144,42 +146,32 @@ namespace MichiSistemaWeb
         {
             try
             {
-                // Obtener las fechas desde los TextBox
                 string fechaInicioStr = txtFechaInicio.Text;
                 string fechaFinStr = txtFechaFin.Text;
 
-                // Validar si fechaInicio es null o vacío, asignar 1 de enero del año actual si lo es
                 DateTime fechaInicio;
                 if (string.IsNullOrEmpty(fechaInicioStr))
                 {
-                    // Obtener el año actual del sistema
                     int currentYear = DateTime.Now.Year;
-                    // Asignar el 1 de enero del año actual
-                    fechaInicio = new DateTime(currentYear, 1, 1);
+                    fechaInicio = new DateTime(currentYear, DateTime.Now.Month, 1);
                 }
                 else
                 {
-                    // Convertir la fecha de inicio desde el string a DateTime
                     fechaInicio = DateTime.Parse(fechaInicioStr);
                 }
 
-                // Validar si fechaFin es null o vacío, asignar fecha actual si lo es
                 DateTime fechaFin;
                 if (string.IsNullOrEmpty(fechaFinStr))
                 {
-                    // Asignar la fecha actual
                     fechaFin = DateTime.Now;
                 }
                 else
                 {
-                    // Convertir la fecha de fin desde el string a DateTime
                     fechaFin = DateTime.Parse(fechaFinStr);
                 }
 
-                // Llamar al servicio para generar el reporte de facturación
                 Byte[] fileBuffer = comprobanteWS.reporteFacturacion(fechaInicio, fechaFin);
 
-                // Si el reporte se generó correctamente, enviarlo como PDF
                 if (fileBuffer != null)
                 {
                     Response.ContentType = "application/pdf";
@@ -189,8 +181,6 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                // Manejo de errores si hay problemas con la conversión de fechas o la generación del reporte
-                // Puedes mostrar un mensaje de error o hacer un logging aquí
                 Response.Write("Error: " + ex.Message);
             }
         }
@@ -203,6 +193,58 @@ namespace MichiSistemaWeb
                 "$('.modal-backdrop').remove();" +
             "$('#reporteFacturacionModal').modal('hide');", true);
            
+        }
+
+        protected void BotonCerrarRenta_Click(object sender, EventArgs e)
+        {
+            txtFechaRentaIni.Text = string.Empty;
+            txtFechaRentaFin.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModal",
+                "$('.modal-backdrop').remove();" +
+            "$('#reporteRentasModal').modal('hide');", true);
+        }
+
+        protected void BotonReporteRenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string fechaInicioStr = txtFechaRentaIni.Text;
+                string fechaFinStr = txtFechaRentaFin.Text;
+
+                DateTime fechaInicio;
+                if (string.IsNullOrEmpty(fechaInicioStr))
+                {
+                    int currentYear = DateTime.Now.Year;
+                    fechaInicio = new DateTime(currentYear, DateTime.Now.Month, 1);
+                }
+                else
+                {
+                    fechaInicio = DateTime.Parse(fechaInicioStr);
+                }
+
+                DateTime fechaFin;
+                if (string.IsNullOrEmpty(fechaFinStr))
+                {
+                    fechaFin = DateTime.Now;
+                }
+                else
+                {
+                    fechaFin = DateTime.Parse(fechaFinStr);
+                }
+
+                Byte[] fileBuffer = ordenWS.reporteRenta(fechaInicio, fechaFin);
+
+                if (fileBuffer != null)
+                {
+                    Response.ContentType = "application/pdf";
+                    Response.AddHeader("content-length", fileBuffer.Length.ToString());
+                    Response.BinaryWrite(fileBuffer);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("Error: " + ex.Message);
+            }
         }
     }
 }

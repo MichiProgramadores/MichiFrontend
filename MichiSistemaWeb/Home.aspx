@@ -139,7 +139,7 @@
                             <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de facturación</h5>
                         </div>
 
-                        <label>Si no se específica la fecha, se emitirá el reporte del año actual:</label>
+                        <label>Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
@@ -200,18 +200,18 @@
                             <h5 class="modal-title" id="reporteRentasModalLabel">Reporte de rentas</h5>
                         </div>
 
-                        <label>Si no se específica la fecha, se emitirá el reporte del año actual:</label>
+                        <label>Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <asp:Label ID="Label1" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                                 <div class="col-sm-8">
-                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaRentaIni" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <asp:Label ID="Label2" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
                                 <div class="col-sm-8">
-                                    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaRentaFin" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -220,8 +220,8 @@
 
                         <div class="modal-footer">
                         
-                            <asp:LinkButton ID="LinkButton4" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click">Cerrar</asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton6" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteFacturacion_Click">Obtener reporte</asp:LinkButton>
+                            <asp:LinkButton ID="BotonCerrarRenta" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrarRenta_Click">Cerrar</asp:LinkButton>
+                            <asp:LinkButton ID="BotonReporteRenta" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteRenta_Click">Obtener reporte</asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
         </ContentTemplate>
 
         <Triggers>
-            <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
+            <asp:PostBackTrigger ControlID="BotonReporteRenta" />
         </Triggers>
     </asp:UpdatePanel>
 

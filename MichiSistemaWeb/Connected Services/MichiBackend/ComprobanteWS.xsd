@@ -120,10 +120,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="INVOICE" />
       <xs:enumeration value="RECEIPT" />
-      <xs:enumeration value="CREDIT_NOTE" />
-      <xs:enumeration value="DEBIT_NOTE" />
-      <xs:enumeration value="PURCHASE_ORDER" />
-      <xs:enumeration value="SALES_ORDER" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

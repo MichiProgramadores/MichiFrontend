@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script type="text/javascript">
-        function mostrarModalEliminar(id) {
+        function mostrarModalEliminar(id) { <%-- Incluimos el js en esta sección por tener un atributo en específico --%>
             const campoOculto = document.getElementById('<%= hfIdEliminar.ClientID %>');
             campoOculto.value = id;
 
@@ -22,9 +22,6 @@
             <div class="row align-items-center">
                  <div class="col-auto">
                      <asp:DropDownList ID="DdlTipoCliente" runat="server" CssClass="form-select">
-                         <%--
-                         OnSelectedIndexChanged="DdlTipoCliente_SelectedIndexChanged" AutoPostBack="True">
-                         --%>
                          <asp:ListItem Text="Seleccione un tipo" Value="0" />
                          <asp:ListItem Text="Empleador" Value="EIN" />
                          <asp:ListItem Text="Persona Contribuyente" Value="TIN" />
@@ -38,12 +35,6 @@
                 <div class="col-sm-1">
                     <asp:TextBox ID="txtNombreID" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
-                <%--
-                <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
-                </div>
-                    --%>
 
                 <div class="col-auto">
                     <asp:Label ID="LabelNombre" CssClass="form-label" runat="server" Text="Ingrese nombre:"></asp:Label>
@@ -83,13 +74,6 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbModificar_Click" />
-
-                                <%--1:
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>"  CommandArgument='<%# Eval("persona_id") %>' OnClick="lbEliminar_Click"/>
-                                --%>
-                                <%--2: 
-                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClick="lbEliminar_Click" OnClientClick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');" />
-                                --%>
 
                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4' style='color: #FBCB43;'></i>" CommandArgument='<%# Eval("persona_id") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("persona_id") + "); return false;" %>' />
 

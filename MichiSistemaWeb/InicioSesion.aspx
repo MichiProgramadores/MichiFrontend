@@ -7,6 +7,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/Fonts/css/modalCarga.css" rel="stylesheet" />
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
@@ -19,7 +20,7 @@
         var passwordField = document.getElementById('<%= txtPassword.ClientID %>');
         var eyeIcon = document.getElementById('eyeIcon');
         
-        // Si la contraseña está oculta, la hacemos visible
+        // Si la contraseña está oculta, la hacemos visible, encriptamos en esta sección
         if (passwordField.type === "password") {
             passwordField.type = "text";
             eyeIcon.classList.remove('fa-eye-slash');
@@ -31,49 +32,23 @@
             }
         }
     </script>
-    <title>Inicio de Sesion</title>
+    <title>Inicio de sesion</title>
 
     <style>
         body {
             background-image: url('Images/logoG.gif');
-            background-size: contain; /* Ajusta la imagen para que se vea completa */
+            background-size: contain; /* Ajusta la imagen para que se vea completa, css en esta sección para no cargar muchos archivos al mismo tiempo */
             background-position: center;
             background-repeat: no-repeat;
             background-color: #ffffff;
             // background-attachment: fixed;
-        }
-
-        .modalCarga {
-            display: none; /* Ocultar por defecto */
-            position: fixed;
-            z-index: 1000; /* Asegura que el modal esté encima de otros elementos */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .modalCarga-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-        .modalCarga img {
-            width: 50px;
-            height: 50px;
         }
     </style>
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="card p-4" style="width: 100%; max-width: 400px;">
-            <h3 class="card-title text-center mb-4">Inicio de Sesión</h3>
+            <h3 class="card-title text-center mb-4">Inicio de sesión</h3>
             <form id="formLogin" runat="server">
                 <div class="form-group">
                     <label for="txtUsername">Usuario</label>

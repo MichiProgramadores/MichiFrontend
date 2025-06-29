@@ -16,11 +16,9 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             clienteWS = new ClienteWSClient();
-            //CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //clienteWS = new ClienteWSClient();
             CargarDatos();
         }
         protected void CargarDatos()
@@ -185,134 +183,5 @@ namespace MichiSistemaWeb
             Session["clienteSeleccionado"] = cliente;
             Response.Redirect("RegistrarCliente.aspx?accion=ver");
         }
-
-        /*
-        protected void lbEliminar_Click(object sender, EventArgs e)
-        {
-            int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
-            clienteWS.eliminarCliente(idCliente);
-            Response.Redirect("ListarClientes.aspx");
-        }
-        */
-
-        /*
-        protected void lbBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Obtener el texto del textbox
-                string textoId = txtNombreID.Text.Trim();
-
-                if (int.TryParse(textoId, out int idCliente))
-                {
-                    // Buscar cliente por ID usando tu capa de negocio o servicio
-
-                    //var cliente = clienteWS.obtenerCliente(idCliente);
-                    cliente cliente = clientes.SingleOrDefault(x => x.persona_id == idCliente);
-
-                    if (cliente != null)
-                    {
-                        // Si encontró el cliente, lo pone en una lista para enlazar
-
-                        
-                        //var lista = new List<cliente> { cliente };
-                        //dgvClientes.DataSource = lista;
-                        //dgvClientes.DataBind();
-
-                        clientes= new List<cliente> { cliente };
-                        dgvClientes.DataSource = clientes;
-                        dgvClientes.DataBind();
-
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvClientes.DataSource = null;
-                        dgvClientes.DataBind();
-                       // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
-                }
-                else
-                {
-                    // Si no ingresó un número válido
-                    dgvClientes.DataSource = clientes;
-                    dgvClientes.DataBind();
-                  //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                }
-            }
-            catch (Exception ex)
-            {
-               // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            }
-        }
-        */
-
-        /*
-        protected void lbBuscarN_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Obtener el texto del textbox
-                string texto = txtNombre.Text.Trim();
-
-                if (texto!=null)
-                {
-
-                    List<cliente> cliente = clienteWS.listarClientesPorNombre(texto).ToList();
-
-                    if (cliente != null)
-                    {
-
-                        clientes = cliente;
-                        dgvClientes.DataSource = clientes;
-                        dgvClientes.DataBind();
-
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvClientes.DataSource = null;
-                        dgvClientes.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
-                }
-                else
-                {
-                    // Si no ingresó un número válido
-                    dgvClientes.DataSource = clientes;
-                    dgvClientes.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                }
-            }
-            catch (Exception ex)
-            {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            }
-        }
-        */
-
-        /*
-        protected void DdlTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string tipo_seleccionado = Convert.ToString(DdlTipoCliente.SelectedValue);
-
-            // Verificamos si el valor seleccionado es el valor predeterminado "0" (Select type)
-            if (tipo_seleccionado == "0")
-            {
-                // Si no se ha seleccionado un valor válido, mostrar todos los productos
-                dgvClientes.DataSource = clienteWS.listarClientes();
-                dgvClientes.DataBind();
-            }
-            else
-            {
-                // Si se ha seleccionado un tipo válido, mostrar productos por tipo
-                dgvClientes.DataSource = clienteWS.listarClientesPorTipo(tipo_seleccionado);
-                dgvClientes.DataBind();
-            }
-        }
-        */
-
     }
 }

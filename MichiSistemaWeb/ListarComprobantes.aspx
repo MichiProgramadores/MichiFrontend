@@ -3,7 +3,7 @@
     Listar comprobante
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
-    <script type="text/javascript">
+    <script type="text/javascript">  <!-- Incluimos el js en esta sección por tener un atributo en específico -->
     function mostrarModalEliminar(id) {
         const campoOculto = document.getElementById('<%= hfIdEliminar.ClientID %>');
         campoOculto.value = id;
@@ -35,9 +35,6 @@
                   <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
-<%--                <div class="col-sm-2">
-                    <asp:LinkButton ID="lbBuscarOrden" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarOrden_Click" style="background-color: #FBCB43; border: none;" />
-                </div>--%>
             <div class="text-end justify-content-end align-items-center"> <!-- Añade align-items-center -->
                 <div class="p-2"> <!-- Quita col y text-end -->
                     <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" 
@@ -63,8 +60,6 @@
                         Width="100%"
                         CssClass="table table-hover table-striped">
                         <Columns>
-                           
-                           
                             <asp:BoundField DataField="id_comprobante" HeaderText="ID comprobante" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="orden_id" HeaderText="N° orden" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="cliente_id" HeaderText="ID cliente" ItemStyle-CssClass="align-middle" />
@@ -73,21 +68,10 @@
                             <asp:BoundField DataField="tax" HeaderText="Tax" ItemStyle-CssClass="align-middle" DataFormatString="{0:C2}"/>
                             <asp:BoundField DataField="monto_total" HeaderText="Monto total" ItemStyle-CssClass="align-middle" DataFormatString="{0:C2}" />
                             <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="align-middle" />
-
-                           
-
-
                             <asp:TemplateField>
                                 <ItemTemplate>
-
                                     <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("id_comprobante") %>' OnClick="lbModificar_Click" />
-                                    
-                                    <%--
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4'></i>" CommandArgument='<%# Eval("id_comprobante") %>' OnClick="lbEliminar_Click" />
-                                    --%>
-
                                     <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash pe-4' style='color: #FBCB43;'></i>" CommandArgument='<%# Eval("id_comprobante") %>' OnClientClick='<%# "mostrarModalEliminar(" + Eval("id_comprobante") + "); return false;" %>' />
-
                                     <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye pe-4' style='color: #FF7E5F;'></i>" CommandArgument='<%# Eval("id_comprobante") %>' OnClick="lbVisualizar_Click" />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -99,7 +83,6 @@
                         </div>
                     </EmptyDataTemplate>
                     </asp:GridView>
-
                     <asp:HiddenField ID="hfIdEliminar" runat="server" />
                     <asp:Label ID="lblError" runat="server" Text="" CssClass="text-danger"></asp:Label>
 

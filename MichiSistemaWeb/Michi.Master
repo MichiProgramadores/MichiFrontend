@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head runat="server">
+ <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -17,57 +17,239 @@
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>
     <script src="Scripts/michi/modalCarga.js" ></script>
-
+    <script src="Scripts/michi/cambiarModo.js" ></script>
     <title>
         <asp:ContentPlaceHolder ID="cph_Title" runat="server">
         </asp:ContentPlaceHolder>
     </title>
-    <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
-    </asp:ContentPlaceHolder>
+   
+   <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
+        
+</asp:ContentPlaceHolder>
+    <style>
+        body {
+            background-color: white;
+            color: black; /* Color de texto más neutro para mejor legibilidad */
+        }
 
+            body .navbar {
+                background-color: #E0E0E0;
+                color: black;
+            }
+
+            body .mynav {
+                color: black;
+            }
+            body .bg-light{
+                background-color: white; 
+               color: black;
+            }
+
+            body .d-flex {
+                background-color: #E0E0E0;
+                color:          black;
+            }
+
+            body .btn {
+                background-color: #E0E0E0;
+                color: black;
+            }
+
+            body a {
+                color: black;
+            }
+
+            body.dropdown-menu {
+                background-color: #E0E0E0;
+                color: black;
+            }
+
+            body #bdSidebar {
+                background-color: #E0E0E0; /* Fondo oscuro */
+                color: black;
+            }
+            body #bdSidebar a {
+                background-color: #E0E0E0; /* Fondo oscuro */
+                color: black;
+            }
+
+            body .mynav .nav-link {
+                 background-color: #E0E0E0;
+                color: black;
+            }
+            body .p-2{
+                 background-color: white; /* Fondo oscuro */
+                 color: black;
+            }
+           body .p-4{
+                background-color: white; /* Fondo oscuro */
+                color: black;
+           }
+           body .dropdown-toggle{
+                background-color: #E0E0E0;
+               color: black;
+           }
+           body .text-white{
+                background-color: #E0E0E0;
+               color: black;
+           }
+           body .ps-3{
+               background-color: #E0E0E0;
+               color:black;
+           }
+           body .navbar-brand{
+               color: black;
+           }
+           body .bg-tota{
+               background-color: white;
+           }
+           boody .container{
+          background-color: #E0E0E0; /* Fondo oscuro */
+           color: black;
+      }
+      body .container-fluid{
+                    background-color: #E0E0E0; /* Fondo oscuro */
+                   color: black;
+      }
+                /* Estilo para el interruptor */
+     .form-check-input:checked {
+         background-color: #000000; /* Color del switch en modo oscuro */
+     }
+      body.dark-mode .mynav {
+          background-color: #1c1c1c;
+          color: #E0E0E0
+      }
+      body.dark-mode .bg-light {
+          background-color: #1c1c1c;
+          color: #E0E0E0
+      } 
+      body.dark-mode .d-flex {
+          background-color: #333;
+          color: #E0E0E0
+      }
+      body.dark-mode{
+          background-color: #1c1c1c;
+          color: #E0E0E0;
+     }
+
+     body.dark-mode .navbar {
+         background-color: #1c1c1c;
+         color: #fff;
+     }
+
+     body.dark-mode .btn {
+         background-color: #333;
+         color: #fff;
+     }
+
+     body.dark-mode a {
+         color: #ffffff;
+     }
+    body.dark-mode .text-white{
+         background-color: #333;
+        color: #fff;
+    }
+      body.dark-mode .dropdown-menu {
+          background-color: #000000;
+          color: #ffffff;
+      }
+
+      body.dark-mode #bdSidebar {
+          background-color: #1c1c1c; /* Fondo oscuro */
+          color: #E0E0E0; /* Color de texto claro */
+      }
+
+          body.dark-mode #bdSidebar a {
+              background-color: #1c1c1c;
+              color: #fff; /* Enlaces en blanco */
+          }
+
+      body.dark-mode .mynav .nav-link {
+          background-color: #1c1c1c;
+          color: #fff;
+      }
+          body.dark-mode .p-2 {
+              background-color: #333; /* Fondo oscuro */
+              color: white;
+          }
+
+      body.dark-mode .p-4 {
+          background-color: #333; /* Fondo oscuro */
+          color: white;
+      }
+          body.dark-mode .dropdown-toggle {
+              background-color: #333; /* Fondo oscuro */
+              color: white;
+          }
+
+      body.dark-mode .ps-3 {
+         background-color:#1c1c1c; /* Fondo oscuro */
+         color: white;
+      }
+      body.dark-mode .text-white{
+         background-color: #1c1c1c; /* Fondo oscuro */
+         color: white;
+      }
+      body.dark-mode .navbar-brand {     
+          color: white;
+      }
+      boody.dark-mode .container{
+          background-color: #1c1c1c; /* Fondo oscuro */
+color: white;
+      }
+      body.dark-mode .container-fluid{
+                    background-color: #1c1c1c; /* Fondo oscuro */
+color: white;
+      }
+      body.dark-mode .bg-tota{
+            background-color: #333; /* Fondo oscuro */
+            color: white;
+      }
+    </style>
+   
 </head>
 <body>
-    <div class="container-fluid d-flex p-0 h-100" style="background-color: #E0E0E0;">
+    <div class="container-fluid d-flex p-0 h-100" >
         <!-- Division de la izquierda-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start" style="background-color: #E0E0E0;">
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start" >
             <a href="Home.aspx" class="navbar-brand">
                 <img src="Images/logo_act.png" width="150" />
             </a>
             <hr />
-            <ul class="mynav nav nav-pills nav-link-hover flex-column mb-auto" style="background-color: #E0E0E0;">
+            <ul class="mynav nav nav-pills nav-link-hover flex-column mb-auto" s>
                 <li class="nav-item mb-1">
-                    <a href="ListarOrdenes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aqui puedes gestionar todas las órdenes y sus detalles."  onclick="showLoading()">
+                    <a href="ListarOrdenes.aspx"  data-bs-toggle="tooltip" title="Aqui puedes gestionar todas las órdenes y sus detalles."  onclick="showLoading()">
                         <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarTrabajadores.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los trabajadores." onclick="showLoading()">
+                    <a href="ListarTrabajadores.aspx"  data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los trabajadores." onclick="showLoading()">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar trabajadores
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarClientes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los cliente." onclick="showLoading()">
+                    <a href="ListarClientes.aspx" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los cliente." onclick="showLoading()">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar clientes
                     </a>
                 </li>  
                 <li class="nav-item mb-1">
-                    <a href="ListarProductos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los productos." onclick="showLoading()">
+                    <a href="ListarProductos.aspx" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los productos." onclick="showLoading()">
                         <i class="fa-solid fa-box-open pe-2"></i> Gestionar productos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
                    
-                    <a href="ListarEventos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los eventos." onclick="showLoading()">
+                    <a href="ListarEventos.aspx"  data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los eventos." onclick="showLoading()">
                         <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar eventos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarComprobantes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los comprobantes y sus detalles." onclick="showLoading()">
+                    <a href="ListarComprobantes.aspx"  data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los comprobantes y sus detalles." onclick="showLoading()">
                         <i class="fa-solid  fa-receipt pe-2"></i>Gestionar comprobantes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarUsuarios.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí se encuentran los usuarios. No puedes editar esta sección." onclick="showLoading()">
+                    <a href="ListarUsuarios.aspx"  data-bs-toggle="tooltip" title="Aquí se encuentran los usuarios. No puedes editar esta sección." onclick="showLoading()">
                         <i class="fa-solid fa-users pe-2"></i>Gestionar usuarios
                     </a>
                 </li>
@@ -75,29 +257,37 @@
             <hr />
         </div>
         <!-- Division de la derecha-->
-        <div class="bg-light flex-fill overflow-auto">
+        <div class="bg-tota flex-fill overflow-auto">
             <!-- Barra superior para dispositivos pequeños -->
-            <div class="p-2 d-md-none d-flex text-white" style="background-color: #E0E0E0;">
-                <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#" style="background-color: #E0E0E0;">
+            <div class="p-2 d-md-none d-flex text-white">
+                <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </div>
             <!-- Barra de usuario -->
-            <nav class="navbar navbar-dark" style="background-color: #F4F4F4; color: black">
+            <nav class="navbar navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#" style="color: black;">Michi Sistema
+                    <a class="navbar-brand d-sm-none d-md-block d-none d-sm-block" href="#">Michi Sistema
                     </a>
-                    <form class="d-flex">
-                        <div class="dropdown ps-3">
-                            <button class="btn btn-outline-light dropdown-toggle" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false" style="background-color: #E0E0E0; color:black">
-                                <i class="fas fa-user me-2"></i>
-                                <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnUsuario">
-                                <li><a class="dropdown-item" href="InicioSesion.aspx" id="btnCerrarSesion" runat="server" onclick="CerrarSesion_Click">Cerrar Sesión</a></li>
-                            </ul>
-                        </div>
-                    </form>
+
+
+                    <form class="text-start">
+    <div class="dropdown ps-2" style="display: inline-block; margin-right: 40px;">
+        <button class="btn btn-outline-light dropdown-toggle" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+            <i class="fas fa-user me-2"></i>
+            <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnUsuario">
+            <li><a class="dropdown-item" href="InicioSesion.aspx" id="btnCerrarSesion" runat="server" onclick="CerrarSesion_Click">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+    <div class="form-check form-switch ps-2" style="display: inline-block;">
+        <input class="form-check-input" type="checkbox" id="switchMode">
+        <label class="form-check-label" for="switchMode">Modo Oscuro</label>
+    </div>
+</form>
+
+
                 </div>
              </nav>
              <!-- Este es el Label que mostrará el mensaje en caso de que no haya resultados -->

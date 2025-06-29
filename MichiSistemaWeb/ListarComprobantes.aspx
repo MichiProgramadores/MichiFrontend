@@ -38,14 +38,14 @@
 <%--                <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscarOrden" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarOrden_Click" style="background-color: #FBCB43; border: none;" />
                 </div>--%>
-            <div class="d-flex justify-content-end align-items-center"> <!-- Añade align-items-center -->
-                <div class="p-3"> <!-- Quita col y text-end -->
+            <div class="text-end justify-content-end align-items-center"> <!-- Añade align-items-center -->
+                <div class="p-2"> <!-- Quita col y text-end -->
                     <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" 
                         Text="<i class='fa-solid fa-plus pe-2'></i> Registrar comprobante" 
                         OnClick="lbRegistrar_Click" 
                         style="background-color: #FF7E5F; border: none;"/>
                 </div>
-                <div class="p-3"> <!-- Mismo padding que el primero -->
+                <div class="p-2"> <!-- Mismo padding que el primero -->
                     <asp:LinkButton ID="ListarTodos" CssClass="btn btn-success" runat="server" 
                         Text="Listar todos" 
                         OnClick="ListarTodos_Click" 

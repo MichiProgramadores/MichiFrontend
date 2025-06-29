@@ -33,7 +33,7 @@
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
       
-                <div class="d-flex justify-content-end">
+                <div class="text-end justify-content-end">
                     <div class="p-2">
                         <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server"  Text="<i class='fa-solid fa-plus pe-2'></i> Registrar usuario" OnClick="lbRegistrar_Click" style="background-color:  #FF7E5F; border: none;"/>
                     </div>

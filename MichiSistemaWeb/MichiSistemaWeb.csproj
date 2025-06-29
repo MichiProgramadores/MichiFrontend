@@ -414,6 +414,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\michi\cambiarModo.js" />
     <Content Include="Scripts\michi\iniciarSesion.js" />
     <Content Include="Scripts\michi\registrarArea.js" />
     <Content Include="Scripts\michi\registrarEmpleado.js" />

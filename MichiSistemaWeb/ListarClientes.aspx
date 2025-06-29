@@ -55,7 +55,7 @@
                     <asp:LinkButton ID="lbBuscarN" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarN_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
                 
-                <div class="d-flex justify-content-end">
+                <div class="text-end justify-content-end">
                     <div class="p-2">
                         <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" Text="<i class='fa-solid fa-plus pe-2'></i> Registrar Cliente" OnClick="lbRegistrar_Click" style="background-color: #FF7E5F; border: none;"/>
                     </div>
@@ -69,7 +69,7 @@
             <div class="container row">
                 <asp:GridView ID="dgvClientes" runat="server" AutoGenerateColumns="false"
                     OnRowDataBound="dgvClientes_RowDataBound" AllowPaging="true"
-                    OnPageIndexChanging="dgvClientes_PageIndexChanging" PageSize="10"
+                    OnPageIndexChanging="dgvClientes_PageIndexChanging" PageSize="8"
                     CssClass="table table-hover table-responsive table-striped">
                     <Columns>
                         <asp:BoundField HeaderText="ID" ItemStyle-CssClass="align-middle" />

@@ -341,6 +341,7 @@
     <Content Include="Images\logoG.gif" />
     <Content Include="Images\logoMulti.png" />
     <Content Include="Images\logo_act.png" />
+    <Content Include="Images\Logo_final.png" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ListarClientes.aspx" />
     <Content Include="ListarComprobantes.aspx" />

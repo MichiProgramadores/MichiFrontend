@@ -17,7 +17,6 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteWS = new ComprobanteWSClient();
-            //CargarDatos();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -97,7 +96,6 @@ namespace MichiSistemaWeb
         {
             int idComprobante = int.Parse(hfIdEliminar.Value);
             comprobanteWS.eliminarComprobante(idComprobante);
-            //comprobanteWS.actualizarEstadoComprobante(idComprobante, "ELIMINADO");
             Response.Redirect("ListarComprobantes.aspx");
         }
 
@@ -150,46 +148,6 @@ namespace MichiSistemaWeb
                 // 4. Mostrar resultados
                 dgvComprobantes.DataSource = resultados;
                 dgvComprobantes.DataBind();
-
-                // 5. Opcional: Guardar en ViewState
-                //if (int.TryParse(textoId, out int idComprobante))
-                //{
-                //    // Buscar comprobante por ID usando tu capa de negocio o servicio
-                //    var comprobante = comprobanteWS.obtenerComprobante(idComprobante);
-
-                //    if (comprobante != null)
-                //    {
-                //        // Si encontró el comprobante, lo pone en una lista para enlazar
-                //        var lista = new List<comprobante> { comprobante };
-                //        dgvComprobantes.DataSource = lista;
-                //        dgvComprobantes.DataBind();
-                //        //lblMensaje.Text = "";
-                //    }
-                //    else
-                //    {
-                //        // Si no encontró resultados
-                //        dgvComprobantes.DataSource = null;
-                //        dgvComprobantes.DataBind();
-                //        // lblMensaje.Text = "No se encontró comprobante con ese ID.";
-                //    }
-                //}
-                //else
-                //{
-                //    if (txtNombre.Text == "")
-                //    {
-                //        // Si no ingresó un número válido
-                //        dgvComprobantes.DataSource = comprobantes;
-                //        dgvComprobantes.DataBind();
-                //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                //    }
-                //    else
-                //    {
-                //        // Si no ingresó un número válido
-                //        dgvComprobantes.DataSource = null;
-                //        dgvComprobantes.DataBind();
-                //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                //    }
-                //}
                 ViewState["TrabajadoresFiltrados"] = resultados;
             }
             catch (Exception ex)
@@ -247,7 +205,6 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar comprobante: " + ex.Message;
                 dgvComprobantes.DataSource = null;
                 dgvComprobantes.DataBind();
             }

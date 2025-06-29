@@ -117,60 +117,60 @@ namespace MichiSistemaWeb
             Response.Redirect("RegistrarTrabajador.aspx?accion=ver");
         }
 
-        protected void lbBuscar_Click(object sender, EventArgs e)
-        {
+        //protected void lbBuscar_Click(object sender, EventArgs e)
+        //{
 
-            try
-            {
-                // Obtener el texto del textbox
-                string textoId = txtNombreID.Text.Trim();
+        //    try
+        //    {
+        //        // Obtener el texto del textbox
+        //        string textoId = txtNombreID.Text.Trim();
 
-                if (int.TryParse(textoId, out int idTrabajador))
-                {
-                    // Buscar cliente por ID usando tu capa de negocio o servicio
+        //        if (int.TryParse(textoId, out int idTrabajador))
+        //        {
+        //            // Buscar cliente por ID usando tu capa de negocio o servicio
 
-                    var trabajador = trabajadorWS.obtenerTrabajador(idTrabajador);
+        //            var trabajador = trabajadorWS.obtenerTrabajador(idTrabajador);
 
-                    if (trabajador != null)
-                    {
-                        // Si encontró el cliente, lo pone en una lista para enlazar
-                        var lista = new List<trabajador> { trabajador };
-                        dgvEmpleados.DataSource = lista;
-                        dgvEmpleados.DataBind();
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvEmpleados.DataSource = null;
-                        dgvEmpleados.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
-                }
-                else
-                {
-                    // Si no ingresó un número válido
-                    dgvEmpleados.DataSource = trabajadores;
-                    dgvEmpleados.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                }
-            }
-            catch (Exception ex)
-            {
-                dgvEmpleados.DataSource = null;
-                dgvEmpleados.DataBind();
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            }
+        //            if (trabajador != null)
+        //            {
+        //                // Si encontró el cliente, lo pone en una lista para enlazar
+        //                var lista = new List<trabajador> { trabajador };
+        //                dgvEmpleados.DataSource = lista;
+        //                dgvEmpleados.DataBind();
+        //                //lblMensaje.Text = "";
+        //            }
+        //            else
+        //            {
+        //                // Si no encontró resultados
+        //                dgvEmpleados.DataSource = null;
+        //                dgvEmpleados.DataBind();
+        //                // lblMensaje.Text = "No se encontró cliente con ese ID.";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // Si no ingresó un número válido
+        //            dgvEmpleados.DataSource = trabajadores;
+        //            dgvEmpleados.DataBind();
+        //            //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        dgvEmpleados.DataSource = null;
+        //        dgvEmpleados.DataBind();
+        //        // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+        //    }
 
 
-        }
+        //}
 
         protected void lbBuscarN_Click(object sender, EventArgs e)
         {
             try
             {
                 // Obtener el texto del textbox
-                string textoId = txtNombre.Text.Trim();
+                string textoId = txtNombreID.Text.Trim();
                 string textoNombre = txtNombre.Text.Trim();
                 string tipoSeleccionado = DdlTipoTrabajador.SelectedValue;
                 // 2. Obtener TODOS los productos (sin filtros iniciales)
@@ -178,25 +178,56 @@ namespace MichiSistemaWeb
                 List<trabajador> resultados = listaCompleta;
 
                 // 3. Aplicar filtros SOLO si el campo tiene valor
-                if (!string.IsNullOrEmpty(textoNombre))
-                {
-                    resultados = resultados
-                        .Where(c => c.nombres.ToLower().Contains(textoNombre.ToLower()))
-                        .ToList();
-                }
 
-                if (!string.IsNullOrEmpty(textoId))
+                if(!string.IsNullOrEmpty(textoNombre) && !string.IsNullOrEmpty(textoId) 
+                    && tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
                 {
                     resultados = resultados
-                        .Where(c => c.persona_id.ToString().Contains(textoId))
+                        .Where(c => c.nombres.ToLower().Contains(textoNombre.ToLower()) &&
+                            c.persona_id.ToString().Contains(textoId) &&
+                            c.tipoTrabajador.ToString() == tipoSeleccionado)
                         .ToList();
+                        
                 }
-
-                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
+                else
                 {
-                    resultados = resultados
-                        .Where(c => c.tipoTrabajador.ToString() == tipoSeleccionado)
-                        .ToList();
+                    if (!string.IsNullOrEmpty(textoNombre) && string.IsNullOrEmpty(textoId)
+                    && (tipoSeleccionado == "0" || string.IsNullOrEmpty(tipoSeleccionado)))
+                    {
+                        resultados = resultados
+                            .Where(c => c.nombres.ToLower().Contains(textoNombre.ToLower()))
+                            .ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(textoId) )
+                    {
+                        resultados = resultados
+                            .Where(c => c.persona_id.ToString().Equals(textoId))
+                            .ToList();
+                    }
+                    if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado)
+                            && string.IsNullOrEmpty(textoId) && !string.IsNullOrEmpty(textoNombre))
+                    {
+                        resultados = resultados
+                            .Where(c => c.tipoTrabajador.ToString() == tipoSeleccionado &&
+                                c.nombres.ToLower().Contains(textoNombre.ToLower()))
+                            .ToList();
+                    }
+                    if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado)
+                         && !string.IsNullOrEmpty(textoId) && string.IsNullOrEmpty(textoNombre))
+                    {
+                        resultados = resultados
+                            .Where(c => c.tipoTrabajador.ToString() == tipoSeleccionado &&
+                                c.persona_id.ToString().Contains(textoId))
+                            .ToList();
+                    }
+                    if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado) 
+                        && string.IsNullOrEmpty(textoId) && string.IsNullOrEmpty(textoNombre))
+                    {
+                        resultados = resultados
+                            .Where(c => c.tipoTrabajador.ToString() == tipoSeleccionado)
+                            .ToList();
+                    }
                 }
 
                 if (textoNombre == "" && textoId == "" && tipoSeleccionado == "0")

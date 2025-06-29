@@ -106,7 +106,7 @@
                 </asp:GridView>
 
                 <asp:HiddenField ID="hfIdEliminar" runat="server" />
-
+                
                 <!-- Modal Bootstrap -->
                 <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">

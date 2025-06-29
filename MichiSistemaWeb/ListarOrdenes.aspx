@@ -16,8 +16,8 @@
                     --%>
                     <asp:ListItem Text="Seleccione un tipo" Value="0" />
                     <asp:ListItem Text="Delivery" Value="DELIVERY" />
-                    <asp:ListItem Text="Recojo en tienda" Value="RECOJO_EN _TIENDA" />
-                    <asp:ListItem Text="Otro" Value="OTRO" />
+                    <asp:ListItem Text="Recojo en tienda" Value="RECOJO_EN_TIENDA" />
+                    
                 </asp:DropDownList>
             </div>
             <div class="col-auto" >

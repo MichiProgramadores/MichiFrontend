@@ -18,7 +18,7 @@ namespace MichiSistemaWeb
         protected OrdenWSClient ordenService;
         protected ClienteWSClient clienteService;
         private List<detalleComprobante> detallesComprobante;
-
+        
         protected void Page_Init(object sender, EventArgs e)
         {
             comprobanteService = new ComprobanteWSClient();

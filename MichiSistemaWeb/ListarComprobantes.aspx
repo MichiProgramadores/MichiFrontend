@@ -22,13 +22,22 @@
                 <div class="col-auto">
                     <asp:Label ID="lblNombre" CssClass="form-label" runat="server" Text="Ingrese el ID del comprobante:"></asp:Label>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
+
+                <div class="col-auto">
+                    <asp:Label ID="lbBuscarIdOrden" CssClass="form-label" runat="server" Text="Ingrese el N° de Orden:"></asp:Label>
+                </div>
                 <div class="col-sm-2">
+                    <asp:TextBox ID="txtIdOrden" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                  <div class="col-sm-2">
                     <asp:LinkButton ID="lbBuscar" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscar_Click" style="background-color: #FBCB43; border: none;" />
                 </div>
-
+<%--                <div class="col-sm-2">
+                    <asp:LinkButton ID="lbBuscarOrden" CssClass="btn btn-info" runat="server" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="lbBuscarOrden_Click" style="background-color: #FBCB43; border: none;" />
+                </div>--%>
             <div class="d-flex justify-content-end align-items-center"> <!-- Añade align-items-center -->
                 <div class="p-3"> <!-- Quita col y text-end -->
                     <asp:LinkButton ID="lbRegistrar" CssClass="btn btn-success" runat="server" 
@@ -61,7 +70,7 @@
                             <asp:BoundField DataField="cliente_id" HeaderText="ID cliente" ItemStyle-CssClass="align-middle" />
                             <asp:BoundField DataField="fecha_emision" HeaderText="Fecha emisión" ItemStyle-CssClass="align-middle" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField DataField="tipoComprobante" HeaderText="Tipo de comprobante" ItemStyle-CssClass="align-middle" />
-                            <asp:BoundField DataField="tax" HeaderText="Tax" ItemStyle-CssClass="align-middle" />
+                            <asp:BoundField DataField="tax" HeaderText="Tax" ItemStyle-CssClass="align-middle" DataFormatString="{0:C2}"/>
                             <asp:BoundField DataField="monto_total" HeaderText="Monto total" ItemStyle-CssClass="align-middle" DataFormatString="{0:C2}" />
                             <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="align-middle" />
 
@@ -86,7 +95,7 @@
                     <EmptyDataTemplate>
                         <div class="empty-message-container">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <span>Lo sentimos, no se encontró al Comprobante. Asegúrese de que el ID es el correcto.</span>
+                            <span>Lo sentimos, no se encontró el Comprobante. Asegúrese de que el ID es el correcto.</span>
                         </div>
                     </EmptyDataTemplate>
                     </asp:GridView>
@@ -103,7 +112,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                ¿Está seguro de que desea eliminar este comprobante?
+                ¿Está seguro(a) de que desea eliminar este comprobante?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

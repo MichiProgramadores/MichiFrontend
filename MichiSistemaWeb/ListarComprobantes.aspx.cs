@@ -108,8 +108,98 @@ namespace MichiSistemaWeb
             Session["comprobanteSeleccionado"] = comprobante;
             Response.Redirect("RegistrarComprobante.aspx?accion=ver");
         }
-
+        
         protected void lbBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el texto del textbox
+                string textoId = txtNombre.Text.Trim();
+                string textoIdOrden = txtIdOrden.Text.Trim();
+                List<comprobante> listaCompleta = comprobanteWS.listarComprobante().ToList();
+                List<comprobante> resultados = listaCompleta;
+
+                // 3. Aplicar filtros SOLO si el campo tiene valor
+                if (textoId != "" && !string.IsNullOrEmpty(textoIdOrden))
+                {
+                    resultados = resultados
+                       .Where(c => c.id_comprobante.ToString() == textoId && c.orden_id.ToString().Contains(textoIdOrden))
+                       .ToList();
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(textoId))
+                    {
+                        resultados = resultados
+                            .Where(c => c.id_comprobante.ToString().Contains(textoId))
+                            .ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(textoIdOrden))
+                    {
+                        resultados = resultados
+                            .Where(c => c.orden_id.ToString().Contains(textoIdOrden))
+                            .ToList();
+                    }
+                    if (textoId == "" && textoIdOrden == "")
+                    {
+                        resultados = comprobanteWS.listarComprobante().ToList();
+                    }
+                }
+
+                // 4. Mostrar resultados
+                dgvComprobantes.DataSource = resultados;
+                dgvComprobantes.DataBind();
+
+                // 5. Opcional: Guardar en ViewState
+                //if (int.TryParse(textoId, out int idComprobante))
+                //{
+                //    // Buscar comprobante por ID usando tu capa de negocio o servicio
+                //    var comprobante = comprobanteWS.obtenerComprobante(idComprobante);
+
+                //    if (comprobante != null)
+                //    {
+                //        // Si encontró el comprobante, lo pone en una lista para enlazar
+                //        var lista = new List<comprobante> { comprobante };
+                //        dgvComprobantes.DataSource = lista;
+                //        dgvComprobantes.DataBind();
+                //        //lblMensaje.Text = "";
+                //    }
+                //    else
+                //    {
+                //        // Si no encontró resultados
+                //        dgvComprobantes.DataSource = null;
+                //        dgvComprobantes.DataBind();
+                //        // lblMensaje.Text = "No se encontró comprobante con ese ID.";
+                //    }
+                //}
+                //else
+                //{
+                //    if (txtNombre.Text == "")
+                //    {
+                //        // Si no ingresó un número válido
+                //        dgvComprobantes.DataSource = comprobantes;
+                //        dgvComprobantes.DataBind();
+                //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                //    }
+                //    else
+                //    {
+                //        // Si no ingresó un número válido
+                //        dgvComprobantes.DataSource = null;
+                //        dgvComprobantes.DataBind();
+                //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
+                //    }
+                //}
+                ViewState["TrabajadoresFiltrados"] = resultados;
+            }
+            catch (Exception ex)
+            {
+                // lblMensaje.Text = "Error al buscar comprobante: " + ex.Message;
+                dgvComprobantes.DataSource = null;
+                dgvComprobantes.DataBind();
+            }
+        }
+        protected void lbBuscarOrden_Click(object sender, EventArgs e)
         {
             try
             {
@@ -163,16 +253,6 @@ namespace MichiSistemaWeb
             }
         }
 
-        /*
-        private string FormatDateTime(object obj, string format = "dd/MM/yyyy HH:mm:ss")
-        {
-            if (obj == null || obj == DBNull.Value) return "";
-            string str = obj.ToString();
-            if (DateTime.TryParse(str, out DateTime dt))
-                return dt.ToString(format);
-            return str; // O "" si prefieres ocultar valores no parseables
-        }
-        */
 
     }
 }

@@ -89,7 +89,7 @@
                     
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblEstado" runat="server" Text="Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblEstado" runat="server" Text="*Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtEstado" runat="server" CssClass="form-control"
                             data-bs-toggle="tooltip" title="Indica el estado actual del comprobante"></asp:TextBox>
@@ -103,13 +103,16 @@
                             data-bs-toggle="tooltip" title="Fecha de emisión del comprobante"></asp:TextBox>
                     </div>
                 </div>
-
+                
                 <div class="mb-3 row">
                     <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoComprobante" runat="server" Text="*Tipo comprobante: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipoComprobante" runat="server" CssClass="form-control"
-                            data-bs-toggle="tooltip" title="Indica el tipo de comprobante">
-                        </asp:DropDownList>
+                      <asp:DropDownList ID="ddlTipoComprobante" runat="server" CssClass="form-select" data-bs-toggle="tooltip" title="Indica el tipo de comprobante">
+                        <asp:ListItem Text="Seleccione un tipo" Value="0" />
+                        <asp:ListItem Text="Invoice" Value="INVOICE" />
+                        <asp:ListItem Text="Receipt" Value="RECEIPT" />
+                    </asp:DropDownList>
+
                     </div>
                 </div>
                 

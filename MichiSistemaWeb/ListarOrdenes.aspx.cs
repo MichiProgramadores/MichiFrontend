@@ -144,16 +144,23 @@ namespace MichiSistemaWeb
 
                 List<orden> listaCompleta = ordenWS.listarOrdenes().ToList();
                 List<orden> resultados = listaCompleta;
-                if (!string.IsNullOrEmpty(textoId))
+                if(!string.IsNullOrEmpty(textoId) && (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado)))
+                {
+                    resultados = resultados
+                    .Where(c => c.idOrden.ToString().Contains(textoId) && c.tipoRecepcion.ToString() == tipoSeleccionado)
+                    .ToList();
+                }
+
+                if (!string.IsNullOrEmpty(textoId) && (tipoSeleccionado == "0" || string.IsNullOrEmpty(tipoSeleccionado)))
                 {
                     resultados = resultados
                         .Where(c => c.idOrden.ToString().Contains(textoId))
                         .ToList();
                 }
-                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado))
+                if (tipoSeleccionado != "0" && !string.IsNullOrEmpty(tipoSeleccionado) && string.IsNullOrEmpty(textoId))
                 {
                     resultados = resultados
-                        .Where(c => c.tipoRecepcion.ToString() == tipoSeleccionado)
+                        .Where(c => c.tipoRecepcion.ToString().ToUpper().Contains(tipoSeleccionado.ToUpper()))
                         .ToList();
                 }
 

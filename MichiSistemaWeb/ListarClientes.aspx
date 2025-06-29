@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_Scripts" runat="server">
     <script type="text/javascript">
-        function mostrarModalEliminar(id) {
+        function mostrarModalEliminar(id) { <%-- Incluimos el js en esta sección por tener un atributo en específico --%>
             const campoOculto = document.getElementById('<%= hfIdEliminar.ClientID %>');
             campoOculto.value = id;
 

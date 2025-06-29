@@ -48,7 +48,7 @@
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="card p-4" style="width: 100%; max-width: 400px;">
-            <h3 class="card-title text-center mb-4">Inicio de Sesión</h3>
+            <h3 class="card-title text-center mb-4">Inicio de sesión</h3>
             <form id="formLogin" runat="server">
                 <div class="form-group">
                     <label for="txtUsername">Usuario</label>

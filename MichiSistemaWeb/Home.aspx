@@ -12,8 +12,8 @@
     </h2>
 
      <!-- Aquí esta todo lo de reporte -->
-    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="text-center justify-content-center">
+    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="d-flex justify-content-center">
             <div class="p-2" style="display: inline-block; margin-right: 10px;">
                 <asp:LinkButton ID="LinkButton5" runat="server" 
                     OnClientClick="$('#tipoTrabajadorModal').modal('show'); return false;" 
@@ -145,8 +145,8 @@
         </Triggers>
     </asp:UpdatePanel>
     <!-- Aquí esta todo lo de reporte facturacion-->
-    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="text-center justify-content-center">
+    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="d-flex justify-content-center">
             <div class="p-2" style="display: inline-block;">
                 <asp:LinkButton ID="LinkButton2" runat="server" 
                     OnClientClick="$('#reporteFacturacionModal').modal('show'); return false;" 
@@ -158,47 +158,46 @@
         </div>
     </div>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-            <!-- Modal de selección de tipo de facturación -->
-            <div class="modal fade" id="reporteFacturacionModal" tabindex="-1" role="dialog" aria-labelledby="tipoTrabajadorModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de facturación</h5>
-                        </div>
-                        <label>Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
-                        <div class="modal-body">
-                            <div class="mb-3 row">
-                    <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" 
-                            MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+    <ContentTemplate>
+        <!-- Modal de selección de tipo de facturación -->
+        <div class="modal fade" id="reporteFacturacionModal" tabindex="-1" role="dialog" aria-labelledby="tipoTrabajadorModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reporteFacturacionModalLabel">Reporte de facturación</h5>
                     </div>
-                </div
-                <div class="mb-3 row">
-                    <asp:Label ID="lblFechaFin" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date" 
-                            MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                    <label>  Si no se especifica la fecha, se emitirá el reporte del mes actual:</label>
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                            <div class="col-sm-8">
+                                <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <asp:Label ID="lblFechaFin" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                            <div class="col-sm-8">
+                                <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date" MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <asp:LinkButton ID="BotonCerrar" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click">Cerrar</asp:LinkButton>
-                            <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn btn-primary" runat="server" style="background-color:  #FF7E5F; border: none; color: black;" OnClick="BotonReporteFacturacion_Click">Obtener reporte</asp:LinkButton>
-                        </div>
+                    <div class="modal-footer justify-content-between">
+                        <asp:LinkButton ID="BotonCerrar" CssClass="btn btn-warning" runat="server" OnClick="BotonCerrar_Click" style="flex: 1; text-align: center;">Cerrar</asp:LinkButton>
+                        <asp:LinkButton ID="BotonReporteFacturacion" CssClass="btn" runat="server" style="background-color: #FF7E5F; border: none; color: black; flex: 1; text-align: center;" OnClick="BotonReporteFacturacion_Click">Obtener reporte</asp:LinkButton>
                     </div>
                 </div>
             </div>
-        </ContentTemplate>
-        <Triggers>
-            <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
-        </Triggers>
+        </div>
+    </ContentTemplate>
+    <Triggers>
+        <asp:PostBackTrigger ControlID="BotonReporteFacturacion" />
+    </Triggers>
     </asp:UpdatePanel>
 
+
     <!-- Aquí esta todo lo de reporte rentas -->
-    <div class="text-center align-items-center" style="text-align: center; margin-top: 20px;">
-        <div class="text-center justify-content-center">
+    <div class="row align-items-center" style="text-align: center; margin-top: 20px;">
+        <div class="d-flex justify-content-center">
             <div class="p-2" style="display: inline-block;">
                 <asp:LinkButton ID="LinkButton3" runat="server" 
                     OnClientClick="$('#reporteRentasModal').modal('show'); return false;" 
@@ -220,7 +219,7 @@
                             <h5 class="modal-title" id="reporteRentasModalLabel">Reporte de rentas</h5>
                         </div>
 
-                        <label>Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
+                        <label>  Si no se específica la fecha, se emitirá el reporte del mes actual:</label>
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <asp:Label ID="Label1" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
@@ -249,7 +248,6 @@
             <asp:PostBackTrigger ControlID="BotonReporteRenta" />
         </Triggers>
     </asp:UpdatePanel>
-
     <script>
         window.onload = function () {
             var minDate = new Date('2020-01-01'); // Fecha mínima: 1 de enero de 2020
@@ -324,8 +322,4 @@
             });
         };
     </script>
-
-
-
-
 </asp:Content>

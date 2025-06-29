@@ -160,18 +160,6 @@ namespace MichiSistemaWeb
         "$('#tipoTrabajadorModal').modal('show');", // Abre el modal de tipo trabajador
         true);
         }
-
-        /*protected void BotonLimpiarCampos_Click(object sender, EventArgs e)
-        {
-            txtFechaInicio.Text = string.Empty;
-            txtFechaFin.Text = string.Empty;
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
-            //"$('#reporteFacturacionModal').modal('hide');" +
-            "$('.modal-backdrop').remove();" +
-            "$('#reporteFacturacionModal').modal('show');",
-            true);
-        }*/
-
         protected void BotonReporteFacturacion_Click(object sender, EventArgs e)
         {
             try
@@ -314,18 +302,6 @@ namespace MichiSistemaWeb
                 dgvTrabajadoresEleccion.DataBind();
 
             }
-
-            /*if (tipo_seleccionado == "CUALQUIERA")
-            {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadores();
-                dgvTrabajadoresEleccion.DataBind();
-            }
-            else
-            {
-                dgvTrabajadoresEleccion.DataSource = trabajadorWS.listarTrabajadoresPorTipo(tipo_seleccionado);
-                dgvTrabajadoresEleccion.DataBind();
-
-            }*/
             IDREPORTE.Text = string.Empty;
             NOMBREREPORTE.Text = string.Empty;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",

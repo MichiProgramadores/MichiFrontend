@@ -31,6 +31,7 @@ namespace MichiSistemaWeb
             ViewState["ComprobantesFiltrados"] = comprobantes; // Guarda en ViewState
             dgvComprobantes.DataSource = comprobantes;
             dgvComprobantes.DataBind();
+            txtNombre.Text = "";
         }
 
         protected void CargarDatos()
@@ -160,7 +161,6 @@ namespace MichiSistemaWeb
                 dgvComprobantes.DataSource = null;
                 dgvComprobantes.DataBind();
             }
-            txtNombre.Text = "";
         }
 
         /*

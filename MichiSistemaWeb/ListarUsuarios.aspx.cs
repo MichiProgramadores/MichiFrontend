@@ -81,7 +81,7 @@ namespace MichiSistemaWeb
             {
                 // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
-            txtNombreID.Text = "";
+            //txtNombreID.Text = "";
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)

@@ -302,6 +302,7 @@
     <Content Include="Content\Fonts\css\fontawesome.min.css" />
     <Content Include="Content\Fonts\css\light.css" />
     <Content Include="Content\Fonts\css\light.min.css" />
+    <Content Include="Content\Fonts\css\modalCarga.css" />
     <Content Include="Content\Fonts\css\regular.css" />
     <Content Include="Content\Fonts\css\regular.min.css" />
     <Content Include="Content\Fonts\css\solid.css" />
@@ -318,6 +319,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\cargando.png" />
     <Content Include="Images\conFondo.jpg" />
     <Content Include="Images\fin.png" />
     <Content Include="Images\final.png" />

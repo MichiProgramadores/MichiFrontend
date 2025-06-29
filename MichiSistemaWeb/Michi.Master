@@ -8,12 +8,14 @@
 
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
+    <link href="Content/Fonts/css/modalCarga.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>
+    <script src="Scripts/michi/modalCarga.js" ></script>
 
     <title>
         <asp:ContentPlaceHolder ID="cph_Title" runat="server">
@@ -45,40 +47,39 @@
             <hr />
             <ul class="mynav nav nav-pills nav-link-hover flex-column mb-auto" style="background-color: #E0E0E0;">
                 <li class="nav-item mb-1">
-                    <a href="ListarOrdenes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aqui puedes gestionar todas las órdenes y sus detalles.">
-                        <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar Ordenes
+                    <a href="ListarOrdenes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aqui puedes gestionar todas las órdenes y sus detalles."  onclick="showLoading()">
+                        <i class="fa-solid fa-file-invoice pe-2"></i>Gestionar ordenes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarTrabajadores.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los trabajadores.">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Trabajadores
+                    <a href="ListarTrabajadores.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los trabajadores." onclick="showLoading()">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar trabajadores
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarClientes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los cliente.">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Clientes
+                    <a href="ListarClientes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los cliente." onclick="showLoading()">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar clientes
                     </a>
                 </li>  
                 <li class="nav-item mb-1">
-                    <a href="ListarProductos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los productos.">
-                        <i class="fa-solid fa-box-open pe-2"></i> Gestionar Productos
-                      
+                    <a href="ListarProductos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los productos." onclick="showLoading()">
+                        <i class="fa-solid fa-box-open pe-2"></i> Gestionar productos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
                    
-                    <a href="ListarEventos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los eventos.">
-                        <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar Eventos
+                    <a href="ListarEventos.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los eventos." onclick="showLoading()">
+                        <i class="fa-solid fa-calendar-check pe-2"></i>Gestionar eventos
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarComprobantes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los comprobantes y sus detalles.">
-                        <i class="fa-solid  fa-receipt pe-2"></i>Gestionar Comprobantes
+                    <a href="ListarComprobantes.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí puedes gestionar todos los comprobantes y sus detalles." onclick="showLoading()">
+                        <i class="fa-solid  fa-receipt pe-2"></i>Gestionar comprobantes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="ListarUsuarios.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí se encuentran los usuarios. No puedes editar esta sección.">
-                        <i class="fa-solid fa-users pe-2"></i>Gestionar Usuarios
+                    <a href="ListarUsuarios.aspx" style="color: black;" data-bs-toggle="tooltip" title="Aquí se encuentran los usuarios. No puedes editar esta sección." onclick="showLoading()">
+                        <i class="fa-solid fa-users pe-2"></i>Gestionar usuarios
                     </a>
                 </li>
             </ul>
@@ -115,14 +116,19 @@
             <!-- Contenido de la Página web -->
             <div class="p-4">
                 <form runat="server">
-                    <asp:ContentPlaceHolder ID="cph_Contenido" runat="server">
-                    </asp:ContentPlaceHolder>
-                   
-
+                    <asp:ContentPlaceHolder ID="cph_Contenido" runat="server"></asp:ContentPlaceHolder>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Modal de carga-->
+    <div id="loadingModal" class="modalCarga">
+        <div class="modalCarga-content">
+            <img src="Images/cargando.png" alt=" Cargando..." />
+        </div>
+    </div>
+
 </body>
 </html>
 

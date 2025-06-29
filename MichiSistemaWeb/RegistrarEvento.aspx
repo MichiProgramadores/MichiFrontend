@@ -17,49 +17,56 @@
                 <div class="mb-3 row">
                     <asp:Label ID="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="ID: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtIDEvento" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtIDEvento" runat="server" CssClass="form-control"
+                            data-bs-toggle="tooltip" title="Identificador del evento"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblFechaInicio" runat="server" Text="*Fecha Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" 
+                            data-bs-toggle="tooltip" title="Fecha de inicio del evento"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblFechaFin" runat="server" Text="*Fecha Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date" 
+                            data-bs-toggle="tooltip" title="Fecha fin del evento"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblDireccion" runat="server" Text="*Dirección: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Dirección del evento"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblCodigoPostal" runat="server" Text="*Código Postal: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Código postal de la dirección"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblDescripcion" runat="server" Text="*Descripción: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Descripción general del evento"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label ID="lblTipo" runat="server" Text="*Tipo de Evento: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipoEvento" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlTipoEvento" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Indica la categoría del evento">
                         </asp:DropDownList>
                     </div>
                 </div>

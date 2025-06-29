@@ -18,19 +18,22 @@
                     <div class="mb-3 row">
                         <asp:Label id="lblID" runat="server" CssClass="col-sm-2 col-form-label" Text="*ID: "></asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox id="txtIDTrabajador" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox id="txtIDTrabajador" runat="server" CssClass="form-control"
+                                data-bs-toggle="tooltip" title="Identificador del usuario (Mismo identificador que el trabajador asociado)"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <asp:Label id="lblUser" runat="server" Text=" Nombre usuario: " CssClass="col-sm-2 col-form-label"></asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox id="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox id="txtNombre" runat="server" CssClass="form-control" 
+                                data-bs-toggle="tooltip" title="Nombre con el que el usuario inicia sesión"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <asp:Label id="lblContra" runat="server" Text="*Contraseña: " CssClass="col-sm-2 col-form-label"></asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox id="txtContra" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox id="txtContra" runat="server" CssClass="form-control" 
+                                data-bs-toggle="tooltip" title="Contraseña (Solo el administrador puede ver este campo)"></asp:TextBox>
                         </div>
                     </div>
                

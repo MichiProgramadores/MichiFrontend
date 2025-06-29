@@ -20,7 +20,8 @@
                     
                      <asp:Label id="lblIdOrden" runat="server" CssClass="col-md-6 col-form-label" Text="ID: " ></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtIdOrden" runat="server" CssClass="form-control"
+                             data-bs-toggle="tooltip" title="Identificador de la orden"></asp:TextBox>
                     </div>
                     </div>
                     <div class="mb-3 row">
@@ -28,7 +29,8 @@
 
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"
+                                     data-bs-toggle="tooltip" title="Cliente asociado a la orden"></asp:TextBox>
                                 <asp:HiddenField ID="hdnClienteId" runat="server" />
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalClientes"  style="background-color: #FBCB43; border: none;">
                                     <i class="fas fa-search"></i>
@@ -43,7 +45,8 @@
     
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <asp:TextBox ID="txtIdTrabaj" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtIdTrabaj" runat="server" CssClass="form-control"
+                                     data-bs-toggle="tooltip" title="Trabajador asociado a la orden"></asp:TextBox>
                                 <asp:HiddenField ID="hdnTrabajadorId" runat="server" />
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrabajadores"  style="background-color: #FBCB43; border: none;">
                                     <i class="fas fa-search"></i>
@@ -55,7 +58,8 @@
                  <div class="mb-3 row">
                      <asp:Label CssClass="col-sm-2 form-label" ID="lblTipoRecepcion" runat="server" Text="*Tipo recepción: "></asp:Label>
                      <div class="col-sm-8">
-                         <asp:DropDownList ID="ddlTipoRecepcion" runat="server" CssClass="form-control">
+                         <asp:DropDownList ID="ddlTipoRecepcion" runat="server" CssClass="form-control"
+                              data-bs-toggle="tooltip" title="Indica el tipo de entrega de la orden">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
                             <asp:ListItem Value="DELIVERY">Delivery</asp:ListItem>
                             <asp:ListItem Value="RECOJO_EN_TIENDA">Recojo en tienda</asp:ListItem>
@@ -65,27 +69,31 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblSetUpPersonalizado" runat="server" Text="*Set up personalizado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtSetUpPersonalizado" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtSetUpPersonalizado" runat="server" CssClass="form-control" 
+                            data-bs-toggle="tooltip" title="Información adicional importante que brinde el cliente"></asp:TextBox>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="*Monto total: "></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtMonto" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtMonto" runat="server" CssClass="form-control"  
+                            data-bs-toggle="tooltip" title="Monto total de la orden sin taxes"></asp:TextBox>
                     </div>
                 </div>    
                 
                 <div class="mb-3 row">
                     <asp:Label id="lblSaldo" runat="server" Text="*Saldo: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtSaldo" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtSaldo" runat="server" CssClass="form-control"  
+                            data-bs-toggle="tooltip" title="Saldo de la orden"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblCantDias" runat="server" Text="*Cantidad dias: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtCantDias" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox id="txtCantDias" runat="server" CssClass="form-control" 
+                             data-bs-toggle="tooltip" title="Cantidad de días del alquiler de los productos"></asp:TextBox>
                     </div>
                 </div>
 
@@ -95,33 +103,39 @@
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaEmis" runat="server" Text="*Fecha emisión: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaEmis" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox id="txtFechaEmis" runat="server" CssClass="form-control" TextMode="Date" 
+                            data-bs-toggle="tooltip" title="Indica la fecha de emisión de la orden"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <asp:Label id="lblFechaReg" runat="server" Text="*Fecha registro: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblFechaReg" runat="server" Text="*Fecha registro: " CssClass="col-sm-2 col-form-label"></asp:Label >
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaReg" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox id="txtFechaReg" runat="server" CssClass="form-control" TextMode="Date" 
+                           data-bs-toggle="tooltip" title="Indica la fecha de registro de la orden" ></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaEntr" runat="server" Text="*Fecha entrega: " CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaEntr" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    <div class="col-sm-8" >
+                        <asp:TextBox id="txtFechaEntr" runat="server" CssClass="form-control" TextMode="Date" 
+                            data-bs-toggle="tooltip" title="La fecha de registro debe ser posterior a la fecha de emisión"></asp:TextBox>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <asp:Label id="lblFechaDevol" runat="server" Text="*Fecha devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
-                        <asp:TextBox id="txtFechaDevol" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox id="txtFechaDevol" runat="server" CssClass="form-control" TextMode="Date"
+                            data-bs-toggle="tooltip" title="La fecha de devolución debe ser igual o posterior a la fecha de entrega"></asp:TextBox>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <asp:Label id="lblTipoEstDevol" runat="server" Text="Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"></asp:Label>
+                    <asp:Label id="lblTipoEstDevol" runat="server" Text="Tipo estado de devolución: " CssClass="col-sm-2 col-form-label"
+                       ></asp:Label>
                     <div class="col-sm-8">
-                        <asp:DropDownList ID="ddlTipoEstDevol" runat="server" CssClass="form-select">
+                        <asp:DropDownList ID="ddlTipoEstDevol" runat="server" CssClass="form-select"
+                             data-bs-toggle="tooltip" title="Estado general de los productos después de su devolución">
                             <asp:ListItem Value="">-- Seleccione --</asp:ListItem>
                             <asp:ListItem Value="1">Devuelto en buenas condiciones</asp:ListItem>
                             <asp:ListItem Value="2">Devuelto en malas condiciones</asp:ListItem>
@@ -164,6 +178,7 @@
                            <asp:TemplateField HeaderText="Acciones">
                                <ItemTemplate>
                                    <asp:LinkButton ID="btnEliminar" runat="server" CssClass="btn btn-danger btn-sm"
+                                       data-bs-toggle="tooltip" title="Quitar producto"
                                        OnClick="btnEliminar_Click" CommandArgument='<%# Container.DataItemIndex %>'>
                                        <i class="fas fa-trash"></i>
                                    </asp:LinkButton>

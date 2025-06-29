@@ -114,7 +114,7 @@
     <!-- Modal de carga-->
     <div id="loadingModal" class="modalCarga">
         <div class="modalCarga-content">
-            <img src="Images/cargando.png" alt=" Cargando..." />
+            <img src="Images/cargandoMov.gif" alt=" Cargando..." />
         </div>
     </div>
 

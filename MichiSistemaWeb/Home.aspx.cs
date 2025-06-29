@@ -27,7 +27,7 @@ namespace MichiSistemaWeb
             
             if (!IsPostBack)
             {
-
+                LiteralMaxDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 CargarTrabajadores();
 
             }
@@ -88,11 +88,24 @@ namespace MichiSistemaWeb
 
             Byte[] FileBuffer = trabajadorWS.reporteTrabajadores(tipoTrabajador, idTrabajador, estadoTrabajador);
 
-            if (FileBuffer != null)
+            string idTrabajadorTexto = (idTrabajador == 0) ? "TODOS" : idTrabajador.ToString();  // Si el ID es 0, poner "TODOS"
+            string nombreArchivo = $"Reporte_Trabajadores_{idTrabajadorTexto}_{tipoTrabajador}_{estadoTrabajador}.pdf";
+
+            if (FileBuffer == null || FileBuffer.Length == 0)
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                
+                Response.Write("<script>alert('El reporte está vacío. No hay datos para mostrar.');</script>");
+
+            }
+            else
+            {
+                // Si el archivo tiene contenido, proceder con la descarga
+                Response.Clear();  // Limpia la respuesta actual
+                Response.ContentType = "application/pdf";  // Establece el tipo de contenido
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());  // Agrega el encabezado content-length
+                Response.AddHeader("Content-Disposition", $"attachment; filename={nombreArchivo}");  // Define el nombre del archivo PDF
+                Response.BinaryWrite(FileBuffer);  // Escribe los bytes del PDF en la respuesta
+                Response.End();
             }
         }
 
@@ -189,11 +202,22 @@ namespace MichiSistemaWeb
 
                 Byte[] fileBuffer = comprobanteWS.reporteFacturacion(fechaInicio, fechaFin);
 
-                if (fileBuffer != null)
+                if (fileBuffer == null || fileBuffer.Length == 0)
                 {
-                    Response.ContentType = "application/pdf";
-                    Response.AddHeader("content-length", fileBuffer.Length.ToString());
-                    Response.BinaryWrite(fileBuffer);
+                    // Si el archivo está vacío, muestra un mensaje al usuario
+                    Response.Write("<script>alert('El reporte está vacío. No hay datos para mostrar.');</script>");
+                }
+                else
+                {
+
+                    string nombreArchivo = $"Reporte_Renta_{fechaInicio.ToString("yyyy-MM-dd")}_a_{fechaFin.ToString("yyyy-MM-dd")}.pdf";
+                    // Si el archivo tiene contenido, proceder con la descarga
+                    Response.Clear();  // Limpia la respuesta actual
+                    Response.ContentType = "application/pdf";  // Establece el tipo de contenido
+                    Response.AddHeader("content-length", fileBuffer.Length.ToString());  // Agrega el encabezado content-length
+                    Response.AddHeader("Content-Disposition", $"attachment; filename={nombreArchivo}");  // Define el nombre del archivo PDF
+                    Response.BinaryWrite(fileBuffer);  // Escribe los bytes del PDF en la respuesta
+                    Response.End();
                 }
             }
             catch (Exception ex)
@@ -251,11 +275,21 @@ namespace MichiSistemaWeb
 
                 Byte[] fileBuffer = ordenWS.reporteRenta(fechaInicio, fechaFin);
 
-                if (fileBuffer != null)
+                if (fileBuffer == null || fileBuffer.Length == 0)
                 {
-                    Response.ContentType = "application/pdf";
-                    Response.AddHeader("content-length", fileBuffer.Length.ToString());
-                    Response.BinaryWrite(fileBuffer);
+                    // Si el archivo está vacío, muestra un mensaje al usuario
+                    Response.Write("<script>alert('El reporte está vacío. No hay datos para mostrar.');</script>");
+                }
+                else
+                {
+
+                    string nombreArchivo = $"Reporte_Renta_{fechaInicio.ToString("yyyy-MM-dd")}_a_{fechaFin.ToString("yyyy-MM-dd")}.pdf";
+                    Response.Clear();  // Limpia la respuesta actual
+                    Response.ContentType = "application/pdf";  // Establece el tipo de contenido
+                    Response.AddHeader("content-length", fileBuffer.Length.ToString());  // Agrega el encabezado content-length
+                    Response.AddHeader("Content-Disposition", $"attachment; filename={nombreArchivo}");  // Define el nombre del archivo PDF
+                    Response.BinaryWrite(fileBuffer);  // Escribe los bytes del PDF en la respuesta
+                    Response.End();
                 }
             }
             catch (Exception ex)
@@ -300,6 +334,16 @@ namespace MichiSistemaWeb
             "$('.modal-backdrop').remove();" +
             "$('#tipoTrabajadorModal').modal('show');",
             true);
+        }
+
+        protected void BotonErrorModal_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModalAndShowNext",
+        "$('#tipoTrabajadorModal').modal('hide');" + // Cierra el primer modal
+        "$('#errorModal').modal('hide');" + // Cierra el segundo modal si está abierto
+        "$('.modal-backdrop').remove();" + // Elimina cualquier fondo residual de modal
+        "$('#tipoTrabajadorModal').modal('show');", // Abre el modal de tipo trabajador
+        true);
         }
     }
 }

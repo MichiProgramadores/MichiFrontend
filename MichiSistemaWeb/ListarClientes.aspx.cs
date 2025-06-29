@@ -33,8 +33,17 @@ namespace MichiSistemaWeb
             else
             {
                 // Si no, filtra y guarda en ViewState
-                clientes = clienteWS.listarClientesActivos().ToList();
-                ViewState["ClientesFiltrados"] = clientes;
+                try
+                {
+
+                    clientes = clienteWS.listarClientesActivos().ToList();
+                    ViewState["ClientesFiltrados"] = clientes;
+                }
+                catch
+                {
+
+                }
+                   
             }
 
             dgvClientes.DataSource = clientes;

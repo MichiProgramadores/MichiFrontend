@@ -36,7 +36,7 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                lblError.Text = "Error al cargar las ordenes: " + ex.Message;
+                //lblError.Text = "Error al cargar las ordenes: " + ex.Message;
             }
         }
 

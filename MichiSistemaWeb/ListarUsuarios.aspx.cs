@@ -39,10 +39,22 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            usuarios = usuarioWS.listarUsuarios().ToList();
-            dgvUsuarios.DataSource = usuarios;
+            var usuarios = usuarioWS.listarUsuarios();
+
+            // Verifica si la lista no es nula y si tiene elementos
+            if (usuarios != null && usuarios.Length > 0)
+            {
+                dgvUsuarios.DataSource = usuarios;
+            }
+            else
+            {
+                // Si la lista está vacía o nula, puedes asignar una lista vacía
+                dgvUsuarios.DataSource = new List<usuario>(); // Asignando una lista vacía
+            }
+
             dgvUsuarios.DataBind();
         }
+
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
             try

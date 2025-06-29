@@ -57,7 +57,7 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                lblError.Text = "Error al cargar las órdenes: " + ex.Message;
+                
             }
         }
 

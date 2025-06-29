@@ -42,9 +42,17 @@ namespace MichiSistemaWeb
             else
             {
                 // Si no, filtra y guarda en ViewState
+                try { 
                 trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
-                ViewState["TrabajadoresFiltrados"] = trabajadores;
-            }
+                    ViewState["TrabajadoresFiltrados"] = trabajadores;
+                }
+                  catch (Exception ex)
+                 {
+                 
+                }
+
+
+             }
 
             dgvEmpleados.DataSource = trabajadores;
             dgvEmpleados.DataBind();

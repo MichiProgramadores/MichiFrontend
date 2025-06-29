@@ -21,9 +21,17 @@ namespace MichiSistemaWeb
         }
         protected void CargarDatos()
         {
-            eventos = eventoWS.listarEventos().ToList();
-            dgvEventos.DataSource = eventos;
-            dgvEventos.DataBind();
+            try
+            {
+                eventos = eventoWS.listarEventos().ToList();
+                dgvEventos.DataSource = eventos;
+                dgvEventos.DataBind();
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private string FormatDate(object obj, string format = "dd/MM/yyyy")

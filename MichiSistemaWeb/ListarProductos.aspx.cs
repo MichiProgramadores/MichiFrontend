@@ -32,8 +32,16 @@ namespace MichiSistemaWeb
             else
             {
                 // Si no, filtra y guarda en ViewState
-                productos = productoWS.listaProductosActivos().ToList();
-                ViewState["ProductosFiltrados"] = productos;
+                try
+                {
+                    productos = productoWS.listaProductosActivos().ToList();
+                    ViewState["ProductosFiltrados"] = productos;
+                }
+                catch
+                {
+
+                }
+                
             }
             dgvProductos.DataSource = productos;
             dgvProductos.DataBind();

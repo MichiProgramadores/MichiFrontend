@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/EventoWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
-  <message name="actualizarEvento">
-    <part name="parameters" element="tns:actualizarEvento" />
+  <message name="listarEventos">
+    <part name="parameters" element="tns:listarEventos" />
   </message>
-  <message name="actualizarEventoResponse">
-    <part name="parameters" element="tns:actualizarEventoResponse" />
+  <message name="listarEventosResponse">
+    <part name="parameters" element="tns:listarEventosResponse" />
   </message>
   <message name="obtenerEvento">
     <part name="parameters" element="tns:obtenerEvento" />
@@ -17,11 +17,11 @@
   <message name="obtenerEventoResponse">
     <part name="parameters" element="tns:obtenerEventoResponse" />
   </message>
-  <message name="registrarEvento">
-    <part name="parameters" element="tns:registrarEvento" />
+  <message name="actualizarEvento">
+    <part name="parameters" element="tns:actualizarEvento" />
   </message>
-  <message name="registrarEventoResponse">
-    <part name="parameters" element="tns:registrarEventoResponse" />
+  <message name="actualizarEventoResponse">
+    <part name="parameters" element="tns:actualizarEventoResponse" />
   </message>
   <message name="eliminarEvento">
     <part name="parameters" element="tns:eliminarEvento" />
@@ -29,37 +29,37 @@
   <message name="eliminarEventoResponse">
     <part name="parameters" element="tns:eliminarEventoResponse" />
   </message>
-  <message name="listarEventos">
-    <part name="parameters" element="tns:listarEventos" />
+  <message name="registrarEvento">
+    <part name="parameters" element="tns:registrarEvento" />
   </message>
-  <message name="listarEventosResponse">
-    <part name="parameters" element="tns:listarEventosResponse" />
+  <message name="registrarEventoResponse">
+    <part name="parameters" element="tns:registrarEventoResponse" />
   </message>
   <portType name="EventoWS">
-    <operation name="actualizarEvento">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest" message="tns:actualizarEvento" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/actualizarEventoResponse" message="tns:actualizarEventoResponse" />
+    <operation name="listarEventos">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/listarEventosRequest" message="tns:listarEventos" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/listarEventosResponse" message="tns:listarEventosResponse" />
     </operation>
     <operation name="obtenerEvento">
       <input wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest" message="tns:obtenerEvento" />
       <output wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoResponse" message="tns:obtenerEventoResponse" />
     </operation>
-    <operation name="registrarEvento">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoRequest" message="tns:registrarEvento" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoResponse" message="tns:registrarEventoResponse" />
+    <operation name="actualizarEvento">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest" message="tns:actualizarEvento" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/actualizarEventoResponse" message="tns:actualizarEventoResponse" />
     </operation>
     <operation name="eliminarEvento">
       <input wsam:Action="http://michisistemaws.com/EventoWS/eliminarEventoRequest" message="tns:eliminarEvento" />
       <output wsam:Action="http://michisistemaws.com/EventoWS/eliminarEventoResponse" message="tns:eliminarEventoResponse" />
     </operation>
-    <operation name="listarEventos">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/listarEventosRequest" message="tns:listarEventos" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/listarEventosResponse" message="tns:listarEventosResponse" />
+    <operation name="registrarEvento">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoRequest" message="tns:registrarEvento" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoResponse" message="tns:registrarEventoResponse" />
     </operation>
   </portType>
   <binding name="EventoWSPortBinding" type="tns:EventoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarEvento">
+    <operation name="listarEventos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="registrarEvento">
+    <operation name="actualizarEvento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarEventos">
+    <operation name="registrarEvento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

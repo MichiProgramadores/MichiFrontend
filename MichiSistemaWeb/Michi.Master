@@ -19,29 +19,14 @@
     <script src="Scripts/jquery-3.7.1.js"></script>
     <script src="Scripts/michi/modalCarga.js" ></script>
     <script src="Scripts/michi/cambiarModo.js" ></script>
+    <script src="Scripts/michi/funcionModoOscuro.js" ></script>
     <title>
         <asp:ContentPlaceHolder ID="cph_Title" runat="server">
         </asp:ContentPlaceHolder>
     </title>
    
    <asp:ContentPlaceHolder ID="cph_Scripts" runat="server">
-        
 </asp:ContentPlaceHolder>
-
-     <!-- El nuevo script para aplicar el tema inmediatamente -->
-    <script>
-        // Aplicar el tema inmediatamente para evitar flash, se llama desde aqui para evitar errores
-        (function() {
-            const theme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (theme === 'dark' || (!theme && prefersDark)) {
-                document.body.classList.add('dark-mode');
-                document.getElementById('switchMode')?.checked = true;
-            }
-        })();
-    </script>
-
 </head>
 <body>
     <div class="container-fluid d-flex p-0 h-100" >

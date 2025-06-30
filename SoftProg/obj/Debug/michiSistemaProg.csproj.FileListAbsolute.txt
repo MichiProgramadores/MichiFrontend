@@ -15,3 +15,11 @@ D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Deb
 D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache
 D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\SoftProg.exe
 D:\25-1\PRO3\PROYECTO\Laboratorio10\PRUEBA_ARIANA\MichiFrontend\SoftProg\obj\Debug\SoftProg.pdb
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\bin\Debug\properties.txt
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\bin\Debug\SoftProg.exe.config
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\bin\Debug\SoftProg.exe
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\bin\Debug\SoftProg.pdb
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\obj\Debug\michiSistemaProg.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\obj\Debug\michiSistemaProg.csproj.CoreCompileInputs.cache
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\obj\Debug\SoftProg.exe
+C:\Users\Asus\OneDrive\Escritorio\Proyecto_P3_Front\SoftProg\obj\Debug\SoftProg.pdb

@@ -150,9 +150,6 @@
                    <!-- Tabla de detalles -->
            <div class="row mb-3">
                <div class="col">
-                  <%-- <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle">
-                       <i class="fas fa-plus"></i> Agregar Producto
-                   </button>--%>
                    <asp:PlaceHolder ID="phAgregarProducto" runat="server">
                         <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalDetalle" style="margin-left: 10px;">
                             <i class="fas fa-plus"></i> Agregar producto

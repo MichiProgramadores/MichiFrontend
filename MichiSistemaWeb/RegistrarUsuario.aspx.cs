@@ -80,7 +80,6 @@ namespace MichiSistemaWeb
                 // Validación básica
                 if (string.IsNullOrWhiteSpace(txtIDTrabajador.Text) ||
                     string.IsNullOrWhiteSpace(txtContra.Text))
-                   // string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
                     lanzarMensajedeError("Por favor, complete todos los campos.");
                     return;
@@ -89,11 +88,6 @@ namespace MichiSistemaWeb
 
                 if (estado == Estado.Nuevo)
                 {
-                    //if (usuarioService.obtenerUsuario(usuario.id) != null)
-                    //{
-                    //   lanzarMensajedeError("Este trabajador ya tiene un usuario.");
-                        
-                    //}
                     usuarioService.registrarUsuario(usuario);
                 }
                 else if (estado == Estado.Modificar)

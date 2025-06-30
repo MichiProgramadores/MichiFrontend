@@ -40,21 +40,9 @@
                             <button type="button" ID="btnOrdenID" runat="server" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOrdenes"  style="background-color: #FBCB43; border: none;">
                                 <i class="fas fa-search"></i>
                             </button>
-                               
-                            
-                            <%--
-                            <button type="button" ID="btnOrdenID" runat="server" class="btn btn-primary" 
-                                OnClientClick="return false;"  <!-- Evita postback -->
-                                data-bs-toggle="modal" data-bs-target="#modalOrdenes"  
-                                style="background-color: #FBCB43; border: none;">
-                            <i class="fas fa-search"></i>
-                        </button>
-                                --%>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="mb-3 row">
                     <asp:Label id="lblIdCliente" runat="server" CssClass="col-sm-2 col-form-label" Text="Cliente: "></asp:Label>
                     <div class="col-sm-8">
@@ -62,23 +50,7 @@
                             data-bs-toggle="tooltip" title="Cliente asociado a la orden y el comprobante"></asp:TextBox>
                         <asp:HiddenField ID="hdnClienteId" runat="server" />
                     </div>
-                </div>
-
-                <%--
-                 <div class="mb-3 row">
-                    <asp:Label ID="lblIdCliente" runat="server" Text="Cliente:" CssClass="col-sm-2 col-form-label"></asp:Label>
-                    <div class="col-sm-8">
-                        <div class="input-group">
-                            <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:HiddenField ID="hdnClienteId" runat="server" />
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalClientes" style="background-color: #FBCB43; border: none;">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                    --%>
-                
+                </div>                
                 <div class="mb-3 row">
                     <asp:Label ID="lblMontoTotal" CssClass="col-sm-2 form-label" runat="server" Text="Monto total: "></asp:Label>
                     <div class="col-sm-8">
@@ -143,19 +115,6 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                 <asp:BoundField DataField="subtotal" HeaderText="Subtotal" DataFormatString="{0:C2}" />
-
-                <%--
-                <asp:TemplateField HeaderText="Acciones">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnEliminar" runat="server" CssClass="btn btn-danger btn-sm"
-                            OnClick="btnEliminar_Click" CommandArgument='<%# Container.DataItemIndex %>'>
-                            <i class="fas fa-trash"></i>
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                    
-                </asp:TemplateField>
-                 --%>
-
             </Columns>
         </asp:GridView>
     </div>

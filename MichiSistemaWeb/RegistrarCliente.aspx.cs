@@ -168,8 +168,6 @@ namespace MichiSistemaWeb
                 // Insertar o modificar el cliente:
                 string valorSeleccionado = ddlTipoCliente.SelectedValue;
                 
-                //clienteService.registrarCliente(cliente, valorSeleccionado);
-                //clienteService.registrarCliente(cliente);
 
                 if (estado == Estado.Nuevo)
                 {

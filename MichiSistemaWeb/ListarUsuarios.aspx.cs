@@ -71,14 +71,12 @@ namespace MichiSistemaWeb
                         var lista = new List<usuario> { usuario };
                         dgvUsuarios.DataSource = lista;
                         dgvUsuarios.DataBind();
-                        //lblMensaje.Text = "";
                     }
                     else
                     {
                         // Si no encontró resultados
                         dgvUsuarios.DataSource = null;
                         dgvUsuarios.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
                     }
                 }
                 else
@@ -86,14 +84,11 @@ namespace MichiSistemaWeb
                     // Si no ingresó un número válido
                     dgvUsuarios.DataSource = usuarios; // Volver a mostrar todos los productos
                     dgvUsuarios.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                 }
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
             }
-            //txtNombreID.Text = "";
         }
 
         protected void lbRegistrar_Click(object sender, EventArgs e)

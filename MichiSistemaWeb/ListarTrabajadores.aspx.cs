@@ -18,21 +18,14 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             trabajadorWS = new TrabajadorWSClient();
-            //CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //trabajadorWS = new TrabajadorWSClient();
             CargarDatos();
 
         }
         protected void CargarDatos()
         {
-            /*
-            trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
-            dgvEmpleados.DataSource = trabajadores;
-            dgvEmpleados.DataBind();
-            */
 
             // Si ya está cargado en ViewState (evita llamar al WS de nuevo)
             if (ViewState["TrabajadoresFiltrados"] != null)
@@ -46,12 +39,9 @@ namespace MichiSistemaWeb
                 trabajadores = trabajadorWS.listaTrabajadoresActivos().ToList();
                     ViewState["TrabajadoresFiltrados"] = trabajadores;
                 }
-                  catch (Exception ex)
-                 {
+                  catch (Exception ex){
                  
                 }
-
-
              }
 
             dgvEmpleados.DataSource = trabajadores;
@@ -221,43 +211,7 @@ namespace MichiSistemaWeb
             {
                 dgvEmpleados.DataSource = null;
                 dgvEmpleados.DataBind();
-                // lblMensaje.Text = "Error: " + ex.Message;
             }
-            //    if (texto != null)
-            //    {
-
-            //        List<trabajador> trabajador = trabajadorWS.listaTrabajadoresPorNombre(texto).ToList();
-
-            //        if (trabajador != null)
-            //        {
-
-            //            trabajadores = trabajador;
-            //            dgvEmpleados.DataSource =trabajador;
-            //            dgvEmpleados.DataBind();
-
-            //            //lblMensaje.Text = "";
-            //        }
-            //        else
-            //        {
-            //            // Si no encontró resultados
-            //            dgvEmpleados.DataSource = null;
-            //            dgvEmpleados.DataBind();
-            //            // lblMensaje.Text = "No se encontró cliente con ese ID.";
-            //        }
-            //    }
-            //    else
-            //    {
-            //        // Si no ingresó un número válido
-            //        dgvEmpleados.DataSource = trabajadores;
-            //        dgvEmpleados.DataBind();
-            //        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            //}
         }
-
     }
 }

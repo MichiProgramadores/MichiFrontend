@@ -15,11 +15,9 @@ namespace MichiSistemaWeb
         protected void Page_Init(object sender, EventArgs e)
         {
             productoWS = new ProductoWSClient();
-            //CargarDatos();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //productoWS = new ProductoWSClient();
             CargarDatos();
         }
         protected void CargarDatos()
@@ -39,9 +37,9 @@ namespace MichiSistemaWeb
                 }
                 catch
                 {
-
+                    // No se coloca nada, porque evita desde la BD
                 }
-                
+
             }
             dgvProductos.DataSource = productos;
             dgvProductos.DataBind();
@@ -58,8 +56,6 @@ namespace MichiSistemaWeb
                 e.Row.Cells[4].Text = DataBinder.Eval(e.Row.DataItem, "stockMinimo").ToString();
                 e.Row.Cells[5].Text = DataBinder.Eval(e.Row.DataItem, "stockActual").ToString();
                 e.Row.Cells[6].Text = DataBinder.Eval(e.Row.DataItem, "unidadMedida").ToString();
-                //e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "descripcion").ToString();
-                //e.Row.Cells[7].Text = DataBinder.Eval(e.Row.DataItem, "estado").ToString();
                 bool estado = (bool)DataBinder.Eval(e.Row.DataItem, "estado");
                 if (estado)
                 {
@@ -170,120 +166,8 @@ namespace MichiSistemaWeb
             {
                 dgvProductos.DataSource = null;
                 dgvProductos.DataBind();
-                // lblMensaje.Text = "Error: " + ex.Message;
-            }
-            
-        }
-
-        /*
-        protected void lblBuscarN_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Obtener el texto del textbox
-                string texto = txtNombre.Text.Trim();
-
-                if (texto != null)
-                {
-
-                    List<producto> producto = productoWS.listarProductosPorNombre(texto).ToList();
-
-                    if (producto != null)
-                    {
-
-                        productos = producto;
-                        dgvProductos.DataSource = productos;
-                        dgvProductos.DataBind();
-
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvProductos.DataSource = null;
-                        dgvProductos.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
-                }
-                else
-                {
-                    // Si no ingresó un número válido
-                    dgvProductos.DataSource = productos;
-                    dgvProductos.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                }
-            }
-            catch (Exception ex)
-            {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
+               
             }
         }
-        */
-
-
-        /*
-        protected void lbBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Obtener el texto del textbox
-                string textoId = txtID.Text.Trim();
-                if (int.TryParse(textoId, out int idProducto))
-                {
-                    // Buscar cliente por ID usando tu capa de negocio o servicio
-                    var producto = productoWS.obtenerProducto(idProducto);
-                    if (producto != null)
-                    {
-                        // Si encontró el cliente, lo pone en una lista para enlazar
-                        var lista = new List<producto> { producto };
-                        dgvProductos.DataSource = lista;
-                        dgvProductos.DataBind();
-                        //lblMensaje.Text = "";
-                    }
-                    else
-                    {
-                        // Si no encontró resultados
-                        dgvProductos.DataSource = null;
-                        dgvProductos.DataBind();
-                        // lblMensaje.Text = "No se encontró cliente con ese ID.";
-                    }
-                }
-                else
-                {
-                    // Si no ingresó un número válido
-                    dgvProductos.DataSource = productos; // Volver a mostrar todos los productos
-                    dgvProductos.DataBind();
-                    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-                }
-            }
-            catch (Exception ex)
-            {
-                // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-            }
-
-        }
-        */
-
-        /*
-        protected void DdlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string tipo_seleccionado = Convert.ToString(DdlTipoProducto.SelectedValue);
-
-            // Verificamos si el valor seleccionado es el valor predeterminado "0" (Select type)
-            if (tipo_seleccionado == "0")
-            {
-                // Si no se ha seleccionado un valor válido, mostrar todos los productos
-                dgvProductos.DataSource = productoWS.listarProductos();
-                dgvProductos.DataBind();
-            }
-            else
-            {
-                // Si se ha seleccionado un tipo válido, mostrar productos por tipo
-                dgvProductos.DataSource = productoWS.listarProductosPorTipo(tipo_seleccionado);
-                dgvProductos.DataBind();
-            }
-        }
-        */
-
     }
 }

@@ -152,7 +152,6 @@ namespace MichiSistemaWeb
             }
             catch (Exception ex)
             {
-                // lblMensaje.Text = "Error al buscar comprobante: " + ex.Message;
                 dgvComprobantes.DataSource = null;
                 dgvComprobantes.DataBind();
             }
@@ -175,14 +174,12 @@ namespace MichiSistemaWeb
                         var lista = new List<comprobante> { comprobante };
                         dgvComprobantes.DataSource = lista;
                         dgvComprobantes.DataBind();
-                        //lblMensaje.Text = "";
                     }
                     else
                     {
                         // Si no encontró resultados
                         dgvComprobantes.DataSource = null;
                         dgvComprobantes.DataBind();
-                        // lblMensaje.Text = "No se encontró comprobante con ese ID.";
                     }
                 }
                 else
@@ -192,14 +189,12 @@ namespace MichiSistemaWeb
                         // Si no ingresó un número válido
                         dgvComprobantes.DataSource = comprobantes;
                         dgvComprobantes.DataBind();
-                        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                     }
                     else
                     {
                         // Si no ingresó un número válido
                         dgvComprobantes.DataSource = null;
                         dgvComprobantes.DataBind();
-                        //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
                     }
                 }
             }

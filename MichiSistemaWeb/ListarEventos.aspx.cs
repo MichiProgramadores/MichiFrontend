@@ -29,7 +29,7 @@ namespace MichiSistemaWeb
             }
             catch
             {
-
+                //no se coloca nada, ya que el sistema no debería de cargar datos de un BD vacía
             }
             
         }
@@ -145,44 +145,7 @@ namespace MichiSistemaWeb
             {
                 dgvEventos.DataSource = null;
                 dgvEventos.DataBind();
-                // lblMensaje.Text = "Error: " + ex.Message;
             }
-
-        //    if (int.TryParse(textoId, out int idEvento))
-        //        {
-        //            // Buscar cliente por ID usando tu capa de negocio o servicio
-        //            var evento = eventoWS.obtenerEvento(idEvento);
-
-        //            if (evento != null)
-        //            {
-        //                // Si encontró el cliente, lo pone en una lista para enlazar
-        //                var lista = new List<evento > { evento };
-        //                dgvEventos.DataSource = lista;
-        //                dgvEventos.DataBind();
-        //                //lblMensaje.Text = "";
-        //            }
-        //            else
-        //            {
-        //                // Si no encontró resultados
-        //                dgvEventos.DataSource = null;
-        //                dgvEventos.DataBind();
-        //                // lblMensaje.Text = "No se encontró evento con ese ID.";
-        //            }
-        //        }
-        //        else
-        //        {
-        //            // Si no ingresó un número válido
-        //            dgvEventos.DataSource = null;
-        //            dgvEventos.DataBind();
-        //            //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // lblMensaje.Text = "Error al buscar evento: " + ex.Message;
-        //    }
-        //    txtNombre.Text = "";
         }
-
     }
 }

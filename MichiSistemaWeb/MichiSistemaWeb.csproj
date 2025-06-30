@@ -305,6 +305,7 @@
     <Content Include="Content\Fonts\css\all.min.css" />
     <Content Include="Content\Fonts\css\brands.css" />
     <Content Include="Content\Fonts\css\brands.min.css" />
+    <Content Include="Content\Fonts\css\diseñoDark.css" />
     <Content Include="Content\Fonts\css\diseñoLink.css" />
     <Content Include="Content\Fonts\css\duotone.css" />
     <Content Include="Content\Fonts\css\duotone.min.css" />

@@ -181,28 +181,6 @@ namespace MichiSistemaWeb
                 // lblMensaje.Text = "Error: " + ex.Message;
             }
 
-            //if (int.TryParse(textoId, out int idOrden))
-            //{
-            //    // Buscar cliente por ID usando tu capa de negocio o servicio
-            //    var orden = ordenWS.obtenerOrden(idOrden);
-
-            //    if (orden != null)
-            //    {
-            //        // Si encontró el cliente, lo pone en una lista para enlazar
-            //        var lista = new List<orden> { orden };
-            //        dgvOrdenes.DataSource = lista;
-            //        dgvOrdenes.DataBind();
-            //        //lblMensaje.Text = "";
-            //    }
-
-            //}
-            //else
-            //{
-            //    // Si no ingresó un número válido
-            //    dgvOrdenes.DataSource = ordenes;
-            //    dgvOrdenes.DataBind();
-            //    //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-            //}
         }
     }
 }

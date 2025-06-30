@@ -41,7 +41,7 @@
                                 <i class="fas fa-search"></i>
                             </button>
                                
-
+                            
                             <%--
                             <button type="button" ID="btnOrdenID" runat="server" class="btn btn-primary" 
                                 OnClientClick="return false;"  <!-- Evita postback -->
@@ -92,7 +92,7 @@
                     <asp:Label id="lblEstado" runat="server" Text="*Estado: " CssClass="col-sm-2 col-form-label"></asp:Label>
                     <div class="col-sm-8">
                         <asp:TextBox id="txtEstado" runat="server" CssClass="form-control"
-                            data-bs-toggle="tooltip" title="Indica el estado actual del comprobante"></asp:TextBox>
+                            data-bs-toggle="tooltip" title="Indica el estado actual del comprobante: 'pendiente' , 'completo'."></asp:TextBox>
                     </div>
                 </div>
 

@@ -24,7 +24,7 @@ namespace MichiSistemaWeb
             //var masterPage = (MichiSistemaWeb.Michi)Master;
             //var lblMensajeBusqueda = masterPage.FindControl("lblMensajeBusqueda") as Label;
             CargarDatos();
-
+            
         }
         protected void CargarDatos()
         {
@@ -163,7 +163,7 @@ namespace MichiSistemaWeb
                         .Where(c => c.tipoRecepcion.ToString().ToUpper().Contains(tipoSeleccionado.ToUpper()))
                         .ToList();
                 }
-
+                
                 if (textoId == "" && tipoSeleccionado == "0")
                 {
                     resultados = ordenWS.listarOrdenes().ToList();

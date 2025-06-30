@@ -98,7 +98,7 @@ namespace MichiSistemaWeb
 
                 ddlTipoCliente.Enabled = false;
 
-                //btnGuardar.Visible = false;
+                btnGuardar.Visible = false;
             }
 
         }
@@ -125,7 +125,7 @@ namespace MichiSistemaWeb
             cliente.celular = int.Parse(txtCelular.Text.Trim());
             cliente.email = txtEmail.Text.Trim();
             cliente.numeroTipoCliente = txtNumeroTipoCliente.Text.Trim();
-
+            cliente.puntuacion = 100;
             /* DEBUG 1:
             string valorSeleccionado = ddlTipoCliente.SelectedValue;
             lblMensajeError.Text = "Tipo seleccionado: " + valorSeleccionado; // DEBUG

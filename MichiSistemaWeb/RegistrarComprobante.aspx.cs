@@ -72,6 +72,7 @@ namespace MichiSistemaWeb
                 lblTitulo.Text = "Modificar comprobante";
                 //comprobante = (comprobante)Session["comprobanteSeleccionado"];
                 comprobante = comprobanteService.obtenerComprobante(((comprobante)Session["comprobanteSeleccionado"]).id_comprobante);
+
                 if (!IsPostBack)
                 {
                     // Cargar detalles de la orden en la sesión
@@ -254,7 +255,7 @@ namespace MichiSistemaWeb
         {
             comprobante.orden_id = int.Parse(txtIdOrden.Text.Trim());
             comprobante.cliente_id = int.Parse(hdnClienteId.Value);
-            comprobante.estado = txtEstado.Text.Trim();
+            comprobante.estado = txtEstado.Text.ToUpper().Trim();
             comprobante.tipoComprobante = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), ddlTipoComprobante.SelectedValue);
             comprobante.tipoComprobanteSpecified = true;
 
@@ -287,8 +288,13 @@ namespace MichiSistemaWeb
                     lanzarMensajedeError("Por favor, complete todos los campos.");
                     return;
                 }
-
-                // Asignar los valores del formulario al objeto comprobante
+                if(txtEstado.Text.ToUpper().Trim()!="PENDIENTE" && txtEstado.Text.ToUpper().Trim() != "COMPLETO" && txtEstado.Text.ToUpper().Trim() != "ELIMINADO")
+                {
+                    lanzarMensajedeError("Estado no permitido. Por favor, ingrese un estado válido: completo, pendiente.");
+                    return;
+                }
+                
+                    // Asignar los valores del formulario al objeto comprobante
                 AsignarValoresComprobante();
                 if (estado == Estado.Nuevo)
                 {
@@ -306,7 +312,7 @@ namespace MichiSistemaWeb
                             lanzarMensajedeError("Ya existe un receipt para esta orden.");
                             return;
                         }
-                        if ((comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobantes.Any(c => c.estado == "PENDIENTE"))
+                        if ((comprobantes.Any(c => c.tipoComprobante == tipoComprobante.INVOICE) && comprobantes.Any(c => c.estado.ToUpper() == "PENDIENTE"))
                             && comprobante.tipoComprobante == tipoComprobante.RECEIPT)
                         {
                             lanzarMensajedeError("Debe tener una invoice aprobada(completa) para generar un receipt.");
@@ -315,8 +321,8 @@ namespace MichiSistemaWeb
                     }
                     catch
                     {
-                        lanzarMensajedeError("Debe tener una invoice aprobada(completa) para generar un receipt.");
-                        return;
+                        //lanzarMensajedeError("Debe tener una invoice aprobada(completa) para generar un receipt.");
+                        //return;
                     }
 
                     if (comprobante.tipoComprobante == tipoComprobante.RECEIPT && comprobante.estado=="COMPLETO")
@@ -333,7 +339,7 @@ namespace MichiSistemaWeb
                             comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT) && comprobante.tipoComprobante == tipoComprobante.RECEIPT)
                         {
                             if(comprobantes.Any(c => c.tipoComprobante == tipoComprobante.RECEIPT) && comprobante.tipoComprobante == tipoComprobante.RECEIPT 
-                            && comprobante.estado == "COMPLETO" && comprobantes.Any(c => c.estado == "PENDIENTE"))
+                            && (comprobante.estado == "COMPLETO" && comprobantes.Any(c => c.estado == "PENDIENTE") || comprobante.estado == "PENDIENTE" && comprobantes.Any(c => c.estado == "COMPLETO")))
                                 ordenService.actualizarSaldoCero(comprobante.orden_id);
                             comprobanteService.actualizarComprobante(comprobante);
                             

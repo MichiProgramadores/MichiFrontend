@@ -67,10 +67,13 @@ namespace MichiSistemaWeb
                 //lblIdTrabaj.Visible = false;
                 //txtIdTrabaj.Visible = false;
 
+                ddlTipoEstDevol.Visible = false;
+                lblTipoEstDevol.Visible = false;
+
                 lblIdCliente.Visible = true;
                 txtIdCliente.Visible = true;
 
-                //lblTipoEstDevol.Visible = false;
+                
                 //ddlTipoEstDevol.Visible = false;
 
                 //lblTipoRecepcion.Visible = false;
@@ -101,6 +104,10 @@ namespace MichiSistemaWeb
                 estado = Estado.Modificar;
                 lblTitulo.Text = "Modificar orden";
                 orden = ordenService.obtenerOrden(((orden)Session["ordenSeleccionada"]).idOrden);
+                if (orden.saldo==0)
+                {
+                    lanzarMensajedeError("No puede modificar una orden que ha sido facturada.");
+                }
                 if (!IsPostBack)
                 {
                     // Cargar detalles de la orden en la sesión
@@ -110,7 +117,7 @@ namespace MichiSistemaWeb
                     AsignarValoresTexto();
                     ActualizarGrillaDetalles();
                 }
-
+                
                 lblIdOrden.Visible = false;
                 txtIdOrden.Visible = false;
 
@@ -150,6 +157,7 @@ namespace MichiSistemaWeb
 
                 lblTitulo.Text = "Visualizar orden";
                 orden = (orden)Session["ordenSeleccionada"];
+                orden = ordenService.obtenerOrden(orden.idOrden);
                 if (!IsPostBack)
                 {
                     // Cargar detalles de la orden en la sesión
@@ -184,7 +192,7 @@ namespace MichiSistemaWeb
                 ddlTipoRecepcion.Enabled = false;
             }
         }
-
+        
         protected void AsignarValoresTexto()
         {
 
@@ -209,7 +217,7 @@ namespace MichiSistemaWeb
             txtFechaEmis.Text = orden.fecha_emisión.ToString("yyyy-MM-dd");
             if (orden.tipoEstadoDevolucion.ToString() != null)
                 ddlTipoEstDevol.SelectedValue = orden.tipoEstadoDevolucion.ToString();
-            txtMonto.Text = orden.totalPagar.ToString();
+                txtMonto.Text = orden.totalPagar.ToString();
             txtSaldo.Text = orden.saldo.ToString();
             lblTotal.Text = orden.totalPagar.ToString("F2");
 
@@ -217,7 +225,7 @@ namespace MichiSistemaWeb
             gvDetalles.DataBind();
 
         }
-
+        
         private void CargarProductos()
         {
             ddlProductos.DataSource = productoService.listarProductos();

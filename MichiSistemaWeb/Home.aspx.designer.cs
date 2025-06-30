@@ -186,13 +186,13 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.Label lblFechaInicio;
 
         /// <summary>
-        /// Control txtFechaInicio.
+        /// Control txtFechaFactInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFactInicio;
 
         /// <summary>
         /// Control lblFechaFin.
@@ -204,13 +204,13 @@ namespace MichiSistemaWeb
         protected global::System.Web.UI.WebControls.Label lblFechaFin;
 
         /// <summary>
-        /// Control txtFechaFin.
+        /// Control txtFechaFactFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFactFin;
 
         /// <summary>
         /// Control BotonCerrar.

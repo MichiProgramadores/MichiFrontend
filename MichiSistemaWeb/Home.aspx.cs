@@ -27,7 +27,29 @@ namespace MichiSistemaWeb
             
             if (!IsPostBack)
             {
-                LiteralMaxDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                // Fecha máxima = hoy
+                string today = DateTime.Now.ToString("yyyy-MM-dd");
+                // Fecha mínima = 1 de enero de 2020
+                string minDate = new DateTime(2020, 1, 1).ToString("yyyy-MM-dd");
+                // Asignar las fechas mínima y máxima a los controles de fecha de renta
+                txtFechaRentaIni.Attributes["min"] = minDate;
+                txtFechaRentaIni.Attributes["max"] = today;
+
+                txtFechaRentaFin.Attributes["min"] = minDate;
+                txtFechaRentaFin.Attributes["max"] = today;
+
+                //Asignamos las fechas mínima y máxima a los controles de fecha de facturación
+
+                txtFechaFactInicio.Attributes["min"] = minDate;
+                txtFechaFactInicio.Attributes["max"] = today;
+
+                txtFechaFactFin.Attributes["min"] = minDate;
+                txtFechaFactFin.Attributes["max"] = today;
+
+                // También actualizamos el LiteralMaxDate para mostrar la fecha actual en la interfaz
+                LiteralMaxDate.Text = today;
+
+                // Llamar a la función para cargar los trabajadores
                 CargarTrabajadores();
 
             }
@@ -164,8 +186,8 @@ namespace MichiSistemaWeb
         {
             try
             {
-                string fechaInicioStr = txtFechaInicio.Text;
-                string fechaFinStr = txtFechaFin.Text;
+                string fechaInicioStr = txtFechaFactInicio.Text;
+                string fechaFinStr = txtFechaFactFin.Text;
 
                 DateTime fechaInicio;
                 if (string.IsNullOrEmpty(fechaInicioStr))
@@ -216,8 +238,8 @@ namespace MichiSistemaWeb
 
         protected void BotonCerrar_Click(object sender, EventArgs e)
         {
-            txtFechaInicio.Text = string.Empty;
-            txtFechaFin.Text = string.Empty;
+            txtFechaFactInicio.Text = string.Empty;
+            txtFechaFactFin.Text = string.Empty;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModal",
                 "$('.modal-backdrop').remove();" +
             "$('#reporteFacturacionModal').modal('hide');", true);

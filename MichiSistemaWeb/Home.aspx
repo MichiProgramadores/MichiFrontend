@@ -171,13 +171,13 @@
                         <div class="mb-3 row">
                             <asp:Label ID="lblFechaInicio" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                             <div class="col-sm-8">
-                                <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date" MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                                <asp:TextBox ID="txtFechaFactInicio" runat="server" CssClass="form-control" TextMode="Date"/>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <asp:Label ID="lblFechaFin" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
                             <div class="col-sm-8">
-                                <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date" MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                                <asp:TextBox ID="txtFechaFactFin" runat="server" CssClass="form-control" TextMode="Date"/>
                             </div>
                         </div>
                     </div>
@@ -224,15 +224,13 @@
                             <div class="mb-3 row">
                                 <asp:Label ID="Label1" runat="server" Text="*Inicio: " CssClass="col-sm-2 col-form-label"></asp:Label>
                                 <div class="col-sm-8">
-                                    <asp:TextBox ID="txtFechaRentaIni" runat="server" CssClass="form-control" TextMode="Date" 
-                                        MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                                    <asp:TextBox ID="txtFechaRentaIni" runat="server" CssClass="form-control" TextMode="Date" />
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <asp:Label ID="Label2" runat="server" Text="*Fin: " CssClass="col-sm-2 col-form-label"></asp:Label>
                                 <div class="col-sm-8">
-                                    <asp:TextBox ID="txtFechaRentaFin" runat="server" CssClass="form-control" TextMode="Date" 
-                                        MinDate="2020-01-01" MaxDate="<%: LiteralMaxDate.Text %>" />
+                                     <asp:TextBox ID="txtFechaRentaFin" runat="server" CssClass="form-control" TextMode="Date" />
                                 </div>
                             </div>
                         </div>
@@ -248,78 +246,4 @@
             <asp:PostBackTrigger ControlID="BotonReporteRenta" />
         </Triggers>
     </asp:UpdatePanel>
-    <script>
-        window.onload = function () {
-            var minDate = new Date('2020-01-01'); // Fecha mínima: 1 de enero de 2020
-            var currentDate = new Date(); // Fecha actual
-
-            // Obtén los controles de fecha
-            var txtFechaRentaIni = document.getElementById('<%= txtFechaRentaIni.ClientID %>');
-        var txtFechaRentaFin = document.getElementById('<%= txtFechaRentaFin.ClientID %>');
-    var txtFechaInicio = document.getElementById('<%= txtFechaInicio.ClientID %>');
-    var txtFechaFin = document.getElementById('<%= txtFechaFin.ClientID %>');
-
-            // Establece las fechas mínima y máxima para cada uno
-            txtFechaRentaIni.setAttribute('min', minDate.toISOString().split('T')[0]);
-            txtFechaRentaIni.setAttribute('max', currentDate.toISOString().split('T')[0]);
-
-            txtFechaRentaFin.setAttribute('min', minDate.toISOString().split('T')[0]);
-            txtFechaRentaFin.setAttribute('max', currentDate.toISOString().split('T')[0]);
-
-            txtFechaInicio.setAttribute('min', minDate.toISOString().split('T')[0]);
-            txtFechaInicio.setAttribute('max', currentDate.toISOString().split('T')[0]);
-
-            txtFechaFin.setAttribute('min', minDate.toISOString().split('T')[0]);
-            txtFechaFin.setAttribute('max', currentDate.toISOString().split('T')[0]);
-
-            // Validación adicional para los cambios de fecha
-            txtFechaRentaIni.addEventListener('change', function () {
-                var selectedDate = new Date(txtFechaRentaIni.value);
-                if (selectedDate < minDate) {
-                    alert('La fecha de renta inicio no puede ser anterior a 1 de enero de 2020.');
-                    txtFechaRentaIni.value = '';  // Resetear el valor
-                }
-                if (selectedDate > currentDate) {
-                    alert('La fecha de renta inicio no puede ser posterior a la fecha actual.');
-                    txtFechaRentaIni.value = '';  // Resetear el valor
-                }
-            });
-
-            txtFechaRentaFin.addEventListener('change', function () {
-                var selectedDate = new Date(txtFechaRentaFin.value);
-                if (selectedDate < minDate) {
-                    alert('La fecha de renta fin no puede ser anterior a 1 de enero de 2020.');
-                    txtFechaRentaFin.value = '';  // Resetear el valor
-                }
-                if (selectedDate > currentDate) {
-                    alert('La fecha de renta fin no puede ser posterior a la fecha actual.');
-                    txtFechaRentaFin.value = '';  // Resetear el valor
-                }
-            });
-
-            txtFechaInicio.addEventListener('change', function () {
-                var selectedDate = new Date(txtFechaInicio.value);
-                if (selectedDate < minDate) {
-                    alert('La fecha de inicio no puede ser anterior a 1 de enero de 2020.');
-                    txtFechaInicio.value = '';  // Resetear el valor
-                }
-                if (selectedDate > currentDate) {
-                    alert('La fecha de inicio no puede ser posterior a la fecha actual.');
-                    txtFechaInicio.value = '';  // Resetear el valor
-                }
-            });
-
-            txtFechaFin.addEventListener('change', function () {
-                var selectedDate = new Date(txtFechaFin.value);
-                if (selectedDate < minDate) {
-                    alert('La fecha de fin no puede ser anterior a 1 de enero de 2020.');
-                    txtFechaFin.value = '';  // Resetear el valor
-                }
-                if (selectedDate > currentDate) {
-                    alert('La fecha de fin no puede ser posterior a la fecha actual.');
-                    txtFechaFin.value = '';  // Resetear el valor
-                }
-            });
-        };
-    </script>
 </asp:Content>

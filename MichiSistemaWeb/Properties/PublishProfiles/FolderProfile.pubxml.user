@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\25-1\PRO3\PROYECTO\EntregaFinal\pruebafront</_PublishTargetUrl>
+    <History>True|2025-06-30T05:31:23.6738806Z||;True|2025-06-29T19:40:56.8620168-05:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/MichiSistemaWeb.dll">
+      <publishTime>06/30/2025 00:31:18</publishTime>
+    </File>
+    <File Include="bin/MichiSistemaWeb.pdb">
+      <publishTime>06/30/2025 00:31:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarClienteResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarComprobanteResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarEstadoDevolucionResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarEstadoFechaDevolucionResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarEventoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarOrdenResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarProductoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarSaldoCeroResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarTrabajadorResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.actualizarUsuarioResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.autenticarUsuarioResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.cliente.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.comprobante.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarClienteResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarComprobanteResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarEventoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarOrdenResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarProductoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarTrabajadorResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.eliminarUsuarioResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.evento.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listaProductosActivosResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarClientesActivosResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarClientesPorNombreResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarClientesPorTipoResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarClientesResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarComprobanteResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarEventosResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarOrdenesPorTipoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarOrdenesResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarProductosPorNombreResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarProductosPorTipoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarProductosResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarTipoProductoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarTipoRecepcionResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarTrabajadoresPorTipoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarTrabajadoresResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listarUsuariosResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listaTrabajadoresActivosResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listaTrabajadoresPorEstadoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listaTrabajadoresPorNombreResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.listaTrabajadoresPorTipoEstadoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerClienteResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerComprobanteResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerComprobantesPorOrdenResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerEventoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerOrdenResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerProductoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerTrabajadorResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.obtenerUsuarioResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.orden.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.producto.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarClienteResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarComprobanteResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarEventoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarOrdenResponse.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarProductoResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarTrabajadorResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.registrarUsuarioResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.reporteFacturacionResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.reporteRentaResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.reporteTrabajadoresResponse.datasource">
+      <publishTime>06/30/2025 00:30:51</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.trabajador.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Connected Services/MichiBackend/MichiSistemaWeb.MichiBackend.usuario.datasource">
+      <publishTime>06/30/2025 00:30:50</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.min.css">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.min.css.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/all.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/all.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/brands.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/brands.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/diseñoDark.css">
+      <publishTime>06/29/2025 19:29:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/diseñoLink.css">
+      <publishTime>06/28/2025 19:58:56</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/duotone.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/duotone.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/fontawesome.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/fontawesome.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/light.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/light.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/modalCarga.css">
+      <publishTime>06/28/2025 19:57:02</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/regular.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/regular.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/solid.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/solid.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/svg-with-js.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/svg-with-js.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/thin.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/thin.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v4-font-face.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v4-font-face.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v4-shims.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v4-shims.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v5-font-face.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/css/v5-font-face.min.css">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-brands-400.ttf">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-brands-400.woff">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-brands-400.woff2">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-duotone-900.ttf">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-duotone-900.woff">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-duotone-900.woff2">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-light-300.ttf">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-light-300.woff">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-light-300.woff2">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-regular-400.ttf">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-regular-400.woff">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-regular-400.woff2">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-solid-900.ttf">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-solid-900.woff">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-solid-900.woff2">
+      <publishTime>06/24/2025 13:40:52</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-thin-100.ttf">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-thin-100.woff">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-thin-100.woff2">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-v4compatibility.ttf">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/Fonts/webfonts/fa-v4compatibility.woff2">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Content/site.css">
+      <publishTime>06/28/2025 14:21:56</publishTime>
+    </File>
+    <File Include="Home.aspx">
+      <publishTime>06/29/2025 23:07:34</publishTime>
+    </File>
+    <File Include="Images/cargando.png">
+      <publishTime>06/28/2025 19:57:02</publishTime>
+    </File>
+    <File Include="Images/cargandoMov.gif">
+      <publishTime>06/29/2025 00:03:53</publishTime>
+    </File>
+    <File Include="Images/conFondo.jpg">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/fin.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/final.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/login.jpg">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/loginf.jpg">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/loginSF.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/logoFin.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/logoG.gif">
+      <publishTime>06/28/2025 19:15:42</publishTime>
+    </File>
+    <File Include="Images/logoMulti.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/logo_act.png">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Images/Logo_final.png">
+      <publishTime>06/29/2025 18:39:02</publishTime>
+    </File>
+    <File Include="InicioSesion.aspx">
+      <publishTime>06/29/2025 16:17:04</publishTime>
+    </File>
+    <File Include="ListarClientes.aspx">
+      <publishTime>06/29/2025 18:39:02</publishTime>
+    </File>
+    <File Include="ListarComprobantes.aspx">
+      <publishTime>06/29/2025 18:39:02</publishTime>
+    </File>
+    <File Include="ListarEventos.aspx">
+      <publishTime>06/28/2025 18:29:52</publishTime>
+    </File>
+    <File Include="ListarOrdenes.aspx">
+      <publishTime>06/29/2025 15:16:55</publishTime>
+    </File>
+    <File Include="ListarProductos.aspx">
+      <publishTime>06/29/2025 15:16:55</publishTime>
+    </File>
+    <File Include="ListarTrabajadores.aspx">
+      <publishTime>06/30/2025 00:06:07</publishTime>
+    </File>
+    <File Include="ListarUsuarios.aspx">
+      <publishTime>06/29/2025 15:16:55</publishTime>
+    </File>
+    <File Include="Michi.Master">
+      <publishTime>06/29/2025 23:07:34</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>06/30/2025 00:31:20</publishTime>
+    </File>
+    <File Include="RegistrarCliente.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="RegistrarComprobante.aspx">
+      <publishTime>06/29/2025 23:07:34</publishTime>
+    </File>
+    <File Include="RegistrarEvento.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="RegistrarOrden.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="RegistrarProducto.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="RegistrarTrabajador.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="RegistrarUsuario.aspx">
+      <publishTime>06/29/2025 00:03:54</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.min.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.min.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.map">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/cambiarModo.js">
+      <publishTime>06/29/2025 17:07:34</publishTime>
+    </File>
+    <File Include="Scripts/michi/funcionModoOscuro.js">
+      <publishTime>06/29/2025 19:29:52</publishTime>
+    </File>
+    <File Include="Scripts/michi/iniciarSesion.js">
+      <publishTime>06/25/2025 07:41:29</publishTime>
+    </File>
+    <File Include="Scripts/michi/modalCarga.js">
+      <publishTime>06/29/2025 15:16:55</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarArea.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarComprobante.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarEmpleado.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarOrden.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarOrdenesVenta.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarProducto.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Scripts/michi/registrarUsuario.js">
+      <publishTime>06/24/2025 13:40:53</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/30/2025 00:31:19</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

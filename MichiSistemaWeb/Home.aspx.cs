@@ -220,7 +220,7 @@ namespace MichiSistemaWeb
                 else
                 {
 
-                    string nombreArchivo = $"Reporte_Renta_{fechaInicio.ToString("yyyy-MM-dd")}_a_{fechaFin.ToString("yyyy-MM-dd")}.pdf";
+                    string nombreArchivo = $"Reporte_Facturacion_{fechaInicio.ToString("yyyy-MM-dd")}_a_{fechaFin.ToString("yyyy-MM-dd")}.pdf";
                     // Si el archivo tiene contenido, proceder con la descarga
                     Response.Clear();  // Limpia la respuesta actual
                     Response.ContentType = "application/pdf";  // Establece el tipo de contenido

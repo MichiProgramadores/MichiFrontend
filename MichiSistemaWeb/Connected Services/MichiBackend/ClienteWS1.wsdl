@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://54.175.15.162:8080/MichiSistemaWS/ClienteWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
-  <message name="listarClientes">
-    <part name="parameters" element="tns:listarClientes" />
-  </message>
-  <message name="listarClientesResponse">
-    <part name="parameters" element="tns:listarClientesResponse" />
-  </message>
   <message name="listarClientesActivos">
     <part name="parameters" element="tns:listarClientesActivos" />
   </message>
@@ -53,11 +47,13 @@
   <message name="listarClientesPorTipoResponse">
     <part name="parameters" element="tns:listarClientesPorTipoResponse" />
   </message>
+  <message name="listarClientes">
+    <part name="parameters" element="tns:listarClientes" />
+  </message>
+  <message name="listarClientesResponse">
+    <part name="parameters" element="tns:listarClientesResponse" />
+  </message>
   <portType name="ClienteWS">
-    <operation name="listarClientes">
-      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesRequest" message="tns:listarClientes" />
-      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesResponse" message="tns:listarClientesResponse" />
-    </operation>
     <operation name="listarClientesActivos">
       <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosRequest" message="tns:listarClientesActivos" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosResponse" message="tns:listarClientesActivosResponse" />
@@ -86,18 +82,13 @@
       <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorTipoRequest" message="tns:listarClientesPorTipo" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorTipoResponse" message="tns:listarClientesPorTipoResponse" />
     </operation>
+    <operation name="listarClientes">
+      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesRequest" message="tns:listarClientes" />
+      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesResponse" message="tns:listarClientesResponse" />
+    </operation>
   </portType>
   <binding name="ClienteWSPortBinding" type="tns:ClienteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarClientes">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarClientesActivos">
       <soap:operation soapAction="" />
       <input>
@@ -153,6 +144,15 @@
       </output>
     </operation>
     <operation name="listarClientesPorTipo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarClientes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

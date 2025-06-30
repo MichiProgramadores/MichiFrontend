@@ -1,0 +1,11 @@
+﻿/* Estilo base para el enlace */
+.nav-link-hover {
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave para el cambio de color */
+}
+
+/* Efecto hover (cuando el mouse pasa sobre el enlace) */
+.nav-link-hover:hover {
+    background-color: white; /* El color de fondo en hover (puedes cambiarlo) */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+}

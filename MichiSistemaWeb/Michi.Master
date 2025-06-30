@@ -33,7 +33,7 @@
         <!-- Division de la izquierda-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 offcanvas-md offcanvas-start" >
             <a href="Home.aspx" class="navbar-brand">
-                <img src="Images/Logo_final.png" width="200" />
+                <img src="Images/Logo_final.png" width="150" />
             </a>
             <hr />
             <ul class="mynav nav nav-pills nav-link-hover flex-column mb-auto" s>

@@ -113,10 +113,26 @@ namespace MichiSistemaWeb
         protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
         {
             int idEmpleado = int.Parse(hfIdEliminar.Value);
-            trabajadorWS.eliminarTrabajador(idEmpleado);
-            Response.Redirect("ListarTrabajadores.aspx");
+            trabajador trabajador = (trabajador)Session["trabajador"];
+            int idSesion = trabajador.persona_id;
+
+            if (idEmpleado == idSesion)
+            {
+                lanzarMensajedeError("ERROR: No se puede eliminar a usted mismo");
+            }
+            else
+            {
+                trabajadorWS.eliminarTrabajador(idEmpleado);
+                Response.Redirect("ListarTrabajadores.aspx");
+            }
         }
 
+        public void lanzarMensajedeError(String mensaje)
+        {
+            lblMensajeError.Text = mensaje;
+            string script = "mostrarModalError();";
+            ScriptManager.RegisterStartupScript(this, GetType(), "modalError", script, true);
+        }
         protected void lbVisualizar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
@@ -124,55 +140,6 @@ namespace MichiSistemaWeb
             Session["trabajadorSeleccionado"] = trabajador;
             Response.Redirect("RegistrarTrabajador.aspx?accion=ver");
         }
-
-        //protected void lbBuscar_Click(object sender, EventArgs e)
-        //{
-
-        //    try
-        //    {
-        //        // Obtener el texto del textbox
-        //        string textoId = txtNombreID.Text.Trim();
-
-        //        if (int.TryParse(textoId, out int idTrabajador))
-        //        {
-        //            // Buscar cliente por ID usando tu capa de negocio o servicio
-
-        //            var trabajador = trabajadorWS.obtenerTrabajador(idTrabajador);
-
-        //            if (trabajador != null)
-        //            {
-        //                // Si encontró el cliente, lo pone en una lista para enlazar
-        //                var lista = new List<trabajador> { trabajador };
-        //                dgvEmpleados.DataSource = lista;
-        //                dgvEmpleados.DataBind();
-        //                //lblMensaje.Text = "";
-        //            }
-        //            else
-        //            {
-        //                // Si no encontró resultados
-        //                dgvEmpleados.DataSource = null;
-        //                dgvEmpleados.DataBind();
-        //                // lblMensaje.Text = "No se encontró cliente con ese ID.";
-        //            }
-        //        }
-        //        else
-        //        {
-        //            // Si no ingresó un número válido
-        //            dgvEmpleados.DataSource = trabajadores;
-        //            dgvEmpleados.DataBind();
-        //            //  lblMensaje.Text = "Ingrese un ID válido (número entero).";
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        dgvEmpleados.DataSource = null;
-        //        dgvEmpleados.DataBind();
-        //        // lblMensaje.Text = "Error al buscar cliente: " + ex.Message;
-        //    }
-
-
-        //}
-
         protected void lbBuscarN_Click(object sender, EventArgs e)
         {
             try

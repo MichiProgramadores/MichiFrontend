@@ -13,6 +13,10 @@
             const modal = new bootstrap.Modal(document.getElementById('modalConfirmarEliminar'));
             modal.show();
         }
+        function mostrarModalError() {
+            const modalError = new bootstrap.Modal(document.getElementById('errorModal'));
+            modalError.show();
+        }
     </script>
     <style type="text/css">
         container.row: first - child {
@@ -118,6 +122,7 @@
                             <div class="modal-body">
                                 ¿Está seguro de que desea eliminar este trabajador?
                             </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                 <asp:LinkButton ID="btnConfirmarEliminar" runat="server" CssClass="btn btn-danger"
@@ -126,6 +131,26 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal ERROR -->
+                <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger text-white">
+                                <h5 class="modal-title" id="errorModalLabel">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Error
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Label ID="lblMensajeError" runat="server" Text="Error al eliminar usuario" CssClass="form-text text-danger"></asp:Label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>

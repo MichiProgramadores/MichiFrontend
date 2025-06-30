@@ -2,32 +2,20 @@
 <definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://michisistemaws.com/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ComprobanteWS" targetNamespace="http://michisistemaws.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/ComprobanteWS?xsd=1" namespace="http://michisistemaws.com/" />
+      <xsd:import schemaLocation="http://3.83.2.11:8080/MichiSistemaWS/ComprobanteWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
-  <message name="reporteFacturacion">
-    <part name="parameters" element="tns:reporteFacturacion" />
+  <message name="obtenerComprobantesPorOrden">
+    <part name="parameters" element="tns:obtenerComprobantesPorOrden" />
   </message>
-  <message name="reporteFacturacionResponse">
-    <part name="parameters" element="tns:reporteFacturacionResponse" />
-  </message>
-  <message name="obtenerComprobante">
-    <part name="parameters" element="tns:obtenerComprobante" />
-  </message>
-  <message name="obtenerComprobanteResponse">
-    <part name="parameters" element="tns:obtenerComprobanteResponse" />
+  <message name="obtenerComprobantesPorOrdenResponse">
+    <part name="parameters" element="tns:obtenerComprobantesPorOrdenResponse" />
   </message>
   <message name="listarComprobante">
     <part name="parameters" element="tns:listarComprobante" />
   </message>
   <message name="listarComprobanteResponse">
     <part name="parameters" element="tns:listarComprobanteResponse" />
-  </message>
-  <message name="eliminarComprobante">
-    <part name="parameters" element="tns:eliminarComprobante" />
-  </message>
-  <message name="eliminarComprobanteResponse">
-    <part name="parameters" element="tns:eliminarComprobanteResponse" />
   </message>
   <message name="registrarComprobante">
     <part name="parameters" element="tns:registrarComprobante" />
@@ -41,28 +29,32 @@
   <message name="actualizarComprobanteResponse">
     <part name="parameters" element="tns:actualizarComprobanteResponse" />
   </message>
-  <message name="obtenerComprobantesPorOrden">
-    <part name="parameters" element="tns:obtenerComprobantesPorOrden" />
+  <message name="eliminarComprobante">
+    <part name="parameters" element="tns:eliminarComprobante" />
   </message>
-  <message name="obtenerComprobantesPorOrdenResponse">
-    <part name="parameters" element="tns:obtenerComprobantesPorOrdenResponse" />
+  <message name="eliminarComprobanteResponse">
+    <part name="parameters" element="tns:eliminarComprobanteResponse" />
+  </message>
+  <message name="obtenerComprobante">
+    <part name="parameters" element="tns:obtenerComprobante" />
+  </message>
+  <message name="obtenerComprobanteResponse">
+    <part name="parameters" element="tns:obtenerComprobanteResponse" />
+  </message>
+  <message name="reporteFacturacion">
+    <part name="parameters" element="tns:reporteFacturacion" />
+  </message>
+  <message name="reporteFacturacionResponse">
+    <part name="parameters" element="tns:reporteFacturacionResponse" />
   </message>
   <portType name="ComprobanteWS">
-    <operation name="reporteFacturacion">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/reporteFacturacionRequest" message="tns:reporteFacturacion" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/reporteFacturacionResponse" message="tns:reporteFacturacionResponse" />
-    </operation>
-    <operation name="obtenerComprobante">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobanteRequest" message="tns:obtenerComprobante" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobanteResponse" message="tns:obtenerComprobanteResponse" />
+    <operation name="obtenerComprobantesPorOrden">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobantesPorOrdenRequest" message="tns:obtenerComprobantesPorOrden" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobantesPorOrdenResponse" message="tns:obtenerComprobantesPorOrdenResponse" />
     </operation>
     <operation name="listarComprobante">
       <input wsam:Action="http://michisistemaws.com/ComprobanteWS/listarComprobanteRequest" message="tns:listarComprobante" />
       <output wsam:Action="http://michisistemaws.com/ComprobanteWS/listarComprobanteResponse" message="tns:listarComprobanteResponse" />
-    </operation>
-    <operation name="eliminarComprobante">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest" message="tns:eliminarComprobante" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse" message="tns:eliminarComprobanteResponse" />
     </operation>
     <operation name="registrarComprobante">
       <input wsam:Action="http://michisistemaws.com/ComprobanteWS/registrarComprobanteRequest" message="tns:registrarComprobante" />
@@ -72,23 +64,22 @@
       <input wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteRequest" message="tns:actualizarComprobante" />
       <output wsam:Action="http://michisistemaws.com/ComprobanteWS/actualizarComprobanteResponse" message="tns:actualizarComprobanteResponse" />
     </operation>
-    <operation name="obtenerComprobantesPorOrden">
-      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobantesPorOrdenRequest" message="tns:obtenerComprobantesPorOrden" />
-      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobantesPorOrdenResponse" message="tns:obtenerComprobantesPorOrdenResponse" />
+    <operation name="eliminarComprobante">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteRequest" message="tns:eliminarComprobante" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/eliminarComprobanteResponse" message="tns:eliminarComprobanteResponse" />
+    </operation>
+    <operation name="obtenerComprobante">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobanteRequest" message="tns:obtenerComprobante" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/obtenerComprobanteResponse" message="tns:obtenerComprobanteResponse" />
+    </operation>
+    <operation name="reporteFacturacion">
+      <input wsam:Action="http://michisistemaws.com/ComprobanteWS/reporteFacturacionRequest" message="tns:reporteFacturacion" />
+      <output wsam:Action="http://michisistemaws.com/ComprobanteWS/reporteFacturacionResponse" message="tns:reporteFacturacionResponse" />
     </operation>
   </portType>
   <binding name="ComprobanteWSPortBinding" type="tns:ComprobanteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="reporteFacturacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerComprobante">
+    <operation name="obtenerComprobantesPorOrden">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -98,15 +89,6 @@
       </output>
     </operation>
     <operation name="listarComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarComprobante">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -133,7 +115,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerComprobantesPorOrden">
+    <operation name="eliminarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="reporteFacturacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -145,7 +145,7 @@
   </binding>
   <service name="ComprobanteWS">
     <port name="ComprobanteWSPort" binding="tns:ComprobanteWSPortBinding">
-      <soap:address location="http://localhost:8080/MichiSistemaWS/ComprobanteWS" />
+      <soap:address location="http://3.83.2.11:8080/MichiSistemaWS/ComprobanteWS" />
     </port>
   </service>
 </definitions>

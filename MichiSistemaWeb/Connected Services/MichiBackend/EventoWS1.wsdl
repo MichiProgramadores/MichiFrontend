@@ -2,7 +2,7 @@
 <definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://michisistemaws.com/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="EventoWS" targetNamespace="http://michisistemaws.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/EventoWS?xsd=1" namespace="http://michisistemaws.com/" />
+      <xsd:import schemaLocation="http://3.83.2.11:8080/MichiSistemaWS/EventoWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
   <message name="listarEventos">
@@ -11,11 +11,11 @@
   <message name="listarEventosResponse">
     <part name="parameters" element="tns:listarEventosResponse" />
   </message>
-  <message name="obtenerEvento">
-    <part name="parameters" element="tns:obtenerEvento" />
+  <message name="registrarEvento">
+    <part name="parameters" element="tns:registrarEvento" />
   </message>
-  <message name="obtenerEventoResponse">
-    <part name="parameters" element="tns:obtenerEventoResponse" />
+  <message name="registrarEventoResponse">
+    <part name="parameters" element="tns:registrarEventoResponse" />
   </message>
   <message name="actualizarEvento">
     <part name="parameters" element="tns:actualizarEvento" />
@@ -29,20 +29,20 @@
   <message name="eliminarEventoResponse">
     <part name="parameters" element="tns:eliminarEventoResponse" />
   </message>
-  <message name="registrarEvento">
-    <part name="parameters" element="tns:registrarEvento" />
+  <message name="obtenerEvento">
+    <part name="parameters" element="tns:obtenerEvento" />
   </message>
-  <message name="registrarEventoResponse">
-    <part name="parameters" element="tns:registrarEventoResponse" />
+  <message name="obtenerEventoResponse">
+    <part name="parameters" element="tns:obtenerEventoResponse" />
   </message>
   <portType name="EventoWS">
     <operation name="listarEventos">
       <input wsam:Action="http://michisistemaws.com/EventoWS/listarEventosRequest" message="tns:listarEventos" />
       <output wsam:Action="http://michisistemaws.com/EventoWS/listarEventosResponse" message="tns:listarEventosResponse" />
     </operation>
-    <operation name="obtenerEvento">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest" message="tns:obtenerEvento" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoResponse" message="tns:obtenerEventoResponse" />
+    <operation name="registrarEvento">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoRequest" message="tns:registrarEvento" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoResponse" message="tns:registrarEventoResponse" />
     </operation>
     <operation name="actualizarEvento">
       <input wsam:Action="http://michisistemaws.com/EventoWS/actualizarEventoRequest" message="tns:actualizarEvento" />
@@ -52,9 +52,9 @@
       <input wsam:Action="http://michisistemaws.com/EventoWS/eliminarEventoRequest" message="tns:eliminarEvento" />
       <output wsam:Action="http://michisistemaws.com/EventoWS/eliminarEventoResponse" message="tns:eliminarEventoResponse" />
     </operation>
-    <operation name="registrarEvento">
-      <input wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoRequest" message="tns:registrarEvento" />
-      <output wsam:Action="http://michisistemaws.com/EventoWS/registrarEventoResponse" message="tns:registrarEventoResponse" />
+    <operation name="obtenerEvento">
+      <input wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoRequest" message="tns:obtenerEvento" />
+      <output wsam:Action="http://michisistemaws.com/EventoWS/obtenerEventoResponse" message="tns:obtenerEventoResponse" />
     </operation>
   </portType>
   <binding name="EventoWSPortBinding" type="tns:EventoWS">
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerEvento">
+    <operation name="registrarEvento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="registrarEvento">
+    <operation name="obtenerEvento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -107,7 +107,7 @@
   </binding>
   <service name="EventoWS">
     <port name="EventoWSPort" binding="tns:EventoWSPortBinding">
-      <soap:address location="http://localhost:8080/MichiSistemaWS/EventoWS" />
+      <soap:address location="http://3.83.2.11:8080/MichiSistemaWS/EventoWS" />
     </port>
   </service>
 </definitions>

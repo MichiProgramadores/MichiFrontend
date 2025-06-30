@@ -116,7 +116,7 @@ namespace MichiSistemaWeb
             producto.edad_minima = int.Parse(txtEdadMin.Text.Trim());
             producto.stockActual = int.Parse(txtStockAct.Text.Trim());
             producto.stockMinimo = int.Parse(txtStockMin.Text.Trim());
-            producto.unidadMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
+            producto.unidadMedida = (unidadMedida1)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
             producto.volumen = double.Parse(txtVolumen.Text.Trim());
             producto.descripcion = txtDescrip.Text.Trim();
             producto.estado = true; // Convertir a booleano

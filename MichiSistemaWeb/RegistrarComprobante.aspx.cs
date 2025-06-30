@@ -136,8 +136,14 @@ namespace MichiSistemaWeb
 
         private void CargarOrdenes()
         {
-            dgvOrdenes.DataSource = ordenService.listarOrdenes();
-            dgvOrdenes.DataBind();
+            try
+            {
+                dgvOrdenes.DataSource = ordenService.listarOrdenes();
+                dgvOrdenes.DataBind();
+
+            }catch{
+
+            }
         }
 
         /*
@@ -210,7 +216,7 @@ namespace MichiSistemaWeb
                     //
                     cantidad = detalleOrden.cantidadSolicitada,
                     //subtotal = detalleOrden.precioAsignado,
-                    unidad_medida = (unidadMedida1)detalleOrden.unidadMedida
+                    unidad_medida = (unidadMedida)detalleOrden.unidadMedida
                 };
 
                 detallesComprobante.Add(detalle);

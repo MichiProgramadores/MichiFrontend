@@ -82,6 +82,14 @@
   <xs:complexType name="actualizarClienteResponse">
     <xs:sequence />
   </xs:complexType>
+  <xs:complexType name="listarClientesActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientesActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="registrarCliente">
     <xs:sequence>
       <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
@@ -99,14 +107,6 @@
   <xs:complexType name="obtenerClienteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:cliente" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarClientesActivos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarClientesActivosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoCliente">

@@ -2,7 +2,7 @@
 <definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://michisistemaws.com/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ClienteWS" targetNamespace="http://michisistemaws.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8080/MichiSistemaWS/ClienteWS?xsd=1" namespace="http://michisistemaws.com/" />
+      <xsd:import schemaLocation="http://3.83.2.11:8080/MichiSistemaWS/ClienteWS?xsd=1" namespace="http://michisistemaws.com/" />
     </xsd:schema>
   </types>
   <message name="listarClientes">
@@ -11,11 +11,23 @@
   <message name="listarClientesResponse">
     <part name="parameters" element="tns:listarClientesResponse" />
   </message>
+  <message name="listarClientesActivos">
+    <part name="parameters" element="tns:listarClientesActivos" />
+  </message>
+  <message name="listarClientesActivosResponse">
+    <part name="parameters" element="tns:listarClientesActivosResponse" />
+  </message>
   <message name="registrarCliente">
     <part name="parameters" element="tns:registrarCliente" />
   </message>
   <message name="registrarClienteResponse">
     <part name="parameters" element="tns:registrarClienteResponse" />
+  </message>
+  <message name="actualizarCliente">
+    <part name="parameters" element="tns:actualizarCliente" />
+  </message>
+  <message name="actualizarClienteResponse">
+    <part name="parameters" element="tns:actualizarClienteResponse" />
   </message>
   <message name="eliminarCliente">
     <part name="parameters" element="tns:eliminarCliente" />
@@ -29,17 +41,11 @@
   <message name="obtenerClienteResponse">
     <part name="parameters" element="tns:obtenerClienteResponse" />
   </message>
-  <message name="actualizarCliente">
-    <part name="parameters" element="tns:actualizarCliente" />
+  <message name="listarClientesPorNombre">
+    <part name="parameters" element="tns:listarClientesPorNombre" />
   </message>
-  <message name="actualizarClienteResponse">
-    <part name="parameters" element="tns:actualizarClienteResponse" />
-  </message>
-  <message name="listarClientesActivos">
-    <part name="parameters" element="tns:listarClientesActivos" />
-  </message>
-  <message name="listarClientesActivosResponse">
-    <part name="parameters" element="tns:listarClientesActivosResponse" />
+  <message name="listarClientesPorNombreResponse">
+    <part name="parameters" element="tns:listarClientesPorNombreResponse" />
   </message>
   <message name="listarClientesPorTipo">
     <part name="parameters" element="tns:listarClientesPorTipo" />
@@ -47,20 +53,22 @@
   <message name="listarClientesPorTipoResponse">
     <part name="parameters" element="tns:listarClientesPorTipoResponse" />
   </message>
-  <message name="listarClientesPorNombre">
-    <part name="parameters" element="tns:listarClientesPorNombre" />
-  </message>
-  <message name="listarClientesPorNombreResponse">
-    <part name="parameters" element="tns:listarClientesPorNombreResponse" />
-  </message>
   <portType name="ClienteWS">
     <operation name="listarClientes">
       <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesRequest" message="tns:listarClientes" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesResponse" message="tns:listarClientesResponse" />
     </operation>
+    <operation name="listarClientesActivos">
+      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosRequest" message="tns:listarClientesActivos" />
+      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosResponse" message="tns:listarClientesActivosResponse" />
+    </operation>
     <operation name="registrarCliente">
       <input wsam:Action="http://michisistemaws.com/ClienteWS/registrarClienteRequest" message="tns:registrarCliente" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/registrarClienteResponse" message="tns:registrarClienteResponse" />
+    </operation>
+    <operation name="actualizarCliente">
+      <input wsam:Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest" message="tns:actualizarCliente" />
+      <output wsam:Action="http://michisistemaws.com/ClienteWS/actualizarClienteResponse" message="tns:actualizarClienteResponse" />
     </operation>
     <operation name="eliminarCliente">
       <input wsam:Action="http://michisistemaws.com/ClienteWS/eliminarClienteRequest" message="tns:eliminarCliente" />
@@ -70,21 +78,13 @@
       <input wsam:Action="http://michisistemaws.com/ClienteWS/obtenerClienteRequest" message="tns:obtenerCliente" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/obtenerClienteResponse" message="tns:obtenerClienteResponse" />
     </operation>
-    <operation name="actualizarCliente">
-      <input wsam:Action="http://michisistemaws.com/ClienteWS/actualizarClienteRequest" message="tns:actualizarCliente" />
-      <output wsam:Action="http://michisistemaws.com/ClienteWS/actualizarClienteResponse" message="tns:actualizarClienteResponse" />
-    </operation>
-    <operation name="listarClientesActivos">
-      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosRequest" message="tns:listarClientesActivos" />
-      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesActivosResponse" message="tns:listarClientesActivosResponse" />
+    <operation name="listarClientesPorNombre">
+      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorNombreRequest" message="tns:listarClientesPorNombre" />
+      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorNombreResponse" message="tns:listarClientesPorNombreResponse" />
     </operation>
     <operation name="listarClientesPorTipo">
       <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorTipoRequest" message="tns:listarClientesPorTipo" />
       <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorTipoResponse" message="tns:listarClientesPorTipoResponse" />
-    </operation>
-    <operation name="listarClientesPorNombre">
-      <input wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorNombreRequest" message="tns:listarClientesPorNombre" />
-      <output wsam:Action="http://michisistemaws.com/ClienteWS/listarClientesPorNombreResponse" message="tns:listarClientesPorNombreResponse" />
     </operation>
   </portType>
   <binding name="ClienteWSPortBinding" type="tns:ClienteWS">
@@ -98,7 +98,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarClientesActivos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="registrarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -125,16 +143,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarClientesActivos">
+    <operation name="listarClientesPorNombre">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -152,19 +161,10 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarClientesPorNombre">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
   </binding>
   <service name="ClienteWS">
     <port name="ClienteWSPort" binding="tns:ClienteWSPortBinding">
-      <soap:address location="http://localhost:8080/MichiSistemaWS/ClienteWS" />
+      <soap:address location="http://3.83.2.11:8080/MichiSistemaWS/ClienteWS" />
     </port>
   </service>
 </definitions>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="com.MichiSistema" targetNamespace="com.MichiSistema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarProducto" type="tns:actualizarProducto" />
+  <xs:element name="actualizarProductoResponse" type="tns:actualizarProductoResponse" />
+  <xs:element name="eliminarProducto" type="tns:eliminarProducto" />
+  <xs:element name="eliminarProductoResponse" type="tns:eliminarProductoResponse" />
+  <xs:element name="listaProductosActivos" type="tns:listaProductosActivos" />
+  <xs:element name="listaProductosActivosResponse" type="tns:listaProductosActivosResponse" />
+  <xs:element name="listarProductos" type="tns:listarProductos" />
+  <xs:element name="listarProductosPorNombre" type="tns:listarProductosPorNombre" />
+  <xs:element name="listarProductosPorNombreResponse" type="tns:listarProductosPorNombreResponse" />
+  <xs:element name="listarProductosPorTipo" type="tns:listarProductosPorTipo" />
+  <xs:element name="listarProductosPorTipoResponse" type="tns:listarProductosPorTipoResponse" />
+  <xs:element name="listarProductosResponse" type="tns:listarProductosResponse" />
+  <xs:element name="listarTipoProducto" type="tns:listarTipoProducto" />
+  <xs:element name="listarTipoProductoResponse" type="tns:listarTipoProductoResponse" />
+  <xs:element name="obtenerProducto" type="tns:obtenerProducto" />
+  <xs:element name="obtenerProductoResponse" type="tns:obtenerProductoResponse" />
+  <xs:element name="registrarProducto" type="tns:registrarProducto" />
+  <xs:element name="registrarProductoResponse" type="tns:registrarProductoResponse" />
+  <xs:complexType name="listarProductosPorTipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoProducto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorTipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="producto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaProducto" type="tns:tipoProducto" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="edad_minima" type="xs:int" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+      <xs:element name="producto_id" type="xs:int" />
+      <xs:element name="stockActual" type="xs:int" />
+      <xs:element name="stockMinimo" type="xs:int" />
+      <xs:element minOccurs="0" name="unidadMedida" type="tns:unidadMedida" />
+      <xs:element name="volumen" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoProducto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProducto">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaProductosActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaProductosActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProductosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorNombreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element minOccurs="0" name="str_tipoProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="str_unidadMedida" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerProducto">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoProducto">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DECORACION" />
+      <xs:enumeration value="REGALOS" />
+      <xs:enumeration value="EQUIPO_AUDIOVISUAL" />
+      <xs:enumeration value="VESTIMENTA" />
+      <xs:enumeration value="INVITACION" />
+      <xs:enumeration value="MOBILIARIO" />
+      <xs:enumeration value="TECNOLOGIA" />
+      <xs:enumeration value="OTRO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="unidadMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PULGADA" />
+      <xs:enumeration value="PIE" />
+      <xs:enumeration value="YARDA" />
+      <xs:enumeration value="ONZA" />
+      <xs:enumeration value="LIBRA" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

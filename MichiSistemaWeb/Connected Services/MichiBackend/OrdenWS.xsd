@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarEstadoDevolucion" type="tns:actualizarEstadoDevolucion" />
+  <xs:element name="actualizarEstadoDevolucionResponse" type="tns:actualizarEstadoDevolucionResponse" />
+  <xs:element name="actualizarEstadoFechaDevolucion" type="tns:actualizarEstadoFechaDevolucion" />
+  <xs:element name="actualizarEstadoFechaDevolucionResponse" type="tns:actualizarEstadoFechaDevolucionResponse" />
+  <xs:element name="actualizarOrden" type="tns:actualizarOrden" />
+  <xs:element name="actualizarOrdenResponse" type="tns:actualizarOrdenResponse" />
+  <xs:element name="actualizarSaldoCero" type="tns:actualizarSaldoCero" />
+  <xs:element name="actualizarSaldoCeroResponse" type="tns:actualizarSaldoCeroResponse" />
+  <xs:element name="detalleOrden" type="tns:detalleOrden" />
+  <xs:element name="eliminarOrden" type="tns:eliminarOrden" />
+  <xs:element name="eliminarOrdenResponse" type="tns:eliminarOrdenResponse" />
+  <xs:element name="listarOrdenes" type="tns:listarOrdenes" />
+  <xs:element name="listarOrdenesPorTipo" type="tns:listarOrdenesPorTipo" />
+  <xs:element name="listarOrdenesPorTipoResponse" type="tns:listarOrdenesPorTipoResponse" />
+  <xs:element name="listarOrdenesResponse" type="tns:listarOrdenesResponse" />
+  <xs:element name="listarTipoRecepcion" type="tns:listarTipoRecepcion" />
+  <xs:element name="listarTipoRecepcionResponse" type="tns:listarTipoRecepcionResponse" />
+  <xs:element name="obtenerOrden" type="tns:obtenerOrden" />
+  <xs:element name="obtenerOrdenResponse" type="tns:obtenerOrdenResponse" />
+  <xs:element name="orden" type="tns:orden" />
+  <xs:element name="registrarOrden" type="tns:registrarOrden" />
+  <xs:element name="registrarOrdenResponse" type="tns:registrarOrdenResponse" />
+  <xs:element name="reporteRenta" type="tns:reporteRenta" />
+  <xs:element name="reporteRentaResponse" type="tns:reporteRentaResponse" />
+  <xs:complexType name="actualizarEstadoDevolucion">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+      <xs:element minOccurs="0" name="str_tipoEstadoDevol" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoDevolucionResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarOrden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orden" type="tns:orden" />
+      <xs:element minOccurs="0" name="str_tipoRecepcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orden">
+    <xs:sequence>
+      <xs:element name="cantDias" type="xs:int" />
+      <xs:element name="clienteID" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoFechaDevolucion" />
+      <xs:element minOccurs="0" name="fecha_devolucion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_emisión" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_entrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_registro" type="xs:dateTime" />
+      <xs:element name="idOrden" type="xs:int" />
+      <xs:element minOccurs="0" name="listaOrdenes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleOrden" type="tns:detalleOrden" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saldo" type="xs:double" />
+      <xs:element minOccurs="0" name="setUpPersonalizado" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoEstadoDevolucion" type="tns:tipoEstadoDevolucion" />
+      <xs:element minOccurs="0" name="tipoRecepcion" type="tns:tipoRecepcion" />
+      <xs:element name="totalPagar" type="xs:double" />
+      <xs:element name="trabajadorID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoFechaDevolucion">
+    <xs:sequence>
+      <xs:element name="penalidad" type="xs:double" />
+      <xs:element name="tipoEstadoFechaDevol_id" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoFechaDevolucion" type="tns:tipoFechaDevolucion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleOrden">
+    <xs:sequence>
+      <xs:element name="cantidadEntregada" type="xs:int" />
+      <xs:element name="cantidadSolicitada" type="xs:int" />
+      <xs:element name="orden_id" type="xs:int" />
+      <xs:element name="precioAsignado" type="xs:double" />
+      <xs:element name="producto" type="xs:int" />
+      <xs:element name="subtotal" type="xs:double" />
+      <xs:element minOccurs="0" name="unidadMedida" type="tns:unidadMedida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarOrdenResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarOrden">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarOrdenResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerOrden">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerOrdenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:orden" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoFechaDevolucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idOrden" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="tns:tipoFechaDevolucion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEstadoFechaDevolucionResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarSaldoCero">
+    <xs:sequence>
+      <xs:element name="idOrden" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarSaldoCeroResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="reporteRenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha_inicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_fin" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteRentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesPorTipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoRecepcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesPorTipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTipoRecepcion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTipoRecepcionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarOrden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orden" type="tns:orden" />
+      <xs:element minOccurs="0" name="str_tipoRecepcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarOrdenResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tipoFechaDevolucion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEVUELTO_POSTERIOR_A_LA_FECHA" />
+      <xs:enumeration value="DEVUELTO_ANTERIOR_A_LA_FECHA" />
+      <xs:enumeration value="DEVUELTO_FECHA_LIMITE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="unidadMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PULGADA" />
+      <xs:enumeration value="PIE" />
+      <xs:enumeration value="YARDA" />
+      <xs:enumeration value="ONZA" />
+      <xs:enumeration value="LIBRA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoEstadoDevolucion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEVUELTO_EN_BUENAS_CONDICIONES" />
+      <xs:enumeration value="DEVUELTO_EN_MALAS_CONDICIONES" />
+      <xs:enumeration value="DEVUELTO_EN_CONDICIONES_REGULARES" />
+      <xs:enumeration value="DEVUELTO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoRecepcion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DELIVERY" />
+      <xs:enumeration value="RECOJO_EN_TIENDA" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

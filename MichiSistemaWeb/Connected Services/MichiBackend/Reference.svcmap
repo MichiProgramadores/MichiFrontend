@@ -22,21 +22,21 @@
     <MetadataSource Address="http://localhost:8080/MichiSistemaWS/servicios.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProductoWS1.xsd" MetadataType="Schema" ID="6c1a81cf-16b0-465a-8811-4780fb062baa" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ProductoWS?xsd=1" />
-    <MetadataFile FileName="TrabajadorWS1.xsd" MetadataType="Schema" ID="5304b85c-91b4-43cb-a7a7-005686c668fa" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/TrabajadorWS?xsd=1" />
-    <MetadataFile FileName="TrabajadorWS1.wsdl" MetadataType="Wsdl" ID="a858d54b-8358-4ec2-9ce3-7cf43a4ae244" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/TrabajadorWS?WSDL" />
-    <MetadataFile FileName="UsuarioWS1.xsd" MetadataType="Schema" ID="1e21e36e-4984-4f3f-b573-3ecb8a93df1b" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/UsuarioWS?xsd=1" />
-    <MetadataFile FileName="UsuarioWS1.wsdl" MetadataType="Wsdl" ID="4408f98b-ff3f-482b-b8b2-3c77384b7996" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/UsuarioWS?WSDL" />
     <MetadataFile FileName="servicios.disco" MetadataType="Disco" ID="5d769077-3144-4fef-bd7d-a85168e48fbb" SourceId="1" SourceUrl="http://localhost:8080/MichiSistemaWS/servicios.disco" />
-    <MetadataFile FileName="OrdenWS1.xsd" MetadataType="Schema" ID="50903065-ac97-42ca-a4b3-38cfa2304084" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/OrdenWS?xsd=1" />
-    <MetadataFile FileName="ComprobanteWS1.wsdl" MetadataType="Wsdl" ID="3ba91637-ef2a-4f86-8048-c40395bd8cdf" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ComprobanteWS?WSDL" />
-    <MetadataFile FileName="ComprobanteWS1.xsd" MetadataType="Schema" ID="a774d1f6-d406-4a87-83cc-3d4b90b2569b" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ComprobanteWS?xsd=1" />
-    <MetadataFile FileName="ClienteWS1.wsdl" MetadataType="Wsdl" ID="07be8591-b087-4705-bd75-5f9f4b42a330" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ClienteWS?WSDL" />
-    <MetadataFile FileName="OrdenWS1.wsdl" MetadataType="Wsdl" ID="7df40540-0b2d-4380-b6e3-aac3944aacd1" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/OrdenWS?WSDL" />
-    <MetadataFile FileName="ClienteWS1.xsd" MetadataType="Schema" ID="e471bb28-da83-4bff-b97d-78a1ea7283ea" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ClienteWS?xsd=1" />
-    <MetadataFile FileName="EventoWS1.wsdl" MetadataType="Wsdl" ID="2a462be6-6a35-444d-b0c4-cd631891320f" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/EventoWS?WSDL" />
-    <MetadataFile FileName="EventoWS1.xsd" MetadataType="Schema" ID="58f818c4-d942-4e10-a117-18459c38b7be" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/EventoWS?xsd=1" />
-    <MetadataFile FileName="ProductoWS1.wsdl" MetadataType="Wsdl" ID="e79c7414-e9f8-4d79-a527-29054fe9c277" SourceId="1" SourceUrl="http://3.83.2.11:8080/MichiSistemaWS/ProductoWS?WSDL" />
+    <MetadataFile FileName="ClienteWS1.wsdl" MetadataType="Wsdl" ID="1f385e0c-afcb-4fbb-a1a9-82f1e2dfc604" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ClienteWS?WSDL" />
+    <MetadataFile FileName="OrdenWS1.wsdl" MetadataType="Wsdl" ID="4fa804d8-7221-4196-9e89-3470f4cd1707" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/OrdenWS?WSDL" />
+    <MetadataFile FileName="OrdenWS1.xsd" MetadataType="Schema" ID="33626158-8e1c-400d-8823-b2bfba3bad90" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/OrdenWS?xsd=1" />
+    <MetadataFile FileName="TrabajadorWS1.xsd" MetadataType="Schema" ID="b968f537-5443-4166-967b-ad13950deaa8" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/TrabajadorWS?xsd=1" />
+    <MetadataFile FileName="UsuarioWS1.xsd" MetadataType="Schema" ID="930e30dd-d3f4-40ae-9a4c-d9d46b72745c" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/UsuarioWS?xsd=1" />
+    <MetadataFile FileName="EventoWS1.xsd" MetadataType="Schema" ID="c0f6f403-ff1e-4cf3-93f9-ae20aa3d5173" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/EventoWS?xsd=1" />
+    <MetadataFile FileName="EventoWS1.wsdl" MetadataType="Wsdl" ID="739d41c0-b685-4efd-9e4f-69c876657505" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/EventoWS?WSDL" />
+    <MetadataFile FileName="UsuarioWS1.wsdl" MetadataType="Wsdl" ID="9dc7b0d5-cbaf-4204-a0ad-ab2e4ead5107" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/UsuarioWS?WSDL" />
+    <MetadataFile FileName="ComprobanteWS1.xsd" MetadataType="Schema" ID="19b2a515-2302-4359-ab68-9c5c034a2256" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ComprobanteWS?xsd=1" />
+    <MetadataFile FileName="ClienteWS1.xsd" MetadataType="Schema" ID="86b4c3f2-8d2d-4570-a908-9dc30f800c79" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ClienteWS?xsd=1" />
+    <MetadataFile FileName="TrabajadorWS1.wsdl" MetadataType="Wsdl" ID="144536c3-c02f-4218-97f6-8b79e95eb201" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/TrabajadorWS?WSDL" />
+    <MetadataFile FileName="ComprobanteWS1.wsdl" MetadataType="Wsdl" ID="ff0dbac2-265c-4666-8b1f-3483694f22ec" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ComprobanteWS?WSDL" />
+    <MetadataFile FileName="ProductoWS1.xsd" MetadataType="Schema" ID="848af5e2-0510-4b53-947b-6bb60ed4226c" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ProductoWS?xsd=1" />
+    <MetadataFile FileName="ProductoWS1.wsdl" MetadataType="Wsdl" ID="56d7c08a-88d7-4d8e-a3e7-b7f5d9c2978b" SourceId="1" SourceUrl="http://54.175.15.162:8080/MichiSistemaWS/ProductoWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

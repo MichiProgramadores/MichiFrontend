@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://michisistemaws.com/" targetNamespace="http://michisistemaws.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarEvento" type="tns:actualizarEvento" />
+  <xs:element name="actualizarEventoResponse" type="tns:actualizarEventoResponse" />
+  <xs:element name="eliminarEvento" type="tns:eliminarEvento" />
+  <xs:element name="eliminarEventoResponse" type="tns:eliminarEventoResponse" />
+  <xs:element name="listarEventos" type="tns:listarEventos" />
+  <xs:element name="listarEventosResponse" type="tns:listarEventosResponse" />
+  <xs:element name="obtenerEvento" type="tns:obtenerEvento" />
+  <xs:element name="obtenerEventoResponse" type="tns:obtenerEventoResponse" />
+  <xs:element name="registrarEvento" type="tns:registrarEvento" />
+  <xs:element name="registrarEventoResponse" type="tns:registrarEventoResponse" />
+  <xs:complexType name="actualizarEvento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="evento" type="tns:evento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="evento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoPostal" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element name="evento_id" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tipoEvento" type="tns:tipoEvento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEventoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="registrarEvento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="evento" type="tns:evento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarEventoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerEvento">
+    <xs:sequence>
+      <xs:element name="idEvento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEventoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:evento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEventos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEventosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:evento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarEvento">
+    <xs:sequence>
+      <xs:element name="idEvento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarEventoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tipoEvento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BODA" />
+      <xs:enumeration value="CUMPLEANHOS" />
+      <xs:enumeration value="CONCIERTO" />
+      <xs:enumeration value="GRADUACION" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

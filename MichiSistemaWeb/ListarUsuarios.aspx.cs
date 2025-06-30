@@ -21,7 +21,7 @@ namespace MichiSistemaWeb
                 trabajador trabajador = (trabajador)Session["trabajador"];
 
                 // Verificas si es admin
-                if (trabajador.nombres != "Carlos")
+                if (trabajador.nombres != "Oveja")
                 {
                     lbRegistrar.Visible = false;
                 }
@@ -175,7 +175,7 @@ namespace MichiSistemaWeb
                     trabajador trabajador = (trabajador)Session["trabajador"];
 
                     // Verificas si es admin
-                    if (trabajador.nombres == "Carlos")
+                    if (trabajador.nombres == "Oveja")
                     {
                         lbEliminar.Visible = true;
                         lbModificar.Visible = true;
